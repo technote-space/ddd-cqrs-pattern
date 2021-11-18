@@ -1,0 +1,21 @@
+{
+  "title": [
+    {
+      "type": "text",
+      "text": {
+        "content": "タグ",
+        "link": null
+      }
+    }
+  ],
+  "properties": {
+    "タグ名": {
+      "title": {}
+    },
+    "ユーザー": {
+      "relation": {
+        "database_id": "${TAG_DB_ID}"
+      }
+    }
+  }
+}

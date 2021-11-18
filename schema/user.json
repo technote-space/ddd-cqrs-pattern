@@ -1,0 +1,16 @@
+{
+  "title": [
+    {
+      "type": "text",
+      "text": {
+        "content": "ユーザー",
+        "link": null
+      }
+    }
+  ],
+  "properties": {
+    "ユーザー識別子": {
+      "title": {}
+    }
+  }
+}
