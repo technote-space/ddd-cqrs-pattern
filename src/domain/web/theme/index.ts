@@ -1,5 +1,7 @@
-import type { ReactElement, ReactNode } from 'react';
+import type { IComponent } from '$/web/shared/component';
+import type { PropsWithChildren } from 'react';
 
-export interface ITheme {
-  render(children?: ReactNode): ReactElement;
-}
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type Props = PropsWithChildren<{}>;
+
+export type ITheme = IComponent<Props>;

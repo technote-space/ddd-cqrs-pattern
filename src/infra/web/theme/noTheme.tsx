@@ -1,24 +1,16 @@
-import type { ITheme } from '$/web/theme';
-import type { VFC, ReactElement, ReactNode } from 'react';
+import type { ITheme, Props } from '$/web/theme';
+import type { VFC } from 'react';
 import { memo } from 'react';
 import { singleton } from 'tsyringe';
+import { BaseComponent } from '@/web/shared/component';
 
 @singleton()
-export class NoTheme implements ITheme {
-  private readonly __component: VFC<{ children?: ReactNode }>;
-
+export class NoTheme extends BaseComponent implements ITheme {
   public constructor() {
-    this.__component = NoTheme.getComponent();
+    super();
   }
 
-  public render(children?: ReactNode): ReactElement {
-    const Component = this.__component;
-    return <Component>
-      {children}
-    </Component>;
-  }
-
-  private static getComponent(): VFC {
+  protected getComponent(): VFC<Props> {
     const component = memo(({ children }) => <>
       {children}
     </>);

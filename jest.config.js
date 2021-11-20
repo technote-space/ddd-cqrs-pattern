@@ -4,6 +4,7 @@ module.exports = {
     'src/**/*.{ts,tsx}',
     '!**/*.d.ts',
     '!**/node_modules/**',
+    '!src/pages/**',
     '!**/*.example.*',
   ],
   coveragePathIgnorePatterns: [
@@ -21,10 +22,11 @@ module.exports = {
     https://jestjs.io/docs/webpack#handling-static-assets */
     '^.+\\.(jpg|jpeg|png|gif|webp|svg|mdx)$': '<rootDir>/src/__mocks__/fileMock.js',
 
-    '^\\$/(.*)$': '<rootDir>/src/packages/$1',
     '^\\^/(.*)$': '<rootDir>/src/$1',
-    '^@/(.*)$': '<rootDir>/src/$1',
+    '^\\$/(.*)$': '<rootDir>/src/domain/$1',
+    '^@/(.*)$': '<rootDir>/src/infra/$1',
   },
+  testMatch: ['**/?(*.)+(spec).[jt]s?(x)'],
   testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],
   testEnvironment: 'jsdom',
   transform: {
