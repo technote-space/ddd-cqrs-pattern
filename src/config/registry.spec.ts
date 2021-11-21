@@ -9,7 +9,7 @@ describe('tsyringe', () => {
     expect(() => container.resolve('IDarkMode')).not.toThrow();
 
     // shared
-    expect(() => container.resolve('IAppService')).not.toThrow();
+    expect(() => container.resolve('IApp')).not.toThrow();
     expect(() => container.resolve('IIndexPage')).not.toThrow();
 
     // server
