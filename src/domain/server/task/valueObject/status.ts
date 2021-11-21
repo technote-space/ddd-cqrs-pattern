@@ -11,7 +11,7 @@ export default class Status extends Flags<'登録' | '実行中' | '完了' | '�
   }
 
   public canRestore(): boolean {
-    return ['削除(登録)', '削除(実行中)', '削除(完了)'].includes(this.value);
+    return !this.canDelete();
   }
 
   public onDelete(): Status | never {
