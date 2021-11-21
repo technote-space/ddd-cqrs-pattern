@@ -51,6 +51,8 @@ export default function Base<Input, Output, Inner = Output>() { // eslint-disabl
       if (!this._setOutput) {
         this._setOutput = true;
         this._output = this.toOutput();
+        Object.freeze(this._output);
+        Object.seal(this._output);
       }
 
       return this._output!;
