@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 import isDate from 'validator/lib/isDate';
-import Base from '$/shared/valueObject/base';
+import Base from './base';
 
 // Inner type = string: consider serialization
 export default abstract class Date extends Base<dayjs.ConfigType, dayjs.Dayjs, string>() {

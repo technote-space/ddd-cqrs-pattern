@@ -1,11 +1,7 @@
-import Text from '$/shared/valueObject/text';
+import Date from '$/shared/valueObject/date';
 
-export default class Memo extends Text {
+export default class DueDate extends Date {
   public getName(): string {
-    return 'メモ';
-  }
-
-  protected getValidationMaxLength(): number | undefined {
-    return 1000;
+    return '期日';
   }
 }
