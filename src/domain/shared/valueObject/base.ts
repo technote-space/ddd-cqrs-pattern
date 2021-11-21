@@ -6,6 +6,7 @@ export default function Base<Input, Output, Inner = Output>() { // eslint-disabl
   }
 
   abstract class Base {
+    private static _isCreating = false;
     private _input!: Input;
     private _setInner = false;
     private _inner?: Inner;
@@ -13,8 +14,11 @@ export default function Base<Input, Output, Inner = Output>() { // eslint-disabl
     private _output?: Output;
 
     // create メソッドの this コンテキストのせいで protected にはできない
-    // protected constructor() {
-    // }
+    public constructor() {
+      if (!Base._isCreating) {
+        throw new Error();
+      }
+    }
 
     protected reconstruct(value: Input): void {
       this._input = value;
@@ -63,7 +67,10 @@ export default function Base<Input, Output, Inner = Output>() { // eslint-disabl
     public abstract validate(): string[] | undefined;
 
     public static create<T extends Base>(this: BaseStatic<T>, value: Input): T {
+      Base._isCreating = true;
       const instance = new this();
+      Base._isCreating = false;
+
       instance._input = value;
 
       return instance;

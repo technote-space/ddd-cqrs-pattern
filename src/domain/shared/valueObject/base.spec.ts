@@ -39,4 +39,8 @@ describe('Base', () => {
     expect(test.value).toBe(234);
     expect(test.value).toBe(234);
   });
+
+  it('should throw error if call constructor directory', () => {
+    expect(() => new Test()).toThrow();
+  });
 });
