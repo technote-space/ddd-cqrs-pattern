@@ -30,13 +30,13 @@ export default abstract class Base {
   protected checkNotEmpty(property: string): void | never {
     const keys = Object.keys(this);
     if (!keys.includes(property)) {
-      throw InvalidValueException;
+      throw new InvalidValueException();
     }
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const member = this[property as keyof this] as any;
     if (!member || !('value' in member) || !member.value) {
-      throw InvalidValueException;
+      throw new InvalidValueException();
     }
   }
 }

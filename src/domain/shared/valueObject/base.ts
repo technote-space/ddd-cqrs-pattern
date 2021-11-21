@@ -16,6 +16,12 @@ export default function Base<Input, Output, Inner = Output>() { // eslint-disabl
     // protected constructor() {
     // }
 
+    protected reconstruct(value: Input): void {
+      this._input = value;
+      this._setInner = false;
+      this._setOutput = false;
+    }
+
     protected fromInput(): Inner {
       return this.input as never;
     }
