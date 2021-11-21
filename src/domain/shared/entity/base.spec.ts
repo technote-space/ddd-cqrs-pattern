@@ -2,7 +2,7 @@ import type ValidationException from '$/shared/exceptions/validation';
 import Text from '$/shared/valueObject/text';
 import Base from './base';
 
-class TestText extends Text {
+export class TestText extends Text {
   getName(): string {
     return 'test';
   }
@@ -12,7 +12,7 @@ class TestText extends Text {
   }
 }
 
-class TestBase extends Base {
+export class TestBase extends Base {
   private text1?: Text;
   private text2?: Text;
   private text3!: Text;
@@ -44,14 +44,7 @@ class TestBase extends Base {
 describe('Entity Base', () => {
   describe('validate', () => {
     it('should not throw error', () => {
-      let error: ValidationException | undefined;
-      try {
-        TestBase.create(TestText.create(1), TestText.create('1')).validate();
-      } catch (e) {
-        error = e as ValidationException;
-      }
-
-      expect(error).toBeUndefined();
+      expect(() => TestBase.create(TestText.create(1), TestText.create('1')).validate()).not.toThrow();
     });
 
     it('should throw error 1', () => {

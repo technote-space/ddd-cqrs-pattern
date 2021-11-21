@@ -7,8 +7,8 @@ export default abstract class Base {
     //
   }
 
-  public validate(): void | never {
-    const errors = Object.assign({}, ...Object.keys(this).map(key => {
+  public getErrors(): ValidationErrors {
+    return Object.assign({}, ...Object.keys(this).map(key => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const member = this[key as keyof this] as any;
       if (member && 'validate' in member && 'getName' in member) {
@@ -21,7 +21,10 @@ export default abstract class Base {
 
       return undefined;
     }).filter((error): error is ValidationErrors => !!error));
+  }
 
+  public validate(): void | never {
+    const errors = this.getErrors();
     if (Object.keys(errors).length) {
       throw new ValidationException(errors);
     }

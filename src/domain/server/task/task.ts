@@ -1,3 +1,4 @@
+import Tags from '$/server/tag/tags';
 import UserId from '$/server/user/valueObject/userId';
 import Base from '$/shared/entity/base';
 import DueDate from './valueObject/dueDate';
@@ -15,6 +16,7 @@ export default class Task extends Base {
   private _dueDate!: DueDate | null;
   private _estimate!: Estimate | null;
   private _userId!: UserId;
+  private _tags!: Tags;
 
   public get taskId(): TaskId {
     return this._taskId;
@@ -44,6 +46,10 @@ export default class Task extends Base {
     return this._userId;
   }
 
+  public get tags(): Tags {
+    return this._tags;
+  }
+
   public static reconstruct(
     taskId: TaskId,
     taskName: TaskName,
@@ -52,6 +58,7 @@ export default class Task extends Base {
     dueDate: DueDate | null,
     estimate: Estimate | null,
     userId: UserId,
+    tags: Tags,
   ): Task {
     const instance = new this();
     instance._taskId = taskId;
@@ -61,6 +68,7 @@ export default class Task extends Base {
     instance._dueDate = dueDate;
     instance._estimate = estimate;
     instance._userId = userId;
+    instance._tags = tags;
 
     return instance;
   }
@@ -72,7 +80,8 @@ export default class Task extends Base {
     dueDate: DueDate | null,
     estimate: Estimate | null,
     userId: UserId,
+    tags: Tags,
   ): Task {
-    return Task.reconstruct(TaskId.create(null), taskName, memo, status, dueDate, estimate, userId);
+    return Task.reconstruct(TaskId.create(null), taskName, memo, status, dueDate, estimate, userId, tags);
   }
 }
