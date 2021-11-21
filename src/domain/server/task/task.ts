@@ -7,7 +7,7 @@ import Status from './valueObject/status';
 import TaskId from './valueObject/taskId';
 import TaskName from './valueObject/taskName';
 
-export class Task extends Base {
+export default class Task extends Base {
   private _taskId!: TaskId;
   private _taskName!: TaskName;
   private _memo!: Memo | null;
