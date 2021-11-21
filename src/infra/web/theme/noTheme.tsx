@@ -5,7 +5,7 @@ import { singleton } from 'tsyringe';
 import { BaseComponent } from '@/web/shared/component';
 
 @singleton()
-export class NoTheme extends BaseComponent implements ITheme {
+export class NoTheme extends BaseComponent<Props> implements ITheme {
   public constructor() {
     super();
   }

@@ -1,5 +1,5 @@
 import type { IComponent } from '$/web/shared/component';
-import type { VFC, PropsWithChildren, ReactElement, ReactNode } from 'react';
+import type { VFC, ReactElement } from 'react';
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 export abstract class BaseComponent<P = {}> implements IComponent<P> {
@@ -11,11 +11,8 @@ export abstract class BaseComponent<P = {}> implements IComponent<P> {
 
   protected abstract getComponent(): VFC<P>;
 
-  public render(props?: P, children?: ReactNode): ReactElement {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const Component = this.__component as VFC<PropsWithChildren<any>>;
-    return <Component {...props}>
-      {children}
-    </Component>;
+  public render(props: P): ReactElement {
+    const Component = this.__component;
+    return <Component {...props} />;
   }
 }
