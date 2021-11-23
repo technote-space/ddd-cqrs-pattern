@@ -27,7 +27,7 @@ yarn-error.log*
 /.vscode
 
 # aspida
-/src/pages/api/$api.ts
+**/$api.ts
 
 # misc
 .DS_Store
