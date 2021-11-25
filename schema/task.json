@@ -1,43 +1,41 @@
 {
-  "title": [
+  "table": "tasks",
+  "name": "タスク",
+  "columns": [
     {
-      "type": "text",
-      "text": {
-        "content": "タスク",
-        "link": null
-      }
+      "name": "タスク名",
+      "type": "title"
+    },
+    {
+      "name": "メモ",
+      "type": "text"
+    },
+    {
+      "name": "ステータス",
+      "type": "text"
+    },
+    {
+      "name": "期日",
+      "type": "datetime"
+    },
+    {
+      "name": "作業見積",
+      "type": "int"
+    },
+    {
+      "name": "作業見積単位",
+      "type": "text"
+    },
+    {
+      "name": "ユーザー",
+      "type": "relation",
+      "relation": "users"
+    },
+    {
+      "name": "タグ",
+      "type": "relation",
+      "relation": "tags",
+      "multiple": true
     }
-  ],
-  "properties": {
-    "タスク名": {
-      "title": {}
-    },
-    "メモ": {
-      "rich_text": {}
-    },
-    "ステータス": {
-      "rich_text": {}
-    },
-    "期日": {
-      "date": {}
-    },
-    "作業見積": {
-      "number": {
-        "format": "number"
-      }
-    },
-    "作業見積単位": {
-      "rich_text": {}
-    },
-    "ユーザー": {
-      "relation": {
-        "database_id": "${USER_DB_ID}"
-      }
-    },
-    "タグ": {
-      "relation": {
-        "database_id": "${TAG_DB_ID}"
-      }
-    }
-  }
+  ]
 }

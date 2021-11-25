@@ -1,23 +1,8 @@
+import type { CreateTableParam } from '$/server/shared/database';
 import { singleton, inject } from 'tsyringe';
 import UseCaseBase from '^/usecase/useCaseBase';
 
-type MigrationProperty =
-  { title: {} } | // eslint-disable-line @typescript-eslint/ban-types
-  { rich_text: {} } | // eslint-disable-line @typescript-eslint/ban-types
-  { date: {} } | // eslint-disable-line @typescript-eslint/ban-types
-  { number: { format: string } } |
-  { relation: { database_id: string } }
-type MigrationSchema = {
-  title: {
-    type: 'text',
-    text: {
-      content: string;
-      link: null;
-    };
-  }[];
-  properties: Record<string, MigrationProperty>;
-};
-export type MigrationSchemas = Record<string, MigrationSchema>;
+export type MigrationSchemas = CreateTableParam[];
 
 @singleton()
 export default class MigrationUseCase extends UseCaseBase {

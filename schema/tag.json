@@ -1,21 +1,15 @@
 {
-  "title": [
+  "table": "tags",
+  "name": "タグ",
+  "columns": [
     {
-      "type": "text",
-      "text": {
-        "content": "タグ",
-        "link": null
-      }
-    }
-  ],
-  "properties": {
-    "タグ名": {
-      "title": {}
+      "name": "タグ名",
+      "type": "title"
     },
-    "ユーザー": {
-      "relation": {
-        "database_id": "${TAG_DB_ID}"
-      }
+    {
+      "name": "ユーザー",
+      "type": "relation",
+      "relation": "users"
     }
-  }
+  ]
 }

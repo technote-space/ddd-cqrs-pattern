@@ -1,16 +1,10 @@
 {
-  "title": [
+  "table": "users",
+  "name": "ユーザー",
+  "columns": [
     {
-      "type": "text",
-      "text": {
-        "content": "ユーザー",
-        "link": null
-      }
+      "name": "ユーザー識別子",
+      "type": "title"
     }
-  ],
-  "properties": {
-    "ユーザー識別子": {
-      "title": {}
-    }
-  }
+  ]
 }

@@ -1,4 +1,3 @@
-import MigrationUseCase from './migrationUseCase';
 
 describe('MigrationUseCase', () => {
   it('存在しないテーブルを新しく1つ作成', () => {
