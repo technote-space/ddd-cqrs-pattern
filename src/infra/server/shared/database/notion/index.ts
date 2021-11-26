@@ -242,7 +242,7 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
     };
   }
 
-  private async lazyEagerLoading(table: Table, ids: string[]): Promise<Record<string, string>> {
+  private async lazyLoading(table: Table, ids: string[]): Promise<Record<string, string>> {
     const name = table.columns.find(column => column.type === 'title')!.name;
     const response = await this.client.databases.query({
       database_id: table.id,
@@ -273,18 +273,18 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
     }));
   }
 
-  private parseResultProperties(properties: QueryDatabaseResponse['results'][number]['properties'], columns: TableColumn[], eagerLoading: Record<string, Record<string, string>>): DatabaseRecord {
+  private parseResultProperties(properties: QueryDatabaseResponse['results'][number]['properties'], columns: TableColumn[], lazyLoading: Record<string, Record<string, string>>): DatabaseRecord {
     return Object.fromEntries(columns.map(column => {
       if (!(column.name in properties)) {
         return [column.name, null];
       }
 
       const property = properties[column.name];
-      if (property.type === 'relation' && column.type === 'relation' && column.name in eagerLoading) {
+      if (property.type === 'relation' && column.type === 'relation' && column.name in lazyLoading) {
         if (column.multiple) {
-          return [column.name, property.relation.map(relation => eagerLoading[column.name][relation.id] ?? null).filter(item => item !== null)];
-        } else if (property.relation[0].id && property.relation[0].id in eagerLoading[column.name]) {
-          return [column.name, eagerLoading[column.name][property.relation[0].id]];
+          return [column.name, property.relation.map(relation => lazyLoading[column.name][relation.id] ?? null).filter(item => item !== null)];
+        } else if (property.relation[0].id && property.relation[0].id in lazyLoading[column.name]) {
+          return [column.name, lazyLoading[column.name][property.relation[0].id]];
         }
       }
 
@@ -330,7 +330,7 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
       multiple: boolean;
     }
     const filterRelation = (column: TableColumn): column is RelationType => column.type === 'relation';
-    const eagerLoading: Record<string, Record<string, string>> = Object.assign({}, ...await tableInfo.columns.filter(filterRelation).reduce(async (prev, column) => {
+    const lazyLoading: Record<string, Record<string, string>> = Object.assign({}, ...await tableInfo.columns.filter(filterRelation).reduce(async (prev, column) => {
       const acc = await prev;
       const table = await this.getTableByName(column.name);
       const ids = results.flatMap(result => {
@@ -346,12 +346,12 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
         /* istanbul ignore next */
         return [];
       });
-      return acc.concat({ [column.name]: await this.lazyEagerLoading(table, ids) });
+      return acc.concat({ [column.name]: await this.lazyLoading(table, ids) });
     }, Promise.resolve([] as Record<string, Record<string, string>>[])));
 
     return {
       results: results.map(result => ({
-        ...this.parseResultProperties(result.properties, tableInfo.columns, eagerLoading),
+        ...this.parseResultProperties(result.properties, tableInfo.columns, lazyLoading),
         id: result.id,
       } as unknown as T)),
       hasMore: has_more,
@@ -359,7 +359,10 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
     };
   }
 
-  public find(table: string, pk: string, id: string): Promise<T | null> {
+  public async find(table: string, id: string): Promise<T | null> {
+    const tableInfo = await this.getTable(table);
+
+
     return Promise.resolve(null);
   }
 
@@ -371,7 +374,7 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
     return Promise.resolve(undefined);
   }
 
-  public delete(table: string, pk: string, id: string): Promise<void> {
+  public delete(table: string, id: string): Promise<void> {
     return Promise.resolve(undefined);
   }
 }

@@ -96,11 +96,11 @@ export default interface IDatabase<T extends DatabaseRecord> {
 
   search(table: string, params: SearchParams): Promise<{ results: T[]; hasMore: boolean; cursor: string | null }>;
 
-  find(table: string, pk: string, id: string): Promise<T | null>;
+  find(table: string, id: string): Promise<T | null>;
 
   create(table: string, value: T): Promise<T>;
 
   update(table: string, value: Partial<T>): Promise<T>;
 
-  delete(table: string, pk: string, id: string): Promise<void>;
+  delete(table: string, id: string): Promise<void>;
 }
