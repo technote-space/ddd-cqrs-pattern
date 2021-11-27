@@ -25,6 +25,7 @@ export default class NumberProperty extends Base<'number'> {
   }
 
   public toResultValue(property: QueryDatabaseResponse['results'][number]['properties'][string], column: TableColumn, lazyLoading: Record<string, Record<string, string>>): DatabaseRecord[string] {
+    /* istanbul ignore next */
     if (property.type === 'number') {
       return property.number;
     }
@@ -33,9 +34,9 @@ export default class NumberProperty extends Base<'number'> {
     return null;
   }
 
-  public async toPropertyValue(value: DatabaseRecord[string], column: TableColumn): Promise<CreatePageParameters['properties']> {
+  public async toPropertyValue(data: Omit<DatabaseRecord, 'id'>, column: TableColumn): Promise<CreatePageParameters['properties']> {
     return {
-      number: Number(value),
+      number: Number(data[column.name]),
     };
   }
 }

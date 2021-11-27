@@ -101,9 +101,9 @@ export default interface IDatabase<T extends DatabaseRecord> {
 
   find(table: string, id: string): Promise<T | null>;
 
-  create(table: string, value: Omit<T, 'id'>): Promise<T>;
+  create(table: string, data: Omit<T, 'id'>): Promise<T>;
 
-  update(table: string, value: Partial<T>): Promise<T>;
+  update(table: string, data: Partial<T>): Promise<T>;
 
   delete(table: string, id: string): Promise<void>;
 }

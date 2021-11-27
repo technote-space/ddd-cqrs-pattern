@@ -1,0 +1,53 @@
+{
+  "object": "page",
+  "id": "12345678-e6cc-4407-8083-cc5827653194",
+  "created_time": "2021-11-27T16:17:00.000Z",
+  "last_edited_time": "2021-11-27T16:17:00.000Z",
+  "cover": null,
+  "icon": null,
+  "parent": {
+    "type": "database_id",
+    "database_id": "12345678-99ac-4de4-8d2f-f67a6bfc4aeb"
+  },
+  "archived": false,
+  "properties": {
+    "ユーザー": {
+      "id": "%3EzVJ",
+      "type": "relation",
+      "relation": [
+        {
+          "id": "12345678-8476-4b17-9265-6b19ac1660a4"
+        }
+      ]
+    },
+    "Related to タスク (タグ)": {
+      "id": "X%3CWw",
+      "type": "relation",
+      "relation": []
+    },
+    "タグ名": {
+      "id": "title",
+      "type": "title",
+      "title": [
+        {
+          "type": "text",
+          "text": {
+            "content": "おでかけ",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "おでかけ",
+          "href": null
+        }
+      ]
+    }
+  },
+  "url": "https://www.notion.so/12345678e6cc44078083cc5827653194"
+}

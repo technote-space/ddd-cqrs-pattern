@@ -25,6 +25,7 @@ export default class RichTextProperty extends Base<'rich_text'> {
   }
 
   public toResultValue(property: QueryDatabaseResponse['results'][number]['properties'][string], column: TableColumn, lazyLoading: Record<string, Record<string, string>>): DatabaseRecord[string] {
+    /* istanbul ignore next */
     if (property.type === 'rich_text') {
       return property.rich_text[0]?.plain_text ?? null;
     }
@@ -33,12 +34,12 @@ export default class RichTextProperty extends Base<'rich_text'> {
     return null;
   }
 
-  public async toPropertyValue(value: DatabaseRecord[string], column: TableColumn): Promise<CreatePageParameters['properties']> {
+  public async toPropertyValue(data: Omit<DatabaseRecord, 'id'>, column: TableColumn): Promise<CreatePageParameters['properties']> {
     return {
       rich_text: [
         {
           type: 'text',
-          text: { content: String(value) },
+          text: { content: String(data[column.name]) },
         },
       ],
     };

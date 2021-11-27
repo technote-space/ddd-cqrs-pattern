@@ -13,11 +13,11 @@ export default abstract class Base<T extends GetDatabaseResponse['properties'][s
 
   public abstract get columnType(): CreateTableColumn['type'];
 
-  public abstract propertyToColumn(property: GetDatabaseResponse['properties'][string], columns: CreateTableColumn[]): TableColumn;
+  public abstract propertyToColumn(property: GetDatabaseResponse['properties'][string], columns: CreateTableColumn[]): TableColumn | undefined;
 
   public abstract columnToProperty(column: CreateTableColumn, tables: Table[]): CreateDatabaseParameters['properties'][string];
 
   public abstract toResultValue(property: QueryDatabaseResponse['results'][number]['properties'][string], column: TableColumn, lazyLoading: Record<string, Record<string, string>>): DatabaseRecord[string];
 
-  public abstract toPropertyValue(value: DatabaseRecord[string], column: TableColumn): Promise<CreatePageParameters['properties']>;
+  public abstract toPropertyValue(data: Omit<DatabaseRecord, 'id'>, column: TableColumn): Promise<CreatePageParameters['properties']>;
 }

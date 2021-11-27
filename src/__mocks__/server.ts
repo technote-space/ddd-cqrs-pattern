@@ -1,8 +1,8 @@
 import type { RestHandler } from 'msw';
+import type { DefaultRequestBody } from 'msw/lib/types/handlers/RequestHandler';
+import type { RequestParams, RestRequest } from 'msw/lib/types/handlers/RestHandler';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
-import type { RequestParams, RestRequest } from 'msw/lib/types/handlers/RestHandler';
-import type { DefaultRequestBody } from 'msw/lib/types/handlers/RequestHandler';
 
 export const mockNotionBaseUrl = 'https://example.com';
 type Method = keyof typeof rest;

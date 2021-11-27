@@ -25,6 +25,7 @@ export default class DateProperty extends Base<'date'> {
   }
 
   public toResultValue(property: QueryDatabaseResponse['results'][number]['properties'][string], column: TableColumn, lazyLoading: Record<string, Record<string, string>>): DatabaseRecord[string] {
+    /* istanbul ignore next */
     if (property.type === 'date') {
       return property.date?.start ?? null;
     }
@@ -33,10 +34,10 @@ export default class DateProperty extends Base<'date'> {
     return null;
   }
 
-  public async toPropertyValue(value: DatabaseRecord[string], column: TableColumn): Promise<CreatePageParameters['properties']> {
+  public async toPropertyValue(data: Omit<DatabaseRecord, 'id'>, column: TableColumn): Promise<CreatePageParameters['properties']> {
     return {
       date: {
-        start: String(value),
+        start: String(data[column.name]),
       },
     };
   }

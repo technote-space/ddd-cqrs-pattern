@@ -32,6 +32,10 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
     this.factory = new Factory(this);
   }
 
+  private static filterNotUndefined<T>(item: T | undefined): item is T {
+    return item !== undefined;
+  }
+
   public async listTables(): Promise<Table[]> {
     if (!NotionDatabase.$cache) {
       const schemas: Record<string, CreateTableParam> = Object.assign({}, ...this.schemas.map(schema => ({ [schema.name]: schema })));
@@ -65,7 +69,7 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
             id: 'id',
             name: 'id',
             type: 'pk',
-          } as TableColumn].concat(...Object.values(database.properties).map(property => this.factory.getProperty(property.type).propertyToColumn(property, schema.columns))),
+          } as TableColumn].concat(...Object.values(database.properties).map(property => this.factory.getProperty(property.type).propertyToColumn(property, schema.columns)).filter(NotionDatabase.filterNotUndefined)),
         });
       }, Promise.resolve([] as Table[]));
     }
@@ -115,30 +119,24 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
       id: response.id,
       table: table.table,
       name: title.text.content,
-      columns: Object.values(response.properties).map(property => this.factory.getProperty(property.type).propertyToColumn(property, table.columns)),
+      columns: Object.values(response.properties).map(property => this.factory.getProperty(property.type).propertyToColumn(property, table.columns)).filter(NotionDatabase.filterNotUndefined),
     };
   }
 
-  private buildSearchFilter(params: SearchParams): QueryDatabaseParameters['filter'] {
+  private static buildSearchFilter(params: SearchParams): QueryDatabaseParameters['filter'] {
     const filter = params.filter;
-    if (!filter) {
-      return undefined;
-    }
-
-    const keys = Object.keys(filter);
-    if (keys.length === 0) {
+    if (!filter?.length) {
       return undefined;
     }
 
     return {
-      [params.type ?? 'and']: keys.map(property => {
-        const setting = filter[property];
-        if ('int' in setting) {
-          return { property, number: setting.int };
+      [params.type ?? 'and']: filter.map(({ property, condition }) => {
+        if ('int' in condition) {
+          return { property, number: condition.int };
         }
 
-        if ('datetime' in setting) {
-          const { past_week, past_month, past_year, next_week, next_month, next_year, ...rest } = setting.datetime;
+        if ('datetime' in condition) {
+          const { past_week, past_month, past_year, next_week, next_month, next_year, ...rest } = condition.datetime;
           return {
             property,
             date: {
@@ -153,7 +151,7 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
           };
         }
 
-        return { property, ...setting };
+        return { property, ...condition };
       }),
     } as QueryDatabaseParameters['filter'];
   }
@@ -191,7 +189,9 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
       },
     });
 
+    /* istanbul ignore next */
     if (!response.results.length) {
+      /* istanbul ignore next */
       return {};
     }
 
@@ -260,7 +260,7 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
     } = await this.client.databases.query({
       database_id: tableInfo.id,
       ...NotionDatabase.buildSearchPagination(params),
-      filter: this.buildSearchFilter(params),
+      filter: NotionDatabase.buildSearchFilter(params),
       sorts: NotionDatabase.buildSearchSorts(params),
     });
 
@@ -283,17 +283,17 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
     }
   }
 
-  public async create(table: string, value: Omit<T, 'id'>): Promise<T> {
+  public async create(table: string, data: Omit<T, 'id'>): Promise<T> {
     const tableInfo = await this.getTable(table);
     const result = await this.client.pages.create({
       parent: {
         database_id: tableInfo.id,
       },
       properties: Object.fromEntries(await tableInfo.columns
-        .filter(column => column.type !== 'pk' && column.name in value)
+        .filter(column => column.type !== 'pk' && column.name in data)
         .reduce(async (prev, column) => {
           const acc = await prev;
-          return acc.concat([[column.name, await this.factory.getPropertyByColumn(column.type).toPropertyValue(value[column.name], column)]]);
+          return acc.concat([[column.name, await this.factory.getPropertyByColumn(column.type).toPropertyValue(data, column)]]);
         }, Promise.resolve([] as [string, CreatePageParameters['properties']][]))),
     } as CreatePageParameters);
 
@@ -301,7 +301,7 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
     return this.parseResultProperties(result, tableInfo.columns, lazyLoading);
   }
 
-  public update(table: string, value: Partial<T>): Promise<T> {
+  public update(table: string, data: Partial<T>): Promise<T> {
     return Promise.resolve(undefined);
   }
 

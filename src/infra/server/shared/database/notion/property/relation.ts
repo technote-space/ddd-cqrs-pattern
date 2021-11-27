@@ -28,10 +28,10 @@ export default class RelationProperty extends Base<'relation'> {
     return 'relation';
   }
 
-  public propertyToColumn(property: PropertyType, columns: CreateTableColumn[]): TableColumn {
+  public propertyToColumn(property: PropertyType, columns: CreateTableColumn[]): TableColumn | undefined {
     const column = columns.find(column => column.name === property.name);
     if (!column || !('relation' in column)) {
-      throw new Error('スキーマ定義と差異があります');
+      return undefined;
     }
 
     return {
@@ -65,21 +65,44 @@ export default class RelationProperty extends Base<'relation'> {
     return null;
   }
 
-  public async toPropertyValue(value: DatabaseRecord[string], column: TableColumn): Promise<CreatePageParameters['properties']> {
+  private async getRelationIds(table: Table, values: string[], data: Omit<DatabaseRecord, 'id'>): Promise<string[]> {
+    const column = table.columns.find(column => column.type === 'title')!;
+    const searched = await this.database.search(table.table, {
+      type: 'or',
+      filter: values.map(value => ({
+        property: column.name,
+        condition: {
+          text: {
+            equals: value,
+          },
+        },
+      })),
+    });
+    const searchedNames = searched.results.map(result => result[column.name]);
+    const searchedIds = searched.results.map(result => result.id);
+    const notFound = values.filter(value => !searchedNames.includes(value));
+    const createdIds = await notFound.reduce(async (prev, title) => {
+      const acc = await prev;
+      const result = await this.database.create(table.table, {
+        ...data,
+        [column.name]: title,
+      });
+      return acc.concat(result.id);
+    }, Promise.resolve([] as string[]));
+
+    return searchedIds.concat(createdIds);
+  }
+
+  public async toPropertyValue(data: Omit<DatabaseRecord, 'id'>, column: TableColumn): Promise<CreatePageParameters['properties']> {
     if (column.type !== 'relation') {
+      /* istanbul ignore next */
       throw new Error('サポートされていません');
     }
 
-    if (!column.multiple) {
-      return {
-        relation: [
-          { id: value as string },
-        ],
-      };
-    }
-
+    const table = await this.database.getTable(column.relation_id, 'id');
+    const ids = await this.getRelationIds(table, column.multiple ? data[column.name] as string[] : [data[column.name] as string], data);
     return {
-      relation: (value as string[]).map(id => ({ id })),
+      relation: ids.map(id => ({ id })),
     };
   }
 }

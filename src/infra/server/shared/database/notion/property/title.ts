@@ -25,6 +25,7 @@ export default class TitleProperty extends Base<'title'> {
   }
 
   public toResultValue(property: QueryDatabaseResponse['results'][number]['properties'][string], column: TableColumn, lazyLoading: Record<string, Record<string, string>>): DatabaseRecord[string] {
+    /* istanbul ignore next */
     if (property.type === 'title' && property.title[0]?.type === 'text') {
       return property.title[0].text.content;
     }
@@ -33,12 +34,12 @@ export default class TitleProperty extends Base<'title'> {
     throw new Error('サポートされていません');
   }
 
-  public async toPropertyValue(value: DatabaseRecord[string], column: TableColumn): Promise<CreatePageParameters['properties']> {
+  public async toPropertyValue(data: Omit<DatabaseRecord, 'id'>, column: TableColumn): Promise<CreatePageParameters['properties']> {
     return {
       title: [
         {
           type: 'text',
-          text: { content: String(value) },
+          text: { content: String(data[column.name]) },
         },
       ],
     };
