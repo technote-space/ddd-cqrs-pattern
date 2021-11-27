@@ -1,22 +1,23 @@
 import type IDatabase from '$/server/shared/database';
 import type { DatabaseRecord, SearchParams } from '$/server/shared/database';
-import type { Table, CreateTableParam, TableColumn, CreateTableColumn } from '$/server/shared/database';
+import type { Table, CreateTableParam, TableColumn } from '$/server/shared/database';
 import type IEnv from '$/server/shared/env';
 import type {
   ListBlockChildrenResponse,
-  GetDatabaseResponse,
-  CreateDatabaseParameters,
   QueryDatabaseParameters,
   QueryDatabaseResponse,
 } from '@notionhq/client/build/src/api-endpoints';
 import type { MigrationSchemas } from '^/usecase/migrationUseCase';
 import { Client } from '@notionhq/client';
+import { LogLevel } from '@notionhq/client/build/src';
 import { singleton, inject } from 'tsyringe';
+import Factory from './property/factory';
 
 @singleton()
 export default class NotionDatabase<T extends DatabaseRecord> implements IDatabase<T> {
   private static $cache: Table[];
   private client: Client;
+  private factory: Factory;
 
   public constructor(
     @inject('MigrationSchemas') private schemas: MigrationSchemas,
@@ -25,77 +26,9 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
     this.client = new Client({
       auth: this.env.getValue('NOTION_SECRET'),
       baseUrl: this.env.getValue('NOTION_BASE_URL'),
+      logLevel: LogLevel.ERROR,
     });
-  }
-
-  // TODO: column, property の定義を別で行う
-  private static propertyToColumn(property: GetDatabaseResponse['properties'][string], columns: CreateTableColumn[]): TableColumn {
-    switch (property.type) {
-      case 'title':
-        return {
-          id: property.id,
-          name: property.name,
-          type: property.type,
-        };
-      case 'date':
-        return {
-          id: property.id,
-          name: property.name,
-          type: 'datetime',
-        };
-      case 'number':
-        return {
-          id: property.id,
-          name: property.name,
-          type: 'int',
-        };
-      case 'rich_text':
-        return {
-          id: property.id,
-          name: property.name,
-          type: 'text',
-        };
-      case 'relation':
-        const column = columns.find(column => column.name === property.name);
-        if (!column || !('relation' in column)) {
-          throw new Error('スキーマ定義と差異があります');
-        }
-
-        return {
-          id: property.id,
-          name: property.name,
-          type: property.type,
-          relation_id: property.relation.database_id,
-          multiple: !!column.multiple,
-        };
-      default:
-        /* istanbul ignore next */
-        throw new Error('サポートされていません');
-    }
-  }
-
-  // TODO: column, property の定義を別で行う
-  private static columnToProperty(column: CreateTableColumn, tables: Table[]): CreateDatabaseParameters['properties'][string] {
-    switch (column.type) {
-      case 'title':
-        return { title: {} };
-      case 'datetime':
-        return { date: {} };
-      case 'int':
-        return { number: { format: 'number' } };
-      case 'text':
-        return { rich_text: {} };
-      case 'relation':
-        const table = tables.find(table => table.table === column.relation);
-        if (!table) {
-          throw new Error('リレーション先が見つかりません');
-        }
-
-        return { relation: { database_id: table.id } };
-      default:
-        /* istanbul ignore next */
-        throw new Error('サポートされていません');
-    }
+    this.factory = new Factory();
   }
 
   public async listTables(): Promise<Table[]> {
@@ -131,7 +64,7 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
             id: 'id',
             name: 'id',
             type: 'pk',
-          } as TableColumn].concat(...Object.values(database.properties).map(property => NotionDatabase.propertyToColumn(property, schema.columns))),
+          } as TableColumn].concat(...Object.values(database.properties).map(property => this.factory.getProperty(property.type).propertyToColumn(property, schema.columns))),
         });
       }, Promise.resolve([] as Table[]));
     }
@@ -167,7 +100,7 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
         },
       }],
       properties: Object.assign({}, ...table.columns.map(column => ({
-        [column.name]: NotionDatabase.columnToProperty(column, tables),
+        [column.name]: this.factory.getPropertyByColumn(column.type).columnToProperty(column, tables),
       }))),
     });
 
@@ -181,7 +114,7 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
       id: response.id,
       table: table.table,
       name: title.text.content,
-      columns: Object.values(response.properties).map(property => NotionDatabase.propertyToColumn(property, table.columns)),
+      columns: Object.values(response.properties).map(property => this.factory.getProperty(property.type).propertyToColumn(property, table.columns)),
     };
   }
 
@@ -311,33 +244,8 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
         }
 
         const property = result.properties[column.name];
-        if (property.type === 'relation' && column.type === 'relation' && column.name in lazyLoading) {
-          if (column.multiple) {
-            return [column.name, property.relation.map(relation => lazyLoading[column.name][relation.id] ?? null).filter(item => item !== null)];
-          } else if (property.relation[0].id && property.relation[0].id in lazyLoading[column.name]) {
-            return [column.name, lazyLoading[column.name][property.relation[0].id]];
-          }
-        }
-
-        if (property.type === 'title' && property.title[0].type === 'text') {
-          return [column.name, property.title[0].text.content];
-        }
-
-        if (property.type === 'number') {
-          return [column.name, property.number];
-        }
-
-        if (property.type === 'rich_text') {
-          return [column.name, property.rich_text[0]?.plain_text ?? null];
-        }
-
-        if (property.type === 'date') {
-          return [column.name, property.date?.start ?? null];
-        }
-
-        /* istanbul ignore next */
-        return [column.name, null];
-      })),
+        return [column.name, this.factory.getProperty(property.type).toResultValue(property, column, lazyLoading)];
+      })) as T,
       id: result.id,
     };
   }
@@ -381,8 +289,8 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
       parent: {
         database_id: tableInfo.id,
       },
-      properties: {}
-    })
+      properties: {},
+    });
 
     return Promise.resolve(undefined);
   }
