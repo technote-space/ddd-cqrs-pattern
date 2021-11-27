@@ -1,14 +1,21 @@
 import type { RestHandler } from 'msw';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
+import type { RequestParams, RestRequest } from 'msw/lib/types/handlers/RestHandler';
+import type { DefaultRequestBody } from 'msw/lib/types/handlers/RequestHandler';
 
 export const mockNotionBaseUrl = 'https://example.com';
 type Method = keyof typeof rest;
-export const createHandler = (method: Method, path: string, status: number, jsonBody: any): RestHandler => rest[method](path, (req, res, ctx) => res(
-  ctx.status(status),
-  ctx.json(jsonBody),
-));
-export const createNotionHandler = (method: Method, path: string, status: number, jsonBody: any): RestHandler => createHandler(method, `${mockNotionBaseUrl}/v1${path}`, status, jsonBody);
+type Body = Record<string, any> | ((req: RestRequest<DefaultRequestBody, RequestParams>) => Record<string, any>);
+type TestRequest = (req: RestRequest<DefaultRequestBody, RequestParams>) => void;
+export const createHandler = (method: Method, path: string, status: number, jsonBody: Body, testRequest?: TestRequest): RestHandler => rest[method](path, (req, res, ctx) => {
+  if (testRequest) testRequest(req);
+  return res(
+    ctx.status(status),
+    ctx.json(typeof jsonBody === 'function' ? jsonBody(req) : jsonBody),
+  );
+});
+export const createNotionHandler = (method: Method, path: string, status: number, jsonBody: Body, testRequest?: TestRequest): RestHandler => createHandler(method, `${mockNotionBaseUrl}/v1${path}`, status, jsonBody, testRequest);
 export const useMockServer = (handlers: RestHandler[]) => {
   const server = setupServer(...handlers);
   beforeAll(() => server.listen({ onUnhandledRequest: 'error' }));

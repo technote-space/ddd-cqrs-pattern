@@ -78,6 +78,7 @@ type RelationSearch = {
   };
 };
 export type SearchParams = {
+  type?: 'and' | 'or',
   filter?: Record<string, TextSearch | IntSearch | DatetimeSearch | RelationSearch>;
   sort?: {
     column: string;
@@ -87,10 +88,12 @@ export type SearchParams = {
   cursor?: string;
 };
 export type Primitive = number | string | boolean;
-export type DatabaseRecord = Record<string, Primitive | Primitive[] | null>;
+export type DatabaseRecord = Record<string, Primitive | Primitive[] | null> & { id: string };
 
 export default interface IDatabase<T extends DatabaseRecord> {
   listTables(): Promise<Table[]>;
+
+  getTable(value: string, key: keyof Table): Promise<Table>;
 
   createTable(table: CreateTableParam): Promise<Table>;
 
@@ -98,7 +101,7 @@ export default interface IDatabase<T extends DatabaseRecord> {
 
   find(table: string, id: string): Promise<T | null>;
 
-  create(table: string, value: T): Promise<T>;
+  create(table: string, value: Omit<T, 'id'>): Promise<T>;
 
   update(table: string, value: Partial<T>): Promise<T>;
 

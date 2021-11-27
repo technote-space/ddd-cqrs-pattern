@@ -33,7 +33,7 @@ export default class TitleProperty extends Base<'title'> {
     throw new Error('サポートされていません');
   }
 
-  public toPropertyValue(value: DatabaseRecord[string], column: CreateTableColumn): CreatePageParameters['properties'] {
+  public async toPropertyValue(value: DatabaseRecord[string], column: TableColumn): Promise<CreatePageParameters['properties']> {
     return {
       title: [
         {

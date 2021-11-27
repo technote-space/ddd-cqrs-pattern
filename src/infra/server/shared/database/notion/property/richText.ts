@@ -33,7 +33,7 @@ export default class RichTextProperty extends Base<'rich_text'> {
     return null;
   }
 
-  public toPropertyValue(value: DatabaseRecord[string], column: CreateTableColumn): CreatePageParameters['properties'] {
+  public async toPropertyValue(value: DatabaseRecord[string], column: TableColumn): Promise<CreatePageParameters['properties']> {
     return {
       rich_text: [
         {

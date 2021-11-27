@@ -33,7 +33,7 @@ export default class DateProperty extends Base<'date'> {
     return null;
   }
 
-  public toPropertyValue(value: DatabaseRecord[string], column: CreateTableColumn): CreatePageParameters['properties'] {
+  public async toPropertyValue(value: DatabaseRecord[string], column: TableColumn): Promise<CreatePageParameters['properties']> {
     return {
       date: {
         start: String(value),

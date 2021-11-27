@@ -65,11 +65,21 @@ export default class RelationProperty extends Base<'relation'> {
     return null;
   }
 
-  public toPropertyValue(value: DatabaseRecord[string], column: CreateTableColumn): CreatePageParameters['properties'] {
+  public async toPropertyValue(value: DatabaseRecord[string], column: TableColumn): Promise<CreatePageParameters['properties']> {
+    if (column.type !== 'relation') {
+      throw new Error('サポートされていません');
+    }
+
+    if (!column.multiple) {
+      return {
+        relation: [
+          { id: value as string },
+        ],
+      };
+    }
+
     return {
-      relation: [
-        { id: value as string },
-      ],
+      relation: (value as string[]).map(id => ({ id })),
     };
   }
 }

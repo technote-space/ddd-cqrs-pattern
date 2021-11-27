@@ -3,6 +3,7 @@ import type { DatabaseRecord, SearchParams } from '$/server/shared/database';
 import type { Table, CreateTableParam, TableColumn } from '$/server/shared/database';
 import type IEnv from '$/server/shared/env';
 import type {
+  CreatePageParameters,
   ListBlockChildrenResponse,
   QueryDatabaseParameters,
   QueryDatabaseResponse,
@@ -28,7 +29,7 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
       baseUrl: this.env.getValue('NOTION_BASE_URL'),
       logLevel: LogLevel.ERROR,
     });
-    this.factory = new Factory();
+    this.factory = new Factory(this);
   }
 
   public async listTables(): Promise<Table[]> {
@@ -72,12 +73,12 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
     return NotionDatabase.$cache;
   }
 
-  protected async getTable(table: string): Promise<Table> {
-    return (await this.listTables()).find(t => t.table === table)!;
+  public async getTable(value: string, key: keyof Table = 'table'): Promise<Table> {
+    return (await this.listTables()).find(t => t[key] === value)!;
   }
 
   protected async getTableByName(name: string): Promise<Table> {
-    return (await this.listTables()).find(t => t.name === name)!;
+    return this.getTable(name, 'name');
   }
 
   public async createTable(table: CreateTableParam): Promise<Table> {
@@ -130,7 +131,7 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
     }
 
     return {
-      and: keys.map(property => {
+      [params.type ?? 'and']: keys.map(property => {
         const setting = filter[property];
         if ('int' in setting) {
           return { property, number: setting.int };
@@ -236,7 +237,7 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
     }, Promise.resolve([] as Record<string, Record<string, string>>[])));
   }
 
-  private parseResultProperties<T extends DatabaseRecord>(result: QueryDatabaseResponse['results'][number], columns: TableColumn[], lazyLoading: Record<string, Record<string, string>>): T {
+  private parseResultProperties(result: QueryDatabaseResponse['results'][number], columns: TableColumn[], lazyLoading: Record<string, Record<string, string>>): T {
     return {
       ...Object.fromEntries(columns.map(column => {
         if (!(column.name in result.properties)) {
@@ -245,9 +246,9 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
 
         const property = result.properties[column.name];
         return [column.name, this.factory.getProperty(property.type).toResultValue(property, column, lazyLoading)];
-      })) as T,
+      })),
       id: result.id,
-    };
+    } as T;
   }
 
   public async search(table: string, params: SearchParams): Promise<{ results: T[]; hasMore: boolean; cursor: string | null }> {
@@ -265,7 +266,7 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
 
     const lazyLoading = await this.lazyLoadForResults(tableInfo, results);
     return {
-      results: results.map(result => this.parseResultProperties<T>(result, tableInfo.columns, lazyLoading)),
+      results: results.map(result => this.parseResultProperties(result, tableInfo.columns, lazyLoading)),
       hasMore: has_more,
       cursor: next_cursor,
     };
@@ -276,23 +277,28 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
     try {
       const result = await this.client.pages.retrieve({ page_id: id });
       const lazyLoading = await this.lazyLoadForResults(tableInfo, [result]);
-
-      return this.parseResultProperties<T>(result, tableInfo.columns, lazyLoading);
+      return this.parseResultProperties(result, tableInfo.columns, lazyLoading);
     } catch (error) {
       return null;
     }
   }
 
-  public async create(table: string, value: T): Promise<T> {
+  public async create(table: string, value: Omit<T, 'id'>): Promise<T> {
     const tableInfo = await this.getTable(table);
-    await this.client.pages.create({
+    const result = await this.client.pages.create({
       parent: {
         database_id: tableInfo.id,
       },
-      properties: {},
-    });
+      properties: Object.fromEntries(await tableInfo.columns
+        .filter(column => column.type !== 'pk' && column.name in value)
+        .reduce(async (prev, column) => {
+          const acc = await prev;
+          return acc.concat([[column.name, await this.factory.getPropertyByColumn(column.type).toPropertyValue(value[column.name], column)]]);
+        }, Promise.resolve([] as [string, CreatePageParameters['properties']][]))),
+    } as CreatePageParameters);
 
-    return Promise.resolve(undefined);
+    const lazyLoading = await this.lazyLoadForResults(tableInfo, [result]);
+    return this.parseResultProperties(result, tableInfo.columns, lazyLoading);
   }
 
   public update(table: string, value: Partial<T>): Promise<T> {
