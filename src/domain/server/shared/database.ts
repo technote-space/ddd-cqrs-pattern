@@ -79,7 +79,7 @@ type RelationSearch = {
 };
 export type SearchParams = {
   type?: 'and' | 'or',
-  filter?: Record<string, TextSearch | IntSearch | DatetimeSearch | RelationSearch>;
+  filter?: { property: string, condition: TextSearch | IntSearch | DatetimeSearch | RelationSearch }[];
   sort?: {
     column: string;
     direction: 'ascending' | 'descending';

@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import type { CreateTableParam, CreateTableColumn } from '$/server/shared/database';
 import TestEnv from '^/__mocks__/env';
 import { useMockServer, createNotionHandler } from '^/__mocks__/server';
 import NotionDatabase from '.';
 
 afterEach(() => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (NotionDatabase as any).$cache = undefined;
 });
 
@@ -141,12 +143,12 @@ describe('NotionDatabase', () => {
       const result = await database.search('users', {
         pageSize: 10,
         cursor: 'test',
-        filter: {
-          test1: { text: { equals: 'aaa' } },
-          test2: { int: { equals: 123 } },
-          test3: { datetime: { equals: '2020-01-01' } },
-          test4: { relation: { contains: 'bbb' } },
-        },
+        filter: [
+          { property: 'test1', condition: { text: { equals: 'aaa' } } },
+          { property: 'test2', condition: { int: { equals: 123 } } },
+          { property: 'test3', condition: { datetime: { equals: '2020-01-01' } } },
+          { property: 'test4', condition: { relation: { contains: 'bbb' } } },
+        ],
         sort: { column: 'test1', direction: 'descending' },
       });
 
@@ -164,7 +166,7 @@ describe('NotionDatabase', () => {
       const result = await database.search('users', {
         pageSize: 10,
         cursor: 'test',
-        filter: {},
+        filter: [],
         sort: { column: 'test1', direction: 'descending' },
       });
 
