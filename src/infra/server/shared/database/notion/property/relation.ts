@@ -23,7 +23,7 @@ type ColumnType = {
   multiple?: boolean;
 }
 
-export default class RelationProperty extends Base<'relation'> {
+export default class RelationProperty extends Base {
   get columnType(): CreateTableColumn['type'] {
     return 'relation';
   }
@@ -66,7 +66,12 @@ export default class RelationProperty extends Base<'relation'> {
   }
 
   private async getRelationIds(table: Table, values: string[], data: Omit<DatabaseRecord, 'id'>): Promise<string[]> {
-    const column = table.columns.find(column => column.type === 'title')!;
+    const column = table.columns.find(column => column.type === 'title');
+    if (!column) {
+      /* istanbul ignore next */
+      throw new Error('サポートされていません');
+    }
+
     const searched = await this.database.search(table.table, {
       type: 'or',
       filter: values.map(value => ({

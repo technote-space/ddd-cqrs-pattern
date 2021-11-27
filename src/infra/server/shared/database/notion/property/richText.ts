@@ -7,7 +7,7 @@ import type {
 } from '@notionhq/client/build/src/api-endpoints';
 import Base from './base';
 
-export default class RichTextProperty extends Base<'rich_text'> {
+export default class RichTextProperty extends Base {
   get columnType(): CreateTableColumn['type'] {
     return 'text';
   }

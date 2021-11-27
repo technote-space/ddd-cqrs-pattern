@@ -7,7 +7,7 @@ import type {
 } from '@notionhq/client/build/src/api-endpoints';
 import Base from './base';
 
-export default class DateProperty extends Base<'date'> {
+export default class DateProperty extends Base {
   get columnType(): CreateTableColumn['type'] {
     return 'datetime';
   }

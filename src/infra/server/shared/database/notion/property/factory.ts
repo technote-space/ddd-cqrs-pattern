@@ -10,7 +10,7 @@ import TitleProperty from './title';
 
 export default class Factory {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  private properties: Partial<Record<GetDatabaseResponse['properties'][string]['type'], Base<any>>> = {};
+  private properties: Partial<Record<GetDatabaseResponse['properties'][string]['type'], Base>> = {};
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public constructor(database: NotionDatabase<any>) {
@@ -21,7 +21,7 @@ export default class Factory {
     this.properties['relation'] = new RelationProperty(database);
   }
 
-  public getProperty<T extends GetDatabaseResponse['properties'][string]['type']>(type: T): Base<T> {
+  public getProperty<T extends GetDatabaseResponse['properties'][string]['type']>(type: T): Base {
     const property = this.properties[type];
     /* istanbul ignore next */
     if (!property) {
@@ -32,7 +32,7 @@ export default class Factory {
     return property;
   }
 
-  public getPropertyByColumn<T extends GetDatabaseResponse['properties'][string]['type'], C extends TableColumn['type']>(type: C): Base<T> {
+  public getPropertyByColumn<T extends TableColumn['type']>(type: T): Base {
     const property = Object.values(this.properties).find(property => property.columnType === type);
     /* istanbul ignore next */
     if (!property) {

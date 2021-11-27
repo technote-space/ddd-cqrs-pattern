@@ -7,7 +7,7 @@ import type {
 } from '@notionhq/client/build/src/api-endpoints';
 import Base from './base';
 
-export default class NumberProperty extends Base<'number'> {
+export default class NumberProperty extends Base {
   get columnType(): CreateTableColumn['type'] {
     return 'int';
   }

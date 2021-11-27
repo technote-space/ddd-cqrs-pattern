@@ -7,7 +7,7 @@ import type {
 } from '@notionhq/client/build/src/api-endpoints';
 import Base from './base';
 
-export default class TitleProperty extends Base<'title'> {
+export default class TitleProperty extends Base {
   get columnType(): CreateTableColumn['type'] {
     return 'title';
   }

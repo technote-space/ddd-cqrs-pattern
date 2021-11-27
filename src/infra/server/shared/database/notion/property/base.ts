@@ -7,7 +7,8 @@ import type {
 } from '@notionhq/client/build/src/api-endpoints';
 import NotionDatabase from '..';
 
-export default abstract class Base<T extends GetDatabaseResponse['properties'][string]['type']> {
+export default abstract class Base {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public constructor(protected database: NotionDatabase<any>) {
   }
 
