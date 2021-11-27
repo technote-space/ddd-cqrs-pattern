@@ -9,8 +9,10 @@ import RichTextProperty from './richText';
 import TitleProperty from './title';
 
 export default class Factory {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private properties: Partial<Record<GetDatabaseResponse['properties'][string]['type'], Base<any>>> = {};
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public constructor(database: NotionDatabase<any>) {
     this.properties['title'] = new TitleProperty(database);
     this.properties['rich_text'] = new RichTextProperty(database);

@@ -1,4 +1,4 @@
-import type { Table, TableColumn, CreateTableColumn, DatabaseRecord } from '$/server/shared/database';
+import type { TableColumn, CreateTableColumn, DatabaseRecord } from '$/server/shared/database';
 import type {
   GetDatabaseResponse,
   CreateDatabaseParameters,
@@ -12,7 +12,7 @@ export default class RichTextProperty extends Base<'rich_text'> {
     return 'text';
   }
 
-  public propertyToColumn(property: GetDatabaseResponse['properties'][string], columns: CreateTableColumn[]): TableColumn {
+  public propertyToColumn(property: GetDatabaseResponse['properties'][string]): TableColumn {
     return {
       id: property.id,
       name: property.name,
@@ -20,11 +20,11 @@ export default class RichTextProperty extends Base<'rich_text'> {
     };
   }
 
-  public columnToProperty(column: CreateTableColumn, tables: Table[]): CreateDatabaseParameters['properties'][string] {
+  public columnToProperty(): CreateDatabaseParameters['properties'][string] {
     return { rich_text: {} };
   }
 
-  public toResultValue(property: QueryDatabaseResponse['results'][number]['properties'][string], column: TableColumn, lazyLoading: Record<string, Record<string, string>>): DatabaseRecord[string] {
+  public toResultValue(property: QueryDatabaseResponse['results'][number]['properties'][string]): DatabaseRecord[string] {
     /* istanbul ignore next */
     if (property.type === 'rich_text') {
       return property.rich_text[0]?.plain_text ?? null;

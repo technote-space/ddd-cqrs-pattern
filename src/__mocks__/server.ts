@@ -6,6 +6,7 @@ import { setupServer } from 'msw/node';
 
 export const mockNotionBaseUrl = 'https://example.com';
 type Method = keyof typeof rest;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Body = Record<string, any> | ((req: RestRequest<DefaultRequestBody, RequestParams>) => Record<string, any>);
 type TestRequest = (req: RestRequest<DefaultRequestBody, RequestParams>) => void;
 export const createHandler = (method: Method, path: string, status: number, jsonBody: Body, testRequest?: TestRequest): RestHandler => rest[method](path, (req, res, ctx) => {

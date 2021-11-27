@@ -1,4 +1,4 @@
-import type { Table, TableColumn, CreateTableColumn, DatabaseRecord } from '$/server/shared/database';
+import type { TableColumn, CreateTableColumn, DatabaseRecord } from '$/server/shared/database';
 import type {
   GetDatabaseResponse,
   CreateDatabaseParameters,
@@ -12,7 +12,7 @@ export default class DateProperty extends Base<'date'> {
     return 'datetime';
   }
 
-  public propertyToColumn(property: GetDatabaseResponse['properties'][string], columns: CreateTableColumn[]): TableColumn {
+  public propertyToColumn(property: GetDatabaseResponse['properties'][string]): TableColumn {
     return {
       id: property.id,
       name: property.name,
@@ -20,11 +20,11 @@ export default class DateProperty extends Base<'date'> {
     };
   }
 
-  public columnToProperty(column: CreateTableColumn, tables: Table[]): CreateDatabaseParameters['properties'][string] {
+  public columnToProperty(): CreateDatabaseParameters['properties'][string] {
     return { date: {} };
   }
 
-  public toResultValue(property: QueryDatabaseResponse['results'][number]['properties'][string], column: TableColumn, lazyLoading: Record<string, Record<string, string>>): DatabaseRecord[string] {
+  public toResultValue(property: QueryDatabaseResponse['results'][number]['properties'][string]): DatabaseRecord[string] {
     /* istanbul ignore next */
     if (property.type === 'date') {
       return property.date?.start ?? null;
