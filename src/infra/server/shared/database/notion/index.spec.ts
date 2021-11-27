@@ -181,6 +181,8 @@ describe('NotionDatabase', () => {
       createNotionHandler('post', '/databases/12345678-805e-4279-802d-749613f9f84e/query', 200, require('./__fixtures__/query_database_not_has_more.json')),
       createNotionHandler('post', '/databases/12345678-a74f-4552-bde9-54b92453e1b6/query', 200, require('./__fixtures__/query_database_users.json')),
       createNotionHandler('post', '/databases/12345678-99ac-4de4-8d2f-f67a6bfc4aeb/query', 200, require('./__fixtures__/query_database_tags.json')),
+      createNotionHandler('get', '/pages/12345678-835a-4a19-a988-2e0b7c588d00', 200, require('./__fixtures__/retrieve_page.json')),
+      createNotionHandler('get', '/pages/12345678-0000-0000-0000-000000000000', 404, {}),
     ]);
     const commonColumns = [
       { name: 'タグ', type: 'relation', relation: 'tags', multiple: true },
@@ -196,54 +198,76 @@ describe('NotionDatabase', () => {
       const result = await database.search('tasks', {});
 
       expect(result.results).toEqual([
-          {
-            id: '12345678-2acd-4600-b40b-a4a8a4229178',
-            'タグ': [],
-            '作業見積単位': null,
-            '期日': '2021-11-26T10:00:00.000+09:00',
-            'ユーザー': 'test2',
-            'ステータス': '完了',
-            'メモ': null,
-            '作業見積': null,
-            'タスク名': '別ユーザータスク',
-          },
-          {
-            id: '12345678-835a-4a19-a988-2e0b7c588d87',
-            'タグ': ['宿題'],
-            '作業見積単位': '日',
-            '期日': '2021-11-29T10:00:00.000+09:00',
-            'ユーザー': 'test',
-            'ステータス': '実行中',
-            'メモ': 'テスト',
-            '作業見積': 10,
-            'タスク名': '次のタスク',
-          },
-          {
-            id: '12345678-9c82-40c5-8a9b-8e9dae01dfc6',
-            'タグ': ['宿題', 'テスト'],
-            '作業見積単位': null,
-            '期日': '2021-11-30T10:00:00.000+09:00',
-            'ユーザー': 'test',
-            'ステータス': '登録',
-            'メモ': null,
-            '作業見積': null,
-            'タスク名': '新しいタスク',
-          },
-        ],
-      );
+        {
+          id: '12345678-2acd-4600-b40b-a4a8a4229178',
+          'タグ': [],
+          '作業見積単位': null,
+          '期日': '2021-11-26T10:00:00.000+09:00',
+          'ユーザー': 'test2',
+          'ステータス': '完了',
+          'メモ': null,
+          '作業見積': null,
+          'タスク名': '別ユーザータスク',
+        },
+        {
+          id: '12345678-835a-4a19-a988-2e0b7c588d87',
+          'タグ': ['宿題'],
+          '作業見積単位': '日',
+          '期日': '2021-11-29T10:00:00.000+09:00',
+          'ユーザー': 'test',
+          'ステータス': '実行中',
+          'メモ': 'テスト',
+          '作業見積': 10,
+          'タスク名': '次のタスク',
+        },
+        {
+          id: '12345678-9c82-40c5-8a9b-8e9dae01dfc6',
+          'タグ': ['宿題', 'テスト'],
+          '作業見積単位': null,
+          '期日': '2021-11-30T10:00:00.000+09:00',
+          'ユーザー': 'test',
+          'ステータス': '登録',
+          'メモ': null,
+          '作業見積': null,
+          'タスク名': '新しいタスク',
+        },
+      ]);
       expect(result.hasMore).toBe(false);
       expect(result.cursor).toBe(null);
     });
+
+    it('データを取得する', async () => {
+      const database = new NotionDatabase([
+        { table: 'users', name: 'ユーザー', columns: commonColumns },
+        { table: 'tags', name: 'タグ', columns: commonColumns },
+        { table: 'tasks', name: 'タスク', columns: commonColumns },
+      ], new TestEnv({ NOTION_SECRET: 'secret', NOTION_PARENT_ID: '__block_id__' }));
+      const result = await database.find('tasks', '12345678-835a-4a19-a988-2e0b7c588d00');
+
+      expect(result).toEqual({
+        id: '12345678-835a-4a19-a988-2e0b7c588d87',
+        'タグ': ['宿題'],
+        '作業見積単位': '日',
+        '期日': '2021-11-29T10:00:00.000+09:00',
+        'ユーザー': 'test',
+        'ステータス': '実行中',
+        'メモ': 'テスト',
+        '作業見積': 10,
+        'タスク名': '次のタスク',
+      });
+    });
+
+    it('存在しないデータを取得しようとすると null が返る', async () => {
+      const database = new NotionDatabase([], new TestEnv({
+        NOTION_SECRET: 'secret',
+        NOTION_PARENT_ID: '__block_id__',
+      }));
+      const result = await database.find('tasks', '12345678-0000-0000-0000-000000000000');
+
+      expect(result).toBeNull();
+    });
   });
 
-  // it('データを取得する', () => {
-  //
-  // });
-  //
-  // it('存在しないデータを取得しようとすると null が返る', () => {
-  //
-  // });
-  //
   // it('データを作成する', () => {
   //
   // });

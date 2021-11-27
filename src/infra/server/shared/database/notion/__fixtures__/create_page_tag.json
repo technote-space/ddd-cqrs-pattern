@@ -1,0 +1,53 @@
+{
+  "object": "page",
+  "id": "12345678-337c-4bc6-a761-b8fcea560652",
+  "created_time": "2021-11-26T17:21:00.000Z",
+  "last_edited_time": "2021-11-26T17:21:00.000Z",
+  "cover": null,
+  "icon": null,
+  "parent": {
+    "type": "database_id",
+    "database_id": "12345678-99ac-4de4-8d2f-f67a6bfc4aeb"
+  },
+  "archived": false,
+  "properties": {
+    "ユーザー": {
+      "id": "%3EzVJ",
+      "type": "relation",
+      "relation": [
+        {
+          "id": "12345678-f7de-4c0c-b0f3-0637fbad2764"
+        }
+      ]
+    },
+    "Related to タスク (タグ)": {
+      "id": "X%3CWw",
+      "type": "relation",
+      "relation": []
+    },
+    "タグ名": {
+      "id": "title",
+      "type": "title",
+      "title": [
+        {
+          "type": "text",
+          "text": {
+            "content": "仕事",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "仕事",
+          "href": null
+        }
+      ]
+    }
+  },
+  "url": "https://www.notion.so/2f8d47cf337c4bc6a761b8fcea560652"
+}

@@ -242,7 +242,7 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
     };
   }
 
-  private async lazyLoading(table: Table, ids: string[]): Promise<Record<string, string>> {
+  private async lazyLoadForTable(table: Table, ids: string[]): Promise<Record<string, string>> {
     const name = table.columns.find(column => column.type === 'title')!.name;
     const response = await this.client.databases.query({
       database_id: table.id,
@@ -273,55 +273,7 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
     }));
   }
 
-  private parseResultProperties(properties: QueryDatabaseResponse['results'][number]['properties'], columns: TableColumn[], lazyLoading: Record<string, Record<string, string>>): DatabaseRecord {
-    return Object.fromEntries(columns.map(column => {
-      if (!(column.name in properties)) {
-        return [column.name, null];
-      }
-
-      const property = properties[column.name];
-      if (property.type === 'relation' && column.type === 'relation' && column.name in lazyLoading) {
-        if (column.multiple) {
-          return [column.name, property.relation.map(relation => lazyLoading[column.name][relation.id] ?? null).filter(item => item !== null)];
-        } else if (property.relation[0].id && property.relation[0].id in lazyLoading[column.name]) {
-          return [column.name, lazyLoading[column.name][property.relation[0].id]];
-        }
-      }
-
-      if (property.type === 'title' && property.title[0].type === 'text') {
-        return [column.name, property.title[0].text.content];
-      }
-
-      if (property.type === 'number') {
-        return [column.name, property.number];
-      }
-
-      if (property.type === 'rich_text') {
-        return [column.name, property.rich_text[0]?.plain_text ?? null];
-      }
-
-      if (property.type === 'date') {
-        return [column.name, property.date?.start ?? null];
-      }
-
-      /* istanbul ignore next */
-      return [column.name, null];
-    }));
-  }
-
-  public async search(table: string, params: SearchParams): Promise<{ results: T[]; hasMore: boolean; cursor: string | null }> {
-    const tableInfo = await this.getTable(table);
-    const {
-      results,
-      has_more,
-      next_cursor,
-    } = await this.client.databases.query({
-      database_id: tableInfo.id,
-      ...NotionDatabase.buildSearchPagination(params),
-      filter: this.buildSearchFilter(params),
-      sorts: NotionDatabase.buildSearchSorts(params),
-    });
-
+  private async lazyLoadForResults(tableInfo: Table, results: QueryDatabaseResponse['results']): Promise<Record<string, Record<string, string>>> {
     type RelationType = {
       id: string;
       name: string;
@@ -330,7 +282,8 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
       multiple: boolean;
     }
     const filterRelation = (column: TableColumn): column is RelationType => column.type === 'relation';
-    const lazyLoading: Record<string, Record<string, string>> = Object.assign({}, ...await tableInfo.columns.filter(filterRelation).reduce(async (prev, column) => {
+
+    return Object.assign({}, ...await tableInfo.columns.filter(filterRelation).reduce(async (prev, column) => {
       const acc = await prev;
       const table = await this.getTableByName(column.name);
       const ids = results.flatMap(result => {
@@ -346,14 +299,65 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
         /* istanbul ignore next */
         return [];
       });
-      return acc.concat({ [column.name]: await this.lazyLoading(table, ids) });
+      return acc.concat({ [column.name]: await this.lazyLoadForTable(table, ids) });
     }, Promise.resolve([] as Record<string, Record<string, string>>[])));
+  }
 
+  private parseResultProperties<T extends DatabaseRecord>(result: QueryDatabaseResponse['results'][number], columns: TableColumn[], lazyLoading: Record<string, Record<string, string>>): T {
     return {
-      results: results.map(result => ({
-        ...this.parseResultProperties(result.properties, tableInfo.columns, lazyLoading),
-        id: result.id,
-      } as unknown as T)),
+      ...Object.fromEntries(columns.map(column => {
+        if (!(column.name in result.properties)) {
+          return [column.name, null];
+        }
+
+        const property = result.properties[column.name];
+        if (property.type === 'relation' && column.type === 'relation' && column.name in lazyLoading) {
+          if (column.multiple) {
+            return [column.name, property.relation.map(relation => lazyLoading[column.name][relation.id] ?? null).filter(item => item !== null)];
+          } else if (property.relation[0].id && property.relation[0].id in lazyLoading[column.name]) {
+            return [column.name, lazyLoading[column.name][property.relation[0].id]];
+          }
+        }
+
+        if (property.type === 'title' && property.title[0].type === 'text') {
+          return [column.name, property.title[0].text.content];
+        }
+
+        if (property.type === 'number') {
+          return [column.name, property.number];
+        }
+
+        if (property.type === 'rich_text') {
+          return [column.name, property.rich_text[0]?.plain_text ?? null];
+        }
+
+        if (property.type === 'date') {
+          return [column.name, property.date?.start ?? null];
+        }
+
+        /* istanbul ignore next */
+        return [column.name, null];
+      })),
+      id: result.id,
+    };
+  }
+
+  public async search(table: string, params: SearchParams): Promise<{ results: T[]; hasMore: boolean; cursor: string | null }> {
+    const tableInfo = await this.getTable(table);
+    const {
+      results,
+      has_more,
+      next_cursor,
+    } = await this.client.databases.query({
+      database_id: tableInfo.id,
+      ...NotionDatabase.buildSearchPagination(params),
+      filter: this.buildSearchFilter(params),
+      sorts: NotionDatabase.buildSearchSorts(params),
+    });
+
+    const lazyLoading = await this.lazyLoadForResults(tableInfo, results);
+    return {
+      results: results.map(result => this.parseResultProperties<T>(result, tableInfo.columns, lazyLoading)),
       hasMore: has_more,
       cursor: next_cursor,
     };
@@ -361,12 +365,25 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
 
   public async find(table: string, id: string): Promise<T | null> {
     const tableInfo = await this.getTable(table);
+    try {
+      const result = await this.client.pages.retrieve({ page_id: id });
+      const lazyLoading = await this.lazyLoadForResults(tableInfo, [result]);
 
-
-    return Promise.resolve(null);
+      return this.parseResultProperties<T>(result, tableInfo.columns, lazyLoading);
+    } catch (error) {
+      return null;
+    }
   }
 
-  public create(table: string, value: T): Promise<T> {
+  public async create(table: string, value: T): Promise<T> {
+    const tableInfo = await this.getTable(table);
+    await this.client.pages.create({
+      parent: {
+        database_id: tableInfo.id,
+      },
+      properties: {}
+    })
+
     return Promise.resolve(undefined);
   }
 

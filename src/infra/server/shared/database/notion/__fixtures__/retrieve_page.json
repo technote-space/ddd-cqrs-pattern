@@ -1,0 +1,139 @@
+{
+  "object": "page",
+  "id": "12345678-835a-4a19-a988-2e0b7c588d87",
+  "created_time": "2021-11-21T15:31:00.000Z",
+  "last_edited_time": "2021-11-24T03:18:00.000Z",
+  "cover": null,
+  "icon": null,
+  "parent": {
+    "type": "database_id",
+    "database_id": "12345678-805e-4279-802d-749613f9f84e"
+  },
+  "archived": false,
+  "properties": {
+    "タグ": {
+      "id": "%3Ar%3AY",
+      "type": "relation",
+      "relation": [
+        {
+          "id": "12345678-3f93-456d-8379-6748cbd60655"
+        }
+      ]
+    },
+    "作業見積単位": {
+      "id": "CXs_",
+      "type": "rich_text",
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "日",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "日",
+          "href": null
+        }
+      ]
+    },
+    "期日": {
+      "id": "Kd%3CM",
+      "type": "date",
+      "date": {
+        "start": "2021-11-29T10:00:00.000+09:00",
+        "end": null
+      }
+    },
+    "ユーザー": {
+      "id": "OhsR",
+      "type": "relation",
+      "relation": [
+        {
+          "id": "12345678-0386-4822-a079-832269ef6f01"
+        }
+      ]
+    },
+    "ステータス": {
+      "id": "diSm",
+      "type": "rich_text",
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "実行中",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "実行中",
+          "href": null
+        }
+      ]
+    },
+    "メモ": {
+      "id": "g%3D~a",
+      "type": "rich_text",
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "テスト",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "テスト",
+          "href": null
+        }
+      ]
+    },
+    "作業見積": {
+      "id": "oumE",
+      "type": "number",
+      "number": 10
+    },
+    "タスク名": {
+      "id": "title",
+      "type": "title",
+      "title": [
+        {
+          "type": "text",
+          "text": {
+            "content": "次のタスク",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "次のタスク",
+          "href": null
+        }
+      ]
+    }
+  },
+  "url": "https://www.notion.so/01918773835a4a19a9882e0b7c588d87"
+}
