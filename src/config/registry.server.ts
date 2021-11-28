@@ -7,7 +7,7 @@ import tagSchema from '../../schema/tag.json';
 import taskSchema from '../../schema/task.json';
 import userSchema from '../../schema/user.json';
 
-container.registerInstance('IEnv', Env);
+container.registerSingleton('IEnv', Env);
 
 // pages
 container.registerSingleton('IIndexPageProps', IndexPageProps);
@@ -16,4 +16,4 @@ container.registerSingleton('IIndexPageProps', IndexPageProps);
 container.registerInstance('MigrationSchemas', [userSchema, tagSchema, taskSchema] as MigrationSchemas);
 
 // database
-container.registerInstance('IDatabase', NotionDatabase);
+container.registerSingleton('IDatabase', NotionDatabase);
