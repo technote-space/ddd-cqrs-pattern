@@ -25,19 +25,33 @@ import Factory from './property/factory';
 @singleton()
 export default class NotionDatabase implements IDatabase {
   private static $cache: Table[];
-  private client: Client;
-  private factory: Factory;
+  private _client?: Client;
+  private _factory?: Factory;
 
   public constructor(
     @inject('MigrationSchemas') private schemas: MigrationSchemas,
     @inject('IEnv') private env: IEnv,
   ) {
-    this.client = new Client({
-      auth: this.env.getValue('NOTION_SECRET'),
-      baseUrl: this.env.getValue('NOTION_BASE_URL'),
-      logLevel: LogLevel.ERROR,
-    });
-    this.factory = new Factory(this);
+  }
+
+  private get client(): Client {
+    if (!this._client) {
+      this._client = new Client({
+        auth: this.env.getValue('NOTION_SECRET'),
+        baseUrl: this.env.getValue('NOTION_BASE_URL'),
+        logLevel: LogLevel.ERROR,
+      });
+    }
+
+    return this._client;
+  }
+
+  private get factory(): Factory {
+    if (!this._factory) {
+      this._factory = new Factory(this);
+    }
+
+    return this._factory;
   }
 
   private static filterNotUndefined<T>(item: T | undefined): item is T {

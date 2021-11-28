@@ -18,7 +18,8 @@
     "prepare": "if [ ! -f .env ]; then cp .env.example .env; fi && husky install && aspida",
     "sb": "start-storybook -p 6006 -s ./public",
     "build-sb": "build-storybook -s public",
-    "analyze": "aspida && ANALYZE=true next build"
+    "analyze": "aspida && ANALYZE=true next build",
+    "migrate": "ts-node -r tsconfig-paths/register src/bin/migrate.ts"
   },
   "dependencies": {
     "@aspida/axios": "^1.7.1",
@@ -80,6 +81,8 @@
     "sass": "^1.43.4",
     "sass-loader": "^12.3.0",
     "storybook-addon-performance": "^0.16.1",
+    "ts-node": "^10.4.0",
+    "tsconfig-paths": "^3.12.0",
     "tsconfig-paths-webpack-plugin": "^3.5.2",
     "typescript": "^4.4.4",
     "webpack": "^5.64.1"

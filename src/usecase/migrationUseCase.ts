@@ -1,21 +1,25 @@
 import type { CreateTableParam } from '$/server/shared/database';
+import type IDatabase from '$/server/shared/database';
 import { singleton, inject } from 'tsyringe';
-import UseCaseBase from '^/usecase/useCaseBase';
 
 export type MigrationSchemas = CreateTableParam[];
 
 @singleton()
-export default class MigrationUseCase extends UseCaseBase {
+export default class MigrationUseCase {
   public constructor(
     @inject('MigrationSchemas') private schemas: MigrationSchemas,
+    @inject('IDatabase') private database: IDatabase,
   ) {
-    super();
   }
 
-  public async* invoke(): AsyncGenerator<string> {
+  public async invoke(): Promise<void> {
     // 生成済みのテーブル一覧を取得
+    const tables = await this.database.listTables();
+    console.log('tables:', tables.map(table => table.name));
 
     // 存在しないテーブル一覧を算出
+    const notExists = this.schemas.filter(schema => !tables.some(table => table.name === schema.name));
+    console.log('create:', notExists.map(schema => schema.name));
 
     // 存在しないテーブルをそれぞれ作成
   }
