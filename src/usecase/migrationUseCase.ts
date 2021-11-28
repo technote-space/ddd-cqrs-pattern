@@ -26,7 +26,7 @@ export default class MigrationUseCase {
       await prev;
       console.log();
       console.log('creating...', table.name);
-      await this.database.createTable(table.name);
+      await this.database.createTable(table.table);
       console.log('created!');
     }, Promise.resolve());
   }

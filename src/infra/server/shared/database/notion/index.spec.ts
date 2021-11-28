@@ -69,7 +69,7 @@ describe('NotionDatabase', () => {
         { table: 'tasks', name: 'タスク', columns: commonColumns },
       ], new TestEnv({ NOTION_SECRET: 'secret', NOTION_PARENT_ID: '__block_id__' }));
 
-      const table = await database.createTable('タスク');
+      const table = await database.createTable('tasks');
       expect(table.id).toBe('12345678-805e-4279-802d-749613f9f84e');
       expect(table.name).toBe('タスク');
       expect(table.table).toBe('tasks');
@@ -82,7 +82,7 @@ describe('NotionDatabase', () => {
         NOTION_PARENT_ID: '__block_id__',
       }));
 
-      await expect(database.createTable('タスク')).rejects.toThrow('定義がありません');
+      await expect(database.createTable('tasks')).rejects.toThrow('定義がありません');
     });
   });
 
@@ -118,7 +118,7 @@ describe('NotionDatabase', () => {
         NOTION_PARENT_ID: '__block_id__',
       }));
 
-      const table = await database.createTable('test');
+      const table = await database.createTable('tests');
       expect(table.id).toBe('12345678-805e-4279-802d-749613f9f84e');
       expect(table.name).toBe('test');
       expect(table.table).toBe('tests');

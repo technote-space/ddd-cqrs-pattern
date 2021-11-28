@@ -27,5 +27,8 @@ describe('MigrationUseCase', () => {
     expect(spyConsoleLog.mock.calls[2]).toEqual([]);
     expect(spyConsoleLog.mock.calls[3]).toEqual(['creating...', 'テスト3']);
     expect(spyConsoleLog.mock.calls[4]).toEqual(['created!']);
+    expect(mockListTables).toHaveBeenCalledTimes(1);
+    expect(mockCreateTable).toHaveBeenCalledTimes(1);
+    expect(mockCreateTable.mock.calls[0]).toEqual(['test3']);
   });
 });

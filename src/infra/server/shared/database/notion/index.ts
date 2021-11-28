@@ -110,12 +110,12 @@ export default class NotionDatabase implements IDatabase {
 
   public async createTable(table: string): Promise<Table> {
     const tables = await this.listTables();
-    const found = tables.find(t => t.name === table);
+    const found = tables.find(t => t.table === table);
     if (found) {
       return found;
     }
 
-    const schema = this.schemas.find(schema => schema.name === table);
+    const schema = this.schemas.find(schema => schema.table === table);
     if (!schema) {
       throw new Error('定義がありません');
     }
