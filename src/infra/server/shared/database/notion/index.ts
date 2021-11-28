@@ -24,7 +24,7 @@ import Factory from './property/factory';
 
 @singleton()
 export default class NotionDatabase implements IDatabase {
-  private static $cache: Table[];
+  private static $cache?: Table[];
   private _client?: Client;
   private _factory?: Factory;
 
@@ -136,7 +136,6 @@ export default class NotionDatabase implements IDatabase {
         [column.name]: this.factory.getPropertyByColumn(column.type).columnToProperty(column, tables),
       }))),
     });
-
     const title = response.title[0];
     /* istanbul ignore next */
     if (title.type !== 'text') {
@@ -144,6 +143,7 @@ export default class NotionDatabase implements IDatabase {
       throw new Error('サポートされていません');
     }
 
+    NotionDatabase.$cache = undefined;
     return {
       id: response.id,
       table: schema.table,
