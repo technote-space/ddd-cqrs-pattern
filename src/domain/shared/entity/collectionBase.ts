@@ -21,7 +21,7 @@ export default function CollectionBase<T extends Base>() {
       }
     }
 
-    protected get collections(): T[] {
+    public get collections(): T[] {
       return this._collections;
     }
 
