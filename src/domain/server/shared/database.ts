@@ -92,20 +92,20 @@ export type DatabaseRecord = Record<string, Primitive | Primitive[] | null> & { 
 export type CreateData<T extends DatabaseRecord> = Omit<T, 'id'>;
 export type UpdateData<T extends DatabaseRecord> = Omit<T, 'id'> & Pick<T, 'id'>;
 
-export default interface IDatabase<T extends DatabaseRecord> {
+export default interface IDatabase {
   listTables(): Promise<Table[]>;
 
   getTable(value: string, key: keyof Table): Promise<Table>;
 
   createTable(table: CreateTableParam): Promise<Table>;
 
-  search(table: string, params: SearchParams): Promise<{ results: T[]; hasMore: boolean; cursor: string | null }>;
+  search<T extends DatabaseRecord>(table: string, params: SearchParams): Promise<{ results: T[]; hasMore: boolean; cursor: string | null }>;
 
-  find(table: string, id: string): Promise<T | null>;
+  find<T extends DatabaseRecord>(table: string, id: string): Promise<T | null>;
 
-  create(table: string, data: CreateData<T>): Promise<T>;
+  create<T extends DatabaseRecord>(table: string, data: CreateData<T>): Promise<T>;
 
-  update(table: string, data: UpdateData<T>): Promise<T>;
+  update<T extends DatabaseRecord>(table: string, data: UpdateData<T>): Promise<T>;
 
   delete(table: string, id: string): Promise<boolean>;
 }

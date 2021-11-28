@@ -23,7 +23,7 @@ import { singleton, inject } from 'tsyringe';
 import Factory from './property/factory';
 
 @singleton()
-export default class NotionDatabase<T extends DatabaseRecord> implements IDatabase<T> {
+export default class NotionDatabase implements IDatabase {
   private static $cache: Table[];
   private client: Client;
   private factory: Factory;
@@ -250,7 +250,7 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
     }, Promise.resolve([] as Record<string, Record<string, string>>[])));
   }
 
-  private parseResultProperties(result: QueryDatabaseResponse['results'][number], columns: TableColumn[], lazyLoading: Record<string, Record<string, string>>): T {
+  private parseResultProperties<T extends DatabaseRecord>(result: QueryDatabaseResponse['results'][number], columns: TableColumn[], lazyLoading: Record<string, Record<string, string>>): T {
     return {
       ...Object.fromEntries(columns.map(column => {
         if (!(column.name in result.properties)) {
@@ -264,7 +264,7 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
     } as T;
   }
 
-  public async search(table: string, params: SearchParams): Promise<{ results: T[]; hasMore: boolean; cursor: string | null }> {
+  public async search<T extends DatabaseRecord>(table: string, params: SearchParams): Promise<{ results: T[]; hasMore: boolean; cursor: string | null }> {
     const tableInfo = await this.getTable(table);
     const {
       results,
@@ -279,18 +279,18 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
 
     const lazyLoading = await this.lazyLoadForResults(tableInfo, results);
     return {
-      results: results.map(result => this.parseResultProperties(result, tableInfo.columns, lazyLoading)),
+      results: results.map(result => this.parseResultProperties<T>(result, tableInfo.columns, lazyLoading)),
       hasMore: has_more,
       cursor: next_cursor,
     };
   }
 
-  public async find(table: string, id: string): Promise<T | null> {
+  public async find<T extends DatabaseRecord>(table: string, id: string): Promise<T | null> {
     const tableInfo = await this.getTable(table);
     try {
       const result = await this.client.pages.retrieve({ page_id: id });
       const lazyLoading = await this.lazyLoadForResults(tableInfo, [result]);
-      return this.parseResultProperties(result, tableInfo.columns, lazyLoading);
+      return this.parseResultProperties<T>(result, tableInfo.columns, lazyLoading);
     } catch (error) {
       return null;
     }
@@ -307,7 +307,7 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
     );
   }
 
-  public async create(table: string, data: CreateData<T>): Promise<T> {
+  public async create<T extends DatabaseRecord>(table: string, data: CreateData<T>): Promise<T> {
     const tableInfo = await this.getTable(table);
     const result = await this.client.pages.create({
       parent: {
@@ -317,10 +317,10 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
     } as CreatePageParameters);
 
     const lazyLoading = await this.lazyLoadForResults(tableInfo, [result]);
-    return this.parseResultProperties(result, tableInfo.columns, lazyLoading);
+    return this.parseResultProperties<T>(result, tableInfo.columns, lazyLoading);
   }
 
-  public async update(table: string, data: UpdateData<T>): Promise<T> {
+  public async update<T extends DatabaseRecord>(table: string, data: UpdateData<T>): Promise<T> {
     const tableInfo = await this.getTable(table);
     const result = await this.client.pages.update({
       page_id: data.id,
@@ -328,7 +328,7 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
     } as UpdatePageParameters);
 
     const lazyLoading = await this.lazyLoadForResults(tableInfo, [result]);
-    return this.parseResultProperties(result, tableInfo.columns, lazyLoading);
+    return this.parseResultProperties<T>(result, tableInfo.columns, lazyLoading);
   }
 
   public async delete(table: string, id: string): Promise<boolean> {

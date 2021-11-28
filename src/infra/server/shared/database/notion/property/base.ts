@@ -9,7 +9,7 @@ import NotionDatabase from '..';
 
 export default abstract class Base {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  public constructor(protected database: NotionDatabase<any>) {
+  public constructor(protected database: NotionDatabase) {
   }
 
   public abstract get columnType(): CreateTableColumn['type'];

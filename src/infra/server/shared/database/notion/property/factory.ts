@@ -13,7 +13,7 @@ export default class Factory {
   private properties: Partial<Record<GetDatabaseResponse['properties'][string]['type'], Base>> = {};
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  public constructor(database: NotionDatabase<any>) {
+  public constructor(database: NotionDatabase) {
     this.properties['title'] = new TitleProperty(database);
     this.properties['rich_text'] = new RichTextProperty(database);
     this.properties['number'] = new NumberProperty(database);
