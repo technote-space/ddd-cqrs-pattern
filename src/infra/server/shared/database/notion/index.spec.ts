@@ -86,12 +86,21 @@ describe('NotionDatabase', () => {
 
   describe('テーブル未作成', () => {
     useMockServer([
-      createNotionHandler('get', '/blocks/__block_id__/children', 200, { results: [] }),
+      createNotionHandler('get', '/blocks/__block_id__/children', 200, {
+        results: [{
+          'id': '12345678-0000-0000-0000-000000000000',
+          'type': 'child_database',
+          'child_database': {
+            'title': 'a',
+          },
+        }],
+      }),
+      createNotionHandler('get', '/databases/12345678-0000-0000-0000-000000000000', 200, { properties: {} }),
       createNotionHandler('post', '/databases', 200, require('./__fixtures__/create_database.json')),
     ]);
 
     it('新しいテーブルを作成する', async () => {
-      const database = new NotionDatabase([], new TestEnv({
+      const database = new NotionDatabase([{ table: 'a', name: 'a', columns: commonColumns }], new TestEnv({
         NOTION_SECRET: 'secret',
         NOTION_PARENT_ID: '__block_id__',
       }));
@@ -103,6 +112,7 @@ describe('NotionDatabase', () => {
           { name: 'test2', type: 'datetime' },
           { name: 'test3', type: 'int' },
           { name: 'test4', type: 'text' },
+          { name: 'test5', type: 'relation', relation: 'a' },
         ],
       } as CreateTableParam;
 

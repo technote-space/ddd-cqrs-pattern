@@ -45,7 +45,9 @@ export default class RelationProperty extends Base {
 
   public columnToProperty(column: ColumnType, tables: Table[]): CreateDatabaseParameters['properties'][string] {
     const table = tables.find(table => table.table === column.relation);
+    /* istanbul ignore next */
     if (!table) {
+      /* istanbul ignore next */
       throw new Error('リレーション先が見つかりません');
     }
 
@@ -53,6 +55,7 @@ export default class RelationProperty extends Base {
   }
 
   public toResultValue(property: QueryDatabaseResponse['results'][number]['properties'][string], column: TableColumn, lazyLoading: Record<string, Record<string, string>>): DatabaseRecord[string] {
+    /* istanbul ignore next */
     if (property.type === 'relation' && column.type === 'relation' && column.name in lazyLoading) {
       if (column.multiple) {
         return property.relation.map(relation => lazyLoading[column.name][relation.id] ?? null).filter(item => item !== null);
@@ -67,6 +70,7 @@ export default class RelationProperty extends Base {
 
   private async getRelationIds(table: Table, values: string[], data: Omit<DatabaseRecord, 'id'>): Promise<string[]> {
     const column = table.columns.find(column => column.type === 'title');
+    /* istanbul ignore next */
     if (!column) {
       /* istanbul ignore next */
       throw new Error('サポートされていません');
@@ -99,6 +103,7 @@ export default class RelationProperty extends Base {
   }
 
   public async toPropertyValue(data: Omit<DatabaseRecord, 'id'>, column: TableColumn): Promise<CreatePageParameters['properties']> {
+    /* istanbul ignore next */
     if (column.type !== 'relation') {
       /* istanbul ignore next */
       throw new Error('サポートされていません');
