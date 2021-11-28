@@ -12,6 +12,9 @@ export default function CollectionBase<T extends Base>() {
     private _collections!: T[];
 
     // create メソッドの this コンテキストのせいで protected にはできない
+    /**
+     * @deprecated create 経由で生成
+     */
     public constructor() {
       if (!CollectionBase._isCreating) {
         throw new Error();

@@ -14,6 +14,9 @@ export default function Base<Input, Output, Inner = Output>() { // eslint-disabl
     private _output?: Output;
 
     // create メソッドの this コンテキストのせいで protected にはできない
+    /**
+     * @deprecated create 経由で生成
+     */
     public constructor() {
       if (!Base._isCreating) {
         throw new Error();
