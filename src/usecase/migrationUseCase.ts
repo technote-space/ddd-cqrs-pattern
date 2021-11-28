@@ -19,8 +19,15 @@ export default class MigrationUseCase {
 
     // 存在しないテーブル一覧を算出
     const notExists = this.schemas.filter(schema => !tables.some(table => table.name === schema.name));
-    console.log('create:', notExists.map(schema => schema.name));
+    console.log('create tables:', notExists.map(schema => schema.name));
 
     // 存在しないテーブルをそれぞれ作成
+    await notExists.reduce(async (prev, table) => {
+      await prev;
+      console.log();
+      console.log('creating...', table.name);
+      await this.database.createTable(table.name);
+      console.log('created!');
+    }, Promise.resolve());
   }
 }
