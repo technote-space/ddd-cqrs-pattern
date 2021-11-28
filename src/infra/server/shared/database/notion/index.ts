@@ -108,11 +108,16 @@ export default class NotionDatabase implements IDatabase {
     return this.getTable(name, 'name');
   }
 
-  public async createTable(table: CreateTableParam): Promise<Table> {
+  public async createTable(table: string): Promise<Table> {
     const tables = await this.listTables();
-    const found = tables.find(t => t.name === table.name);
+    const found = tables.find(t => t.name === table);
     if (found) {
       return found;
+    }
+
+    const schema = this.schemas.find(schema => schema.name === table);
+    if (!schema) {
+      throw new Error('定義がありません');
     }
 
     const response = await this.client.databases.create({
@@ -123,11 +128,11 @@ export default class NotionDatabase implements IDatabase {
       title: [{
         type: 'text',
         text: {
-          content: table.name,
+          content: table,
           link: null,
         },
       }],
-      properties: Object.assign({}, ...table.columns.map(column => ({
+      properties: Object.assign({}, ...schema.columns.map(column => ({
         [column.name]: this.factory.getPropertyByColumn(column.type).columnToProperty(column, tables),
       }))),
     });
@@ -141,9 +146,9 @@ export default class NotionDatabase implements IDatabase {
 
     return {
       id: response.id,
-      table: table.table,
+      table: schema.table,
       name: title.text.content,
-      columns: Object.values(response.properties).map(property => this.factory.getProperty(property.type).propertyToColumn(property, table.columns)).filter(NotionDatabase.filterNotUndefined),
+      columns: Object.values(response.properties).map(property => this.factory.getProperty(property.type).propertyToColumn(property, schema.columns)).filter(NotionDatabase.filterNotUndefined),
     };
   }
 

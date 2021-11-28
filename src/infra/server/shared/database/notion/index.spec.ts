@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import type { CreateTableParam, CreateTableColumn } from '$/server/shared/database';
+import type { CreateTableColumn } from '$/server/shared/database';
 import TestEnv from '^/__mocks__/env';
 import { useMockServer, createNotionHandler } from '^/__mocks__/server';
 import NotionDatabase from '.';
@@ -68,19 +68,21 @@ describe('NotionDatabase', () => {
       const database = new NotionDatabase([
         { table: 'tasks', name: 'タスク', columns: commonColumns },
       ], new TestEnv({ NOTION_SECRET: 'secret', NOTION_PARENT_ID: '__block_id__' }));
-      const params = {
-        name: 'タスク',
-        columns: [
-          { name: 'test1', type: 'title' },
-          { name: 'test2', type: 'number' },
-        ],
-      } as CreateTableParam;
 
-      const table = await database.createTable(params);
+      const table = await database.createTable('タスク');
       expect(table.id).toBe('12345678-805e-4279-802d-749613f9f84e');
       expect(table.name).toBe('タスク');
       expect(table.table).toBe('tasks');
       expect(table.columns).toHaveLength(9);
+    });
+
+    it('スキーマ定義がないテーブルを指定したらエラー', async () => {
+      const database = new NotionDatabase([], new TestEnv({
+        NOTION_SECRET: 'secret',
+        NOTION_PARENT_ID: '__block_id__',
+      }));
+
+      await expect(database.createTable('タスク')).rejects.toThrow('定義がありません');
     });
   });
 
@@ -100,23 +102,23 @@ describe('NotionDatabase', () => {
     ]);
 
     it('新しいテーブルを作成する', async () => {
-      const database = new NotionDatabase([{ table: 'a', name: 'a', columns: commonColumns }], new TestEnv({
+      const database = new NotionDatabase([
+        { table: 'a', name: 'a', columns: commonColumns },
+        {
+          table: 'tests', name: 'test', columns: [
+            { name: 'test1', type: 'title' },
+            { name: 'test2', type: 'datetime' },
+            { name: 'test3', type: 'int' },
+            { name: 'test4', type: 'text' },
+            { name: 'test5', type: 'relation', relation: 'a' },
+          ],
+        },
+      ], new TestEnv({
         NOTION_SECRET: 'secret',
         NOTION_PARENT_ID: '__block_id__',
       }));
-      const params = {
-        name: 'test',
-        table: 'tests',
-        columns: [
-          { name: 'test1', type: 'title' },
-          { name: 'test2', type: 'datetime' },
-          { name: 'test3', type: 'int' },
-          { name: 'test4', type: 'text' },
-          { name: 'test5', type: 'relation', relation: 'a' },
-        ],
-      } as CreateTableParam;
 
-      const table = await database.createTable(params);
+      const table = await database.createTable('test');
       expect(table.id).toBe('12345678-805e-4279-802d-749613f9f84e');
       expect(table.name).toBe('test');
       expect(table.table).toBe('tests');

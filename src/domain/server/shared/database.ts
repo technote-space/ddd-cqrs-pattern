@@ -97,7 +97,7 @@ export default interface IDatabase {
 
   getTable(value: string, key: keyof Table): Promise<Table>;
 
-  createTable(table: CreateTableParam): Promise<Table>;
+  createTable(table: string): Promise<Table>;
 
   search<T extends DatabaseRecord>(table: string, params: SearchParams): Promise<{ results: T[]; hasMore: boolean; cursor: string | null }>;
 
