@@ -2,7 +2,7 @@
   "object": "page",
   "id": "12345678-e6cc-4407-8083-cc5827653194",
   "created_time": "2021-11-27T16:17:00.000Z",
-  "last_edited_time": "2021-11-27T16:17:00.000Z",
+  "last_edited_time": "2021-11-27T17:22:00.000Z",
   "cover": null,
   "icon": null,
   "parent": {
@@ -32,7 +32,7 @@
         {
           "type": "text",
           "text": {
-            "content": "おでかけ",
+            "content": "お散歩",
             "link": null
           },
           "annotations": {
@@ -43,7 +43,7 @@
             "code": false,
             "color": "default"
           },
-          "plain_text": "おでかけ",
+          "plain_text": "お散歩",
           "href": null
         }
       ]

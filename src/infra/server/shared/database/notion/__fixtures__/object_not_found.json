@@ -1,0 +1,6 @@
+{
+  "object": "error",
+  "status": 404,
+  "code": "object_not_found",
+  "message": "Could not find block with ID: 12345678-0000-0000-0000-000000000000."
+}

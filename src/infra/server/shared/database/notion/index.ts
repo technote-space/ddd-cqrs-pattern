@@ -1,16 +1,24 @@
 import type IDatabase from '$/server/shared/database';
-import type { DatabaseRecord, SearchParams } from '$/server/shared/database';
-import type { Table, CreateTableParam, TableColumn } from '$/server/shared/database';
+import type {
+  DatabaseRecord,
+  SearchParams,
+  Table,
+  CreateTableParam,
+  TableColumn,
+  CreateData,
+  UpdateData,
+} from '$/server/shared/database';
 import type IEnv from '$/server/shared/env';
 import type {
   CreatePageParameters,
   ListBlockChildrenResponse,
   QueryDatabaseParameters,
   QueryDatabaseResponse,
+  UpdatePageParameters,
 } from '@notionhq/client/build/src/api-endpoints';
 import type { MigrationSchemas } from '^/usecase/migrationUseCase';
-import { Client } from '@notionhq/client';
-import { LogLevel } from '@notionhq/client/build/src';
+import { Client, APIErrorCode, LogLevel } from '@notionhq/client';
+import { APIResponseError } from '@notionhq/client/build/src/errors';
 import { singleton, inject } from 'tsyringe';
 import Factory from './property/factory';
 
@@ -78,6 +86,7 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
   }
 
   public async getTable(value: string, key: keyof Table = 'table'): Promise<Table> {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     return (await this.listTables()).find(t => t[key] === value)!;
   }
 
@@ -110,6 +119,7 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
     });
 
     const title = response.title[0];
+    /* istanbul ignore next */
     if (title.type !== 'text') {
       /* istanbul ignore next */
       throw new Error('サポートされていません');
@@ -175,6 +185,7 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
   }
 
   private async lazyLoadForTable(table: Table, ids: string[]): Promise<Record<string, string>> {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const name = table.columns.find(column => column.type === 'title')!.name;
     const response = await this.client.databases.query({
       database_id: table.id,
@@ -201,6 +212,7 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
         plain_text: string;
       }[];
     };
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const title = Object.keys(response.results[0].properties).find(name => response.results[0].properties[name].type === 'title')!;
     return Object.fromEntries(response.results.map(result => {
       return [result.id, (result.properties[title] as TitleType).title[0].plain_text];
@@ -222,6 +234,7 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
       const table = await this.getTableByName(column.name);
       const ids = results.flatMap(result => {
         const property = result.properties[column.name];
+        /* istanbul ignore next */
         if (property && property.type === 'relation') {
           if (column.multiple) {
             return property.relation.map(relation => relation.id);
@@ -283,29 +296,53 @@ export default class NotionDatabase<T extends DatabaseRecord> implements IDataba
     }
   }
 
-  public async create(table: string, data: Omit<T, 'id'>): Promise<T> {
+  private async getUpdateProperties(table: Table, data: Omit<DatabaseRecord, 'id'>) {
+    return Object.fromEntries(
+      await table.columns
+        .filter(column => column.type !== 'pk' && column.name in data)
+        .reduce(async (prev, column) => {
+          const acc = await prev;
+          return acc.concat([[column.name, await this.factory.getPropertyByColumn(column.type).toPropertyValue(data, column)]]);
+        }, Promise.resolve([] as [string, CreatePageParameters['properties']][])),
+    );
+  }
+
+  public async create(table: string, data: CreateData<T>): Promise<T> {
     const tableInfo = await this.getTable(table);
     const result = await this.client.pages.create({
       parent: {
         database_id: tableInfo.id,
       },
-      properties: Object.fromEntries(await tableInfo.columns
-        .filter(column => column.type !== 'pk' && column.name in data)
-        .reduce(async (prev, column) => {
-          const acc = await prev;
-          return acc.concat([[column.name, await this.factory.getPropertyByColumn(column.type).toPropertyValue(data, column)]]);
-        }, Promise.resolve([] as [string, CreatePageParameters['properties']][]))),
+      properties: await this.getUpdateProperties(tableInfo, data),
     } as CreatePageParameters);
 
     const lazyLoading = await this.lazyLoadForResults(tableInfo, [result]);
     return this.parseResultProperties(result, tableInfo.columns, lazyLoading);
   }
 
-  public update(table: string, data: Partial<T>): Promise<T> {
-    return Promise.resolve(undefined);
+  public async update(table: string, data: UpdateData<T>): Promise<T> {
+    const tableInfo = await this.getTable(table);
+    const result = await this.client.pages.update({
+      page_id: data.id,
+      properties: await this.getUpdateProperties(tableInfo, data),
+    } as UpdatePageParameters);
+
+    const lazyLoading = await this.lazyLoadForResults(tableInfo, [result]);
+    return this.parseResultProperties(result, tableInfo.columns, lazyLoading);
   }
 
-  public delete(table: string, id: string): Promise<void> {
-    return Promise.resolve(undefined);
+  public async delete(table: string, id: string): Promise<boolean> {
+    try {
+      await this.client.blocks.delete({
+        block_id: id,
+      });
+      return true;
+    } catch (error) {
+      if (APIResponseError.isAPIResponseError(error) && error.code === APIErrorCode.ObjectNotFound) {
+        return false;
+      }
+
+      throw error;
+    }
   }
 }

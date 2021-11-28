@@ -120,6 +120,8 @@ describe('NotionDatabase', () => {
       retrieveDatabasesHandler,
       createNotionHandler('get', '/blocks/__block_id__/children', 200, require('./__fixtures__/retrieve_block_children.json')),
       createNotionHandler('post', '/databases/:database_id/query', 200, require('./__fixtures__/query_database_empty.json')),
+      createNotionHandler('delete', '/blocks/12345678-0000-0000-0000-000000000000', 404, require('./__fixtures__/object_not_found.json')),
+      createNotionHandler('delete', '/blocks/12345678-0000-0000-0000-111111111111', 403, {}),
     ]);
 
     it('検索しても結果は空', async () => {
@@ -172,6 +174,24 @@ describe('NotionDatabase', () => {
       expect(result.hasMore).toBe(false);
       expect(result.cursor).toBe(null);
     });
+
+    it('存在しないデータを削除しようとしてもエラーにはならない', async () => {
+      const database = new NotionDatabase(commonSchemas, new TestEnv({
+        NOTION_SECRET: 'secret',
+        NOTION_PARENT_ID: '__block_id__',
+      }));
+      const result = await database.delete('tasks', '12345678-0000-0000-0000-000000000000');
+
+      expect(result).toBe(false);
+    });
+
+    it('404以外のエラーはそのままエラーとして扱う', async () => {
+      const database = new NotionDatabase(commonSchemas, new TestEnv({
+        NOTION_SECRET: 'secret',
+        NOTION_PARENT_ID: '__block_id__',
+      }));
+      await expect(database.delete('tasks', '12345678-0000-0000-0000-111111111111')).rejects.toThrow();
+    });
   });
 
   describe('データが存在', () => {
@@ -183,6 +203,7 @@ describe('NotionDatabase', () => {
       createNotionHandler('post', '/databases/12345678-99ac-4de4-8d2f-f67a6bfc4aeb/query', 200, require('./__fixtures__/query_database_tags.json')),
       createNotionHandler('get', '/pages/12345678-835a-4a19-a988-2e0b7c588d00', 200, require('./__fixtures__/retrieve_page.json')),
       createNotionHandler('get', '/pages/12345678-0000-0000-0000-000000000000', 404, {}),
+      createNotionHandler('delete', '/blocks/12345678-835a-4a19-a988-2e0b7c588d00', 200, {}),
     ]);
 
     it('検索機能が動作する（リレーションのデータも取得できる）', async () => {
@@ -260,6 +281,16 @@ describe('NotionDatabase', () => {
 
       expect(result).toBeNull();
     });
+
+    it('データを削除する', async () => {
+      const database = new NotionDatabase(commonSchemas, new TestEnv({
+        NOTION_SECRET: 'secret',
+        NOTION_PARENT_ID: '__block_id__',
+      }));
+      const result = await database.delete('tasks', '12345678-835a-4a19-a988-2e0b7c588d00');
+
+      expect(result).toBe(true);
+    });
   });
 
   describe('リレーションデータが作成済み', () => {
@@ -284,6 +315,16 @@ describe('NotionDatabase', () => {
           },
         );
       }),
+      createNotionHandler('patch', '/pages/12345678-e6cc-4407-8083-cc5827653194', 200, require('./__fixtures__/update_page_tag.json'), (req) => {
+        expect(req.body).toEqual({
+            properties: {
+              'タグ名': { title: [{ type: 'text', text: { content: 'お散歩' } }] },
+              'ユーザー': { relation: [{ id: '12345678-0386-4822-a079-832269ef6f01' }] },
+            },
+          },
+        );
+      }),
+      createNotionHandler('patch', '/pages/12345678-0000-0000-0000-000000000000', 404, {}),
     ]);
 
     it('データを作成する', async () => {
@@ -303,17 +344,46 @@ describe('NotionDatabase', () => {
       });
 
       expect(result).toEqual({
-          id: '12345678-6f98-43a4-a9fc-c4df60fe1fd6',
-          'タスク名': 'テスト',
-          'タグ': ['テスト', '宿題'],
-          'ユーザー': 'test',
-          'ステータス': '登録',
-          'メモ': 'メモメモ',
-          '作業見積': 10,
-          '作業見積単位': '日',
-          '期日': '2022-01-01T10:00:00.000+09:00',
-        },
-      );
+        id: '12345678-6f98-43a4-a9fc-c4df60fe1fd6',
+        'タスク名': 'テスト',
+        'タグ': ['テスト', '宿題'],
+        'ユーザー': 'test',
+        'ステータス': '登録',
+        'メモ': 'メモメモ',
+        '作業見積': 10,
+        '作業見積単位': '日',
+        '期日': '2022-01-01T10:00:00.000+09:00',
+      });
+    });
+
+    it('データを更新する', async () => {
+      const database = new NotionDatabase(commonSchemas, new TestEnv({
+        NOTION_SECRET: 'secret',
+        NOTION_PARENT_ID: '__block_id__',
+      }));
+      const result = await database.update('tags', {
+        'id': '12345678-e6cc-4407-8083-cc5827653194',
+        'タグ名': 'お散歩',
+        'ユーザー': 'test',
+      });
+
+      expect(result).toEqual({
+        id: '12345678-e6cc-4407-8083-cc5827653194',
+        'タグ名': 'お散歩',
+        'ユーザー': 'test',
+      });
+    });
+
+    it('存在しないデータを更新しようとするとエラーになる', async () => {
+      const database = new NotionDatabase(commonSchemas, new TestEnv({
+        NOTION_SECRET: 'secret',
+        NOTION_PARENT_ID: '__block_id__',
+      }));
+      await expect(database.update('tags', {
+        'id': '12345678-0000-0000-0000-000000000000',
+        'タグ名': 'お散歩',
+        'ユーザー': 'test',
+      })).rejects.toThrow();
     });
   });
 
@@ -379,24 +449,4 @@ describe('NotionDatabase', () => {
       );
     });
   });
-
-  // it('データを作成する', () => {
-  //
-  // });
-  //
-  // it('データを更新する', () => {
-  //
-  // });
-  //
-  // it('存在しないデータを更新しようとするとエラーになる', () => {
-  //
-  // });
-  //
-  // it('データを削除する', () => {
-  //
-  // });
-  //
-  // it('存在しないデータを削除しようとしても何も起こらない', () => {
-  //
-  // });
 });
