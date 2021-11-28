@@ -18,6 +18,10 @@ export default abstract class StringId extends Base<number | string | null, stri
     return super.toOutput();
   }
 
+  public isSetId(): boolean {
+    return this.input !== null && this.input !== undefined;
+  }
+
   public setGeneratedId(id: number | string): void {
     this.reconstruct(id);
   }

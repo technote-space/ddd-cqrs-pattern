@@ -4,6 +4,10 @@ class TestFlags extends Flags<'test1' | 'test2'>() {
   public getName(): string {
     return 'test';
   }
+
+  protected get flagTypes(): ('test1' | 'test2')[] {
+    return ['test1', 'test2'];
+  }
 }
 
 describe('Flags', () => {
@@ -24,5 +28,9 @@ describe('Flags', () => {
 
   it('should validate', () => {
     expect(TestFlags.create('test1').validate()).toBeUndefined();
+  });
+
+  it('should throw error if not included flag', () => {
+    expect(TestFlags.create('test3').validate()).toEqual(['定義されていないフラグです']);
   });
 });
