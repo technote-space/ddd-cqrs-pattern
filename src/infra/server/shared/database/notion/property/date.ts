@@ -1,4 +1,4 @@
-import type { TableColumn, CreateTableColumn, DatabaseRecord } from '$/server/shared/database';
+import type { TableColumn, CreateTableColumn, DatabaseRecord, CreateData } from '$/server/shared/database';
 import type {
   GetDatabaseResponse,
   CreateDatabaseParameters,
@@ -34,7 +34,7 @@ export default class DateProperty extends Base {
     return null;
   }
 
-  public async toPropertyValue(data: Omit<DatabaseRecord, 'id'>, column: TableColumn): Promise<CreatePageParameters['properties']> {
+  public async toPropertyValue(data: CreateData, column: TableColumn): Promise<CreatePageParameters['properties']> {
     return {
       date: {
         start: String(data[column.name]),

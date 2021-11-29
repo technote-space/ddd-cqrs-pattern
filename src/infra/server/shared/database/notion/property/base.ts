@@ -1,4 +1,4 @@
-import type { Table, TableColumn, CreateTableColumn, DatabaseRecord } from '$/server/shared/database';
+import type { Table, TableColumn, CreateTableColumn, DatabaseRecord, CreateData } from '$/server/shared/database';
 import type {
   GetDatabaseResponse,
   CreateDatabaseParameters,
@@ -20,5 +20,5 @@ export default abstract class Base {
 
   public abstract toResultValue(property: QueryDatabaseResponse['results'][number]['properties'][string], column: TableColumn, lazyLoading: Record<string, Record<string, string>>): DatabaseRecord[string];
 
-  public abstract toPropertyValue(data: Omit<DatabaseRecord, 'id'>, column: TableColumn): Promise<CreatePageParameters['properties']>;
+  public abstract toPropertyValue(data: CreateData, column: TableColumn): Promise<CreatePageParameters['properties']>;
 }

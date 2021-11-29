@@ -1,4 +1,4 @@
-import TagName from '$/server/tag/valueObject/tagName';
+import type TagName from '$/server/tag/valueObject/tagName';
 import Base from '$/shared/entity/base';
 import TagId from './valueObject/tagId';
 

@@ -88,9 +88,13 @@ export type SearchParams = {
   cursor?: string;
 };
 export type Primitive = number | string | boolean;
-export type DatabaseRecord = Record<string, Primitive | Primitive[] | null> & { id: string };
-export type CreateData<T extends DatabaseRecord> = Omit<T, 'id'>;
-export type UpdateData<T extends DatabaseRecord> = Omit<T, 'id'> & Pick<T, 'id'>;
+export type Relation = {
+  id: string;
+  value: string;
+};
+export type DatabaseRecord = Record<string, Primitive | Relation | Relation[] | null> & { id: string };
+export type CreateData = Record<string, Primitive | Primitive[] | null>;
+export type UpdateData = CreateData & { id: string };
 
 export default interface IDatabase {
   listTables(): Promise<Table[]>;
@@ -103,9 +107,9 @@ export default interface IDatabase {
 
   find<T extends DatabaseRecord>(table: string, id: string): Promise<T | null>;
 
-  create<T extends DatabaseRecord>(table: string, data: CreateData<T>): Promise<T>;
+  create<T extends DatabaseRecord>(table: string, data: CreateData): Promise<T>;
 
-  update<T extends DatabaseRecord>(table: string, data: UpdateData<T>): Promise<T>;
+  update<T extends DatabaseRecord>(table: string, data: UpdateData): Promise<T>;
 
   delete(table: string, id: string): Promise<boolean>;
 }

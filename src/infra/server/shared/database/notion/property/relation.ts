@@ -1,4 +1,4 @@
-import type { Table, TableColumn, CreateTableColumn, DatabaseRecord } from '$/server/shared/database';
+import type { Table, TableColumn, CreateTableColumn, Relation, CreateData } from '$/server/shared/database';
 import type {
   CreateDatabaseParameters,
   CreatePageParameters,
@@ -54,13 +54,24 @@ export default class RelationProperty extends Base {
     return { relation: { database_id: table.id } };
   }
 
-  public toResultValue(property: QueryDatabaseResponse['results'][number]['properties'][string], column: TableColumn, lazyLoading: Record<string, Record<string, string>>): DatabaseRecord[string] {
+  public toResultValue(property: QueryDatabaseResponse['results'][number]['properties'][string], column: TableColumn, lazyLoading: Record<string, Record<string, string>>): Relation | Relation[] | null {
     /* istanbul ignore next */
     if (property.type === 'relation' && column.type === 'relation' && column.name in lazyLoading) {
       if (column.multiple) {
-        return property.relation.map(relation => lazyLoading[column.name][relation.id] ?? null).filter(item => item !== null);
+        const filterRelation = (item: null | Relation): item is Relation => item !== null;
+        return property.relation.map(relation => {
+          const value = lazyLoading[column.name][relation.id] ?? null;
+          if (value) {
+            return { id: relation.id, value } as Relation;
+          }
+
+          return null;
+        }).filter(filterRelation);
       } else if (property.relation[0].id && property.relation[0].id in lazyLoading[column.name]) {
-        return lazyLoading[column.name][property.relation[0].id];
+        const value = lazyLoading[column.name][property.relation[0].id];
+        if (value) {
+          return { id: property.relation[0].id, value };
+        }
       }
     }
 
@@ -68,7 +79,7 @@ export default class RelationProperty extends Base {
     return null;
   }
 
-  private async getRelationIds(table: Table, values: string[], data: Omit<DatabaseRecord, 'id'>): Promise<string[]> {
+  private async getRelationIds(table: Table, values: string[], data: CreateData): Promise<string[]> {
     const column = table.columns.find(column => column.type === 'title');
     /* istanbul ignore next */
     if (!column) {
@@ -102,7 +113,7 @@ export default class RelationProperty extends Base {
     return searchedIds.concat(createdIds);
   }
 
-  public async toPropertyValue(data: Omit<DatabaseRecord, 'id'>, column: TableColumn): Promise<CreatePageParameters['properties']> {
+  public async toPropertyValue(data: CreateData, column: TableColumn): Promise<CreatePageParameters['properties']> {
     /* istanbul ignore next */
     if (column.type !== 'relation') {
       /* istanbul ignore next */

@@ -1,12 +1,12 @@
-import Tags from '$/server/tag/tags';
-import UserId from '$/server/user/valueObject/userId';
+import type Tags from '$/server/tag/tags';
+import type UserId from '$/server/user/valueObject/userId';
+import type DueDate from './valueObject/dueDate';
+import type Estimate from './valueObject/estimate';
+import type Memo from './valueObject/memo';
+import type Status from './valueObject/status';
+import type TaskName from './valueObject/taskName';
 import Base from '$/shared/entity/base';
-import DueDate from './valueObject/dueDate';
-import Estimate from './valueObject/estimate';
-import Memo from './valueObject/memo';
-import Status from './valueObject/status';
 import TaskId from './valueObject/taskId';
-import TaskName from './valueObject/taskName';
 
 export default class Task extends Base {
   private _taskId!: TaskId;

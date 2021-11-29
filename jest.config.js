@@ -5,6 +5,7 @@ module.exports = {
     '!**/*.d.ts',
     '!**/node_modules/**',
     '!src/pages/**',
+    '!src/bin/**',
     '!**/*.example.*',
   ],
   coveragePathIgnorePatterns: [

@@ -315,7 +315,7 @@ export default class NotionDatabase implements IDatabase {
     }
   }
 
-  private async getUpdateProperties(table: Table, data: Omit<DatabaseRecord, 'id'>) {
+  private async getUpdateProperties(table: Table, data: CreateData) {
     return Object.fromEntries(
       await table.columns
         .filter(column => column.type !== 'pk' && column.name in data)
@@ -326,7 +326,7 @@ export default class NotionDatabase implements IDatabase {
     );
   }
 
-  public async create<T extends DatabaseRecord>(table: string, data: CreateData<T>): Promise<T> {
+  public async create<T extends DatabaseRecord>(table: string, data: CreateData): Promise<T> {
     const tableInfo = await this.getTable(table);
     const result = await this.client.pages.create({
       parent: {
@@ -339,7 +339,7 @@ export default class NotionDatabase implements IDatabase {
     return this.parseResultProperties<T>(result, tableInfo.columns, lazyLoading);
   }
 
-  public async update<T extends DatabaseRecord>(table: string, data: UpdateData<T>): Promise<T> {
+  public async update<T extends DatabaseRecord>(table: string, data: UpdateData): Promise<T> {
     const tableInfo = await this.getTable(table);
     const result = await this.client.pages.update({
       page_id: data.id,

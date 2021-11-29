@@ -1,8 +1,10 @@
 import type IDatabase from '$/server/shared/database';
+import type { Relation } from '$/server/shared/database';
 import type ITaskRepository from '$/server/task/taskRepository';
 import { singleton, inject } from 'tsyringe';
 import Tag from '$/server/tag/tag';
 import Tags from '$/server/tag/tags';
+import TagId from '$/server/tag/valueObject/tagId';
 import TagName from '$/server/tag/valueObject/tagName';
 import Task from '$/server/task/task';
 import DueDate from '$/server/task/valueObject/dueDate';
@@ -19,9 +21,9 @@ type DatabaseType = {
   id: string;
   タスク名: string;
   ステータス: string;
-  タグ: string[];
+  タグ: Relation[];
   メモ: string | null;
-  ユーザー: string;
+  ユーザー: Relation;
   作業見積: number | null;
   作業見積単位: string | null;
   期日: string | null;
@@ -45,13 +47,13 @@ export default class TaskNotionRepository implements ITaskRepository {
       TaskName.create(response.タスク名),
       response.メモ ? Memo.create(response.メモ) : null,
       Status.create(response.ステータス),
-      DueDate.create(response.期日),
+      response.期日 ? DueDate.create(response.期日) : null,
       response.作業見積 && response.作業見積単位 ? Estimate.create({
         value: EstimateValue.create(response.作業見積),
         unit: EstimateUnit.create(response.作業見積単位),
       }) : null,
-      UserId.create(response.ユーザー),
-      Tags.create(response.タグ.map(tag => Tag.create(TagName.create(tag)))),
+      UserId.create(response.ユーザー.id),
+      Tags.create(response.タグ.map(tag => Tag.reconstruct(TagId.create(tag.id), TagName.create(tag.value)))),
     );
   }
 
@@ -73,7 +75,8 @@ export default class TaskNotionRepository implements ITaskRepository {
         ...data,
       });
     } else {
-      await this.database.create<DatabaseType>('tasks', data);
+      const result = await this.database.create<DatabaseType>('tasks', data);
+      task.taskId.setGeneratedId(result.id);
     }
   }
 }
