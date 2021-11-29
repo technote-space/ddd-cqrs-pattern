@@ -15,7 +15,7 @@ import TaskId from '$/server/task/valueObject/taskId';
 import TaskName from '$/server/task/valueObject/taskName';
 import UserId from '$/server/user/valueObject/userId';
 
-type RepositoryType = {
+type DatabaseType = {
   id: string;
   タスク名: string;
   ステータス: string;
@@ -35,7 +35,7 @@ export default class TaskNotionRepository implements ITaskRepository {
   }
 
   public async findById(taskId: TaskId): Promise<Task> {
-    const response = await this.database.find<RepositoryType>('tasks', taskId.value);
+    const response = await this.database.find<DatabaseType>('tasks', taskId.value);
     if (!response) {
       throw new Error('指定されたタスクはありません');
     }
@@ -68,12 +68,12 @@ export default class TaskNotionRepository implements ITaskRepository {
     };
 
     if (task.taskId.isSetId()) {
-      await this.database.update<RepositoryType>('tasks', {
+      await this.database.update<DatabaseType>('tasks', {
         id: task.taskId.value,
         ...data,
       });
     } else {
-      await this.database.create<RepositoryType>('tasks', data);
+      await this.database.create<DatabaseType>('tasks', data);
     }
   }
 }
