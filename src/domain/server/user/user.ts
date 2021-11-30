@@ -23,6 +23,9 @@ export default class User extends Base {
   }
 
   public static create(token: Token): User {
-    return User.reconstruct(UserId.create(null), token);
+    const instance = User.reconstruct(UserId.create(null), token);
+    instance.validate();
+
+    return instance;
   }
 }

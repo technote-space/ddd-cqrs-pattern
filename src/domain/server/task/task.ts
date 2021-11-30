@@ -82,6 +82,9 @@ export default class Task extends Base {
     userId: UserId,
     tags: Tags,
   ): Task {
-    return Task.reconstruct(TaskId.create(null), taskName, memo, status, dueDate, estimate, userId, tags);
+    const instance = Task.reconstruct(TaskId.create(null), taskName, memo, status, dueDate, estimate, userId, tags);
+    instance.validate();
+
+    return instance;
   }
 }
