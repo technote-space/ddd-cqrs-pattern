@@ -27,6 +27,7 @@ describe('Date', () => {
 
   it('should validate', () => {
     expect(TestDate.create('2020-10-20').validate()).toBeUndefined();
+    expect(TestDate.create('2020-10-20T10:00:00+09:00').validate()).toBeUndefined();
     expect(TestDate.create(undefined).validate()).toBeUndefined();
     expect(TestDate.create('abc').validate()).toEqual(['日付の形式が正しくありません']);
   });
