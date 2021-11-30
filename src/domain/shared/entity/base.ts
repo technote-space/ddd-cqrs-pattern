@@ -8,6 +8,7 @@ export default abstract class Base {
   }
 
   public getErrors(): ValidationErrors {
+    const isValidationError = (error: ValidationErrors | undefined): error is ValidationErrors => !!error;
     return Object.assign({}, ...Object.keys(this).map(key => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const member = this[key as keyof this] as any;
@@ -19,8 +20,12 @@ export default abstract class Base {
         }
       }
 
+      if (member && 'validate' in member && 'collections' in member) {
+        return member.validate();
+      }
+
       return undefined;
-    }).filter((error): error is ValidationErrors => !!error));
+    }).filter(isValidationError));
   }
 
   public validate(): void | never {

@@ -1,6 +1,5 @@
 import type { ValidationErrors } from '$/shared/exceptions/validation';
 import type Base from './base';
-import ValidationException from '$/shared/exceptions/validation';
 
 export default function CollectionBase<T extends Base>() {
   interface CollectionBaseStatic<T extends CollectionBase> {
@@ -25,15 +24,17 @@ export default function CollectionBase<T extends Base>() {
       return this._collections;
     }
 
-    public validate(): void | never {
+    public validate(): ValidationErrors | undefined {
       const errors = this.collections.reduce((acc, item, index) => ({
         ...acc,
         ...Object.fromEntries(Object.entries(item.getErrors()).map(([key, value]) => [`${index}: ${key}`, value])),
       }), {} as ValidationErrors);
 
       if (Object.keys(errors).length) {
-        throw new ValidationException(errors);
+        return errors;
       }
+
+      return undefined;
     }
 
     public static create<C extends CollectionBase>(this: CollectionBaseStatic<C>, collections: T[]): C {
