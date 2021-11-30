@@ -2,6 +2,10 @@ import InvalidControl from '$/shared/exceptions/invalidControl';
 import Flags from '$/shared/valueObject/flags';
 
 export default class Status extends Flags<'登録' | '実行中' | '完了' | '削除(登録)' | '削除(実行中)' | '削除(完了)'>() {
+  protected get flagTypes(): ('登録' | '実行中' | '完了' | '削除(登録)' | '削除(実行中)' | '削除(完了)')[] {
+    return ['登録', '実行中', '完了', '削除(登録)', '削除(実行中)', '削除(完了)'];
+  }
+
   public getName(): string {
     return 'ステータス';
   }
