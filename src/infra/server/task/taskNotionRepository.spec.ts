@@ -149,4 +149,14 @@ describe('TaskNotionRepository', () => {
       });
     });
   });
+
+  describe('delete', () => {
+    it('指定されたIDのタスクを削除', async () => {
+      const deleteMock = jest.fn(() => Promise.resolve(true));
+      const repository = new TaskNotionRepository({ delete: deleteMock } as never as IDatabase);
+
+      await repository.delete(TaskId.create('test'));
+      expect(deleteMock).toBeCalledTimes(1);
+    });
+  });
 });

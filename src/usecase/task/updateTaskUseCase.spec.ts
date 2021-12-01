@@ -1,12 +1,26 @@
 import type ITaskRepository from '$/server/task/taskRepository';
+import Tags from '$/server/tag/tags';
+import Task from '$/server/task/task';
+import Status from '$/server/task/valueObject/status';
 import TaskId from '$/server/task/valueObject/taskId';
+import TaskName from '$/server/task/valueObject/taskName';
 import UserId from '$/server/user/valueObject/userId';
 import UpdateTaskUseCase from './updateTaskUseCase';
 
 describe('UpdateTaskUseCase', () => {
   it('タスクを更新する', async () => {
+    const findByIdMock = jest.fn(() => Promise.resolve(Task.reconstruct(
+      TaskId.create('taskId'),
+      TaskName.create('task'),
+      null,
+      Status.create('登録'),
+      null,
+      null,
+      UserId.create('test'),
+      Tags.create([]),
+    )));
     const saveMock = jest.fn(() => Promise.resolve());
-    const useCase = new UpdateTaskUseCase({ save: saveMock } as never as ITaskRepository);
+    const useCase = new UpdateTaskUseCase({ findById: findByIdMock, save: saveMock } as never as ITaskRepository);
 
     const result = await useCase.invoke({ userId: UserId.create('test') }, TaskId.create('taskId'), {
       タスク名: 'task',

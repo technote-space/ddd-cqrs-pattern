@@ -5,4 +5,6 @@ export default interface ITaskRepository {
   findById(taskId: TaskId): Promise<Task>;
 
   save(task: Task): Promise<void>;
+
+  delete(taskId: TaskId): Promise<void>;
 }

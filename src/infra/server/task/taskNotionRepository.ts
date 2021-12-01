@@ -92,4 +92,8 @@ export default class TaskNotionRepository implements ITaskRepository {
       }
     });
   }
+
+  public async delete(taskId: TaskId): Promise<void> {
+    await this.database.delete('tasks', taskId.value);
+  }
 }
