@@ -1,4 +1,5 @@
 import type ITaskRepository from '$/server/task/taskRepository';
+import type TaskId from '$/server/task/valueObject/taskId';
 import type { TaskDto } from './taskDto';
 import type { UserSession } from '^/usecase/shared/userSession';
 import { inject } from 'tsyringe';
@@ -10,8 +11,8 @@ export default class UpdateTaskUseCase {
   ) {
   }
 
-  public async invoke(userSession: UserSession, id: string, data: Omit<TaskDto, 'id'>) {
-    const task = toEntity(userSession.userId, data, id);
+  public async invoke(userSession: UserSession, taskId: TaskId, data: Omit<TaskDto, 'id'>) {
+    const task = toEntity(userSession.userId, data, taskId);
     await this.repository.save(task);
 
     return fromEntity(task);

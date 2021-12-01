@@ -1,3 +1,4 @@
+import type TaskId from '$/server/task/valueObject/taskId';
 import Tag from '$/server/tag/tag';
 import Tags from '$/server/tag/tags';
 import TagName from '$/server/tag/valueObject/tagName';
@@ -8,7 +9,6 @@ import EstimateUnit from '$/server/task/valueObject/estimateUnit';
 import EstimateValue from '$/server/task/valueObject/estimateValue';
 import Memo from '$/server/task/valueObject/memo';
 import Status from '$/server/task/valueObject/status';
-import TaskId from '$/server/task/valueObject/taskId';
 import TaskName from '$/server/task/valueObject/taskName';
 import UserId from '$/server/user/valueObject/userId';
 
@@ -34,7 +34,7 @@ export const fromEntity = (entity: Task): TaskDto => ({
   タグ: entity.tags.collections.map(tag => tag.tagName.value),
 });
 
-export const toEntity = (userId: UserId, data: Omit<TaskDto, 'id'>, id?: string): Task => Task.create(
+export const toEntity = (userId: UserId, data: Omit<TaskDto, 'id'>, taskId?: TaskId): Task => Task.create(
   TaskName.create(data.タスク名),
   data.メモ ? Memo.create(data.メモ) : null,
   Status.create(data.ステータス),
@@ -45,5 +45,5 @@ export const toEntity = (userId: UserId, data: Omit<TaskDto, 'id'>, id?: string)
   }) : null,
   userId,
   Tags.create(data.タグ.map(tag => Tag.create(TagName.create(tag)))),
-  id ? TaskId.create(id) : undefined,
+  taskId,
 );
