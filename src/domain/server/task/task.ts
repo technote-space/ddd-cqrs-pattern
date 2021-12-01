@@ -6,6 +6,7 @@ import type Memo from './valueObject/memo';
 import type Status from './valueObject/status';
 import type TaskName from './valueObject/taskName';
 import Base from '$/shared/entity/base';
+import Forbidden from '$/shared/exceptions/forbidden';
 import TaskId from './valueObject/taskId';
 
 export default class Task extends Base {
@@ -69,7 +70,6 @@ export default class Task extends Base {
     instance._estimate = estimate;
     instance._userId = userId;
     instance._tags = tags;
-    Object.freeze(instance);
 
     return instance;
   }
@@ -82,12 +82,34 @@ export default class Task extends Base {
     estimate: Estimate | null,
     userId: UserId,
     tags: Tags,
-    taskId?: TaskId,
   ): Task {
-    const instance = Task.reconstruct(taskId ?? TaskId.create(null), taskName, memo, status, dueDate, estimate, userId, tags);
+    const instance = Task.reconstruct(TaskId.create(null), taskName, memo, status, dueDate, estimate, userId, tags);
     instance.validate();
-    Object.freeze(instance);
 
     return instance;
+  }
+
+  public update(
+    taskName: TaskName,
+    memo: Memo | null,
+    status: Status,
+    dueDate: DueDate | null,
+    estimate: Estimate | null,
+    tags: Tags,
+  ): void {
+    this._taskName = taskName;
+    this._memo = memo;
+    this._status = status;
+    this._dueDate = dueDate;
+    this._estimate = estimate;
+    this._tags = tags;
+  }
+
+  public updateByEntity(task: Task): void {
+    if (!this.userId.equals(task.userId)) {
+      throw new Forbidden();
+    }
+
+    this.update(task.taskName, task.memo, task.status, task.dueDate, task.estimate, task.tags);
   }
 }
