@@ -13,6 +13,7 @@ import TaskId from '$/server/task/valueObject/taskId';
 import TaskName from '$/server/task/valueObject/taskName';
 import UserId from '$/server/user/valueObject/userId';
 import TaskNotionRepository from '@/server/task/taskNotionRepository';
+import TagId from '$/server/tag/valueObject/tagId';
 
 describe('TaskNotionRepository', () => {
   describe('findById', () => {
@@ -100,12 +101,12 @@ describe('TaskNotionRepository', () => {
           unit: EstimateUnit.create('日'),
         }),
         UserId.create('user'),
-        Tags.create([Tag.create(TagName.create('tag1')), Tag.create(TagName.create('tag2'))]),
+        Tags.create([Tag.create(TagName.create('tag1')), Tag.create(TagName.create('tag2')), Tag.reconstruct(TagId.create('tag3'), TagName.create('tag3'))]),
       );
       await repository.save(task);
       expect(createMock).toBeCalledWith('tasks', {
         ステータス: '登録',
-        タグ: ['tag1', 'tag2'],
+        タグ: ['tag1', 'tag2', 'tag3'],
         タスク名: 'name',
         メモ: 'memo',
         ユーザー: 'user',
@@ -117,6 +118,7 @@ describe('TaskNotionRepository', () => {
       expect(task.tags.collections[0].tagId.isSetId()).toBe(true);
       expect(task.tags.collections[0].tagId.value).toBe('tag-id1');
       expect(task.tags.collections[1].tagId.isSetId()).toBe(false);
+      expect(task.tags.collections[2].tagId.isSetId()).toBe(true);
     });
 
     it('タスクIDがある場合は更新', async () => {
