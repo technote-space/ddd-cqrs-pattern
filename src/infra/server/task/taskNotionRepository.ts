@@ -1,7 +1,7 @@
 import type IDatabase from '$/server/shared/database';
-import type { Relation } from '$/server/shared/database';
+import type { CreateData, Relation } from '$/server/shared/database';
 import type ITaskRepository from '$/server/task/taskRepository';
-import { singleton, inject } from 'tsyringe';
+import { inject, singleton } from 'tsyringe';
 import Tag from '$/server/tag/tag';
 import Tags from '$/server/tag/tags';
 import TagId from '$/server/tag/valueObject/tagId';
@@ -57,6 +57,19 @@ export default class TaskNotionRepository implements ITaskRepository {
     );
   }
 
+  private async store(task: Task, data: CreateData): Promise<DatabaseType> {
+    if (task.taskId.isSetId()) {
+      return this.database.update<DatabaseType>('tasks', {
+        id: task.taskId.value,
+        ...data,
+      });
+    } else {
+      const result = await this.database.create<DatabaseType>('tasks', data);
+      task.taskId.setGeneratedId(result.id);
+      return result;
+    }
+  }
+
   public async save(task: Task): Promise<void> {
     const data = {
       タスク名: task.taskName.value,
@@ -69,14 +82,14 @@ export default class TaskNotionRepository implements ITaskRepository {
       期日: task.dueDate?.value.toISOString() ?? null,
     };
 
-    if (task.taskId.isSetId()) {
-      await this.database.update<DatabaseType>('tasks', {
-        id: task.taskId.value,
-        ...data,
-      });
-    } else {
-      const result = await this.database.create<DatabaseType>('tasks', data);
-      task.taskId.setGeneratedId(result.id);
-    }
+    const result = await this.store(task, data);
+    task.tags.collections.forEach(tag => {
+      if (!tag.tagId.isSetId()) {
+        const found = result.タグ.find(t => t.value === tag.tagName.value);
+        if (found) {
+          tag.tagId.setGeneratedId(found.id);
+        }
+      }
+    });
   }
 }

@@ -84,7 +84,10 @@ describe('TaskNotionRepository', () => {
 
   describe('save', () => {
     it('タスクIDがない場合は新しく作成', async () => {
-      const createMock = jest.fn(() => Promise.resolve({ id: '1234567890' }));
+      const createMock = jest.fn(() => Promise.resolve({
+        id: '1234567890',
+        タグ: [{ value: 'tag1', id: 'tag-id1' }],
+      }));
       const repository = new TaskNotionRepository({ create: createMock } as never as IDatabase);
 
       const task = Task.create(
@@ -111,6 +114,9 @@ describe('TaskNotionRepository', () => {
         期日: '2022-01-01T01:00:00.000Z',
       });
       expect(task.taskId.value).toBe('1234567890');
+      expect(task.tags.collections[0].tagId.isSetId()).toBe(true);
+      expect(task.tags.collections[0].tagId.value).toBe('tag-id1');
+      expect(task.tags.collections[1].tagId.isSetId()).toBe(false);
     });
 
     it('タスクIDがある場合は更新', async () => {

@@ -4,7 +4,7 @@ import User from '$/server/user/user';
 import Token from '$/server/user/valueObject/token';
 import UserId from '$/server/user/valueObject/userId';
 import TestEnv from '^/__mocks__/env';
-import LoginOrRegisterUseCase from './LoginOrRegisterUseCase';
+import LoginOrRegisterUseCase from './loginOrRegisterUseCase';
 
 describe('LoginOrRegisterUseCase', () => {
   it('認証が成功した場合(ユーザー未登録)に新しくユーザーが登録されて有効なJWTトークンが返される', async () => {
