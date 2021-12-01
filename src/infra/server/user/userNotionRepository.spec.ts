@@ -28,6 +28,37 @@ describe('UserNotionRepository', () => {
     });
   });
 
+  describe('findByToken', () => {
+    it('指定されたユーザー識別子のユーザーを取得', async () => {
+      const searchMock = jest.fn(() => Promise.resolve({
+        results: [{
+          id: 'test',
+          ユーザー識別子: 'token',
+        }],
+        hasMore: false,
+        cursor: null,
+      }));
+      const repository = new UserNotionRepository({ search: searchMock } as never as IDatabase);
+
+      const user = await repository.findByToken(Token.create('token'));
+      expect(searchMock).toBeCalledTimes(1);
+      expect(user.userId.value).toBe('test');
+      expect(user.token.value).toBe('token');
+    });
+
+    it('指定されたIDのユーザーが存在しない場合エラー', async () => {
+      const searchMock = jest.fn(() => Promise.resolve({
+        results: [],
+        hasMore: false,
+        cursor: null,
+      }));
+      const repository = new UserNotionRepository({ search: searchMock } as never as IDatabase);
+
+      await expect(repository.findByToken(Token.create('test'))).rejects.toThrow('指定されたユーザーは存在しません');
+      expect(searchMock).toBeCalledTimes(1);
+    });
+  });
+
   describe('save', () => {
     it('ユーザーIDがない場合は新しく作成', async () => {
       const createMock = jest.fn(() => Promise.resolve({ id: '1234567890' }));

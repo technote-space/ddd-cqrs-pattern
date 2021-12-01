@@ -29,6 +29,31 @@ export default class UserNotionRepository implements IUserRepository {
     );
   }
 
+  public async findByToken(token: Token): Promise<User> {
+    const response = await this.database.search<DatabaseType>('users', {
+        filter: [
+          {
+            property: 'ユーザー識別子',
+            condition: {
+              text: {
+                equals: token.value,
+              },
+            },
+          },
+        ],
+      },
+    );
+    if (!response.results.length) {
+      throw new Error('指定されたユーザーは存在しません');
+    }
+
+    const user = response.results[0];
+    return User.reconstruct(
+      UserId.create(user.id),
+      Token.create(user.ユーザー識別子),
+    );
+  }
+
   public async save(user: User): Promise<void> {
     const data = {
       ユーザー識別子: user.token.value,
