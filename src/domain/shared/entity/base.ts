@@ -38,13 +38,13 @@ export default abstract class Base {
   protected checkNotEmpty(property: string): void | never {
     const keys = Object.keys(this);
     if (!keys.includes(property)) {
-      throw new InvalidValueException();
+      throw new InvalidValueException(property, 'プロパティが存在しません');
     }
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const member = this[property as keyof this] as any;
     if (!member || !('value' in member) || !member.value) {
-      throw new InvalidValueException();
+      throw new InvalidValueException(property, 'プロパティの値が空です');
     }
   }
 }

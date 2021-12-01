@@ -31,7 +31,7 @@ export default class Status extends Flags<'登録' | '実行中' | '完了' | '�
       return Status.create('削除(完了)');
     }
 
-    throw new InvalidControl();
+    throw new InvalidControl('すでに削除されています');
   }
 
   public onRestore(): Status | never {
@@ -47,6 +47,6 @@ export default class Status extends Flags<'登録' | '実行中' | '完了' | '�
       return Status.create('完了');
     }
 
-    throw new InvalidControl();
+    throw new InvalidControl('削除されていません');
   }
 }

@@ -12,7 +12,7 @@ export default abstract class StringId extends Base<number | string | null, stri
 
   protected toOutput(): string {
     if (this.inner === null) {
-      throw new InvalidValueException();
+      throw new InvalidValueException(this.getName());
     }
 
     return super.toOutput();
