@@ -2,8 +2,9 @@ import type IAuth from '$/server/shared/auth';
 import type { AuthContents } from '$/server/shared/auth';
 import type IEnv from '$/server/shared/env';
 import fetch from 'node-fetch';
-import { inject } from 'tsyringe';
+import { singleton, inject } from 'tsyringe';
 
+@singleton()
 export default class Auth0 implements IAuth {
   public constructor(
     @inject('IEnv') private env: IEnv,

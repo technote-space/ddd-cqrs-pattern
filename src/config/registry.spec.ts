@@ -27,6 +27,7 @@ describe('tsyringe', () => {
 
     // server
     expect(() => container.resolve('IEnv')).not.toThrow();
+    expect(() => container.resolve('IAuth')).not.toThrow();
     expect(() => container.resolve('IIndexPageProps')).not.toThrow();
     expect(() => container.resolve('MigrationSchemas')).not.toThrow();
     expect(() => container.resolve('IDatabase')).not.toThrow();

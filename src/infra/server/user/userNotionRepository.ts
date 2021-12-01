@@ -29,7 +29,7 @@ export default class UserNotionRepository implements IUserRepository {
     );
   }
 
-  public async findByToken(token: Token): Promise<User> {
+  public async findByToken(token: Token): Promise<User | null> {
     const response = await this.database.search<DatabaseType>('users', {
         filter: [
           {
@@ -44,7 +44,7 @@ export default class UserNotionRepository implements IUserRepository {
       },
     );
     if (!response.results.length) {
-      throw new Error('指定されたユーザーは存在しません');
+      return null;
     }
 
     const user = response.results[0];

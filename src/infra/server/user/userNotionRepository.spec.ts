@@ -42,8 +42,9 @@ describe('UserNotionRepository', () => {
 
       const user = await repository.findByToken(Token.create('token'));
       expect(searchMock).toBeCalledTimes(1);
-      expect(user.userId.value).toBe('test');
-      expect(user.token.value).toBe('token');
+      expect(user).not.toBeNull();
+      expect(user!.userId.value).toBe('test'); // eslint-disable-line @typescript-eslint/no-non-null-assertion
+      expect(user!.token.value).toBe('token'); // eslint-disable-line @typescript-eslint/no-non-null-assertion
     });
 
     it('指定されたIDのユーザーが存在しない場合エラー', async () => {
@@ -54,7 +55,7 @@ describe('UserNotionRepository', () => {
       }));
       const repository = new UserNotionRepository({ search: searchMock } as never as IDatabase);
 
-      await expect(repository.findByToken(Token.create('test'))).rejects.toThrow('指定されたユーザーは存在しません');
+      expect(await repository.findByToken(Token.create('test'))).toBeNull();
       expect(searchMock).toBeCalledTimes(1);
     });
   });
