@@ -21,6 +21,7 @@ describe('CreateTaskUseCase', () => {
       タグ: ['tag1', 'tag2'],
     });
 
+    expect(saveMock).toBeCalledTimes(1);
     expect(result.id).toBe('taskId');
     expect(result.タスク名).toBe('task');
     expect(result.メモ).toBe('memo');

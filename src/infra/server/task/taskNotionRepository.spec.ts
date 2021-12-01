@@ -1,6 +1,7 @@
 import type IDatabase from '$/server/shared/database';
 import Tag from '$/server/tag/tag';
 import Tags from '$/server/tag/tags';
+import TagId from '$/server/tag/valueObject/tagId';
 import TagName from '$/server/tag/valueObject/tagName';
 import Task from '$/server/task/task';
 import DueDate from '$/server/task/valueObject/dueDate';
@@ -13,7 +14,6 @@ import TaskId from '$/server/task/valueObject/taskId';
 import TaskName from '$/server/task/valueObject/taskName';
 import UserId from '$/server/user/valueObject/userId';
 import TaskNotionRepository from '@/server/task/taskNotionRepository';
-import TagId from '$/server/tag/valueObject/tagId';
 
 describe('TaskNotionRepository', () => {
   describe('findById', () => {
