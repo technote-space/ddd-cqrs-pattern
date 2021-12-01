@@ -69,6 +69,7 @@ export default class Task extends Base {
     instance._estimate = estimate;
     instance._userId = userId;
     instance._tags = tags;
+    Object.freeze(instance);
 
     return instance;
   }
@@ -85,6 +86,7 @@ export default class Task extends Base {
   ): Task {
     const instance = Task.reconstruct(taskId ?? TaskId.create(null), taskName, memo, status, dueDate, estimate, userId, tags);
     instance.validate();
+    Object.freeze(instance);
 
     return instance;
   }

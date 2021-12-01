@@ -18,6 +18,7 @@ export default class User extends Base {
     const instance = new this();
     instance._userId = userId;
     instance._token = token;
+    Object.freeze(instance);
 
     return instance;
   }
@@ -25,6 +26,7 @@ export default class User extends Base {
   public static create(token: Token): User {
     const instance = User.reconstruct(UserId.create(null), token);
     instance.validate();
+    Object.freeze(instance);
 
     return instance;
   }
