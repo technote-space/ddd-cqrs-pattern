@@ -1,15 +1,12 @@
 import type IDatabase from '$/server/shared/database';
+import type User from '$/server/user/user';
 import type IUserRepository from '$/server/user/userRepository';
+import type Token from '$/server/user/valueObject/token';
+import type UserId from '$/server/user/valueObject/userId';
+import type { DatabaseType } from './mapper';
 import { singleton, inject } from 'tsyringe';
-import User from '$/server/user/user';
-import Token from '$/server/user/valueObject/token';
-import UserId from '$/server/user/valueObject/userId';
 import NotFound from '$/shared/exceptions/domain/notFound';
-
-type DatabaseType = {
-  id: string;
-  ユーザー識別子: string;
-};
+import Mapper from './mapper';
 
 @singleton()
 export default class UserNotionRepository implements IUserRepository {
@@ -24,10 +21,7 @@ export default class UserNotionRepository implements IUserRepository {
       throw new NotFound('ユーザー', 'users', userId.value);
     }
 
-    return User.reconstruct(
-      UserId.create(response.id),
-      Token.create(response.ユーザー識別子),
-    );
+    return Mapper.toEntity(response);
   }
 
   public async findByToken(token: Token): Promise<User | null> {
@@ -49,10 +43,7 @@ export default class UserNotionRepository implements IUserRepository {
     }
 
     const user = response.results[0];
-    return User.reconstruct(
-      UserId.create(user.id),
-      Token.create(user.ユーザー識別子),
-    );
+    return Mapper.toEntity(user);
   }
 
   public async save(user: User): Promise<void> {

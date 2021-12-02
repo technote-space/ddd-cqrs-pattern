@@ -1,34 +1,12 @@
 import type IDatabase from '$/server/shared/database';
-import type { CreateData, Relation } from '$/server/shared/database';
+import type { CreateData } from '$/server/shared/database';
+import type Task from '$/server/task/task';
 import type ITaskRepository from '$/server/task/taskRepository';
+import type TaskId from '$/server/task/valueObject/taskId';
+import type { DatabaseType } from './mapper';
 import { inject, singleton } from 'tsyringe';
-import Tag from '$/server/tag/tag';
-import Tags from '$/server/tag/tags';
-import TagId from '$/server/tag/valueObject/tagId';
-import TagName from '$/server/tag/valueObject/tagName';
-import Task from '$/server/task/task';
-import DueDate from '$/server/task/valueObject/dueDate';
-import Estimate from '$/server/task/valueObject/estimate';
-import EstimateUnit from '$/server/task/valueObject/estimateUnit';
-import EstimateValue from '$/server/task/valueObject/estimateValue';
-import Memo from '$/server/task/valueObject/memo';
-import Status from '$/server/task/valueObject/status';
-import TaskId from '$/server/task/valueObject/taskId';
-import TaskName from '$/server/task/valueObject/taskName';
-import UserId from '$/server/user/valueObject/userId';
 import NotFound from '$/shared/exceptions/domain/notFound';
-
-type DatabaseType = {
-  id: string;
-  タスク名: string;
-  ステータス: string;
-  タグ: Relation[];
-  メモ: string | null;
-  ユーザー: Relation;
-  作業見積: number | null;
-  作業見積単位: string | null;
-  期日: string | null;
-};
+import Mapper from './mapper';
 
 @singleton()
 export default class TaskNotionRepository implements ITaskRepository {
@@ -43,19 +21,7 @@ export default class TaskNotionRepository implements ITaskRepository {
       throw new NotFound('タスク', 'tasks', taskId.value);
     }
 
-    return Task.reconstruct(
-      TaskId.create(response.id),
-      TaskName.create(response.タスク名),
-      response.メモ ? Memo.create(response.メモ) : null,
-      Status.create(response.ステータス),
-      response.期日 ? DueDate.create(response.期日) : null,
-      response.作業見積 && response.作業見積単位 ? Estimate.create({
-        value: EstimateValue.create(response.作業見積),
-        unit: EstimateUnit.create(response.作業見積単位),
-      }) : null,
-      UserId.create(response.ユーザー.id),
-      Tags.create(response.タグ.map(tag => Tag.reconstruct(TagId.create(tag.id), TagName.create(tag.value)))),
-    );
+    return Mapper.toEntity(response);
   }
 
   private async store(task: Task, data: CreateData): Promise<DatabaseType> {
