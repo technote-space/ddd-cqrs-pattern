@@ -167,16 +167,18 @@ export default class NotionDatabase implements IDatabase {
 
         if ('datetime' in condition) {
           const { past_week, past_month, past_year, next_week, next_month, next_year, ...rest } = condition.datetime;
+          /* istanbul ignore next */
+          const convert = (flag: boolean | undefined, name: string) => flag ? { [name]: {} } : {};
           return {
             property,
             date: {
               ...rest,
-              ...(past_week ? { past_week: {} } : {}),
-              ...(past_month ? { past_month: {} } : {}),
-              ...(past_year ? { past_year: {} } : {}),
-              ...(next_week ? { next_week: {} } : {}),
-              ...(next_month ? { next_month: {} } : {}),
-              ...(next_year ? { next_year: {} } : {}),
+              ...convert(past_week, 'past_week'),
+              ...convert(past_month, 'past_month'),
+              ...convert(past_year, 'past_year'),
+              ...convert(next_week, 'next_week'),
+              ...convert(next_month, 'next_month'),
+              ...convert(next_year, 'next_year'),
             },
           };
         }
