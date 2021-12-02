@@ -18,7 +18,7 @@ import TaskNotionRepository from '@/server/task/taskNotionRepository';
 describe('TaskNotionRepository', () => {
   describe('findById', () => {
     it('指定されたIDのタスクを取得', async () => {
-      const findMock = jest.fn(() => Promise.resolve({
+      const mockFind = jest.fn(() => Promise.resolve({
         id: 'test',
         タスク名: 'タスク',
         ステータス: '登録',
@@ -29,10 +29,10 @@ describe('TaskNotionRepository', () => {
         作業見積単位: '日',
         期日: '2022-01-01T10:00:00+09:00',
       }));
-      const repository = new TaskNotionRepository({ find: findMock } as never as IDatabase);
+      const repository = new TaskNotionRepository({ find: mockFind } as never as IDatabase);
 
       const task = await repository.findById(TaskId.create('test'));
-      expect(findMock).toBeCalledTimes(1);
+      expect(mockFind).toBeCalledTimes(1);
       expect(task.taskId.value).toBe('test');
       expect(task.taskName.value).toBe('タスク');
       expect(task.memo?.value).toBe('メモメモ');
@@ -49,7 +49,7 @@ describe('TaskNotionRepository', () => {
     });
 
     it('null を含む指定されたIDのタスクを取得', async () => {
-      const findMock = jest.fn(() => Promise.resolve({
+      const mockFind = jest.fn(() => Promise.resolve({
         id: 'test',
         タスク名: 'タスク',
         ステータス: '登録',
@@ -60,10 +60,10 @@ describe('TaskNotionRepository', () => {
         作業見積単位: null,
         期日: null,
       }));
-      const repository = new TaskNotionRepository({ find: findMock } as never as IDatabase);
+      const repository = new TaskNotionRepository({ find: mockFind } as never as IDatabase);
 
       const task = await repository.findById(TaskId.create('test'));
-      expect(findMock).toBeCalledTimes(1);
+      expect(mockFind).toBeCalledTimes(1);
       expect(task.taskId.value).toBe('test');
       expect(task.taskName.value).toBe('タスク');
       expect(task.memo).toBeNull();
@@ -75,21 +75,21 @@ describe('TaskNotionRepository', () => {
     });
 
     it('指定されたIDのタスクが存在しない場合エラー', async () => {
-      const findMock = jest.fn(() => Promise.resolve(null));
-      const repository = new TaskNotionRepository({ find: findMock } as never as IDatabase);
+      const mockFind = jest.fn(() => Promise.resolve(null));
+      const repository = new TaskNotionRepository({ find: mockFind } as never as IDatabase);
 
       await expect(repository.findById(TaskId.create('test'))).rejects.toThrow('タスクが見つかりません');
-      expect(findMock).toBeCalledTimes(1);
+      expect(mockFind).toBeCalledTimes(1);
     });
   });
 
   describe('save', () => {
     it('タスクIDがない場合は新しく作成', async () => {
-      const createMock = jest.fn(() => Promise.resolve({
+      const mockCreate = jest.fn(() => Promise.resolve({
         id: '1234567890',
         タグ: [{ value: 'tag1', id: 'tag-id1' }],
       }));
-      const repository = new TaskNotionRepository({ create: createMock } as never as IDatabase);
+      const repository = new TaskNotionRepository({ create: mockCreate } as never as IDatabase);
 
       const task = Task.create(
         TaskName.create('name'),
@@ -104,7 +104,7 @@ describe('TaskNotionRepository', () => {
         Tags.create([Tag.create(TagName.create('tag1')), Tag.create(TagName.create('tag2')), Tag.reconstruct(TagId.create('tag3'), TagName.create('tag3'))]),
       );
       await repository.save(task);
-      expect(createMock).toBeCalledWith('tasks', {
+      expect(mockCreate).toBeCalledWith('tasks', {
         ステータス: '登録',
         タグ: ['tag1', 'tag2', 'tag3'],
         タスク名: 'name',
@@ -122,8 +122,8 @@ describe('TaskNotionRepository', () => {
     });
 
     it('タスクIDがある場合は更新', async () => {
-      const updateMock = jest.fn(() => Promise.resolve(null));
-      const repository = new TaskNotionRepository({ update: updateMock } as never as IDatabase);
+      const mockUpdate = jest.fn(() => Promise.resolve(null));
+      const repository = new TaskNotionRepository({ update: mockUpdate } as never as IDatabase);
 
       const task = Task.reconstruct(
         TaskId.create('id'),
@@ -136,7 +136,7 @@ describe('TaskNotionRepository', () => {
         Tags.create([]),
       );
       await repository.save(task);
-      expect(updateMock).toBeCalledWith('tasks', {
+      expect(mockUpdate).toBeCalledWith('tasks', {
         id: 'id',
         ステータス: '登録',
         タグ: [],
@@ -152,11 +152,11 @@ describe('TaskNotionRepository', () => {
 
   describe('delete', () => {
     it('指定されたIDのタスクを削除', async () => {
-      const deleteMock = jest.fn(() => Promise.resolve(true));
-      const repository = new TaskNotionRepository({ delete: deleteMock } as never as IDatabase);
+      const mockDelete = jest.fn(() => Promise.resolve(true));
+      const repository = new TaskNotionRepository({ delete: mockDelete } as never as IDatabase);
 
       await repository.delete(TaskId.create('test'));
-      expect(deleteMock).toBeCalledTimes(1);
+      expect(mockDelete).toBeCalledTimes(1);
     });
   });
 });

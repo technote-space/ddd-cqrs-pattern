@@ -9,7 +9,7 @@ import UpdateTaskUseCase from './updateTaskUseCase';
 
 describe('UpdateTaskUseCase', () => {
   it('タスクを更新する', async () => {
-    const findByIdMock = jest.fn(() => Promise.resolve(Task.reconstruct(
+    const mockFindById = jest.fn(() => Promise.resolve(Task.reconstruct(
       TaskId.create('taskId'),
       TaskName.create('task'),
       null,
@@ -19,8 +19,8 @@ describe('UpdateTaskUseCase', () => {
       UserId.create('test'),
       Tags.create([]),
     )));
-    const saveMock = jest.fn(() => Promise.resolve());
-    const useCase = new UpdateTaskUseCase({ findById: findByIdMock, save: saveMock } as never as ITaskRepository);
+    const mockSave = jest.fn(() => Promise.resolve());
+    const useCase = new UpdateTaskUseCase({ findById: mockFindById, save: mockSave } as never as ITaskRepository);
 
     const result = await useCase.invoke({ userId: UserId.create('test') }, TaskId.create('taskId'), {
       タスク名: 'task',
@@ -32,7 +32,8 @@ describe('UpdateTaskUseCase', () => {
       タグ: [],
     });
 
-    expect(saveMock).toBeCalledTimes(1);
+    expect(mockFindById).toBeCalledTimes(1);
+    expect(mockSave).toBeCalledTimes(1);
     expect(result.id).toBe('taskId');
     expect(result.タスク名).toBe('task');
     expect(result.メモ).toBeNull();

@@ -9,7 +9,7 @@ import DeleteTaskUseCase from './deleteTaskUseCase';
 
 describe('DeleteTaskUseCase', () => {
   it('タスクを削除する', async () => {
-    const findByIdMock = jest.fn(() => Promise.resolve(Task.reconstruct(
+    const mockFindById = jest.fn(() => Promise.resolve(Task.reconstruct(
       TaskId.create('taskId'),
       TaskName.create('task'),
       null,
@@ -19,13 +19,13 @@ describe('DeleteTaskUseCase', () => {
       UserId.create('test'),
       Tags.create([]),
     )));
-    const deleteMock = jest.fn(() => Promise.resolve());
-    const useCase = new DeleteTaskUseCase({ findById: findByIdMock, delete: deleteMock } as never as ITaskRepository);
+    const mockDelete = jest.fn(() => Promise.resolve());
+    const useCase = new DeleteTaskUseCase({ findById: mockFindById, delete: mockDelete } as never as ITaskRepository);
 
     const result = await useCase.invoke({ userId: UserId.create('test') }, TaskId.create('taskId'));
 
-    expect(findByIdMock).toBeCalledTimes(1);
-    expect(deleteMock).toBeCalledTimes(1);
+    expect(mockFindById).toBeCalledTimes(1);
+    expect(mockDelete).toBeCalledTimes(1);
     expect(result.id).toBe('taskId');
     expect(result.タスク名).toBe('task');
     expect(result.メモ).toBeNull();
@@ -37,7 +37,7 @@ describe('DeleteTaskUseCase', () => {
   });
 
   it('異なるユーザーのタスクを削除しようとするとエラー', async () => {
-    const findByIdMock = jest.fn(() => Promise.resolve(Task.reconstruct(
+    const mockFindById = jest.fn(() => Promise.resolve(Task.reconstruct(
       TaskId.create('taskId'),
       TaskName.create('task'),
       null,
@@ -47,12 +47,12 @@ describe('DeleteTaskUseCase', () => {
       UserId.create('test'),
       Tags.create([]),
     )));
-    const deleteMock = jest.fn(() => Promise.resolve());
-    const useCase = new DeleteTaskUseCase({ findById: findByIdMock, delete: deleteMock } as never as ITaskRepository);
+    const mockDelete = jest.fn(() => Promise.resolve());
+    const useCase = new DeleteTaskUseCase({ findById: mockFindById, delete: mockDelete } as never as ITaskRepository);
 
     await expect(useCase.invoke({ userId: UserId.create('test2') }, TaskId.create('taskId'))).rejects.toThrow('Forbidden');
 
-    expect(findByIdMock).toBeCalledTimes(1);
-    expect(deleteMock).not.toBeCalled();
+    expect(mockFindById).toBeCalledTimes(1);
+    expect(mockDelete).not.toBeCalled();
   });
 });

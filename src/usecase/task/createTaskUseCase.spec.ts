@@ -5,11 +5,11 @@ import CreateTaskUseCase from './createTaskUseCase';
 
 describe('CreateTaskUseCase', () => {
   it('新しくタスクを追加する', async () => {
-    const saveMock = jest.fn((task: Task) => {
+    const mockSave = jest.fn((task: Task) => {
       task.taskId.setGeneratedId('taskId');
       return Promise.resolve();
     });
-    const useCase = new CreateTaskUseCase({ save: saveMock } as never as ITaskRepository);
+    const useCase = new CreateTaskUseCase({ save: mockSave } as never as ITaskRepository);
 
     const result = await useCase.invoke({ userId: UserId.create('test') }, {
       タスク名: 'task',
@@ -21,7 +21,7 @@ describe('CreateTaskUseCase', () => {
       タグ: ['tag1', 'tag2'],
     });
 
-    expect(saveMock).toBeCalledTimes(1);
+    expect(mockSave).toBeCalledTimes(1);
     expect(result.id).toBe('taskId');
     expect(result.タスク名).toBe('task');
     expect(result.メモ).toBe('memo');
