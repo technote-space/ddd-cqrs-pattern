@@ -20,7 +20,7 @@ import type { MigrationSchemas } from '^/usecase/migrationUseCase';
 import { Client, APIErrorCode, LogLevel } from '@notionhq/client';
 import { APIResponseError } from '@notionhq/client/build/src/errors';
 import { singleton, inject } from 'tsyringe';
-import InvalidUsage from '$/shared/exceptions/invalidUsage';
+import InvalidUsage from '$/shared/exceptions/domain/invalidUsage';
 import Factory from './property/factory';
 
 @singleton()

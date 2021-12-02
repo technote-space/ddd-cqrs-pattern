@@ -1,7 +1,7 @@
 import type { TableColumn } from '$/server/shared/database';
 import type Base from './base';
 import type { GetDatabaseResponse } from '@notionhq/client/build/src/api-endpoints';
-import InvalidUsage from '$/shared/exceptions/invalidUsage';
+import InvalidUsage from '$/shared/exceptions/domain/invalidUsage';
 import NotionDatabase from '..';
 import DateProperty from './date';
 import NumberProperty from './number';

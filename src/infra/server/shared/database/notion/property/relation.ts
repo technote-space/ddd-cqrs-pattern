@@ -4,7 +4,7 @@ import type {
   CreatePageParameters,
   QueryDatabaseResponse,
 } from '@notionhq/client/build/src/api-endpoints';
-import InvalidUsage from '$/shared/exceptions/invalidUsage';
+import InvalidUsage from '$/shared/exceptions/domain/invalidUsage';
 import Base from './base';
 
 type PropertyType = {

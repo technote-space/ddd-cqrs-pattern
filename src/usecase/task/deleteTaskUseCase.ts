@@ -2,7 +2,7 @@ import type ITaskRepository from '$/server/task/taskRepository';
 import type TaskId from '$/server/task/valueObject/taskId';
 import type { UserSession } from '^/usecase/shared/userSession';
 import { inject } from 'tsyringe';
-import Forbidden from '$/shared/exceptions/forbidden';
+import Forbidden from '$/shared/exceptions/http/forbidden';
 import { fromEntity } from '^/usecase/task/taskDto';
 
 export default class DeleteTaskUseCase {

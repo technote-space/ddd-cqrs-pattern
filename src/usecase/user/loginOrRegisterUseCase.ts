@@ -5,7 +5,7 @@ import { sign } from 'jsonwebtoken';
 import { inject } from 'tsyringe';
 import User from '$/server/user/user';
 import Token from '$/server/user/valueObject/token';
-import Unauthorized from '$/shared/exceptions/unauthorized';
+import Unauthorized from '$/shared/exceptions/http/unauthorized';
 
 export default class LoginOrRegisterUseCase {
   public constructor(

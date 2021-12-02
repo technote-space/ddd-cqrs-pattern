@@ -1,4 +1,4 @@
-export default class HttpException extends Error {
+export default class Exception extends Error {
   public constructor(message: string, public readonly code: number) {
     super(message);
   }

@@ -1,5 +1,5 @@
 import type IEnv from '$/server/shared/env';
-import InvalidUsage from '$/shared/exceptions/invalidUsage';
+import InvalidUsage from '$/shared/exceptions/domain/invalidUsage';
 
 export default class Env implements IEnv {
   public getValue(key: string): string | never {

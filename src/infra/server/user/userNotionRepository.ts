@@ -4,7 +4,7 @@ import { singleton, inject } from 'tsyringe';
 import User from '$/server/user/user';
 import Token from '$/server/user/valueObject/token';
 import UserId from '$/server/user/valueObject/userId';
-import NotFound from '$/shared/exceptions/notFound';
+import NotFound from '$/shared/exceptions/domain/notFound';
 
 type DatabaseType = {
   id: string;

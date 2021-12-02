@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 // to avoid "Static members cannot reference class type parameters." error
-import InvalidUsage from '$/shared/exceptions/invalidUsage';
+import InvalidUsage from '$/shared/exceptions/domain/invalidUsage';
 
 export default function Base<Input, Output, Inner = Output>() { // eslint-disable-line @typescript-eslint/explicit-module-boundary-types
   interface BaseStatic<T extends Base> {

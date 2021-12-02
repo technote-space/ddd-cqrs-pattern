@@ -1,6 +1,6 @@
-import type { ValidationErrors } from '$/shared/exceptions/validation';
-import InvalidValueException from '$/shared/exceptions/invalidValue';
-import ValidationException from '$/shared/exceptions/validation';
+import type { ValidationErrors } from '$/shared/exceptions/domain/validation';
+import InvalidValueException from '$/shared/exceptions/domain/invalidValue';
+import ValidationException from '$/shared/exceptions/domain/validation';
 
 export default abstract class Base {
   protected constructor() {

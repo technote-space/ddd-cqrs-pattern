@@ -1,4 +1,4 @@
-import InvalidValueException from '$/shared/exceptions/invalidValue';
+import InvalidValueException from '$/shared/exceptions/domain/invalidValue';
 import Base from './base';
 
 export default abstract class StringId extends Base<number | string | null, string, string | null>() {

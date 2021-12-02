@@ -6,7 +6,7 @@ import type Memo from './valueObject/memo';
 import type Status from './valueObject/status';
 import type TaskName from './valueObject/taskName';
 import Base from '$/shared/entity/base';
-import Forbidden from '$/shared/exceptions/forbidden';
+import Forbidden from '$/shared/exceptions/http/forbidden';
 import TaskId from './valueObject/taskId';
 
 export default class Task extends Base {

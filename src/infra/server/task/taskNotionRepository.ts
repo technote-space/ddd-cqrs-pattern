@@ -16,7 +16,7 @@ import Status from '$/server/task/valueObject/status';
 import TaskId from '$/server/task/valueObject/taskId';
 import TaskName from '$/server/task/valueObject/taskName';
 import UserId from '$/server/user/valueObject/userId';
-import NotFound from '$/shared/exceptions/notFound';
+import NotFound from '$/shared/exceptions/domain/notFound';
 
 type DatabaseType = {
   id: string;

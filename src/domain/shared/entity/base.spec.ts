@@ -1,4 +1,4 @@
-import type ValidationException from '$/shared/exceptions/validation';
+import type ValidationException from '$/shared/exceptions/domain/validation';
 import Text from '$/shared/valueObject/text';
 import Base from './base';
 

@@ -1,6 +1,6 @@
-import type { ValidationErrors } from '$/shared/exceptions/validation';
+import type { ValidationErrors } from '$/shared/exceptions/domain/validation';
 import type Base from './base';
-import InvalidUsage from '$/shared/exceptions/invalidUsage';
+import InvalidUsage from '$/shared/exceptions/domain/invalidUsage';
 
 export default function CollectionBase<T extends Base>() {
   interface CollectionBaseStatic<T extends CollectionBase> {
