@@ -31,5 +31,6 @@ describe('tsyringe', () => {
     expect(() => container.resolve('IIndexPageProps')).not.toThrow();
     expect(() => container.resolve('MigrationSchemas')).not.toThrow();
     expect(() => container.resolve('IDatabase')).not.toThrow();
+    expect(() => container.resolve('ITaskNotionQueryService')).not.toThrow();
   });
 });
