@@ -20,6 +20,7 @@ import type { MigrationSchemas } from '^/usecase/migrationUseCase';
 import { Client, APIErrorCode, LogLevel } from '@notionhq/client';
 import { APIResponseError } from '@notionhq/client/build/src/errors';
 import { singleton, inject } from 'tsyringe';
+import InvalidUsage from '$/shared/exceptions/invalidUsage';
 import Factory from './property/factory';
 
 @singleton()
@@ -117,7 +118,7 @@ export default class NotionDatabase implements IDatabase {
 
     const schema = this.schemas.find(schema => schema.table === table);
     if (!schema) {
-      throw new Error('定義がありません');
+      throw new InvalidUsage(`schema定義がありません: ${table}`);
     }
 
     const response = await this.client.databases.create({
@@ -140,7 +141,7 @@ export default class NotionDatabase implements IDatabase {
     /* istanbul ignore next */
     if (title.type !== 'text') {
       /* istanbul ignore next */
-      throw new Error('サポートされていません');
+      throw new InvalidUsage('サポートされていないフォーマットです');
     }
 
     NotionDatabase.$cache = undefined;

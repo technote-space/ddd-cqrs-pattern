@@ -23,7 +23,7 @@ describe('UserNotionRepository', () => {
       const findMock = jest.fn(() => Promise.resolve(null));
       const repository = new UserNotionRepository({ find: findMock } as never as IDatabase);
 
-      await expect(repository.findById(UserId.create('test'))).rejects.toThrow('指定されたユーザーは存在しません');
+      await expect(repository.findById(UserId.create('test'))).rejects.toThrow('ユーザーが見つかりません');
       expect(findMock).toBeCalledTimes(1);
     });
   });

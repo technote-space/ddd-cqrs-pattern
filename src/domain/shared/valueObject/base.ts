@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 // to avoid "Static members cannot reference class type parameters." error
+import InvalidUsage from '$/shared/exceptions/invalidUsage';
+
 export default function Base<Input, Output, Inner = Output>() { // eslint-disable-line @typescript-eslint/explicit-module-boundary-types
   interface BaseStatic<T extends Base> {
     new(): T;
@@ -19,7 +21,7 @@ export default function Base<Input, Output, Inner = Output>() { // eslint-disabl
      */
     public constructor() {
       if (!Base._isCreating) {
-        throw new Error();
+        throw new InvalidUsage('create経由で生成してください');
       }
     }
 

@@ -1,5 +1,6 @@
 import type { ValidationErrors } from '$/shared/exceptions/validation';
 import type Base from './base';
+import InvalidUsage from '$/shared/exceptions/invalidUsage';
 
 export default function CollectionBase<T extends Base>() {
   interface CollectionBaseStatic<T extends CollectionBase> {
@@ -16,7 +17,7 @@ export default function CollectionBase<T extends Base>() {
      */
     public constructor() {
       if (!CollectionBase._isCreating) {
-        throw new Error();
+        throw new InvalidUsage('create経由で生成してください');
       }
     }
 

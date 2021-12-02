@@ -78,7 +78,7 @@ describe('TaskNotionRepository', () => {
       const findMock = jest.fn(() => Promise.resolve(null));
       const repository = new TaskNotionRepository({ find: findMock } as never as IDatabase);
 
-      await expect(repository.findById(TaskId.create('test'))).rejects.toThrow('指定されたタスクはありません');
+      await expect(repository.findById(TaskId.create('test'))).rejects.toThrow('タスクが見つかりません');
       expect(findMock).toBeCalledTimes(1);
     });
   });

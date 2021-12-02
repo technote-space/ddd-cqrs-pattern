@@ -4,6 +4,7 @@ import type {
   CreatePageParameters,
   QueryDatabaseResponse,
 } from '@notionhq/client/build/src/api-endpoints';
+import InvalidUsage from '$/shared/exceptions/invalidUsage';
 import Base from './base';
 
 type PropertyType = {
@@ -48,7 +49,7 @@ export default class RelationProperty extends Base {
     /* istanbul ignore next */
     if (!table) {
       /* istanbul ignore next */
-      throw new Error('リレーション先が見つかりません');
+      throw new InvalidUsage(`リレーション先が見つかりません: ${column.relation}`);
     }
 
     return { relation: { database_id: table.id } };
@@ -84,7 +85,7 @@ export default class RelationProperty extends Base {
     /* istanbul ignore next */
     if (!column) {
       /* istanbul ignore next */
-      throw new Error('サポートされていません');
+      throw new InvalidUsage(`サポートされていません: ${table.name}`);
     }
 
     const searched = await this.database.search(table.table, {
@@ -117,7 +118,7 @@ export default class RelationProperty extends Base {
     /* istanbul ignore next */
     if (column.type !== 'relation') {
       /* istanbul ignore next */
-      throw new Error('サポートされていません');
+      throw new InvalidUsage(`サポートされていません: ${column.type}`);
     }
 
     const table = await this.database.getTable(column.relation_id, 'id');

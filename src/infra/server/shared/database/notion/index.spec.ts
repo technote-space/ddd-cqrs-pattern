@@ -82,7 +82,7 @@ describe('NotionDatabase', () => {
         NOTION_PARENT_ID: '__block_id__',
       }));
 
-      await expect(database.createTable('tasks')).rejects.toThrow('定義がありません');
+      await expect(database.createTable('tasks')).rejects.toThrow('使用方法が正しくありません');
     });
   });
 

@@ -1,6 +1,7 @@
 import type { TableColumn } from '$/server/shared/database';
 import type Base from './base';
 import type { GetDatabaseResponse } from '@notionhq/client/build/src/api-endpoints';
+import InvalidUsage from '$/shared/exceptions/invalidUsage';
 import NotionDatabase from '..';
 import DateProperty from './date';
 import NumberProperty from './number';
@@ -26,7 +27,7 @@ export default class Factory {
     /* istanbul ignore next */
     if (!property) {
       /* istanbul ignore next */
-      throw new Error('サポートされていません');
+      throw new InvalidUsage(`サポートされていません: ${type}`);
     }
 
     return property;
@@ -37,7 +38,7 @@ export default class Factory {
     /* istanbul ignore next */
     if (!property) {
       /* istanbul ignore next */
-      throw new Error('サポートされていません');
+      throw new InvalidUsage(`サポートされていません: ${type}`);
     }
 
     return property;

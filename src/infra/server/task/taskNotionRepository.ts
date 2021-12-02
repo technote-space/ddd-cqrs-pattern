@@ -16,6 +16,7 @@ import Status from '$/server/task/valueObject/status';
 import TaskId from '$/server/task/valueObject/taskId';
 import TaskName from '$/server/task/valueObject/taskName';
 import UserId from '$/server/user/valueObject/userId';
+import NotFound from '$/shared/exceptions/notFound';
 
 type DatabaseType = {
   id: string;
@@ -39,7 +40,7 @@ export default class TaskNotionRepository implements ITaskRepository {
   public async findById(taskId: TaskId): Promise<Task> {
     const response = await this.database.find<DatabaseType>('tasks', taskId.value);
     if (!response) {
-      throw new Error('指定されたタスクはありません');
+      throw new NotFound('タスク', 'tasks', taskId.value);
     }
 
     return Task.reconstruct(

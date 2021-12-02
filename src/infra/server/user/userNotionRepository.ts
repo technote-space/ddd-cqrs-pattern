@@ -4,6 +4,7 @@ import { singleton, inject } from 'tsyringe';
 import User from '$/server/user/user';
 import Token from '$/server/user/valueObject/token';
 import UserId from '$/server/user/valueObject/userId';
+import NotFound from '$/shared/exceptions/notFound';
 
 type DatabaseType = {
   id: string;
@@ -20,7 +21,7 @@ export default class UserNotionRepository implements IUserRepository {
   public async findById(userId: UserId): Promise<User> {
     const response = await this.database.find<DatabaseType>('users', userId.value);
     if (!response) {
-      throw new Error('指定されたユーザーは存在しません');
+      throw new NotFound('ユーザー', 'users', userId.value);
     }
 
     return User.reconstruct(

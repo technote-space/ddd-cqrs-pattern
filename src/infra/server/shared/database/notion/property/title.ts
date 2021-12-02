@@ -5,6 +5,7 @@ import type {
   CreatePageParameters,
   QueryDatabaseResponse,
 } from '@notionhq/client/build/src/api-endpoints';
+import InvalidUsage from '$/shared/exceptions/invalidUsage';
 import Base from './base';
 
 export default class TitleProperty extends Base {
@@ -31,7 +32,7 @@ export default class TitleProperty extends Base {
     }
 
     /* istanbul ignore next */
-    throw new Error('サポートされていません');
+    throw new InvalidUsage(`サポートされていません: ${property.type}`);
   }
 
   public async toPropertyValue(data: CreateData, column: TableColumn): Promise<CreatePageParameters['properties']> {
