@@ -10,6 +10,6 @@ export type ValidationErrors = {
 
 export default class ValidationException extends Exception {
   public constructor(public readonly errors?: ValidationErrors) {
-    super('バリデーションエラーが発生しました', errors);
+    super(422, 'バリデーションエラーが発生しました', errors);
   }
 }
