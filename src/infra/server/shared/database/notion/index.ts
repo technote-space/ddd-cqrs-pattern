@@ -308,6 +308,10 @@ export default class NotionDatabase implements IDatabase {
   }
 
   public async find<T extends DatabaseRecord>(table: string, id: string): Promise<T | null> {
+    if (!id) {
+      return null;
+    }
+
     const tableInfo = await this.getTable(table);
     try {
       const result = await this.client.pages.retrieve({ page_id: id });
@@ -354,6 +358,10 @@ export default class NotionDatabase implements IDatabase {
   }
 
   public async delete(table: string, id: string): Promise<boolean> {
+    if (!id) {
+      return false;
+    }
+
     try {
       await this.client.blocks.delete({
         block_id: id,

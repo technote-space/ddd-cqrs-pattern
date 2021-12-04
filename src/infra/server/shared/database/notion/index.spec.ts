@@ -327,6 +327,26 @@ describe('NotionDatabase', () => {
 
       expect(result).toBe(true);
     });
+
+    it('空のIDでデータを取得しようとすると null が返る', async () => {
+      const database = new NotionDatabase([], new TestEnv({
+        NOTION_SECRET: 'secret',
+        NOTION_PARENT_ID: '__block_id__',
+      }));
+      const result = await database.find('tasks', '');
+
+      expect(result).toBeNull();
+    });
+
+    it('空のIDでデータを削除しようとしてもエラーにはならない', async () => {
+      const database = new NotionDatabase([], new TestEnv({
+        NOTION_SECRET: 'secret',
+        NOTION_PARENT_ID: '__block_id__',
+      }));
+      const result = await database.delete('tasks', '');
+
+      expect(result).toBe(false);
+    });
   });
 
   describe('リレーションデータが作成済み', () => {
