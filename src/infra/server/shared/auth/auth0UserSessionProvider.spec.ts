@@ -15,4 +15,16 @@ describe('Auth0UserSessionProvider', () => {
     expect(mockVerify).toBeCalledWith('token', 'secret');
     expect(userSession.userId.value).toBe('user-id');
   });
+
+  it('authorization が空の場合にエラー', async () => {
+    const mockVerify = jest.fn(() => ({
+      userId: 'user-id',
+    }));
+    const sessionProvider = new Auth0UserSessionProvider(new TestEnv({ JWT_SECRET: 'secret' }), {
+      verify: mockVerify,
+    } as never as IJwt<any>); // eslint-disable-line @typescript-eslint/no-explicit-any
+
+    await expect(sessionProvider.getUserSession()).rejects.toThrow('Unauthorized');
+    expect(mockVerify).not.toBeCalled();
+  });
 });
