@@ -1,5 +1,6 @@
 import type { MigrationSchemas } from '^/usecase/migrationUseCase';
 import { container } from 'tsyringe';
+import Auth0UserSessionProvider from '@/server/shared/auth/auth0UserSessionProvider';
 import Auth0auth from '@/server/shared/auth/auth0auth';
 import NotionDatabase from '@/server/shared/database/notion';
 import Env from '@/server/shared/env';
@@ -13,8 +14,9 @@ import taskSchema from '../../schema/task.json';
 import userSchema from '../../schema/user.json';
 
 container.registerSingleton('IEnv', Env);
-container.registerSingleton('IAuth', Auth0auth);
 container.registerSingleton('IJwt', JsonwebtokenJwt);
+container.registerSingleton('IAuth', Auth0auth);
+container.registerSingleton('IUserSessionProvider', Auth0UserSessionProvider);
 
 // pages
 container.registerSingleton('IIndexPageProps', IndexPageProps);
