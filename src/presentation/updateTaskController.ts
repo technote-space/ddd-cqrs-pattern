@@ -17,9 +17,9 @@ export default class UpdateTaskController extends BaseController<TaskDto, Update
   }
 
   protected async execute(request: Request<UpdateData>): Promise<Result<TaskDto> | void> {
-    const userSession = await this.userSessionProvider.getUserSession(request.headers['authorization']);
+    const userSession = await this.userSessionProvider.getUserSession(request.headers?.authorization);
     return {
-      data: await this.useCase.invoke(userSession, TaskId.create(request.query['taskId'] as string), request.body),
+      data: await this.useCase.invoke(userSession, TaskId.create(request.query?.taskId as string), request.body),
     };
   }
 }

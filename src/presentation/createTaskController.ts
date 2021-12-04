@@ -16,7 +16,7 @@ export default class CreateTaskController extends BaseController<TaskDto, Create
   }
 
   protected async execute(request: Request<CreateData>): Promise<Result<TaskDto> | void> {
-    const userSession = await this.userSessionProvider.getUserSession(request.headers['authorization']);
+    const userSession = await this.userSessionProvider.getUserSession(request.headers?.authorization);
     return {
       status: 201,
       data: await this.useCase.invoke(userSession, request.body),

@@ -16,9 +16,9 @@ export default class DeleteTaskController extends BaseController<TaskDto> {
   }
 
   protected async execute(request: Request): Promise<Result<TaskDto> | void> {
-    const userSession = await this.userSessionProvider.getUserSession(request.headers['authorization']);
+    const userSession = await this.userSessionProvider.getUserSession(request.headers?.authorization);
     return {
-      data: await this.useCase.invoke(userSession, TaskId.create(request.query['taskId'] as string)),
+      data: await this.useCase.invoke(userSession, TaskId.create(request.query?.taskId as string)),
     };
   }
 }

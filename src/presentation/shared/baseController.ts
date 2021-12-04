@@ -5,10 +5,10 @@ import HttpException from '$/shared/exceptions/http/exception';
 export type BodyType = Record<string, any> | undefined;
 // eslint-disable-next-line @typescript-eslint/ban-types
 export type Request<Body extends BodyType = undefined> = (Body extends undefined ? {} : { body: Body; }) & {
-  query: {
+  query?: {
     [key: string]: string | string[];
   };
-  headers: {
+  headers?: {
     [key: string]: string;
   };
 };
