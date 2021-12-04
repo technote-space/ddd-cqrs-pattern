@@ -4,6 +4,8 @@ import Auth0 from '@/server/shared/auth/auth0';
 import NotionDatabase from '@/server/shared/database/notion';
 import Env from '@/server/shared/env';
 import NotionTaskQueryService from '@/server/task/notionTaskQueryService';
+import NotionTaskRepository from '@/server/task/notionTaskRepository';
+import NotionUserRepository from '@/server/user/notionUserRepository';
 import { IndexPageProps } from '@/web/pages/index/server';
 import tagSchema from '../../schema/tag.json';
 import taskSchema from '../../schema/task.json';
@@ -20,4 +22,6 @@ container.registerInstance('MigrationSchemas', [userSchema, tagSchema, taskSchem
 
 // database
 container.registerSingleton('IDatabase', NotionDatabase);
+container.registerSingleton('INotionUserRepository', NotionUserRepository);
+container.registerSingleton('INotionTaskRepository', NotionTaskRepository);
 container.registerSingleton('INotionTaskQueryService', NotionTaskQueryService);
