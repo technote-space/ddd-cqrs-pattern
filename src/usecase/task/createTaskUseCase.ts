@@ -4,13 +4,14 @@ import type { UserSession } from '^/usecase/shared/userSession';
 import { inject } from 'tsyringe';
 import { toEntity, fromEntity } from './taskDto';
 
+export type CreateData = Omit<TaskDto, 'id'>;
 export default class CreateTaskUseCase {
   public constructor(
     @inject('ITaskRepository') private repository: ITaskRepository,
   ) {
   }
 
-  public async invoke(userSession: UserSession, data: Omit<TaskDto, 'id'>) {
+  public async invoke(userSession: UserSession, data: CreateData) {
     const task = toEntity(userSession.userId, data);
     await this.repository.save(task);
 

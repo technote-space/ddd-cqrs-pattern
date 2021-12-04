@@ -21,7 +21,7 @@ describe('BaseController', () => {
   it('結果が空の場合は status = 204 の結果が返る', async () => {
     const controller = new TestController();
 
-    const response = await controller.invoke();
+    const response = await controller.invoke({ query: {}, headers: {} });
 
     expect(response).toEqual({ status: 204 });
   });
@@ -34,7 +34,7 @@ describe('BaseController', () => {
     };
     const controller = new TestController(result);
 
-    const response = await controller.invoke();
+    const response = await controller.invoke({ query: {}, headers: {} });
 
     expect(response).toEqual(result);
   });
@@ -42,7 +42,7 @@ describe('BaseController', () => {
   it('ドメインエラー', async () => {
     const controller = new TestController(undefined, new InvalidControl('test'));
 
-    const response = await controller.invoke();
+    const response = await controller.invoke({ query: {}, headers: {} });
 
     expect(response).toEqual({
       status: 409,
@@ -56,7 +56,7 @@ describe('BaseController', () => {
   it('HTTPエラー', async () => {
     const controller = new TestController(undefined, new Forbidden());
 
-    const response = await controller.invoke();
+    const response = await controller.invoke({ query: {}, headers: {} });
 
     expect(response).toEqual({
       status: 403,
@@ -67,6 +67,6 @@ describe('BaseController', () => {
   it('その他のエラー', async () => {
     const controller = new TestController(undefined, new Error());
 
-    await expect(controller.invoke()).rejects.toThrow();
+    await expect(controller.invoke({ query: {}, headers: {} })).rejects.toThrow();
   });
 });
