@@ -11,7 +11,7 @@ describe('Auth0UserSessionProvider', () => {
       verify: mockVerify,
     } as never as IJwt<any>); // eslint-disable-line @typescript-eslint/no-explicit-any
 
-    const userSession = await sessionProvider.getUserSession('token');
+    const userSession = await sessionProvider.getUserSession('Bearer token');
     expect(mockVerify).toBeCalledWith('token', 'secret');
     expect(userSession.userId.value).toBe('user-id');
   });
