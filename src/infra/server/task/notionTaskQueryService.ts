@@ -7,7 +7,7 @@ import { inject, singleton } from 'tsyringe';
 import Mapper from './mapper';
 
 @singleton()
-export default class TaskNotionQueryService implements ITaskQueryService {
+export default class NotionTaskQueryService implements ITaskQueryService {
   public constructor(
     @inject('IDatabase') private database: IDatabase,
   ) {

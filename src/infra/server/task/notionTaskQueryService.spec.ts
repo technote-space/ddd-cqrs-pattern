@@ -1,8 +1,8 @@
 import type IDatabase from '$/server/shared/database';
 import UserId from '$/server/user/valueObject/userId';
-import TaskNotionQueryService from './taskNotionQueryService';
+import NotionTaskQueryService from './notionTaskQueryService';
 
-describe('TaskNotionQueryService', () => {
+describe('NotionTaskQueryService', () => {
   describe('findByUser', () => {
     it('ユーザーのタスク一覧を取得する', async () => {
       const mockSearch = jest.fn(() => Promise.resolve({
@@ -30,7 +30,7 @@ describe('TaskNotionQueryService', () => {
         hasMore: false,
         cursor: null,
       }));
-      const queryService = new TaskNotionQueryService({ search: mockSearch } as never as IDatabase);
+      const queryService = new NotionTaskQueryService({ search: mockSearch } as never as IDatabase);
 
       const userId = UserId.create('test');
       const results = await queryService.findByUser(userId);

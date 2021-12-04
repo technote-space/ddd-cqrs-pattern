@@ -13,9 +13,9 @@ import Status from '$/server/task/valueObject/status';
 import TaskId from '$/server/task/valueObject/taskId';
 import TaskName from '$/server/task/valueObject/taskName';
 import UserId from '$/server/user/valueObject/userId';
-import TaskNotionRepository from '@/server/task/taskNotionRepository';
+import NotionTaskRepository from '@/server/task/notionTaskRepository';
 
-describe('TaskNotionRepository', () => {
+describe('NotionTaskRepository', () => {
   describe('findById', () => {
     it('指定されたIDのタスクを取得', async () => {
       const mockFind = jest.fn(() => Promise.resolve({
@@ -29,7 +29,7 @@ describe('TaskNotionRepository', () => {
         作業見積単位: '日',
         期日: '2022-01-01T10:00:00+09:00',
       }));
-      const repository = new TaskNotionRepository({ find: mockFind } as never as IDatabase);
+      const repository = new NotionTaskRepository({ find: mockFind } as never as IDatabase);
 
       const task = await repository.findById(TaskId.create('test'));
       expect(mockFind).toBeCalledTimes(1);
@@ -60,7 +60,7 @@ describe('TaskNotionRepository', () => {
         作業見積単位: null,
         期日: null,
       }));
-      const repository = new TaskNotionRepository({ find: mockFind } as never as IDatabase);
+      const repository = new NotionTaskRepository({ find: mockFind } as never as IDatabase);
 
       const task = await repository.findById(TaskId.create('test'));
       expect(mockFind).toBeCalledTimes(1);
@@ -76,7 +76,7 @@ describe('TaskNotionRepository', () => {
 
     it('指定されたIDのタスクが存在しない場合エラー', async () => {
       const mockFind = jest.fn(() => Promise.resolve(null));
-      const repository = new TaskNotionRepository({ find: mockFind } as never as IDatabase);
+      const repository = new NotionTaskRepository({ find: mockFind } as never as IDatabase);
 
       await expect(repository.findById(TaskId.create('test'))).rejects.toThrow('タスクが見つかりません');
       expect(mockFind).toBeCalledTimes(1);
@@ -89,7 +89,7 @@ describe('TaskNotionRepository', () => {
         id: '1234567890',
         タグ: [{ value: 'tag1', id: 'tag-id1' }],
       }));
-      const repository = new TaskNotionRepository({ create: mockCreate } as never as IDatabase);
+      const repository = new NotionTaskRepository({ create: mockCreate } as never as IDatabase);
 
       const task = Task.create(
         TaskName.create('name'),
@@ -123,7 +123,7 @@ describe('TaskNotionRepository', () => {
 
     it('タスクIDがある場合は更新', async () => {
       const mockUpdate = jest.fn(() => Promise.resolve(null));
-      const repository = new TaskNotionRepository({ update: mockUpdate } as never as IDatabase);
+      const repository = new NotionTaskRepository({ update: mockUpdate } as never as IDatabase);
 
       const task = Task.reconstruct(
         TaskId.create('id'),
@@ -153,7 +153,7 @@ describe('TaskNotionRepository', () => {
   describe('delete', () => {
     it('指定されたIDのタスクを削除', async () => {
       const mockDelete = jest.fn(() => Promise.resolve(true));
-      const repository = new TaskNotionRepository({ delete: mockDelete } as never as IDatabase);
+      const repository = new NotionTaskRepository({ delete: mockDelete } as never as IDatabase);
 
       await repository.delete(TaskId.create('test'));
       expect(mockDelete).toBeCalledTimes(1);

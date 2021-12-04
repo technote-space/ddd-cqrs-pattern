@@ -9,7 +9,7 @@ import NotFound from '$/shared/exceptions/domain/notFound';
 import Mapper from './mapper';
 
 @singleton()
-export default class TaskNotionRepository implements ITaskRepository {
+export default class NotionTaskRepository implements ITaskRepository {
   public constructor(
     @inject('IDatabase') private database: IDatabase,
   ) {

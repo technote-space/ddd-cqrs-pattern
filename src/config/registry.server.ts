@@ -3,7 +3,7 @@ import { container } from 'tsyringe';
 import Auth0 from '@/server/shared/auth/auth0';
 import NotionDatabase from '@/server/shared/database/notion';
 import Env from '@/server/shared/env';
-import TaskNotionQueryService from '@/server/task/taskNotionQueryService';
+import NotionTaskQueryService from '@/server/task/notionTaskQueryService';
 import { IndexPageProps } from '@/web/pages/index/server';
 import tagSchema from '../../schema/tag.json';
 import taskSchema from '../../schema/task.json';
@@ -20,4 +20,4 @@ container.registerInstance('MigrationSchemas', [userSchema, tagSchema, taskSchem
 
 // database
 container.registerSingleton('IDatabase', NotionDatabase);
-container.registerSingleton('ITaskNotionQueryService', TaskNotionQueryService);
+container.registerSingleton('INotionTaskQueryService', NotionTaskQueryService);
