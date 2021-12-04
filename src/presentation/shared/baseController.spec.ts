@@ -77,9 +77,11 @@ describe('BaseController', () => {
 
     expect(response).toEqual({
       status: 409,
-      message: 'その操作は許可されていません',
-      context: {
-        reason: 'test',
+      data: {
+        message: 'その操作は許可されていません',
+        context: {
+          reason: 'test',
+        },
       },
     });
   });
@@ -91,7 +93,9 @@ describe('BaseController', () => {
 
     expect(response).toEqual({
       status: 403,
-      message: 'Forbidden',
+      data: {
+        message: 'Forbidden',
+      },
     });
   });
 
@@ -110,10 +114,12 @@ describe('BaseController', () => {
 
     expect(response).toEqual({
       status: 400,
-      message: '無効な値です',
-      context: {
-        target: 'Authorization',
-        reason: 'ヘッダーに認証トークンが設定されていません',
+      data: {
+        message: '無効な値です',
+        context: {
+          target: 'Authorization',
+          reason: 'ヘッダーに認証トークンが設定されていません',
+        },
       },
     });
   });
@@ -127,10 +133,12 @@ describe('BaseController', () => {
 
     expect(response).toEqual({
       status: 400,
-      message: '無効な値です',
-      context: {
-        target: '',
-        reason: 'Pathクエリが設定されていません',
+      data: {
+        message: '無効な値です',
+        context: {
+          target: '',
+          reason: 'Pathクエリが設定されていません',
+        },
       },
     });
   });
@@ -148,10 +156,12 @@ describe('BaseController', () => {
 
     expect(response).toEqual({
       status: 400,
-      message: '無効な値です',
-      context: {
-        target: 'test',
-        reason: 'Pathクエリの形式が正しくありません',
+      data: {
+        message: '無効な値です',
+        context: {
+          target: 'test',
+          reason: 'Pathクエリの形式が正しくありません',
+        },
       },
     });
   });

@@ -1,5 +1,5 @@
 import type { ErrorStatus } from '$/shared/exceptions/exception';
-import type { NextApiRequest } from 'next';
+import type { NextApiRequest, NextApiResponse } from 'next';
 import DomainException from '$/shared/exceptions/domain/exception';
 import InvalidValueException from '$/shared/exceptions/domain/invalidValue';
 import HttpException from '$/shared/exceptions/http/exception';
@@ -19,16 +19,19 @@ export type Request<Body extends BodyType = undefined> = (Body extends undefined
 export type ResultData = Record<string, any> | Record<string, any>[] | undefined;
 export type Result<Data extends ResultData = undefined> = Data extends undefined ? {
   status: 204;
+  data: undefined,
 } : {
   status?: 200 | 201;
   data: Data,
 };
 export type ErrorResult = {
   status: ErrorStatus;
-  message: string;
-  context?: Record<string, any>; // eslint-disable-line @typescript-eslint/no-explicit-any
+  data: {
+    message: string;
+    context?: Record<string, any>; // eslint-disable-line @typescript-eslint/no-explicit-any
+  }
 };
-export type ReturnType<Data extends ResultData = undefined> = Result<Data> | ErrorResult;
+export type ReturnType<Data extends ResultData = undefined> = Required<Result<Data>> | ErrorResult;
 
 export default abstract class BaseController<Data extends ResultData = undefined, Body extends BodyType = undefined> {
   private request!: NextApiRequest;
@@ -64,29 +67,33 @@ export default abstract class BaseController<Data extends ResultData = undefined
     this.request = request;
     try {
       const result = await this.execute();
-      if (!result) {
+      if (!result || !('data' in result)) {
         return {
           status: 204,
-        } as Result<Data>;
+        } as Required<Result<Data>>;
       }
 
       return {
-        status: 200,
-        ...result,
-      };
+        status: result.status ?? 200,
+        data: result.data,
+      } as Required<Result<Data>>;
     } catch (error) {
       if (error instanceof DomainException) {
         return {
           status: error.status,
-          message: error.message,
-          context: error.context,
+          data: {
+            message: error.message,
+            context: error.context,
+          },
         };
       }
 
       if (error instanceof HttpException) {
         return {
           status: error.status,
-          message: error.message,
+          data: {
+            message: error.message,
+          },
         };
       }
 
@@ -94,3 +101,11 @@ export default abstract class BaseController<Data extends ResultData = undefined
     }
   }
 }
+
+/* istanbul ignore next */
+export const setupNextApi = async (method: string, controller: BaseController<any, any>, req: NextApiRequest, res: NextApiResponse) => { // eslint-disable-line @typescript-eslint/no-explicit-any
+  if (req.method === method) {
+    const result = await controller.invoke(req);
+    res.status(result.status).json(result.data);
+  }
+};
