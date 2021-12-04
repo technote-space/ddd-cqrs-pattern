@@ -2,7 +2,7 @@ import type { Result } from './shared/baseController';
 import type { Request } from './shared/baseController';
 import type IUserSessionProvider from './shared/userSessionProvider';
 import type { UpdateData } from '^/usecase/task/updateTaskUseCase';
-import { inject, container } from 'tsyringe';
+import { inject } from 'tsyringe';
 import TaskId from '$/server/task/valueObject/taskId';
 import UpdateTaskUseCase from '^/usecase/task/updateTaskUseCase';
 import BaseController from './shared/baseController';
@@ -10,6 +10,7 @@ import BaseController from './shared/baseController';
 export default class UpdateTaskController extends BaseController<UpdateData> {
   public constructor(
     @inject('IUserSessionProvider') private userSessionProvider: IUserSessionProvider,
+    @inject(UpdateTaskUseCase) private useCase: UpdateTaskUseCase,
   ) {
     super();
   }
@@ -17,7 +18,7 @@ export default class UpdateTaskController extends BaseController<UpdateData> {
   protected async execute(request: Request<UpdateData>): Promise<Result | void> {
     const userSession = await this.userSessionProvider.getUserSession(request.headers['authorization']);
     return {
-      data: await container.resolve(UpdateTaskUseCase).invoke(userSession, TaskId.create(request.query['taskId'] as string), request.body),
+      data: await this.useCase.invoke(userSession, TaskId.create(request.query['taskId'] as string), request.body),
     };
   }
 }
