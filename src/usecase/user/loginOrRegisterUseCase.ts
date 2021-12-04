@@ -1,8 +1,9 @@
 import type IAuth from '$/server/shared/auth';
 import type IEnv from '$/server/shared/env';
 import type IUserRepository from '$/server/user/userRepository';
-import { sign } from 'jsonwebtoken';
+import type { UserJwtPayload } from '^/usecase/shared/userSession';
 import { inject } from 'tsyringe';
+import IJwt from '$/server/shared/jwt';
 import User from '$/server/user/user';
 import Token from '$/server/user/valueObject/token';
 import Unauthorized from '$/shared/exceptions/http/unauthorized';
@@ -11,6 +12,7 @@ export default class LoginOrRegisterUseCase {
   public constructor(
     @inject('IEnv') private env: IEnv,
     @inject('IAuth') private auth: IAuth,
+    @inject('IJwt') private jwt: IJwt<UserJwtPayload>,
     @inject('IUserRepository') private userRepository: IUserRepository,
   ) {
   }
@@ -22,7 +24,7 @@ export default class LoginOrRegisterUseCase {
     }
 
     const user = await this.findOrCreateUser(Token.create(contents.sub));
-    return sign({ id: user.userId.value }, this.env.getValue('JWT_SECRET'));
+    return this.jwt.sign({ userId: user.userId.value }, this.env.getValue('JWT_SECRET'));
   }
 
   private async findOrCreateUser(token: Token): Promise<User> {

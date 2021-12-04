@@ -5,7 +5,7 @@ import fetch from 'node-fetch';
 import { singleton, inject } from 'tsyringe';
 
 @singleton()
-export default class Auth0 implements IAuth {
+export default class Auth0auth implements IAuth {
   public constructor(
     @inject('IEnv') private env: IEnv,
   ) {
