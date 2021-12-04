@@ -18,7 +18,7 @@ describe('LoginOrRegisterUseCase', () => {
     const useCase = new LoginOrRegisterUseCase(
       new TestEnv({ JWT_SECRET: 'secret' }),
       { verify: mockVerify },
-      { sign: mockSign } as never as IJwt<any>,
+      { sign: mockSign } as never as IJwt<any>, // eslint-disable-line @typescript-eslint/no-explicit-any
       { findByToken: mockUserFindByToken, save: mockUserSave } as never as IUserRepository,
     );
 
@@ -41,7 +41,7 @@ describe('LoginOrRegisterUseCase', () => {
     const useCase = new LoginOrRegisterUseCase(
       new TestEnv({ JWT_SECRET: 'secret' }),
       { verify: mockVerify },
-      { sign: mockSign } as never as IJwt<any>,
+      { sign: mockSign } as never as IJwt<any>, // eslint-disable-line @typescript-eslint/no-explicit-any
       { findByToken: mockUserFindByToken, save: mockUserSave } as never as IUserRepository,
     );
 
@@ -62,7 +62,7 @@ describe('LoginOrRegisterUseCase', () => {
     const useCase = new LoginOrRegisterUseCase(
       new TestEnv({ JWT_SECRET: 'secret' }),
       { verify: mockVerify },
-      { sign: mockSign } as never as IJwt<any>,
+      { sign: mockSign } as never as IJwt<any>, // eslint-disable-line @typescript-eslint/no-explicit-any
       { findByToken: mockUserFindByToken, save: mockUserSave } as never as IUserRepository,
     );
 

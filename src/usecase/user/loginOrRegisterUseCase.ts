@@ -1,9 +1,9 @@
 import type IAuth from '$/server/shared/auth';
 import type IEnv from '$/server/shared/env';
+import type IJwt from '$/server/shared/jwt';
 import type IUserRepository from '$/server/user/userRepository';
 import type { UserJwtPayload } from '^/usecase/shared/userSession';
 import { inject } from 'tsyringe';
-import IJwt from '$/server/shared/jwt';
 import User from '$/server/user/user';
 import Token from '$/server/user/valueObject/token';
 import Unauthorized from '$/shared/exceptions/http/unauthorized';

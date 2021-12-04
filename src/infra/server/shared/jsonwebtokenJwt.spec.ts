@@ -1,3 +1,4 @@
+import jsonwebtoken from 'jsonwebtoken';
 import JsonwebtokenJwt from './jsonwebtokenJwt';
 
 describe('JsonwebtokenJwt', () => {
@@ -18,6 +19,22 @@ describe('JsonwebtokenJwt', () => {
       const jwt = new JsonwebtokenJwt();
 
       expect(() => jwt.verify('', '')).toThrow('Unauthorized');
+    });
+
+    it('文字列を返す場合は Unexpected', () => {
+      jest.spyOn(jsonwebtoken, 'verify').mockImplementation(() => '');
+      const jwt = new JsonwebtokenJwt();
+
+      expect(() => jwt.verify('', '')).toThrow('予期していないエラー');
+    });
+
+    it('その他のエラーは Unexpected', () => {
+      jest.spyOn(jsonwebtoken, 'verify').mockImplementation(() => {
+        throw new Error();
+      });
+      const jwt = new JsonwebtokenJwt();
+
+      expect(() => jwt.verify('', '')).toThrow('予期していないエラー');
     });
   });
 });
