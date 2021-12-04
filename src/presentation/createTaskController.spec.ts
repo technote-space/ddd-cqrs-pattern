@@ -1,6 +1,7 @@
 import type CreateTaskUseCase from '^/usecase/task/createTaskUseCase';
 import type { TaskDto } from '^/usecase/task/taskDto';
 import UserId from '$/server/user/valueObject/userId';
+import { createRequest } from '^/__mocks__/request';
 import CreateTaskController from './createTaskController';
 
 describe('CreateTaskController', () => {
@@ -31,12 +32,12 @@ describe('CreateTaskController', () => {
       タグ: [],
     };
 
-    const result = await controller.invoke({
+    const result = await controller.invoke(createRequest({
       headers: {
         authorization: 'Bearer token',
       },
       body,
-    });
+    }));
 
     expect(mockGetUserSession).toBeCalledWith('Bearer token');
     expect(mockInvoke).toBeCalledWith(userSession, body);

@@ -1,4 +1,5 @@
 import type LoginOrRegisterUseCase from '^/usecase/user/loginOrRegisterUseCase';
+import { createRequest } from '^/__mocks__/request';
 import LoginOrRegisterController from './loginOrRegisterController';
 
 describe('LoginOrRegisterController', () => {
@@ -8,9 +9,9 @@ describe('LoginOrRegisterController', () => {
       { invoke: mockInvoke } as never as LoginOrRegisterUseCase,
     );
 
-    const result = await controller.invoke({
+    const result = await controller.invoke(createRequest({
       body: { token: 'Bearer token' },
-    });
+    }));
 
     expect(mockInvoke).toBeCalledWith('Bearer token');
     expect(result.status).toBe(200);

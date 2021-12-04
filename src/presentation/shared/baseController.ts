@@ -1,5 +1,7 @@
 import type { ErrorStatus } from '$/shared/exceptions/exception';
+import type { NextApiRequest } from 'next';
 import DomainException from '$/shared/exceptions/domain/exception';
+import InvalidValueException from '$/shared/exceptions/domain/invalidValue';
 import HttpException from '$/shared/exceptions/http/exception';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -29,11 +31,39 @@ export type ErrorResult = {
 export type ReturnType<Data extends ResultData = undefined> = Result<Data> | ErrorResult;
 
 export default abstract class BaseController<Data extends ResultData = undefined, Body extends BodyType = undefined> {
-  protected abstract execute(request: Request<Body>): Promise<Result<Data> | void>;
+  private request!: NextApiRequest;
 
-  public async invoke(request: Request<Body>): Promise<ReturnType<Data>> {
+  protected abstract execute(): Promise<Result<Data> | void>;
+
+  protected getAuthorizationHeader(): string {
+    if (!this.request.headers.authorization) {
+      throw new InvalidValueException('Authorization', 'ヘッダーに認証トークンが設定されていません');
+    }
+
+    return this.request.headers.authorization;
+  }
+
+  protected getBody(): Body {
+    return this.request.body;
+  }
+
+  protected getQuery(name: string): string {
+    const value = this.request.query[name];
+    if (!value) {
+      throw new InvalidValueException(name, 'Pathクエリが設定されていません');
+    }
+
+    if (Array.isArray(value)) {
+      throw new InvalidValueException(name, 'Pathクエリの形式が正しくありません');
+    }
+
+    return value;
+  }
+
+  public async invoke(request: NextApiRequest): Promise<ReturnType<Data>> {
+    this.request = request;
     try {
-      const result = await this.execute(request);
+      const result = await this.execute();
       if (!result) {
         return {
           status: 204,

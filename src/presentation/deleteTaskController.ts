@@ -1,5 +1,4 @@
 import type { Result } from './shared/baseController';
-import type { Request } from './shared/baseController';
 import type IUserSessionProvider from './shared/userSessionProvider';
 import type { TaskDto } from '^/usecase/task/taskDto';
 import { inject } from 'tsyringe';
@@ -15,10 +14,10 @@ export default class DeleteTaskController extends BaseController<TaskDto> {
     super();
   }
 
-  protected async execute(request: Request): Promise<Result<TaskDto> | void> {
-    const userSession = await this.userSessionProvider.getUserSession(request.headers?.authorization);
+  protected async execute(): Promise<Result<TaskDto> | void> {
+    const userSession = await this.userSessionProvider.getUserSession(this.getAuthorizationHeader());
     return {
-      data: await this.useCase.invoke(userSession, TaskId.create(request.query?.taskId as string)),
+      data: await this.useCase.invoke(userSession, TaskId.create(this.getQuery('taskId'))),
     };
   }
 }

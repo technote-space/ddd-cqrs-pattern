@@ -1,5 +1,4 @@
 import type { Result } from './shared/baseController';
-import type { Request } from './shared/baseController';
 import type IUserSessionProvider from './shared/userSessionProvider';
 import type { CreateData } from '^/usecase/task/createTaskUseCase';
 import type { TaskDto } from '^/usecase/task/taskDto';
@@ -15,11 +14,11 @@ export default class CreateTaskController extends BaseController<TaskDto, Create
     super();
   }
 
-  protected async execute(request: Request<CreateData>): Promise<Result<TaskDto> | void> {
-    const userSession = await this.userSessionProvider.getUserSession(request.headers?.authorization);
+  protected async execute(): Promise<Result<TaskDto> | void> {
+    const userSession = await this.userSessionProvider.getUserSession(this.getAuthorizationHeader());
     return {
       status: 201,
-      data: await this.useCase.invoke(userSession, request.body),
+      data: await this.useCase.invoke(userSession, this.getBody()),
     };
   }
 }

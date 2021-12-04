@@ -1,6 +1,7 @@
 import type FetchTasksUseCase from '^/usecase/task/fetchTasksUseCase';
 import type { TaskDto } from '^/usecase/task/taskDto';
 import UserId from '$/server/user/valueObject/userId';
+import { createRequest } from '^/__mocks__/request';
 import FetchTasksController from './fetchTasksController';
 
 describe('FetchTasksController', () => {
@@ -22,11 +23,11 @@ describe('FetchTasksController', () => {
       { invoke: mockInvoke } as never as FetchTasksUseCase,
     );
 
-    const result = await controller.invoke({
+    const result = await controller.invoke(createRequest({
       headers: {
         authorization: 'Bearer token',
       },
-    });
+    }));
 
     expect(mockGetUserSession).toBeCalledWith('Bearer token');
     expect(mockInvoke).toBeCalledWith(userSession);

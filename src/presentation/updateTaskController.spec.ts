@@ -2,6 +2,7 @@ import type { TaskDto } from '^/usecase/task/taskDto';
 import type UpdateTaskUseCase from '^/usecase/task/updateTaskUseCase';
 import TaskId from '$/server/task/valueObject/taskId';
 import UserId from '$/server/user/valueObject/userId';
+import { createRequest } from '^/__mocks__/request';
 import UpdateTaskController from './updateTaskController';
 
 describe('UpdateTaskUseCase', () => {
@@ -32,7 +33,7 @@ describe('UpdateTaskUseCase', () => {
       タグ: [],
     };
 
-    const result =  await controller.invoke({
+    const result = await controller.invoke(createRequest({
       query: {
         taskId: 'task-id',
       },
@@ -40,7 +41,7 @@ describe('UpdateTaskUseCase', () => {
         authorization: 'Bearer token',
       },
       body,
-    });
+    }));
 
     expect(mockGetUserSession).toBeCalledWith('Bearer token');
     expect(mockInvoke).toBeCalledWith(userSession, TaskId.create('task-id'), body);
