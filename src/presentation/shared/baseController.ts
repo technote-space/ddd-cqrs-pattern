@@ -1,3 +1,4 @@
+import type { ErrorStatus } from '$/shared/exceptions/exception';
 import DomainException from '$/shared/exceptions/domain/exception';
 import HttpException from '$/shared/exceptions/http/exception';
 
@@ -21,7 +22,7 @@ export type Result<Data extends ResultData = undefined> = Data extends undefined
   data: Data,
 };
 export type ErrorResult = {
-  status: number;
+  status: ErrorStatus;
   message: string;
   context?: Record<string, any>; // eslint-disable-line @typescript-eslint/no-explicit-any
 };
@@ -39,7 +40,10 @@ export default abstract class BaseController<Data extends ResultData = undefined
         } as Result<Data>;
       }
 
-      return result;
+      return {
+        status: 200,
+        ...result,
+      };
     } catch (error) {
       if (error instanceof DomainException) {
         return {
