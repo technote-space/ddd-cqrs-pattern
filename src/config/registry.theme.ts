@@ -1,6 +1,6 @@
 import { container } from 'tsyringe';
-import { NoDarkMode } from '@/web/theme/noDarkMode';
+import { DarkMode } from '@/web/theme/darkMode';
 import { NoTheme } from '@/web/theme/noTheme';
 
 container.registerSingleton('ITheme', NoTheme);
-container.registerSingleton('IDarkMode', NoDarkMode);
+container.registerSingleton('IDarkMode', DarkMode);
