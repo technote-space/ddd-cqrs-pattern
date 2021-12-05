@@ -2,10 +2,11 @@ import type { Result } from './shared/baseController';
 import type IUserSessionProvider from './shared/userSessionProvider';
 import type { CreateData } from '^/usecase/task/createTaskUseCase';
 import type { TaskDto } from '^/usecase/task/taskDto';
-import { inject } from 'tsyringe';
+import { inject, injectable } from 'tsyringe';
 import CreateTaskUseCase from '^/usecase/task/createTaskUseCase';
 import BaseController from './shared/baseController';
 
+@injectable()
 export default class CreateTaskController extends BaseController<TaskDto, CreateData> {
   public constructor(
     @inject('IUserSessionProvider') private userSessionProvider: IUserSessionProvider,

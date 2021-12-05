@@ -103,9 +103,12 @@ export default abstract class BaseController<Data extends ResultData = undefined
 }
 
 /* istanbul ignore next */
-export const setupNextApi = async (method: string, controller: BaseController<any, any>, req: NextApiRequest, res: NextApiResponse) => { // eslint-disable-line @typescript-eslint/no-explicit-any
+export const setupNextApi = async (method: string, controller: BaseController<any, any>, req: NextApiRequest, res: NextApiResponse): Promise<boolean> => { // eslint-disable-line @typescript-eslint/no-explicit-any
   if (req.method === method) {
     const result = await controller.invoke(req);
     res.status(result.status).json(result.data);
+    return true;
   }
+
+  return false;
 };

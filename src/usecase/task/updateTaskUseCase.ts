@@ -2,10 +2,12 @@ import type ITaskRepository from '$/server/task/taskRepository';
 import type TaskId from '$/server/task/valueObject/taskId';
 import type { TaskDto } from './taskDto';
 import type { UserSession } from '^/usecase/shared/userSession';
-import { inject } from 'tsyringe';
+import { inject, injectable } from 'tsyringe';
 import { toEntity, fromEntity } from './taskDto';
 
 export type UpdateData = Omit<TaskDto, 'id'>;
+
+@injectable()
 export default class UpdateTaskUseCase {
   public constructor(
     @inject('ITaskRepository') private repository: ITaskRepository,
