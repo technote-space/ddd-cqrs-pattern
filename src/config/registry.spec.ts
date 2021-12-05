@@ -25,14 +25,16 @@ describe('tsyringe', () => {
     expect(() => container.resolve('IApp')).not.toThrow();
     expect(() => container.resolve('IIndexPage')).not.toThrow();
 
-    // server
+    // migration
     expect(() => container.resolve('IEnv')).not.toThrow();
+    expect(() => container.resolve('MigrationSchemas')).not.toThrow();
+    expect(() => container.resolve('IDatabase')).not.toThrow();
+
+    // server
     expect(() => container.resolve('IJwt')).not.toThrow();
     expect(() => container.resolve('IAuth')).not.toThrow();
     expect(() => container.resolve('IUserSessionProvider')).not.toThrow();
     expect(() => container.resolve('IIndexPageProps')).not.toThrow();
-    expect(() => container.resolve('MigrationSchemas')).not.toThrow();
-    expect(() => container.resolve('IDatabase')).not.toThrow();
     expect(() => container.resolve('IUserRepository')).not.toThrow();
     expect(() => container.resolve('ITaskRepository')).not.toThrow();
     expect(() => container.resolve('ITaskQueryService')).not.toThrow();
