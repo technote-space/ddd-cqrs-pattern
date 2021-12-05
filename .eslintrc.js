@@ -50,6 +50,7 @@ module.exports = {
       "error",
       {"vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_"}
     ],
-    "import/no-anonymous-default-export": "off"
+    "import/no-anonymous-default-export": "off",
+    "react-hooks/rules-of-hooks": "off"
   }
 }
