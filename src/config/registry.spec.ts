@@ -33,8 +33,8 @@ describe('tsyringe', () => {
     expect(() => container.resolve('IIndexPageProps')).not.toThrow();
     expect(() => container.resolve('MigrationSchemas')).not.toThrow();
     expect(() => container.resolve('IDatabase')).not.toThrow();
-    expect(() => container.resolve('INotionUserRepository')).not.toThrow();
-    expect(() => container.resolve('INotionTaskRepository')).not.toThrow();
-    expect(() => container.resolve('INotionTaskQueryService')).not.toThrow();
+    expect(() => container.resolve('IUserRepository')).not.toThrow();
+    expect(() => container.resolve('ITaskRepository')).not.toThrow();
+    expect(() => container.resolve('ITaskQueryService')).not.toThrow();
   });
 });

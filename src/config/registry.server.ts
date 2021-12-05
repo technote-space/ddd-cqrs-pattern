@@ -26,6 +26,6 @@ container.registerInstance('MigrationSchemas', [userSchema, tagSchema, taskSchem
 
 // database
 container.registerSingleton('IDatabase', NotionDatabase);
-container.registerSingleton('INotionUserRepository', NotionUserRepository);
-container.registerSingleton('INotionTaskRepository', NotionTaskRepository);
-container.registerSingleton('INotionTaskQueryService', NotionTaskQueryService);
+container.registerSingleton('IUserRepository', NotionUserRepository);
+container.registerSingleton('ITaskRepository', NotionTaskRepository);
+container.registerSingleton('ITaskQueryService', NotionTaskQueryService);
