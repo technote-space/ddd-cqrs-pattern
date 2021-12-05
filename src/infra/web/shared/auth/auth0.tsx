@@ -1,11 +1,23 @@
-import type { IAuthContext, IAuth, StoreContext, UserResult, LogoutCallback } from '$/web/shared/auth';
+import type {
+  IAuthContext,
+  IAuth,
+  StoreContext,
+  UserResult,
+  LogoutCallback,
+  IAuthComponent,
+  Props,
+} from '$/web/shared/auth';
 import type { ILoading, ILoadingContext } from '$/web/shared/loading';
 import type { Dispatch, Reducer } from '$/web/shared/store';
+import type { AppState } from '@auth0/auth0-react';
 import { useAuth0 } from '@auth0/auth0-react';
-import { useCallback, useEffect } from 'react';
+import { Auth0Provider } from '@auth0/auth0-react';
+import { createBrowserHistory } from 'history';
+import { memo, useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { inject, singleton } from 'tsyringe';
 import { client } from '@/web/shared/api';
+import { BaseComponent } from '@/web/shared/component';
 
 @singleton()
 export class AuthContext implements IAuthContext {
@@ -49,6 +61,8 @@ export class Auth0Auth implements IAuth {
 
   public useUser(): UserResult {
     const { isLoading, isAuthenticated, error, getAccessTokenSilently, loginWithRedirect } = useAuth0();
+
+    console.log(isLoading, isAuthenticated, error);
 
     const user = this.authContext.useUser();
     const process = this.loadingContext.useProcess();
@@ -104,5 +118,45 @@ export class Auth0Auth implements IAuth {
     return useCallback(async () => {
       logout();
     }, [logout]);
+  }
+}
+
+export type Auth0Config = {
+  domain: string;
+  clientId: string;
+}
+
+@singleton()
+export class AuthComponent extends BaseComponent<Props> implements IAuthComponent {
+  public constructor(
+    @inject('auth0Config') private config: Auth0Config,
+  ) {
+    super();
+  }
+
+  private static getRedirectUri() {
+    return `${window.location.origin}${process.env.BASE_PATH}`;
+  }
+
+  private static onRedirectCallback(appState: AppState) {
+    if (appState?.page) {
+      const history = createBrowserHistory();
+      history.replace(appState.page);
+    }
+  }
+
+  protected getComponent() {
+    const component = memo(({ children }: Props) => {
+      return <Auth0Provider
+        redirectUri={AuthComponent.getRedirectUri()}
+        onRedirectCallback={AuthComponent.onRedirectCallback}
+        {...this.config}
+      >
+        {children}
+      </Auth0Provider>;
+    });
+    component.displayName = 'LoadingComponent';
+
+    return component;
   }
 }

@@ -1,6 +1,8 @@
-export type LogoutCallback = () => Promise<void>;
+import type { IComponent } from '$/web/shared/component';
 import type { IContext, Dispatch } from './store';
+import type { PropsWithChildren } from 'react';
 
+export type LogoutCallback = () => Promise<void>;
 export type User = {
   authorization: string;
 };
@@ -27,3 +29,6 @@ export interface IAuth {
 
   useLogout(): LogoutCallback;
 }
+
+export type Props = PropsWithChildren<any>;
+export type IAuthComponent = IComponent<Props>;

@@ -19,10 +19,20 @@ describe('tsyringe', () => {
 
     // theme
     expect(() => container.resolve('ITheme')).not.toThrow();
-    expect(() => container.resolve('IDarkMode')).not.toThrow();
 
     // shared
     expect(() => container.resolve('IApp')).not.toThrow();
+    expect(() => container.resolve('IAuthContext')).not.toThrow();
+    expect(() => container.resolve('IAuth')).not.toThrow();
+    expect(() => container.resolve('ILayoutComponent')).not.toThrow();
+    expect(() => container.resolve('ILoadingContext')).not.toThrow();
+    expect(() => container.resolve('ILoading')).not.toThrow();
+    expect(() => container.resolve('ILoadingComponent')).not.toThrow();
+    expect(() => container.resolve('IDarkModeContext')).not.toThrow();
+    expect(() => container.resolve('IDarkMode')).not.toThrow();
+    expect(() => container.resolve('IStore')).not.toThrow();
+    expect(() => container.resolve('contexts')).not.toThrow();
+    expect(() => container.resolve('auth0Config')).not.toThrow();
     expect(() => container.resolve('IIndexPage')).not.toThrow();
 
     // migration
