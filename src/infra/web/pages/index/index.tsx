@@ -10,7 +10,7 @@ import View from './view';
 @singleton()
 export class IndexPage implements IIndexPage {
   public constructor(
-    @inject('IAuth') private auth: IAuth,
+    @inject('IAuth/front') private auth: IAuth,
     @inject('ILayoutComponent') private layout: ILayoutComponent,
   ) {
   }

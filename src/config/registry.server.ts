@@ -1,6 +1,6 @@
 import { container } from 'tsyringe';
 import Auth0UserSessionProvider from '@/server/shared/auth/auth0UserSessionProvider';
-import Auth0auth from '@/server/shared/auth/auth0auth';
+import Auth0Auth from '@/server/shared/auth/auth0auth';
 import JsonwebtokenJwt from '@/server/shared/jsonwebtokenJwt';
 import NotionTaskQueryService from '@/server/task/notionTaskQueryService';
 import NotionTaskRepository from '@/server/task/notionTaskRepository';
@@ -8,7 +8,7 @@ import NotionUserRepository from '@/server/user/notionUserRepository';
 import { IndexPageProps } from '@/web/pages/index/server';
 
 container.registerSingleton('IJwt', JsonwebtokenJwt);
-container.registerSingleton('IAuth', Auth0auth);
+container.registerSingleton('IAuth/server', Auth0Auth);
 container.registerSingleton('IUserSessionProvider', Auth0UserSessionProvider);
 
 // pages

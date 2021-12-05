@@ -23,7 +23,7 @@ describe('tsyringe', () => {
     // shared
     expect(() => container.resolve('IApp')).not.toThrow();
     expect(() => container.resolve('IAuthContext')).not.toThrow();
-    expect(() => container.resolve('IAuth')).not.toThrow();
+    expect(() => container.resolve('IAuth/front')).not.toThrow();
     expect(() => container.resolve('ILayoutComponent')).not.toThrow();
     expect(() => container.resolve('ILoadingContext')).not.toThrow();
     expect(() => container.resolve('ILoading')).not.toThrow();
@@ -42,7 +42,7 @@ describe('tsyringe', () => {
 
     // server
     expect(() => container.resolve('IJwt')).not.toThrow();
-    expect(() => container.resolve('IAuth')).not.toThrow();
+    expect(() => container.resolve('IAuth/server')).not.toThrow();
     expect(() => container.resolve('IUserSessionProvider')).not.toThrow();
     expect(() => container.resolve('IIndexPageProps')).not.toThrow();
     expect(() => container.resolve('IUserRepository')).not.toThrow();

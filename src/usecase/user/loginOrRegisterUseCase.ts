@@ -12,7 +12,7 @@ import Unauthorized from '$/shared/exceptions/http/unauthorized';
 export default class LoginOrRegisterUseCase {
   public constructor(
     @inject('IEnv') private env: IEnv,
-    @inject('IAuth') private auth: IAuth,
+    @inject('IAuth/server') private auth: IAuth,
     @inject('IJwt') private jwt: IJwt<UserJwtPayload>,
     @inject('IUserRepository') private userRepository: IUserRepository,
   ) {

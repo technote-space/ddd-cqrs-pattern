@@ -1,6 +1,6 @@
 import TestEnv from '^/__mocks__/env';
 import { useMockServer, createHandler } from '^/__mocks__/server';
-import Auth0auth from './auth0auth';
+import Auth0Auth from './auth0auth';
 
 describe('Auth0', () => {
   describe('verify', () => {
@@ -33,7 +33,7 @@ describe('Auth0', () => {
     ]);
 
     it('検証に成功した場合に情報が返る', async () => {
-      const auth = new Auth0auth(new TestEnv({
+      const auth = new Auth0Auth(new TestEnv({
         AUTH0_DOMAIN: 'example.com/success',
       }));
       const contents = await auth.verify('token');
@@ -44,7 +44,7 @@ describe('Auth0', () => {
     });
 
     it('検証に失敗した場合にnullが返る', async () => {
-      const auth = new Auth0auth(new TestEnv({
+      const auth = new Auth0Auth(new TestEnv({
         AUTH0_DOMAIN: 'example.com/fail',
       }));
       const contents = await auth.verify('token');
