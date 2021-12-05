@@ -1,11 +1,11 @@
 import type { Result } from './shared/baseController';
 import type IUserSessionProvider from './shared/userSessionProvider';
 import type { TaskDto } from '^/usecase/task/taskDto';
-import { inject, injectable } from 'tsyringe';
+import { inject, singleton } from 'tsyringe';
 import FetchTasksUseCase from '^/usecase/task/fetchTasksUseCase';
 import BaseController from './shared/baseController';
 
-@injectable()
+@singleton()
 export default class FetchTasksController extends BaseController<TaskDto[]> {
   public constructor(
     @inject('IUserSessionProvider') private userSessionProvider: IUserSessionProvider,

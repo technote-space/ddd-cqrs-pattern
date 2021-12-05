@@ -2,14 +2,14 @@ import type Task from '$/server/task/task';
 import type UserId from '$/server/user/valueObject/userId';
 import type { TaskDto } from './taskDto';
 import type { UserSession } from '^/usecase/shared/userSession';
-import { inject, injectable } from 'tsyringe';
+import { inject, singleton } from 'tsyringe';
 import { fromEntity } from './taskDto';
 
 export interface ITaskQueryService {
   findByUser(userId: UserId): Promise<Task[]>;
 }
 
-@injectable()
+@singleton()
 export default class FetchTasksUseCase {
   public constructor(
     @inject('ITaskQueryService') private taskQueryService: ITaskQueryService,

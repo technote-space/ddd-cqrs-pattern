@@ -1,12 +1,12 @@
 import type { Result } from './shared/baseController';
-import { inject, injectable } from 'tsyringe';
+import { inject, singleton } from 'tsyringe';
 import LoginOrRegisterUseCase from '^/usecase/user/loginOrRegisterUseCase';
 import BaseController from './shared/baseController';
 
 export type LoginData = { token: string };
 export type ResultData = { authorization: string };
 
-@injectable()
+@singleton()
 export default class LoginOrRegisterController extends BaseController<ResultData, LoginData> {
   public constructor(
     @inject(LoginOrRegisterUseCase) private useCase: LoginOrRegisterUseCase,
