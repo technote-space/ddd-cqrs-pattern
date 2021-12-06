@@ -17,6 +17,7 @@ export const createHandler = (method: Method, path: string, status: number, json
   );
 });
 export const createNotionHandler = (method: Method, path: string, status: number, jsonBody: Body, testRequest?: TestRequest): RestHandler => createHandler(method, `${mockNotionBaseUrl}/v1${path}`, status, jsonBody, testRequest);
+export const createLocalHandler = (method: Method, path: string, status: number, jsonBody: Body, testRequest?: TestRequest): RestHandler => createHandler(method, `http://localhost:3000/api${path}`, status, jsonBody, testRequest);
 export const useMockServer = (handlers: RestHandler[]) => {
   const server = setupServer(...handlers);
   beforeAll(() => server.listen({ onUnhandledRequest: 'error' }));

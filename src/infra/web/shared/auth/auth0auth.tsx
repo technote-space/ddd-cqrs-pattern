@@ -42,7 +42,9 @@ export class AuthContext implements IAuthContext {
   }
 
   public useUser(): UserResult {
-    return useSelector((state: { auth: StoreContext }) => state.auth.user);
+    /* istanbul ignore next */
+    const selector = (state: { auth: StoreContext }) => state.auth.user;
+    return useSelector(selector);
   }
 
   public setUser(dispatch: Dispatch, user: UserResult) {
@@ -89,7 +91,7 @@ export class Auth0Auth implements IAuth {
         });
       }
 
-      // auth0 にログインしていてログイン状態出ない場合はログイン
+      // auth0 にログインしていてログイン状態でない場合はログイン
       if (isAuthenticated && !user.isLoggedIn && !this.loading.isProcessRunning('login', process)) {
         (async () => {
           await withLoading(async () => {
