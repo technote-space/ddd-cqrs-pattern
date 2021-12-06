@@ -1,7 +1,8 @@
 import type { Dispatch, Reducer } from '$/web/shared/store';
 import type { IDarkModeContext, IDarkMode, StoreContext } from '$/web/theme/darkMode';
-import { useSelector } from 'react-redux';
-import { singleton } from 'tsyringe';
+import { useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { singleton, inject } from 'tsyringe';
 
 @singleton()
 export class DarkModeContext implements IDarkModeContext {
@@ -29,7 +30,9 @@ export class DarkModeContext implements IDarkModeContext {
   }
 
   public useDarkMode(): boolean {
-    return useSelector((state: { setting: StoreContext }) => state.setting.darkMode);
+    /* istanbul ignore next */
+    const selector = (state: { darkMode: StoreContext }) => state.darkMode.darkMode;
+    return useSelector(selector);
   }
 
   public toggleDarkMode(dispatch: Dispatch) {
@@ -39,14 +42,19 @@ export class DarkModeContext implements IDarkModeContext {
 
 @singleton()
 export class DarkMode implements IDarkMode {
-  // eslint-disable-next-line
-  public useColorModeValue<T>(lightModeValue: T, darkModeValue: T): T {
-    return lightModeValue;
+  public constructor(
+    @inject('IDarkModeContext') private context: IDarkModeContext,
+  ) {
   }
 
-  public toggleDarkMode(): () => void {
-    return () => {
-      //
-    };
+  // eslint-disable-next-line
+  public useColorModeValue<T>(lightModeValue: T, darkModeValue: T): T {
+    const darkMode = this.context.useDarkMode();
+    return darkMode ? darkModeValue : lightModeValue;
+  }
+
+  public useToggleDarkMode(): () => void {
+    const dispatch = useDispatch();
+    return useCallback(() => this.context.toggleDarkMode(dispatch), [dispatch]);
   }
 }

@@ -30,5 +30,6 @@ export interface IAuth {
   useLogout(): LogoutCallback;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type Props = PropsWithChildren<any>;
 export type IAuthComponent = IComponent<Props>;

@@ -6,7 +6,7 @@ import { Story } from '@storybook/react';
 import type { ITheme } from '$/web/theme';
 
 const withChakra = (Story: Story) => {
-  return (container.resolve('ITheme') as ITheme).render({}, <Story/>);
+  return (container.resolve('ITheme') as ITheme).render({ children: <Story/> });
 };
 export const decorators = [withChakra, withPerformance];
 export const parameters = {

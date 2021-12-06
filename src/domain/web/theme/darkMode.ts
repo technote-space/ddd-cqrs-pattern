@@ -13,5 +13,5 @@ export interface IDarkModeContext extends IContext<StoreContext> {
 export interface IDarkMode {
   useColorModeValue<T>(lightModeValue: T, darkModeValue: T): T;
 
-  toggleDarkMode(): () => void;
+  useToggleDarkMode(): () => void;
 }

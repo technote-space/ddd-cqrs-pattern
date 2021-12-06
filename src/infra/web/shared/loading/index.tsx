@@ -45,7 +45,9 @@ export class LoadingContext implements ILoadingContext {
   }
 
   public useProcess(): Array<LoadingProcess> {
-    return useSelector((state: { loading: StoreContext }) => state.loading.process);
+    /* istanbul ignore next */
+    const selector = (state: { loading: StoreContext }) => state.loading.process;
+    return useSelector(selector);
   }
 
   public add(dispatch: Dispatch, id: string, message?: string) {
@@ -84,7 +86,7 @@ export class Loading implements ILoading {
       } finally {
         this.loadingContext.delete(dispatch, id);
       }
-    }, []);
+    }, [dispatch]);
   }
 
   public isProcessRunning(identifier: string, process: Array<LoadingProcess>): boolean {

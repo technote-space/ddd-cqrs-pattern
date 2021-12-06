@@ -75,7 +75,7 @@ export class Auth0Auth implements IAuth {
       } else {
         this.loadingContext.delete(dispatch, 'loadingAuth0');
       }
-    }, [isLoading]);
+    }, [dispatch, isLoading]);
 
     useEffect(() => {
       if (isLoading) {
@@ -108,7 +108,10 @@ export class Auth0Auth implements IAuth {
           appState: { page: window.location.pathname },
         }).then();
       }
-    }, [isLoading, error, isAuthenticated, user.isLoggedIn, process]);
+    }, [
+      dispatch, isLoading, error, isAuthenticated, user.isLoggedIn, process,
+      getAccessTokenSilently, loginWithRedirect, withLoading,
+    ]);
 
     return user;
   }

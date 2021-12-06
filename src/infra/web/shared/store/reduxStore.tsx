@@ -4,7 +4,6 @@ import type { PropsWithChildren, VFC } from 'react';
 import { memo } from 'react';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import { createLogger } from 'redux-logger';
 import { persistReducer, persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
 import storage from 'redux-persist/lib/storage';
@@ -17,8 +16,16 @@ export class ReduxStore<StoreContext extends Record<string, any>> implements ISt
   public constructor(
     @inject('contexts') contexts: string[],
   ) {
+    const middlewares = [];
+    /* istanbul ignore next */
+    if (process.env.NODE_ENV === 'development') {
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      const { logger } = require(`redux-logger`);
+      middlewares.push(logger);
+    }
+
     const _contexts = contexts.map(context => container.resolve<IContext<any>>(context));
-    const store = createStore(this.getReducer(_contexts), this.getInitialState(_contexts), applyMiddleware(createLogger()));
+    const store = createStore(this.getReducer(_contexts), this.getInitialState(_contexts), applyMiddleware(...middlewares));
     const persistor = persistStore(store);
     const provider = memo(({ children }: PropsWithChildren<any>) => {
       return <Provider store={store}>
