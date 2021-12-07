@@ -2,10 +2,10 @@ import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import View from './view';
 
 export default {
-  title: 'Domain Components/LoadingView',
+  title: 'Domain Components/LayoutView',
   component: View,
   argTypes: {
-    isLoading: { control: { type: 'boolean' } },
+    children: { control: { type: 'text' } },
   },
 } as ComponentMeta<typeof View>;
 
@@ -13,10 +13,5 @@ const Template: ComponentStory<typeof View> = (args) => <View {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  isLoading: true,
-};
-
-export const NotLoading = Template.bind({});
-NotLoading.args = {
-  isLoading: false,
+  children: 'Hello World!',
 };

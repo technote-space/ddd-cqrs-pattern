@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LayoutComponent Layoutのコンテキストプロバイダー 1`] = `
+<main>
+  <div>
+    Children
+    LoadingComponent
+  </div>
+</main>
+`;
