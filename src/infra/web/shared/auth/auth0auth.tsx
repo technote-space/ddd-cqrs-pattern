@@ -50,6 +50,7 @@ export type Auth0Config = {
 
 @singleton()
 export class Auth0Auth implements IAuth {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private readonly __provider: VFC<PropsWithChildren<any>>;
 
   public constructor(
@@ -58,6 +59,7 @@ export class Auth0Auth implements IAuth {
     @inject('ILoading') private loading: ILoading,
     @inject('auth0Config') private config: Auth0Config,
   ) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const provider = memo(({ children }: PropsWithChildren<any>) => {
       return <Auth0Provider
         redirectUri={Auth0Auth.getRedirectUri()}
@@ -144,6 +146,7 @@ export class Auth0Auth implements IAuth {
     }
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public getAuthProvider(): VFC<PropsWithChildren<any>> {
     return this.__provider;
   }

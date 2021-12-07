@@ -28,5 +28,6 @@ export interface IAuth {
 
   useLogout(): LogoutCallback;
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   getAuthProvider(): VFC<PropsWithChildren<any>>;
 }
