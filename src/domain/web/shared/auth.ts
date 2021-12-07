@@ -1,6 +1,5 @@
-import type { IComponent } from '$/web/shared/component';
 import type { IContext, Dispatch } from './store';
-import type { PropsWithChildren } from 'react';
+import type { PropsWithChildren, VFC } from 'react';
 
 export type LogoutCallback = () => Promise<void>;
 export type User = {
@@ -28,8 +27,6 @@ export interface IAuth {
   useUser(): UserResult;
 
   useLogout(): LogoutCallback;
-}
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type Props = PropsWithChildren<any>;
-export type IAuthComponent = IComponent<Props>;
+  getAuthProvider(): VFC<PropsWithChildren<any>>;
+}

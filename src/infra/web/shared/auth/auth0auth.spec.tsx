@@ -6,7 +6,7 @@ import { renderHook } from '@testing-library/react-hooks';
 import * as redux from 'react-redux';
 import renderer from 'react-test-renderer';
 import { createLocalHandler, useMockServer } from '^/__mocks__/server';
-import { Auth0Auth, AuthContext, AuthComponent } from './auth0auth';
+import { Auth0Auth, AuthContext } from './auth0auth';
 
 jest.mock('react-redux');
 
@@ -68,6 +68,7 @@ describe('Auth0Auth', () => {
       { useUser: () => ({ isLoggedIn: false }) } as never as IAuthContext,
       { useProcess: () => [], add: mockAdd, delete: mockDelete } as never as ILoadingContext,
       { useLoading: jest.fn() } as never as ILoading,
+      { domain: '', clientId: '' },
     );
 
     const result = renderHook(() => auth.useUser()).result;
@@ -102,6 +103,7 @@ describe('Auth0Auth', () => {
           { useUser: () => ({ isLoggedIn: false }), setUser: mockSetUser } as never as IAuthContext,
           { useProcess: () => [], add: mockAdd, delete: mockDelete } as never as ILoadingContext,
           { useLoading: () => mockWithLoading, isProcessRunning: () => false } as never as ILoading,
+          { domain: '', clientId: '' },
         );
 
         const { result, waitFor } = renderHook(() => auth.useUser());
@@ -132,6 +134,7 @@ describe('Auth0Auth', () => {
           { useUser: () => ({ isLoggedIn: false }), setUser: mockSetUser } as never as IAuthContext,
           { useProcess: () => [{ id: 'login' }], add: mockAdd, delete: mockDelete } as never as ILoadingContext,
           { useLoading: () => mockWithLoading, isProcessRunning: () => true } as never as ILoading,
+          { domain: '', clientId: '' },
         );
 
         const { result } = renderHook(() => auth.useUser());
@@ -166,6 +169,7 @@ describe('Auth0Auth', () => {
           } as never as IAuthContext,
           { useProcess: () => [], add: mockAdd, delete: mockDelete } as never as ILoadingContext,
           { useLoading: () => mockWithLoading, isProcessRunning: () => false } as never as ILoading,
+          { domain: '', clientId: '' },
         );
 
         const { result } = renderHook(() => auth.useUser());
@@ -200,6 +204,7 @@ describe('Auth0Auth', () => {
           } as never as IAuthContext,
           { useProcess: () => [], add: mockAdd, delete: mockDelete } as never as ILoadingContext,
           { useLoading: () => mockWithLoading, isProcessRunning: () => false } as never as ILoading,
+          { domain: '', clientId: '' },
         );
 
         const { result } = renderHook(() => auth.useUser());
@@ -225,6 +230,7 @@ describe('Auth0Auth', () => {
       {} as never as IAuthContext,
       {} as never as ILoadingContext,
       {} as never as ILoading,
+      { domain: '', clientId: '' },
     );
 
     const result = renderHook(() => auth.useLogout()).result;
@@ -232,13 +238,17 @@ describe('Auth0Auth', () => {
 
     expect(mockLogout).toBeCalledTimes(1);
   });
-});
 
-describe('AuthComponent', () => {
-  it('Auth0のコンテキストプロバイダー', () => {
-    const component = new AuthComponent({ domain: 'example.com', clientId: 'test' });
+  it('Authのコンテキストプロバイダー', () => {
+    const auth = new Auth0Auth(
+      {} as never as IAuthContext,
+      {} as never as ILoadingContext,
+      {} as never as ILoading,
+      { domain: '', clientId: '' },
+    );
 
-    const tree = renderer.create(component.render({}));
+    const Provider = auth.getAuthProvider();
+    const tree = renderer.create(<Provider>test</Provider>);
     expect(tree).toMatchSnapshot();
   });
 });

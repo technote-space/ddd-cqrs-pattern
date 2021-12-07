@@ -1,23 +1,14 @@
-import type {
-  IAuthContext,
-  IAuth,
-  StoreContext,
-  UserResult,
-  LogoutCallback,
-  IAuthComponent,
-  Props,
-} from '$/web/shared/auth';
+import type { IAuthContext, IAuth, StoreContext, UserResult, LogoutCallback } from '$/web/shared/auth';
 import type { ILoading, ILoadingContext } from '$/web/shared/loading';
 import type { Dispatch, Reducer } from '$/web/shared/store';
 import type { AppState } from '@auth0/auth0-react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Auth0Provider } from '@auth0/auth0-react';
 import { createBrowserHistory } from 'history';
-import { memo, useCallback, useEffect } from 'react';
+import { memo, PropsWithChildren, useCallback, useEffect, VFC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { inject, singleton } from 'tsyringe';
 import { client } from '@/web/shared/api';
-import { BaseComponent } from '@/web/shared/component';
 
 @singleton()
 export class AuthContext implements IAuthContext {
@@ -52,13 +43,32 @@ export class AuthContext implements IAuthContext {
   }
 }
 
+export type Auth0Config = {
+  domain: string;
+  clientId: string;
+}
+
 @singleton()
 export class Auth0Auth implements IAuth {
+  private readonly __provider: VFC<PropsWithChildren<any>>;
+
   public constructor(
     @inject('IAuthContext') private authContext: IAuthContext,
     @inject('ILoadingContext') private loadingContext: ILoadingContext,
     @inject('ILoading') private loading: ILoading,
+    @inject('auth0Config') private config: Auth0Config,
   ) {
+    const provider = memo(({ children }: PropsWithChildren<any>) => {
+      return <Auth0Provider
+        redirectUri={Auth0Auth.getRedirectUri()}
+        onRedirectCallback={Auth0Auth.onRedirectCallback}
+        {...this.config}
+      >
+        {children}
+      </Auth0Provider>;
+    });
+    provider.displayName = 'AuthProvider';
+    this.__provider = provider;
   }
 
   public useUser(): UserResult {
@@ -121,20 +131,6 @@ export class Auth0Auth implements IAuth {
       logout();
     }, [logout]);
   }
-}
-
-export type Auth0Config = {
-  domain: string;
-  clientId: string;
-}
-
-@singleton()
-export class AuthComponent extends BaseComponent<Props> implements IAuthComponent {
-  public constructor(
-    @inject('auth0Config') private config: Auth0Config,
-  ) {
-    super();
-  }
 
   private static getRedirectUri() {
     return `${window.location.origin}${process.env.BASE_PATH}`;
@@ -148,18 +144,7 @@ export class AuthComponent extends BaseComponent<Props> implements IAuthComponen
     }
   }
 
-  protected getComponent() {
-    const component = memo(({ children }: Props) => {
-      return <Auth0Provider
-        redirectUri={AuthComponent.getRedirectUri()}
-        onRedirectCallback={AuthComponent.onRedirectCallback}
-        {...this.config}
-      >
-        {children}
-      </Auth0Provider>;
-    });
-    component.displayName = 'LoadingComponent';
-
-    return component;
+  public getAuthProvider(): VFC<PropsWithChildren<any>> {
+    return this.__provider;
   }
 }
