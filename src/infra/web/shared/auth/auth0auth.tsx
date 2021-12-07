@@ -63,9 +63,6 @@ export class Auth0Auth implements IAuth {
 
   public useUser(): UserResult {
     const { isLoading, isAuthenticated, error, getAccessTokenSilently, loginWithRedirect } = useAuth0();
-
-    console.log(isLoading, isAuthenticated, error);
-
     const user = this.authContext.useUser();
     const process = this.loadingContext.useProcess();
     const dispatch = useDispatch();
@@ -143,6 +140,7 @@ export class AuthComponent extends BaseComponent<Props> implements IAuthComponen
     return `${window.location.origin}${process.env.BASE_PATH}`;
   }
 
+  /* istanbul ignore next */
   private static onRedirectCallback(appState: AppState) {
     if (appState?.page) {
       const history = createBrowserHistory();

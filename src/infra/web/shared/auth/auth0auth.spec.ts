@@ -4,8 +4,9 @@ import type { Auth0ContextInterface } from '@auth0/auth0-react/dist/auth0-contex
 import * as auth0 from '@auth0/auth0-react';
 import { renderHook } from '@testing-library/react-hooks';
 import * as redux from 'react-redux';
+import renderer from 'react-test-renderer';
 import { createLocalHandler, useMockServer } from '^/__mocks__/server';
-import { Auth0Auth, AuthContext } from './auth0auth';
+import { Auth0Auth, AuthContext, AuthComponent } from './auth0auth';
 
 jest.mock('react-redux');
 
@@ -230,5 +231,14 @@ describe('Auth0Auth', () => {
     result.current();
 
     expect(mockLogout).toBeCalledTimes(1);
+  });
+});
+
+describe('AuthComponent', () => {
+  it('Auth0のコンテキストプロバイダー', () => {
+    const component = new AuthComponent({ domain: 'example.com', clientId: 'test' });
+
+    const tree = renderer.create(component.render({}));
+    expect(tree).toMatchSnapshot();
   });
 });
