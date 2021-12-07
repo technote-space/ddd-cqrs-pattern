@@ -9,5 +9,6 @@ describe('LayoutComponent', () => {
 
     const tree = renderer.create(component.render({ children: 'Children' }));
     expect(tree).toMatchSnapshot();
+    expect(mockRender).toBeCalledTimes(1);
   });
 });

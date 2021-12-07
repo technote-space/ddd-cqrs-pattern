@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App App を生成 1`] = `
+<div
+  className="theme"
+>
+  <div>
+    test
+  </div>
+</div>
+`;
