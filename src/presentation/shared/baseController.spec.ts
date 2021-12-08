@@ -75,6 +75,7 @@ describe('BaseController', () => {
 
     const response = await controller.invoke(createRequest());
 
+    delete response.data?.stack;
     expect(response).toEqual({
       status: 409,
       data: {
@@ -91,6 +92,7 @@ describe('BaseController', () => {
 
     const response = await controller.invoke(createRequest());
 
+    delete response.data?.stack;
     expect(response).toEqual({
       status: 403,
       data: {
@@ -112,6 +114,7 @@ describe('BaseController', () => {
 
     const response = await controller.invoke(createRequest());
 
+    delete response.data?.stack;
     expect(response).toEqual({
       status: 400,
       data: {
@@ -131,6 +134,7 @@ describe('BaseController', () => {
 
     const response = await controller.invoke(createRequest());
 
+    delete response.data?.stack;
     expect(response).toEqual({
       status: 400,
       data: {
@@ -154,6 +158,7 @@ describe('BaseController', () => {
       },
     }));
 
+    delete response.data?.stack;
     expect(response).toEqual({
       status: 400,
       data: {

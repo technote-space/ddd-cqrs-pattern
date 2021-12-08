@@ -29,6 +29,7 @@ export type ErrorResult = {
   data: {
     message: string;
     context?: Record<string, any>; // eslint-disable-line @typescript-eslint/no-explicit-any
+    stack?: string,
   }
 };
 export type ReturnType<Data extends ResultData = undefined> = Required<Result<Data>> | ErrorResult;
@@ -84,6 +85,7 @@ export default abstract class BaseController<Data extends ResultData = undefined
           data: {
             message: error.message,
             context: error.context,
+            stack: error.stack,
           },
         };
       }
@@ -93,6 +95,7 @@ export default abstract class BaseController<Data extends ResultData = undefined
           status: error.status,
           data: {
             message: error.message,
+            stack: error.stack,
           },
         };
       }
