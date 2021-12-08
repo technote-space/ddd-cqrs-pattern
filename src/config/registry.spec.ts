@@ -30,8 +30,10 @@ describe('tsyringe', () => {
     expect(() => container.resolve('ILoadingComponent')).not.toThrow();
     expect(() => container.resolve('IDarkModeContext')).not.toThrow();
     expect(() => container.resolve('IDarkMode')).not.toThrow();
-    expect(() => container.resolve('IStore')).not.toThrow();
+    expect(() => container.resolve('Auth0ContextProvider')).not.toThrow();
+    expect(() => container.resolve('ReduxContextProvider')).not.toThrow();
     expect(() => container.resolve('contexts')).not.toThrow();
+    expect(() => container.resolve('providers')).not.toThrow();
     expect(() => container.resolve('auth0Config')).not.toThrow();
     expect(() => container.resolve('IIndexPage')).not.toThrow();
 

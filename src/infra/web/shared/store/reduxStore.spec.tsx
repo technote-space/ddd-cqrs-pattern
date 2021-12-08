@@ -4,7 +4,7 @@ import { render, fireEvent, screen } from '@testing-library/react';
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { container } from 'tsyringe';
-import { ReduxStore } from '@/web/shared/store/reduxStore';
+import { ReduxContextProvider } from '@/web/shared/store/reduxStore';
 import TestEnv from '^/__mocks__/env';
 
 class TextContext implements IContext<{ test: string }> {
@@ -48,11 +48,11 @@ const TestComponent: VFC<{ context: TextContext }> = ({ context }) => {
   return <button role="button" onClick={handleClick}>{test}</button>;
 };
 
-describe('ReduxStore', () => {
+describe('ReduxContextProvider', () => {
   it('reduxStore の動作が正しいことを確認', async () => {
     container.registerSingleton('TextContext', TextContext);
-    const store = new ReduxStore(new TestEnv({}), ['TextContext']);
-    const Provider = store.getStoreProvider();
+    const store = new ReduxContextProvider(new TestEnv({}), ['TextContext']);
+    const Provider = store.getProvider();
     const Wrapper: FC = ({ children }) => {
       return <Provider store={store}>{children}</Provider>;
     };

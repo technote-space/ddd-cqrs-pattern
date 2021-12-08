@@ -1,6 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { PropsWithChildren, VFC } from 'react';
-
 export interface Action<T = any> {
   type: T;
 }
@@ -23,8 +21,4 @@ export interface IContext<StoreContext extends Record<string, any>> {
   getReducerMapObject(): Record<string, Reducer<StoreContext>>;
 
   persistTargets(): Array<keyof StoreContext>;
-}
-
-export interface IStore {
-  getStoreProvider(): VFC<PropsWithChildren<any>>;
 }
