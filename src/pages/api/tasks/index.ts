@@ -11,7 +11,7 @@ import { setupNextApi } from '^/presentation/shared/baseController';
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (await setupNextApi('GET', container.resolve(FetchTasksController), req, res)) return;
   if (await setupNextApi('POST', container.resolve(CreateTaskController), req, res)) return;
-  res.status(404).end();
+  res.status(405).json({ error: { httpStatus: 405, message: 'Method Not Allowed' } });
 }
 
 export type Methods = {

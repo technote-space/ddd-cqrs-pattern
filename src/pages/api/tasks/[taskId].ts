@@ -11,7 +11,7 @@ import UpdateTaskController from '^/presentation/updateTaskController';
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (await setupNextApi('PUT', container.resolve(UpdateTaskController), req, res)) return;
   if (await setupNextApi('DELETE', container.resolve(DeleteTaskController), req, res)) return;
-  res.status(404).end();
+  res.status(405).json({ error: { httpStatus: 405, message: 'Method Not Allowed' } });
 }
 
 export type Methods = {
