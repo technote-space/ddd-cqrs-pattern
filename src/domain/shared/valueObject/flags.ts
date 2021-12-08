@@ -6,7 +6,7 @@ export default function Flags<FlagTypes extends string>() { // eslint-disable-li
 
     public validate(): string[] | undefined {
       if (!(this.flagTypes as string[]).includes(this.input)) {
-        return ['定義されていないフラグです'];
+        return [`定義されていないフラグです: ${this.input}`];
       }
 
       return undefined;

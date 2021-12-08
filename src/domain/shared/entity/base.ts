@@ -16,7 +16,7 @@ export default abstract class Base {
         const errors: string[] | undefined = member.validate();
         if (errors?.length) {
           const name: string = member.getName();
-          return { [key]: { name, errors } };
+          return { [key.replace(/^_/, '')]: { name, errors } };
         }
       }
 
