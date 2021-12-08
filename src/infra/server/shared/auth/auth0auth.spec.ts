@@ -34,7 +34,7 @@ describe('Auth0', () => {
 
     it('検証に成功した場合に情報が返る', async () => {
       const auth = new Auth0Auth(new TestEnv({
-        AUTH0_DOMAIN: 'example.com/success',
+        NEXT_PUBLIC_AUTH0_DOMAIN: 'example.com/success',
       }));
       const contents = await auth.verify('token');
 
@@ -45,7 +45,7 @@ describe('Auth0', () => {
 
     it('検証に失敗した場合にnullが返る', async () => {
       const auth = new Auth0Auth(new TestEnv({
-        AUTH0_DOMAIN: 'example.com/fail',
+        NEXT_PUBLIC_AUTH0_DOMAIN: 'example.com/fail',
       }));
       const contents = await auth.verify('token');
 

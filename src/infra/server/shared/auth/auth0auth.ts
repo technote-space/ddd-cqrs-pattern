@@ -12,7 +12,7 @@ export default class Auth0Auth implements IAuth {
   }
 
   public async verify(token: string): Promise<null | AuthContents> {
-    const response = await fetch(`https://${this.env.getValue('AUTH0_DOMAIN')}/userinfo`, {
+    const response = await fetch(`https://${this.env.getValue('NEXT_PUBLIC_AUTH0_DOMAIN')}/userinfo`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
