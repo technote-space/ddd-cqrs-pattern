@@ -246,6 +246,7 @@ export default class NotionDatabase implements IDatabase {
       type: 'relation';
       relation_id: string;
       multiple: boolean;
+      aggregates: boolean;
     }
     const filterRelation = (column: TableColumn): column is RelationType => column.type === 'relation';
 

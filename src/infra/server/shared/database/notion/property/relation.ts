@@ -22,6 +22,7 @@ type ColumnType = {
   type: 'relation';
   relation: string;
   multiple?: boolean;
+  aggregates?: boolean;
 }
 
 export default class RelationProperty extends Base {
@@ -41,6 +42,7 @@ export default class RelationProperty extends Base {
       type: 'relation',
       relation_id: property.relation.database_id,
       multiple: !!column.multiple,
+      aggregates: !!column.aggregates,
     };
   }
 
@@ -122,7 +124,8 @@ export default class RelationProperty extends Base {
     }
 
     const table = await this.database.getTable(column.relation_id, 'id');
-    const ids = await this.getRelationIds(table, column.multiple ? data[column.name] as string[] : [data[column.name] as string], data);
+    const values = column.multiple ? data[column.name] as string[] : [data[column.name] as string];
+    const ids = column.aggregates ? await this.getRelationIds(table, values, data) : values;
     return {
       relation: ids.map(id => ({ id })),
     };

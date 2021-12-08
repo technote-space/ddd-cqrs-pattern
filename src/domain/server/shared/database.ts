@@ -6,6 +6,7 @@ export type CreateTableColumn = {
   type: 'relation';
   relation: string;
   multiple?: boolean;
+  aggregates?: boolean;
 });
 export type TableColumn = {
   id: string;
@@ -16,6 +17,7 @@ export type TableColumn = {
   type: 'relation';
   relation_id: string;
   multiple: boolean;
+  aggregates: boolean;
 });
 export type Table = {
   id: string;

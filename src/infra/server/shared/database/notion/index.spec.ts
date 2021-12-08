@@ -21,7 +21,7 @@ describe('NotionDatabase', () => {
     return require('./__fixtures__/retrieve_database_task.json');
   });
   const commonColumns = [
-    { name: 'タグ', type: 'relation', relation: 'tags', multiple: true },
+    { name: 'タグ', type: 'relation', relation: 'tags', multiple: true, aggregates: true },
     { name: 'ユーザー', type: 'relation', relation: 'users' },
   ] as CreateTableColumn[];
   const commonSchemas = [
@@ -361,7 +361,7 @@ describe('NotionDatabase', () => {
             properties: {
               'タスク名': { title: [{ type: 'text', text: { content: 'テスト' } }] },
               'タグ': { relation: [{ id: '12345678-7353-4df6-a730-5df7bd0869b1' }, { id: '12345678-3f93-456d-8379-6748cbd60655' }] },
-              'ユーザー': { relation: [{ id: '12345678-0386-4822-a079-832269ef6f01' }] },
+              'ユーザー': { relation: [{ id: 'test' }] },
               'ステータス': { rich_text: [{ type: 'text', text: { content: '登録' } }] },
               'メモ': { rich_text: [{ type: 'text', text: { content: 'メモメモ' } }] },
               '作業見積': { number: 10 },
@@ -375,7 +375,7 @@ describe('NotionDatabase', () => {
         expect(req.body).toEqual({
             properties: {
               'タグ名': { title: [{ type: 'text', text: { content: 'お散歩' } }] },
-              'ユーザー': { relation: [{ id: '12345678-0386-4822-a079-832269ef6f01' }] },
+              'ユーザー': { relation: [{ id: 'test' }] },
             },
           },
         );
@@ -474,7 +474,7 @@ describe('NotionDatabase', () => {
               properties: {
                 'タスク名': { title: [{ type: 'text', text: { content: 'テスト' } }] },
                 'タグ': { relation: [{ id: '12345678-7353-4df6-a730-5df7bd0869b1' }, { id: '12345678-e6cc-4407-8083-cc5827653194' }] },
-                'ユーザー': { relation: [{ id: '12345678-0386-4822-a079-832269ef6f01' }] },
+                'ユーザー': { relation: [{ id: 'test' }] },
                 'ステータス': { rich_text: [{ type: 'text', text: { content: '登録' } }] },
                 'メモ': { rich_text: [{ type: 'text', text: { content: 'メモメモ' } }] },
                 '作業見積': { number: 10 },
