@@ -8,6 +8,7 @@ import { createBrowserHistory } from 'history';
 import { memo, PropsWithChildren, useCallback, useEffect, VFC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { inject, singleton } from 'tsyringe';
+import IEnv from '$/server/shared/env';
 import { client } from '@/web/shared/api';
 
 @singleton()
@@ -57,12 +58,13 @@ export class Auth0Auth implements IAuth {
     @inject('IAuthContext') private authContext: IAuthContext,
     @inject('ILoadingContext') private loadingContext: ILoadingContext,
     @inject('ILoading') private loading: ILoading,
+    @inject('IEnv') private env: IEnv,
     @inject('auth0Config') private config: Auth0Config,
   ) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const provider = memo(({ children }: PropsWithChildren<any>) => {
       return <Auth0Provider
-        redirectUri={Auth0Auth.getRedirectUri()}
+        redirectUri={this.getRedirectUri()}
         onRedirectCallback={Auth0Auth.onRedirectCallback}
         {...this.config}
       >
@@ -134,8 +136,8 @@ export class Auth0Auth implements IAuth {
     }, [logout]);
   }
 
-  private static getRedirectUri() {
-    return `${window.location.origin}${process.env.BASE_PATH}`;
+  private getRedirectUri() {
+    return `${window.location.origin}${this.env.getValue('BASE_PATH', '')}`;
   }
 
   /* istanbul ignore next */

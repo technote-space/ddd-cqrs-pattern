@@ -5,6 +5,7 @@ import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { container } from 'tsyringe';
 import { ReduxStore } from '@/web/shared/store/reduxStore';
+import TestEnv from '^/__mocks__/env';
 
 class TextContext implements IContext<{ test: string }> {
   public getKey(): string {
@@ -50,7 +51,7 @@ const TestComponent: VFC<{ context: TextContext }> = ({ context }) => {
 describe('ReduxStore', () => {
   it('reduxStore の動作が正しいことを確認', async () => {
     container.registerSingleton('TextContext', TextContext);
-    const store = new ReduxStore(['TextContext']);
+    const store = new ReduxStore(new TestEnv({}), ['TextContext']);
     const Provider = store.getStoreProvider();
     const Wrapper: FC = ({ children }) => {
       return <Provider store={store}>{children}</Provider>;

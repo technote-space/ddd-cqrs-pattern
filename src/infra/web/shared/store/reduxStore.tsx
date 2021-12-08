@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import type IEnv from '$/server/shared/env';
 import type { AnyAction, IContext, IStore, Reducer } from '$/web/shared/store';
 import type { PropsWithChildren, VFC } from 'react';
 import { memo } from 'react';
@@ -14,11 +15,12 @@ export class ReduxStore<StoreContext extends Record<string, any>> implements ISt
   private readonly __provider: VFC<PropsWithChildren<any>>;
 
   public constructor(
+    @inject('IEnv') env: IEnv,
     @inject('contexts') contexts: string[],
   ) {
     const middlewares = [];
     /* istanbul ignore next */
-    if (process.env.NODE_ENV === 'development') {
+    if (env.getValue('NODE_ENV', '') === 'development') {
       // eslint-disable-next-line @typescript-eslint/no-var-requires
       const { logger } = require(`redux-logger`);
       middlewares.push(logger);
