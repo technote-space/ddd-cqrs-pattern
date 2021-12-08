@@ -1,3 +1,3 @@
 export default interface IEnv {
-  getValue(key: string): string | never;
+  getValue(key: string, defaultValue?: string): string | never;
 }
