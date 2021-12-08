@@ -4,6 +4,7 @@ import type { ILayoutComponent } from '$/web/shared/layout';
 import type { VFC } from 'react';
 import { memo } from 'react';
 import { inject, singleton } from 'tsyringe';
+import { client } from '@/web/shared/api';
 import { useHooks } from './hooks';
 import View from './view';
 
@@ -18,7 +19,7 @@ export class IndexPage implements IIndexPage {
   public create(): VFC<Props> {
     const component = memo((props: Props) => this.layout.render({
       ...props,
-      children: <View {...useHooks(props, this.auth)} />,
+      children: <View {...useHooks(props, this.auth, client)} />,
     }));
     component.displayName = 'IndexPage';
 

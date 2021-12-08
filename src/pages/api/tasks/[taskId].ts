@@ -16,12 +16,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
 export type Methods = {
   put: {
-    reqHeaders: { Authorization: string };
+    reqHeaders: { authorization: string };
     reqBody: UpdateData;
     resBody: TaskDto;
   };
   delete: {
-    reqHeaders: { Authorization: string };
+    reqHeaders: { authorization: string };
     resBody: TaskDto;
   };
 }
