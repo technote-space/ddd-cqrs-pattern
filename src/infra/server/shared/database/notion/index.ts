@@ -206,17 +206,15 @@ export default class NotionDatabase implements IDatabase {
     };
   }
 
-  private async lazyLoadForTable(table: Table, ids: string[]): Promise<Record<string, string>> {
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    const name = table.columns.find(column => column.type === 'title')!.name;
+  private async lazyLoadForTable(tableInfo: Table, table: Table, ids: string[]): Promise<Record<string, string>> {
     const response = await this.client.databases.query({
       database_id: table.id,
       filter: {
         or: ids.map(id => ({
-          property: name,
-          type: 'title',
-          title: {
-            equals: id,
+          property: `Related to ${tableInfo.name} (${table.name})`,
+          type: 'relation',
+          relation: {
+            contains: id,
           },
         })),
       },
@@ -254,21 +252,8 @@ export default class NotionDatabase implements IDatabase {
     return Object.assign({}, ...await tableInfo.columns.filter(filterRelation).reduce(async (prev, column) => {
       const acc = await prev;
       const table = await this.getTableByName(column.name);
-      const ids = results.flatMap(result => {
-        const property = result.properties[column.name];
-        /* istanbul ignore next */
-        if (property && property.type === 'relation') {
-          if (column.multiple) {
-            return property.relation.map(relation => relation.id);
-          } else if (property.relation[0].id) {
-            return [property.relation[0].id];
-          }
-        }
-
-        /* istanbul ignore next */
-        return [];
-      });
-      return acc.concat({ [column.name]: await this.lazyLoadForTable(table, ids) });
+      const ids = results.map(result => result.id);
+      return acc.concat({ [column.name]: await this.lazyLoadForTable(tableInfo, table, ids) });
     }, Promise.resolve([] as Record<string, Record<string, string>>[])));
   }
 
