@@ -3000,6 +3000,16 @@
     resolve-from "^5.0.0"
     store2 "^2.12.0"
 
+"@technote-space/aspida@^1.7.3":
+  version "1.7.3"
+  resolved "https://registry.yarnpkg.com/@technote-space/aspida/-/aspida-1.7.3.tgz#ec9447ff2f694d42cbe7ae62121a29921899c2bc"
+  integrity sha512-cRV7/exLfVst+GD/y/2mUzdcnx9H2ODb4b07ahtAj2RwaOyhRyp1TYs/VBlvsfpx16D53d7twhOFbc2175znUg==
+  dependencies:
+    "@types/minimist" "^1.2.1"
+    chokidar "^3.5.1"
+    form-data "^4.0.0"
+    minimist "^1.2.5"
+
 "@testing-library/dom@^7.22.0":
   version "7.31.2"
   resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.31.2.tgz#df361db38f5212b88555068ab8119f5d841a8c4a"

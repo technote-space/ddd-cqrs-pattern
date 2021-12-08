@@ -60,6 +60,7 @@
     "@storybook/builder-webpack5": "^6.4.1",
     "@storybook/manager-webpack5": "^6.4.1",
     "@storybook/react": "^6.4.1",
+    "@technote-space/aspida": "^1.7.3",
     "@testing-library/jest-dom": "^5.15.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^7.0.2",
