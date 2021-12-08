@@ -36,7 +36,7 @@ export default class DateProperty extends Base {
 
   public async toPropertyValue(data: CreateData, column: TableColumn): Promise<CreatePageParameters['properties']> {
     return {
-      date: {
+      date: data[column.name] === null ? null : {
         start: String(data[column.name]),
       },
     };

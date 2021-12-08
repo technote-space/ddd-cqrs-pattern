@@ -36,7 +36,7 @@ export default class RichTextProperty extends Base {
 
   public async toPropertyValue(data: CreateData, column: TableColumn): Promise<CreatePageParameters['properties']> {
     return {
-      rich_text: [
+      rich_text: data[column.name] === null ? [] : [
         {
           type: 'text',
           text: { content: String(data[column.name]) },

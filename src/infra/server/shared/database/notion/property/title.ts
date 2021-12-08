@@ -37,7 +37,7 @@ export default class TitleProperty extends Base {
 
   public async toPropertyValue(data: CreateData, column: TableColumn): Promise<CreatePageParameters['properties']> {
     return {
-      title: [
+      title: data[column.name] === null ? [] : [
         {
           type: 'text',
           text: { content: String(data[column.name]) },

@@ -36,7 +36,7 @@ export default class NumberProperty extends Base {
 
   public async toPropertyValue(data: CreateData, column: TableColumn): Promise<CreatePageParameters['properties']> {
     return {
-      number: Number(data[column.name]),
+      number: data[column.name] === null ? null : Number(data[column.name]),
     };
   }
 }

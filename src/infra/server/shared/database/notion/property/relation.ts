@@ -124,7 +124,7 @@ export default class RelationProperty extends Base {
     }
 
     const table = await this.database.getTable(column.relation_id, 'id');
-    const values = column.multiple ? data[column.name] as string[] : [data[column.name] as string];
+    const values = data[column.name] === null ? [] : column.multiple ? data[column.name] as string[] : [data[column.name] as string];
     const ids = column.aggregates ? await this.getRelationIds(table, values, data) : values;
     return {
       relation: ids.map(id => ({ id })),
