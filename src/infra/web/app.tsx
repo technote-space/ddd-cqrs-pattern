@@ -1,30 +1,33 @@
 import type { IApp } from '$/web/app';
-import type { IAuth } from '$/web/shared/auth';
-import type { IStore } from '$/web/shared/store';
+import type { IContextProvider } from '$/web/shared/contextProvider';
 import type { ITheme } from '$/web/theme';
 import type { AppProps } from 'next/app';
-import { singleton, inject } from 'tsyringe';
+import type { ReactNode } from 'react';
+import { singleton, inject, container } from 'tsyringe';
 
 @singleton()
 export class App implements IApp {
   public constructor(
     @inject('ITheme') private theme: ITheme,
-    @inject('IStore') private store: IStore,
-    @inject('IAuth/front') private auth: IAuth,
+    @inject('providers') private providers: string[],
   ) {
   }
 
-  public create(): (props: Pick<AppProps, 'Component' | 'pageProps'>) => JSX.Element {
-    const StoreProvider = this.store.getStoreProvider();
-    const AuthProvider = this.auth.getAuthProvider();
+  private applyProviders(component: ReactNode, index: number): ReactNode {
+    if (index >= this.providers.length) {
+      return component;
+    }
 
+    const Provider = container.resolve<IContextProvider>(this.providers[index]).getProvider();
+    return this.applyProviders(<Provider>
+      {component}
+    </Provider>, index + 1);
+  }
+
+  public create(): (props: Pick<AppProps, 'Component' | 'pageProps'>) => JSX.Element {
     // eslint-disable-next-line react/display-name
     return ({ Component, pageProps }: Pick<AppProps, 'Component' | 'pageProps'>) => this.theme.render({
-      children: <StoreProvider>
-        <AuthProvider>
-          <Component {...pageProps} />
-        </AuthProvider>
-      </StoreProvider>,
+      children: this.applyProviders(<Component {...pageProps} />, 0),
     });
   }
 }

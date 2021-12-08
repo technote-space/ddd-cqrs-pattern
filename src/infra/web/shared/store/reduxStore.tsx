@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type IEnv from '$/server/shared/env';
-import type { AnyAction, IContext, IStore, Reducer } from '$/web/shared/store';
+import type { IContextProvider } from '$/web/shared/contextProvider';
+import type { AnyAction, IContext, Reducer } from '$/web/shared/store';
 import type { PropsWithChildren, VFC } from 'react';
 import { memo } from 'react';
 import { Provider } from 'react-redux';
@@ -11,7 +12,7 @@ import storage from 'redux-persist/lib/storage';
 import { container, inject, singleton } from 'tsyringe';
 
 @singleton()
-export class ReduxStore<StoreContext extends Record<string, any>> implements IStore {
+export class ReduxContextProvider<StoreContext extends Record<string, any>> implements IContextProvider {
   private readonly __provider: VFC<PropsWithChildren<any>>;
 
   public constructor(
@@ -70,7 +71,7 @@ export class ReduxStore<StoreContext extends Record<string, any>> implements ISt
     }))) as Reducer;
   }
 
-  public getStoreProvider(): VFC<PropsWithChildren<any>> {
+  public getProvider(): VFC<PropsWithChildren<any>> {
     return this.__provider;
   }
 }

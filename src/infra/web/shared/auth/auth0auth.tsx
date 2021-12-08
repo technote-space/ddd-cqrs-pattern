@@ -9,6 +9,7 @@ import { memo, PropsWithChildren, useCallback, useEffect, VFC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { inject, singleton } from 'tsyringe';
 import IEnv from '$/server/shared/env';
+import { IContextProvider } from '$/web/shared/contextProvider';
 import { client } from '@/web/shared/api';
 
 @singleton()
@@ -51,28 +52,11 @@ export type Auth0Config = {
 
 @singleton()
 export class Auth0Auth implements IAuth {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  private readonly __provider: VFC<PropsWithChildren<any>>;
-
   public constructor(
     @inject('IAuthContext') private authContext: IAuthContext,
     @inject('ILoadingContext') private loadingContext: ILoadingContext,
     @inject('ILoading') private loading: ILoading,
-    @inject('IEnv') private env: IEnv,
-    @inject('auth0Config') private config: Auth0Config,
   ) {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const provider = memo(({ children }: PropsWithChildren<any>) => {
-      return <Auth0Provider
-        redirectUri={this.getRedirectUri()}
-        onRedirectCallback={Auth0Auth.onRedirectCallback}
-        {...this.config}
-      >
-        {children}
-      </Auth0Provider>;
-    });
-    provider.displayName = 'AuthProvider';
-    this.__provider = provider;
   }
 
   public useUser(): UserResult {
@@ -135,6 +119,30 @@ export class Auth0Auth implements IAuth {
       logout();
     }, [logout]);
   }
+}
+
+@singleton()
+export class Auth0ContextProvider implements IContextProvider {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  private readonly __provider: VFC<PropsWithChildren<any>>;
+
+  public constructor(
+    @inject('IEnv') private env: IEnv,
+    @inject('auth0Config') private config: Auth0Config,
+  ) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const provider = memo(({ children }: PropsWithChildren<any>) => {
+      return <Auth0Provider
+        redirectUri={this.getRedirectUri()}
+        onRedirectCallback={Auth0ContextProvider.onRedirectCallback}
+        {...this.config}
+      >
+        {children}
+      </Auth0Provider>;
+    });
+    provider.displayName = 'AuthProvider';
+    this.__provider = provider;
+  }
 
   private getRedirectUri() {
     return `${window.location.origin}${this.env.getValue('BASE_PATH', '')}`;
@@ -149,7 +157,7 @@ export class Auth0Auth implements IAuth {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  public getAuthProvider(): VFC<PropsWithChildren<any>> {
+  public getProvider(): VFC<PropsWithChildren<any>> {
     return this.__provider;
   }
 }
