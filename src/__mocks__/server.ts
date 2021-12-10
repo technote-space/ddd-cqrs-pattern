@@ -1,14 +1,13 @@
 import type { RestHandler } from 'msw';
-import type { DefaultRequestBody } from 'msw/lib/types/handlers/RequestHandler';
-import type { RequestParams, RestRequest } from 'msw/lib/types/handlers/RestHandler';
+import type { RestRequest } from 'msw/lib/types/handlers/RestHandler';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 
 export const mockNotionBaseUrl = 'https://example.com';
 type Method = keyof typeof rest;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type Body = Record<string, any> | ((req: RestRequest<DefaultRequestBody, RequestParams>) => Record<string, any>);
-type TestRequest = (req: RestRequest<DefaultRequestBody, RequestParams>) => void;
+type Body = Record<string, any> | ((req: RestRequest) => Record<string, any>);
+type TestRequest = (req: RestRequest) => void;
 export const createHandler = (method: Method, path: string, status: number, jsonBody: Body, testRequest?: TestRequest): RestHandler => rest[method](path, (req, res, ctx) => {
   if (testRequest) testRequest(req);
   return res(
