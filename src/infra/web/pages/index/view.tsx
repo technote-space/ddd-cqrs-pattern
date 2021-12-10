@@ -10,10 +10,10 @@ const Task: VFC<{ task: TaskDto; handleUpdate: (id: string) => void; handleDelet
 }) => {
   const _handleUpdate = useCallback(() => {
     handleUpdate(task.id);
-  }, [task.id]);
+  }, [task.id, handleUpdate]);
   const _handleDelete = useCallback(() => {
     handleDelete(task.id);
-  }, [task.id]);
+  }, [task.id, handleDelete]);
   return <div key={task.id} style={{ border: 'solid 1px #ccc', margin: '10px', padding: '10px' }}>
     <div>タスク名: {task.タスク名}</div>
     <div>メモ: {task.メモ}</div>
