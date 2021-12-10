@@ -380,6 +380,21 @@ describe('NotionDatabase', () => {
           },
         );
       }),
+      createNotionHandler('patch', '/pages/12345678-6f98-43a4-a9fc-c4df60fe1fd6', 200, require('./__fixtures__/update_page_task.json'), (req) => {
+        expect(req.body).toEqual({
+            properties: {
+              'タスク名': { title: [] },
+              'タグ': { relation: [{ id: '12345678-7353-4df6-a730-5df7bd0869b1' }, { id: '12345678-3f93-456d-8379-6748cbd60655' }] },
+              'ユーザー': { relation: [] },
+              'ステータス': { rich_text: [] },
+              'メモ': { rich_text: [] },
+              '作業見積': { number: null },
+              '作業見積単位': { rich_text: [] },
+              '期日': { date: null },
+            },
+          },
+        );
+      }),
       createNotionHandler('patch', '/pages/12345678-0000-0000-0000-000000000000', 404, {}),
     ]);
 
@@ -439,6 +454,24 @@ describe('NotionDatabase', () => {
           id: '12345678-0386-4822-a079-832269ef6f01',
           value: 'test',
         },
+      });
+    });
+
+    it('データを更新する(空のプロパティのテスト)', async () => {
+      const database = new NotionDatabase(commonSchemas, new TestEnv({
+        NOTION_SECRET: 'secret',
+        NOTION_PARENT_ID: '__block_id__',
+      }));
+      await database.update('tasks', {
+        'id': '12345678-6f98-43a4-a9fc-c4df60fe1fd6',
+        'タスク名': null,
+        'タグ': null,
+        'ユーザー': null,
+        'ステータス': null,
+        'メモ': null,
+        '作業見積': null,
+        '作業見積単位': null,
+        '期日': null,
       });
     });
 
