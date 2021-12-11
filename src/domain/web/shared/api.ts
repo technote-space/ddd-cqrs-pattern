@@ -13,11 +13,12 @@ export type Options<T extends (option: any) => Promise<any>> = Parameters<Parame
   enabled?: boolean;
 }) => void>;
 export type { SWRResponse, SWRConfiguration };
+export type ApiSelector<T extends ApiType> = (client: ApiInstance) => [T, ...Options<T['$get']>];
+export type PromiseGenerator<DataType> = (client: ApiInstance) => Promise<DataType>;
+export type Caller = <DataType>(generatePromise: PromiseGenerator<DataType>) => Promise<DataType>;
 
 export interface IApi {
-  getClient(): ApiInstance;
+  useSWR<T extends ApiType>(selector: ApiSelector<T>): SWRResponse<ResponseData<T['$get']>>;
 
-  useSWR<T extends ApiType>(api: T, ...option: Options<T['$get']>): SWRResponse<ResponseData<T['$get']>>;
-
-  call<T>(promise: Promise<T>): Promise<T>;
+  useCaller(): Caller;
 }

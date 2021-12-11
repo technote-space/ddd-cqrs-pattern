@@ -70,7 +70,7 @@ describe('Auth0Auth', () => {
       { useUser: () => ({ isLoggedIn: false }) } as never as IAuthContext,
       { useProcess: () => [], add: mockAdd, delete: mockDelete } as never as ILoadingContext,
       { useLoading: jest.fn() } as never as ILoading,
-      {} as never,
+      new TestApi(),
     );
 
     const result = renderHook(() => auth.useUser()).result;
@@ -136,7 +136,7 @@ describe('Auth0Auth', () => {
           { useUser: () => ({ isLoggedIn: false }), setUser: mockSetUser } as never as IAuthContext,
           { useProcess: () => [{ id: 'login' }], add: mockAdd, delete: mockDelete } as never as ILoadingContext,
           { useLoading: () => mockWithLoading, isProcessRunning: () => true } as never as ILoading,
-          {} as never,
+          new TestApi(),
         );
 
         const { result } = renderHook(() => auth.useUser());
@@ -171,7 +171,7 @@ describe('Auth0Auth', () => {
           } as never as IAuthContext,
           { useProcess: () => [], add: mockAdd, delete: mockDelete } as never as ILoadingContext,
           { useLoading: () => mockWithLoading, isProcessRunning: () => false } as never as ILoading,
-          {} as never,
+          new TestApi(),
         );
 
         const { result } = renderHook(() => auth.useUser());
@@ -206,7 +206,7 @@ describe('Auth0Auth', () => {
           } as never as IAuthContext,
           { useProcess: () => [], add: mockAdd, delete: mockDelete } as never as ILoadingContext,
           { useLoading: () => mockWithLoading, isProcessRunning: () => false } as never as ILoading,
-          {} as never,
+          new TestApi(),
         );
 
         const { result } = renderHook(() => auth.useUser());

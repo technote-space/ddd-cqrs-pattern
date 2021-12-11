@@ -66,6 +66,7 @@ export class Auth0Auth implements IAuth {
     const process = this.loadingContext.useProcess();
     const dispatch = useDispatch();
     const withLoading = this.loading.useLoading();
+    const caller = this.api.useCaller();
 
     useEffect(() => {
       if (isLoading) {
@@ -91,7 +92,7 @@ export class Auth0Auth implements IAuth {
       if (isAuthenticated && !user.isLoggedIn && !this.loading.isProcessRunning('login', process)) {
         (async () => {
           await withLoading(async () => {
-            const { authorization } = await this.api.call(this.api.getClient().login.$post({ body: { token: await getAccessTokenSilently() } }));
+            const { authorization } = await caller(async client => client.login.$post({ body: { token: await getAccessTokenSilently() } }));
             this.authContext.setUser(dispatch, {
               user: { authorization },
               isLoggedIn: true,
@@ -108,7 +109,7 @@ export class Auth0Auth implements IAuth {
       }
     }, [
       dispatch, isLoading, error, isAuthenticated, user.isLoggedIn, process,
-      getAccessTokenSilently, loginWithRedirect, withLoading,
+      caller, getAccessTokenSilently, loginWithRedirect, withLoading,
     ]);
 
     return user;

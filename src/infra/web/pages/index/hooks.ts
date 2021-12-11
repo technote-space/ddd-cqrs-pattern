@@ -5,7 +5,6 @@ import dayjs from 'dayjs';
 import { useCallback } from 'react';
 
 const getAuthorization = (user: UserResult): string => {
-  console.log(user);
   /* istanbul ignore next */
   if (!user.isLoggedIn) {
     return '';
@@ -18,19 +17,17 @@ const getAuthorization = (user: UserResult): string => {
 export const useHooks = (props: Props, auth: IAuth, api: IApi) => {
   const user = auth.useUser();
   const onLogout = auth.useLogout();
-  const { data: tasks, mutate } = api.useSWR(
-    api.getClient().tasks,
-    {
-      headers: { authorization: getAuthorization(user) },
-      enabled: user.isLoggedIn,
-    },
-  );
+  const caller = api.useCaller();
+  const { data: tasks, mutate } = api.useSWR(client => [client.tasks, {
+    headers: { authorization: getAuthorization(user) },
+    enabled: user.isLoggedIn,
+  }]);
   const onDelete = useCallback((id: string) => {
     console.log(id);
-    api.call(api.getClient().tasks._taskId(id).delete({ headers: { authorization: getAuthorization(user) } })).then(() => mutate());
-  }, [user, api, mutate]);
+    caller(client => client.tasks._taskId(id).delete({ headers: { authorization: getAuthorization(user) } })).then(() => mutate());
+  }, [user, caller, mutate]);
   const onAdd = useCallback(() => {
-    api.call(api.getClient().tasks.post({
+    caller(client => client.tasks.post({
       body: {
         タスク名: '追加テスト',
         メモ: '追加テストのメモ',
@@ -41,9 +38,9 @@ export const useHooks = (props: Props, auth: IAuth, api: IApi) => {
         タグ: ['追加テストのタグ１', '追加テストのタグ２'],
       }, headers: { authorization: getAuthorization(user) },
     })).then(() => mutate());
-  }, [user, api, mutate]);
+  }, [user, caller, mutate]);
   const onUpdate = useCallback((id: string) => {
-    api.call(api.getClient().tasks._taskId(id).put({
+    caller(client => client.tasks._taskId(id).put({
       body: {
         タスク名: '更新テスト',
         メモ: null,
@@ -54,7 +51,7 @@ export const useHooks = (props: Props, auth: IAuth, api: IApi) => {
         タグ: ['更新テストのタグ１'],
       }, headers: { authorization: getAuthorization(user) },
     })).then(() => mutate());
-  }, [user, api, mutate]);
+  }, [user, caller, mutate]);
 
   return {
     user,

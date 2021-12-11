@@ -3,6 +3,8 @@ import { TestApi } from '^/__mocks__/api';
 import { createLocalHandler, useMockServer } from '^/__mocks__/server';
 import { useHooks } from './hooks';
 
+jest.mock('react-redux');
+
 describe('useHooks', () => {
   useMockServer([
     createLocalHandler('get', '/tasks/', 200, [
