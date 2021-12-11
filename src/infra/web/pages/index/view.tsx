@@ -3,17 +3,17 @@ import type { TaskDto } from '^/usecase/task/taskDto';
 import type { VFC } from 'react';
 import { memo, useCallback } from 'react';
 
-const Task: VFC<{ task: TaskDto; handleUpdate: (id: string) => void; handleDelete: (id: string) => void }> = ({
+const Task: VFC<{ task: TaskDto; onUpdate: (id: string) => void; onDelete: (id: string) => void }> = ({
   task,
-  handleUpdate,
-  handleDelete,
+  onUpdate,
+  onDelete,
 }) => {
-  const _handleUpdate = useCallback(() => {
-    handleUpdate(task.id);
-  }, [task.id, handleUpdate]);
-  const _handleDelete = useCallback(() => {
-    handleDelete(task.id);
-  }, [task.id, handleDelete]);
+  const _onUpdate = useCallback(() => {
+    onUpdate(task.id);
+  }, [task.id, onUpdate]);
+  const _onDelete = useCallback(() => {
+    onDelete(task.id);
+  }, [task.id, onDelete]);
   return <div key={task.id} style={{ border: 'solid 1px #ccc', margin: '10px', padding: '10px' }}>
     <div>タスク名: {task.タスク名}</div>
     <div>メモ: {task.メモ}</div>
@@ -22,18 +22,18 @@ const Task: VFC<{ task: TaskDto; handleUpdate: (id: string) => void; handleDelet
     <div>作業見積: {task.作業見積}</div>
     <div>作業見積単位: {task.作業見積単位}</div>
     <div>タグ: {task.タグ.join(', ')}</div>
-    <button role="update" onClick={_handleUpdate}>Update</button>
-    <button role="delete" onClick={_handleDelete}>Delete</button>
+    <button role="update" onClick={_onUpdate}>Update</button>
+    <button role="delete" onClick={_onDelete}>Delete</button>
   </div>;
 };
 
 const View: VFC<HooksParams> = ({
   user,
   tasks,
-  handleLogout,
-  handleAdd,
-  handleUpdate,
-  handleDelete,
+  onLogout,
+  onAdd,
+  onUpdate,
+  onDelete,
 }) => {
   if (!user.isLoggedIn) {
     return <div>Loading...</div>;
@@ -41,13 +41,13 @@ const View: VFC<HooksParams> = ({
 
   return <div>
     <div>Hello World!</div>
-    <button role="logout" onClick={handleLogout}>Logout!</button>
-    <button role="add" onClick={handleAdd}>Add!!!</button>
+    <button role="logout" onClick={onLogout}>Logout!</button>
+    <button role="add" onClick={onAdd}>Add!!!</button>
     {tasks?.map(task => <Task
       key={task.id}
       task={task}
-      handleUpdate={handleUpdate}
-      handleDelete={handleDelete}
+      onUpdate={onUpdate}
+      onDelete={onDelete}
     />)}
   </div>;
 };

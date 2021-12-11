@@ -17,3 +17,123 @@ exports[`Storyshots Domain Components/LoadingView Default 1`] = `
 `;
 
 exports[`Storyshots Domain Components/LoadingView Not Loading 1`] = `<div />`;
+
+exports[`Storyshots Page Components/Index Default 1`] = `
+<div>
+  <div>
+    Hello World!
+  </div>
+  <button
+    role="logout"
+  >
+    Logout!
+  </button>
+  <button
+    role="add"
+  >
+    Add!!!
+  </button>
+  <div
+    style={
+      Object {
+        "border": "solid 1px #ccc",
+        "margin": "10px",
+        "padding": "10px",
+      }
+    }
+  >
+    <div>
+      タスク名: 
+      タスク1
+    </div>
+    <div>
+      メモ: 
+    </div>
+    <div>
+      ステータス: 
+      登録
+    </div>
+    <div>
+      期日: 
+    </div>
+    <div>
+      作業見積: 
+    </div>
+    <div>
+      作業見積単位: 
+    </div>
+    <div>
+      タグ: 
+      
+    </div>
+    <button
+      onClick={[Function]}
+      role="update"
+    >
+      Update
+    </button>
+    <button
+      onClick={[Function]}
+      role="delete"
+    >
+      Delete
+    </button>
+  </div>
+  <div
+    style={
+      Object {
+        "border": "solid 1px #ccc",
+        "margin": "10px",
+        "padding": "10px",
+      }
+    }
+  >
+    <div>
+      タスク名: 
+      タスク1
+    </div>
+    <div>
+      メモ: 
+      メモ2
+    </div>
+    <div>
+      ステータス: 
+      実行中
+    </div>
+    <div>
+      期日: 
+      2022-01-23T10:00:00+09:00
+    </div>
+    <div>
+      作業見積: 
+      10
+    </div>
+    <div>
+      作業見積単位: 
+      日
+    </div>
+    <div>
+      タグ: 
+      テスト1, テスト2
+    </div>
+    <button
+      onClick={[Function]}
+      role="update"
+    >
+      Update
+    </button>
+    <button
+      onClick={[Function]}
+      role="delete"
+    >
+      Delete
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Page Components/Index Not Logged In 1`] = `
+<div>
+  Loading...
+</div>
+`;

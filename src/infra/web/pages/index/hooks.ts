@@ -7,6 +7,7 @@ import { useCallback } from 'react';
 
 const getAuthorization = (user: UserResult): string => {
   console.log(user);
+  /* istanbul ignore next */
   if (!user.isLoggedIn) {
     return '';
   }
@@ -17,7 +18,7 @@ const getAuthorization = (user: UserResult): string => {
 // eslint-disable-next-line unused-imports/no-unused-vars
 export const useHooks = (props: Props, auth: IAuth, api: typeof client) => {
   const user = auth.useUser();
-  const handleLogout = auth.useLogout();
+  const onLogout = auth.useLogout();
   const { data: tasks, mutate } = useAspidaSWR(
     api.tasks,
     {
@@ -25,11 +26,11 @@ export const useHooks = (props: Props, auth: IAuth, api: typeof client) => {
       enabled: user.isLoggedIn,
     },
   );
-  const handleDelete = useCallback((id: string) => {
+  const onDelete = useCallback((id: string) => {
     console.log(id);
     api.tasks._taskId(id).delete({ headers: { authorization: getAuthorization(user) } }).then(() => mutate());
   }, [user, api.tasks, mutate]);
-  const handleAdd = useCallback(() => {
+  const onAdd = useCallback(() => {
     api.tasks.post({
       body: {
         タスク名: '追加テスト',
@@ -42,7 +43,7 @@ export const useHooks = (props: Props, auth: IAuth, api: typeof client) => {
       }, headers: { authorization: getAuthorization(user) },
     }).then(() => mutate());
   }, [user, api.tasks, mutate]);
-  const handleUpdate = useCallback((id: string) => {
+  const onUpdate = useCallback((id: string) => {
     api.tasks._taskId(id).put({
       body: {
         タスク名: '更新テスト',
@@ -58,11 +59,11 @@ export const useHooks = (props: Props, auth: IAuth, api: typeof client) => {
 
   return {
     user,
-    handleLogout,
+    onLogout,
     tasks,
-    handleAdd,
-    handleUpdate,
-    handleDelete,
+    onAdd,
+    onUpdate,
+    onDelete,
   };
 };
 export type HooksParams = ReturnType<typeof useHooks>;
