@@ -4,6 +4,7 @@ module.exports = {
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:import/errors",
+    "plugin:storybook/recommended",
     "next",
     "next/core-web-vitals"
   ],
