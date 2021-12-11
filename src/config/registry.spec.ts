@@ -44,6 +44,8 @@ describe('tsyringe', () => {
 
     // server
     expect(() => container.resolve('IJwt')).not.toThrow();
+    expect(() => container.resolve('ICache')).not.toThrow();
+    expect(() => container.resolve('ISlack')).not.toThrow();
     expect(() => container.resolve('IAuth/server')).not.toThrow();
     expect(() => container.resolve('IUserSessionProvider')).not.toThrow();
     expect(() => container.resolve('IIndexPageProps')).not.toThrow();
