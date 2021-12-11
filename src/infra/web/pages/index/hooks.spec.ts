@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react-hooks';
-import { client } from '@/web/shared/api';
+import { TestApi } from '^/__mocks__/api';
 import { createLocalHandler, useMockServer } from '^/__mocks__/server';
 import { useHooks } from './hooks';
 
@@ -35,7 +35,7 @@ describe('useHooks', () => {
     const { result, waitFor } = renderHook(() => useHooks({}, {
       useUser: mockUseUser,
       useLogout: mockUseLogout,
-    }, client));
+    }, new TestApi()));
 
     await waitFor(() => expect(result.current.tasks).not.toBeUndefined());
     expect(result.current.tasks).toEqual([

@@ -5,6 +5,7 @@ import * as auth0 from '@auth0/auth0-react';
 import { renderHook } from '@testing-library/react-hooks';
 import * as redux from 'react-redux';
 import renderer from 'react-test-renderer';
+import { TestApi } from '^/__mocks__/api';
 import TestEnv from '^/__mocks__/env';
 import { createLocalHandler, useMockServer } from '^/__mocks__/server';
 import { Auth0Auth, Auth0ContextProvider, AuthContext } from './auth0auth';
@@ -69,6 +70,7 @@ describe('Auth0Auth', () => {
       { useUser: () => ({ isLoggedIn: false }) } as never as IAuthContext,
       { useProcess: () => [], add: mockAdd, delete: mockDelete } as never as ILoadingContext,
       { useLoading: jest.fn() } as never as ILoading,
+      {} as never,
     );
 
     const result = renderHook(() => auth.useUser()).result;
@@ -103,6 +105,7 @@ describe('Auth0Auth', () => {
           { useUser: () => ({ isLoggedIn: false }), setUser: mockSetUser } as never as IAuthContext,
           { useProcess: () => [], add: mockAdd, delete: mockDelete } as never as ILoadingContext,
           { useLoading: () => mockWithLoading, isProcessRunning: () => false } as never as ILoading,
+          new TestApi(),
         );
 
         const { result, waitFor } = renderHook(() => auth.useUser());
@@ -133,6 +136,7 @@ describe('Auth0Auth', () => {
           { useUser: () => ({ isLoggedIn: false }), setUser: mockSetUser } as never as IAuthContext,
           { useProcess: () => [{ id: 'login' }], add: mockAdd, delete: mockDelete } as never as ILoadingContext,
           { useLoading: () => mockWithLoading, isProcessRunning: () => true } as never as ILoading,
+          {} as never,
         );
 
         const { result } = renderHook(() => auth.useUser());
@@ -167,6 +171,7 @@ describe('Auth0Auth', () => {
           } as never as IAuthContext,
           { useProcess: () => [], add: mockAdd, delete: mockDelete } as never as ILoadingContext,
           { useLoading: () => mockWithLoading, isProcessRunning: () => false } as never as ILoading,
+          {} as never,
         );
 
         const { result } = renderHook(() => auth.useUser());
@@ -201,6 +206,7 @@ describe('Auth0Auth', () => {
           } as never as IAuthContext,
           { useProcess: () => [], add: mockAdd, delete: mockDelete } as never as ILoadingContext,
           { useLoading: () => mockWithLoading, isProcessRunning: () => false } as never as ILoading,
+          {} as never,
         );
 
         const { result } = renderHook(() => auth.useUser());
@@ -226,6 +232,7 @@ describe('Auth0Auth', () => {
       {} as never as IAuthContext,
       {} as never as ILoadingContext,
       {} as never as ILoading,
+      {} as never,
     );
 
     const result = renderHook(() => auth.useLogout()).result;

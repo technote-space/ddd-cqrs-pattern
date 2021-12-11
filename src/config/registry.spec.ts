@@ -24,6 +24,7 @@ describe('tsyringe', () => {
     expect(() => container.resolve('IApp')).not.toThrow();
     expect(() => container.resolve('IAuthContext')).not.toThrow();
     expect(() => container.resolve('IAuth/front')).not.toThrow();
+    expect(() => container.resolve('IApi')).not.toThrow();
     expect(() => container.resolve('ILayoutComponent')).not.toThrow();
     expect(() => container.resolve('ILoadingContext')).not.toThrow();
     expect(() => container.resolve('ILoading')).not.toThrow();
@@ -35,6 +36,7 @@ describe('tsyringe', () => {
     expect(() => container.resolve('contexts')).not.toThrow();
     expect(() => container.resolve('providers')).not.toThrow();
     expect(() => container.resolve('auth0Config')).not.toThrow();
+    expect(() => container.resolve('client')).not.toThrow();
     expect(() => container.resolve('IIndexPage')).not.toThrow();
 
     // migration

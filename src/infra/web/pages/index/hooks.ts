@@ -1,7 +1,6 @@
 import type { Props } from '$/web/pages';
+import type { IApi } from '$/web/shared/api';
 import type { IAuth, UserResult } from '$/web/shared/auth';
-import type { client } from '@/web/shared/api';
-import useAspidaSWR from '@aspida/swr';
 import dayjs from 'dayjs';
 import { useCallback } from 'react';
 
@@ -16,11 +15,11 @@ const getAuthorization = (user: UserResult): string => {
 };
 
 // eslint-disable-next-line unused-imports/no-unused-vars
-export const useHooks = (props: Props, auth: IAuth, api: typeof client) => {
+export const useHooks = (props: Props, auth: IAuth, api: IApi) => {
   const user = auth.useUser();
   const onLogout = auth.useLogout();
-  const { data: tasks, mutate } = useAspidaSWR(
-    api.tasks,
+  const { data: tasks, mutate } = api.useSWR(
+    api.getClient().tasks,
     {
       headers: { authorization: getAuthorization(user) },
       enabled: user.isLoggedIn,
@@ -28,10 +27,10 @@ export const useHooks = (props: Props, auth: IAuth, api: typeof client) => {
   );
   const onDelete = useCallback((id: string) => {
     console.log(id);
-    api.tasks._taskId(id).delete({ headers: { authorization: getAuthorization(user) } }).then(() => mutate());
-  }, [user, api.tasks, mutate]);
+    api.call(api.getClient().tasks._taskId(id).delete({ headers: { authorization: getAuthorization(user) } })).then(() => mutate());
+  }, [user, api, mutate]);
   const onAdd = useCallback(() => {
-    api.tasks.post({
+    api.call(api.getClient().tasks.post({
       body: {
         タスク名: '追加テスト',
         メモ: '追加テストのメモ',
@@ -41,10 +40,10 @@ export const useHooks = (props: Props, auth: IAuth, api: typeof client) => {
         作業見積単位: '日',
         タグ: ['追加テストのタグ１', '追加テストのタグ２'],
       }, headers: { authorization: getAuthorization(user) },
-    }).then(() => mutate());
-  }, [user, api.tasks, mutate]);
+    })).then(() => mutate());
+  }, [user, api, mutate]);
   const onUpdate = useCallback((id: string) => {
-    api.tasks._taskId(id).put({
+    api.call(api.getClient().tasks._taskId(id).put({
       body: {
         タスク名: '更新テスト',
         メモ: null,
@@ -54,8 +53,8 @@ export const useHooks = (props: Props, auth: IAuth, api: typeof client) => {
         作業見積単位: '時間',
         タグ: ['更新テストのタグ１'],
       }, headers: { authorization: getAuthorization(user) },
-    }).then(() => mutate());
-  }, [user, api.tasks, mutate]);
+    })).then(() => mutate());
+  }, [user, api, mutate]);
 
   return {
     user,

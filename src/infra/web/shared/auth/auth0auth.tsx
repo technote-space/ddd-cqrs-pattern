@@ -1,3 +1,4 @@
+import type { IApi } from '$/web/shared/api';
 import type { IAuthContext, IAuth, StoreContext, UserResult, LogoutCallback } from '$/web/shared/auth';
 import type { ILoading, ILoadingContext } from '$/web/shared/loading';
 import type { Dispatch, Reducer } from '$/web/shared/store';
@@ -10,7 +11,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { inject, singleton } from 'tsyringe';
 import IEnv from '$/server/shared/env';
 import { IContextProvider } from '$/web/shared/contextProvider';
-import { client } from '@/web/shared/api';
 
 @singleton()
 export class AuthContext implements IAuthContext {
@@ -56,6 +56,7 @@ export class Auth0Auth implements IAuth {
     @inject('IAuthContext') private authContext: IAuthContext,
     @inject('ILoadingContext') private loadingContext: ILoadingContext,
     @inject('ILoading') private loading: ILoading,
+    @inject('IApi') private api: IApi,
   ) {
   }
 
@@ -90,7 +91,7 @@ export class Auth0Auth implements IAuth {
       if (isAuthenticated && !user.isLoggedIn && !this.loading.isProcessRunning('login', process)) {
         (async () => {
           await withLoading(async () => {
-            const { authorization } = await client.login.$post({ body: { token: await getAccessTokenSilently() } });
+            const { authorization } = await this.api.call(this.api.getClient().login.$post({ body: { token: await getAccessTokenSilently() } }));
             this.authContext.setUser(dispatch, {
               user: { authorization },
               isLoggedIn: true,
