@@ -6677,6 +6677,11 @@ eslint-plugin-storybook@^0.5.3:
     "@typescript-eslint/experimental-utils" "^5.3.0"
     requireindex "^1.1.0"
 
+eslint-plugin-strict-dependencies@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-strict-dependencies/-/eslint-plugin-strict-dependencies-0.0.2.tgz#bf0dd3b259ccd1d26f2e12443bc1852e76c6040c"
+  integrity sha512-D91d13/PvWFN5e1Mxv7+FNNRtV7gNct9OIyZNQM+bVTV1FeLeqITnSOkGSIdwuRgpTOHfYBQOs2rSolTyECCPQ==
+
 eslint-plugin-unused-imports@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-unused-imports/-/eslint-plugin-unused-imports-2.0.0.tgz#d8db8c4d0cfa0637a8b51ce3fd7d1b6bc3f08520"

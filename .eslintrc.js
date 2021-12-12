@@ -11,7 +11,8 @@ module.exports = {
   "plugins": [
     "@typescript-eslint",
     "import",
-    "unused-imports"
+    "unused-imports",
+    "strict-dependencies"
   ],
   "rules": {
     "import/order": [
@@ -52,6 +53,34 @@ module.exports = {
       {"vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_"}
     ],
     "import/no-anonymous-default-export": "off",
-    "react-hooks/rules-of-hooks": "off"
+    "react-hooks/rules-of-hooks": "off",
+    "strict-dependencies/strict-dependencies": [
+      "error",
+      [
+        {
+          "module": "src/domain",
+          "allowReferenceFrom": ["src/infra/**", "src/pages/**", "src/usecase/**", "src/presentation/**", "src/**/*.spec.ts", "src/__mocks__/**"],
+          "allowSameModule": true
+        },
+        {
+          "module": "src/infra",
+          "allowReferenceFrom": ["src/pages/**", "src/config/registry.*", "src/**/*.spec.ts", "src/__mocks__/**"],
+          "allowSameModule": true
+        },
+        {
+          "module": "src/usecase",
+          "allowReferenceFrom": ["src/presentation/**", "src/infra/**", "src/pages/api/**", "src/config/registry.migration.ts", "src/bin/**"],
+          "allowSameModule": true
+        },
+        {
+          "module": "src/presentation",
+          "allowReferenceFrom": ["src/pages/api/**", "src/infra/**"],
+          "allowSameModule": true
+        }
+      ],
+      {
+        "resolveRelativeImport": true
+      }
+    ]
   }
 }
