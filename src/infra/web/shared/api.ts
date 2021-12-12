@@ -31,6 +31,7 @@ export class Api implements IApi {
     const result = useAspidaSWR(api, ...option);
 
     if (Api.isAuthError(result.error)) {
+      result.mutate(v => v, false).then();
       this.authContext.setUser(dispatch, { isLoggedIn: false });
     }
 
