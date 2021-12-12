@@ -1,4 +1,3 @@
-import type DeleteTaskUseCase from '^/usecase/task/deleteTaskUseCase';
 import type { TaskDto } from '^/usecase/task/taskDto';
 import TaskId from '$/server/task/valueObject/taskId';
 import UserId from '$/server/user/valueObject/userId';
@@ -20,8 +19,9 @@ describe('DeleteTaskController', () => {
       タグ: [],
     } as TaskDto));
     const controller = new DeleteTaskController(
+      {} as never,
       { getUserSession: mockGetUserSession },
-      { invoke: mockInvoke } as never as DeleteTaskUseCase,
+      { invoke: mockInvoke } as never,
     );
 
     const result = await controller.invoke(createRequest({

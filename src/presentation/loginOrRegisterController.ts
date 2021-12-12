@@ -1,3 +1,4 @@
+import type { ISlack } from '$/server/shared/slack';
 import type { Result } from './shared/baseController';
 import { inject, singleton } from 'tsyringe';
 import LoginOrRegisterUseCase from '^/usecase/user/loginOrRegisterUseCase';
@@ -9,9 +10,10 @@ export type ResultData = { authorization: string };
 @singleton()
 export default class LoginOrRegisterController extends BaseController<ResultData, LoginData> {
   public constructor(
+    @inject('ISlack') slack: ISlack,
     @inject(LoginOrRegisterUseCase) private useCase: LoginOrRegisterUseCase,
   ) {
-    super();
+    super(slack);
   }
 
   protected async execute(): Promise<Result<ResultData> | void> {

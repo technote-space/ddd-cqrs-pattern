@@ -7,7 +7,7 @@ import BaseController from './baseController';
 
 class TestController<T extends ResultData = undefined> extends BaseController<T> {
   public constructor(private result?: Result<T> | undefined, private error?: Error, private callback?: (controller: TestController<T>) => void) {
-    super();
+    super({ sendError: jest.fn() } as never);
   }
 
   protected execute(): Promise<Result<T> | void> {

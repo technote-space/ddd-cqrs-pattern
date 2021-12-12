@@ -1,4 +1,3 @@
-import type FetchTasksUseCase from '^/usecase/task/fetchTasksUseCase';
 import type { TaskDto } from '^/usecase/task/taskDto';
 import UserId from '$/server/user/valueObject/userId';
 import { createRequest } from '^/__mocks__/request';
@@ -19,8 +18,9 @@ describe('FetchTasksController', () => {
       タグ: [],
     }] as TaskDto[]));
     const controller = new FetchTasksController(
+      {} as never,
       { getUserSession: mockGetUserSession },
-      { invoke: mockInvoke } as never as FetchTasksUseCase,
+      { invoke: mockInvoke } as never,
     );
 
     const result = await controller.invoke(createRequest({
