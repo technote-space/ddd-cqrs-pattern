@@ -31,7 +31,7 @@ export class AuthContext implements IAuthContext {
   }
 
   public persistTargets(): Array<keyof StoreContext> {
-    return [];
+    return ['user'];
   }
 
   public useUser(): UserResult {

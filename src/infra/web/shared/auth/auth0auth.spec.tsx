@@ -34,8 +34,8 @@ describe('AuthContext', () => {
     expect(mapper['SET_USER'](undefined, { type: 'SET_USER', user })).toEqual({ user });
   });
 
-  it('永続化の対象はなし', () => {
-    expect(context.persistTargets()).toEqual([]);
+  it('永続化の対象は user', () => {
+    expect(context.persistTargets()).toEqual(['user']);
   });
 
   it('user の値を取得する', () => {
