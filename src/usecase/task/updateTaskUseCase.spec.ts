@@ -1,4 +1,3 @@
-import type ITaskRepository from '$/server/task/taskRepository';
 import Tags from '$/server/tag/tags';
 import Task from '$/server/task/task';
 import Status from '$/server/task/valueObject/status';
@@ -20,7 +19,7 @@ describe('UpdateTaskUseCase', () => {
       Tags.create([]),
     )));
     const mockSave = jest.fn(() => Promise.resolve());
-    const useCase = new UpdateTaskUseCase({ findById: mockFindById, save: mockSave } as never as ITaskRepository);
+    const useCase = new UpdateTaskUseCase({ findById: mockFindById, save: mockSave } as never);
 
     const result = await useCase.invoke({ userId: UserId.create('test') }, TaskId.create('taskId'), {
       タスク名: 'task',

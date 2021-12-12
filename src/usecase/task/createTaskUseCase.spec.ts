@@ -1,5 +1,4 @@
 import type Task from '$/server/task/task';
-import type ITaskRepository from '$/server/task/taskRepository';
 import UserId from '$/server/user/valueObject/userId';
 import CreateTaskUseCase from './createTaskUseCase';
 
@@ -9,7 +8,7 @@ describe('CreateTaskUseCase', () => {
       task.taskId.setGeneratedId('taskId');
       return Promise.resolve();
     });
-    const useCase = new CreateTaskUseCase({ save: mockSave } as never as ITaskRepository);
+    const useCase = new CreateTaskUseCase({ save: mockSave } as never);
 
     const result = await useCase.invoke({ userId: UserId.create('test') }, {
       タスク名: 'task',

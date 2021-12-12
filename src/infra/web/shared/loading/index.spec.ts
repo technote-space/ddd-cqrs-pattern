@@ -125,7 +125,7 @@ describe('Loading', () => {
     const mockAdd = jest.fn();
     const mockDelete = jest.fn();
     const mockCallback = jest.fn(() => Promise.resolve('test'));
-    const loading = new Loading({ add: mockAdd, delete: mockDelete } as never as ILoadingContext);
+    const loading = new Loading({ add: mockAdd, delete: mockDelete } as never);
 
     const result = renderHook(() => loading.useLoading()).result;
     expect(await result.current(mockCallback, 'message')).toBe('test');
@@ -148,7 +148,7 @@ describe('Loading', () => {
 describe('LoadingComponent', () => {
   it('ローディング用 View を描画する', () => {
     const mockUseProcess = jest.fn(() => []);
-    const component = new LoadingComponent({ useProcess: mockUseProcess } as never as ILoadingContext);
+    const component = new LoadingComponent({ useProcess: mockUseProcess } as never);
 
     const tree = renderer.create(component.render({}));
     expect(tree).toMatchSnapshot();

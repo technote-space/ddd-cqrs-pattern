@@ -64,7 +64,7 @@ describe('DarkMode', () => {
 
   it('ダークモードを切り替える', () => {
     const mockToggleDarkMode = jest.fn();
-    const darkMode = new DarkMode({ toggleDarkMode: mockToggleDarkMode } as never as IDarkModeContext);
+    const darkMode = new DarkMode({ toggleDarkMode: mockToggleDarkMode } as never);
 
     renderHook(() => darkMode.useToggleDarkMode()());
 

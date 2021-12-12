@@ -1,4 +1,3 @@
-import type ITaskRepository from '$/server/task/taskRepository';
 import Tags from '$/server/tag/tags';
 import Task from '$/server/task/task';
 import Status from '$/server/task/valueObject/status';
@@ -20,7 +19,7 @@ describe('DeleteTaskUseCase', () => {
       Tags.create([]),
     )));
     const mockDelete = jest.fn(() => Promise.resolve());
-    const useCase = new DeleteTaskUseCase({ findById: mockFindById, delete: mockDelete } as never as ITaskRepository);
+    const useCase = new DeleteTaskUseCase({ findById: mockFindById, delete: mockDelete } as never);
 
     const result = await useCase.invoke({ userId: UserId.create('test') }, TaskId.create('taskId'));
 
@@ -48,7 +47,7 @@ describe('DeleteTaskUseCase', () => {
       Tags.create([]),
     )));
     const mockDelete = jest.fn(() => Promise.resolve());
-    const useCase = new DeleteTaskUseCase({ findById: mockFindById, delete: mockDelete } as never as ITaskRepository);
+    const useCase = new DeleteTaskUseCase({ findById: mockFindById, delete: mockDelete } as never);
 
     await expect(useCase.invoke({ userId: UserId.create('test2') }, TaskId.create('taskId'))).rejects.toThrow('Forbidden');
 

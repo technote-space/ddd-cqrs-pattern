@@ -1,4 +1,3 @@
-import type IDatabase from '$/server/shared/database';
 import UserId from '$/server/user/valueObject/userId';
 import NotionTaskQueryService from './notionTaskQueryService';
 
@@ -30,7 +29,7 @@ describe('NotionTaskQueryService', () => {
         hasMore: false,
         cursor: null,
       }));
-      const queryService = new NotionTaskQueryService({ search: mockSearch } as never as IDatabase);
+      const queryService = new NotionTaskQueryService({ search: mockSearch } as never);
 
       const userId = UserId.create('test');
       const results = await queryService.findByUser(userId);

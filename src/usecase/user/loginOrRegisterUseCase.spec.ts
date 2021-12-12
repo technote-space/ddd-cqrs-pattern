@@ -1,5 +1,3 @@
-import type IJwt from '$/server/shared/jwt';
-import type IUserRepository from '$/server/user/userRepository';
 import User from '$/server/user/user';
 import Token from '$/server/user/valueObject/token';
 import UserId from '$/server/user/valueObject/userId';
@@ -18,8 +16,8 @@ describe('LoginOrRegisterUseCase', () => {
     const useCase = new LoginOrRegisterUseCase(
       new TestEnv({ JWT_SECRET: 'secret' }),
       { verify: mockVerify },
-      { sign: mockSign } as never as IJwt<any>, // eslint-disable-line @typescript-eslint/no-explicit-any
-      { findByToken: mockUserFindByToken, save: mockUserSave } as never as IUserRepository,
+      { sign: mockSign } as never, // eslint-disable-line @typescript-eslint/no-explicit-any
+      { findByToken: mockUserFindByToken, save: mockUserSave } as never,
     );
 
     const token = await useCase.invoke('token');
@@ -41,8 +39,8 @@ describe('LoginOrRegisterUseCase', () => {
     const useCase = new LoginOrRegisterUseCase(
       new TestEnv({ JWT_SECRET: 'secret' }),
       { verify: mockVerify },
-      { sign: mockSign } as never as IJwt<any>, // eslint-disable-line @typescript-eslint/no-explicit-any
-      { findByToken: mockUserFindByToken, save: mockUserSave } as never as IUserRepository,
+      { sign: mockSign } as never, // eslint-disable-line @typescript-eslint/no-explicit-any
+      { findByToken: mockUserFindByToken, save: mockUserSave } as never,
     );
 
     const token = await useCase.invoke('token');
@@ -62,8 +60,8 @@ describe('LoginOrRegisterUseCase', () => {
     const useCase = new LoginOrRegisterUseCase(
       new TestEnv({ JWT_SECRET: 'secret' }),
       { verify: mockVerify },
-      { sign: mockSign } as never as IJwt<any>, // eslint-disable-line @typescript-eslint/no-explicit-any
-      { findByToken: mockUserFindByToken, save: mockUserSave } as never as IUserRepository,
+      { sign: mockSign } as never, // eslint-disable-line @typescript-eslint/no-explicit-any
+      { findByToken: mockUserFindByToken, save: mockUserSave } as never,
     );
 
     await expect(useCase.invoke('token')).rejects.toThrow('Unauthorized');

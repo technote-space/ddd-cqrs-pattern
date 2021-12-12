@@ -1,4 +1,3 @@
-import type IDatabase from '$/server/shared/database';
 import type { Table } from '$/server/shared/database';
 import MigrationUseCase from '^/usecase/migrationUseCase';
 
@@ -17,7 +16,7 @@ describe('MigrationUseCase', () => {
     ], {
       listTables: mockListTables,
       createTable: mockCreateTable,
-    } as never as IDatabase);
+    } as never);
 
     await useCase.invoke();
 
