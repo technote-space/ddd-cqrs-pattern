@@ -1,6 +1,6 @@
 import { IncomingWebhook } from '@slack/webhook';
 import TestEnv from '^/__mocks__/env';
-import { Slack } from './slack';
+import Slack from './slack';
 
 jest.mock('@slack/webhook');
 

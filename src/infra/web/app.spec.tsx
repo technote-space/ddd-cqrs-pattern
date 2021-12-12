@@ -3,7 +3,7 @@ import type { ITheme } from '$/web/theme';
 import type { PropsWithChildren, VFC } from 'react';
 import renderer from 'react-test-renderer';
 import { container } from 'tsyringe';
-import { App } from './app';
+import App from './app';
 
 class TestTheme implements ITheme {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

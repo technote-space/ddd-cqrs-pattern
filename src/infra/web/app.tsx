@@ -6,7 +6,7 @@ import type { ReactNode } from 'react';
 import { singleton, inject, container } from 'tsyringe';
 
 @singleton()
-export class App implements IApp {
+export default class App implements IApp {
   public constructor(
     @inject('ITheme') private theme: ITheme,
     @inject('providers') private providers: string[],

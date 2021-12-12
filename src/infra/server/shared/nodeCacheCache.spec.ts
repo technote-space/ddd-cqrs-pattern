@@ -1,4 +1,4 @@
-import { NodeCacheCache } from './nodeCacheCache';
+import NodeCacheCache from './nodeCacheCache';
 
 describe('Cache', () => {
   it('should store data', () => {

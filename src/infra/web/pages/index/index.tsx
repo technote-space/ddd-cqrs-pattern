@@ -9,7 +9,7 @@ import { useHooks } from './hooks';
 import View from './view';
 
 @singleton()
-export class IndexPage implements IIndexPage {
+export default class IndexPage implements IIndexPage {
   public constructor(
     @inject('IAuth/front') private auth: IAuth,
     @inject('ILayoutComponent') private layout: ILayoutComponent,

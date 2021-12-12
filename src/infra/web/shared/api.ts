@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 import { inject, singleton } from 'tsyringe';
 
 @singleton()
-export class Api implements IApi {
+export default class Api implements IApi {
   public constructor(
     @inject('client') private client: ApiInstance,
     @inject('IAuthContext') private authContext: IAuthContext,

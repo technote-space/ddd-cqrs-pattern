@@ -1,10 +1,10 @@
 import aspida from '@aspida/axios';
 import { container } from 'tsyringe';
-import { App } from '@/web/app';
-import { IndexPage } from '@/web/pages/index';
-import { Api } from '@/web/shared/api';
+import App from '@/web/app';
+import IndexPage from '@/web/pages/index';
+import Api from '@/web/shared/api';
 import { Auth0Auth, Auth0ContextProvider, AuthContext } from '@/web/shared/auth/auth0auth';
-import { LayoutComponent } from '@/web/shared/layout';
+import LayoutComponent from '@/web/shared/layout';
 import { Loading, LoadingComponent, LoadingContext } from '@/web/shared/loading';
 import { ReduxContextProvider } from '@/web/shared/store/reduxStore';
 import { DarkMode, DarkModeContext } from '@/web/theme/darkMode';

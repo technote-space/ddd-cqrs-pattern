@@ -3,7 +3,7 @@ import type { GetStaticPropsResult } from 'next';
 import { singleton } from 'tsyringe';
 
 @singleton()
-export class IndexPageProps implements IIndexPageProps {
+export default class IndexPageProps implements IIndexPageProps {
   public async getStaticProps(): Promise<GetStaticPropsResult<Props>> {
     return {
       props: {},

@@ -1,5 +1,5 @@
 import renderer from 'react-test-renderer';
-import { LayoutComponent } from '.';
+import LayoutComponent from '.';
 
 describe('LayoutComponent', () => {
   it('Layoutのコンテキストプロバイダー', () => {

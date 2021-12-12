@@ -7,7 +7,7 @@ import { BaseComponent } from '@/web/shared/component';
 import View from './view';
 
 @singleton()
-export class LayoutComponent extends BaseComponent implements ILayoutComponent {
+export default class LayoutComponent extends BaseComponent implements ILayoutComponent {
   public constructor(
     @inject('ILoadingComponent') private loadingComponent: ILoadingComponent,
   ) {
