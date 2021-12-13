@@ -5,4 +5,3 @@ import { Crypto } from '@peculiar/webcrypto';
 Object.defineProperty(global.self, 'crypto', {
   value: new Crypto(),
 });
-process.env.TZ = 'Asia/Tokyo';
