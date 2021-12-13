@@ -1,38 +1,73 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Storyshots Domain Components/LayoutView Default 1`] = `
-<main>
-  <div>
-    Hello World!
-  </div>
-</main>
+<div
+  className="css-view-1dbjc4n"
+  style={
+    Object {
+      "display": "flex",
+      "height": "100%",
+      "overflowX": "hidden",
+      "overflowY": "hidden",
+    }
+  }
+>
+  <main>
+    <div>
+      Hello World!
+    </div>
+  </main>
+</div>
 `;
 
 exports[`Storyshots Domain Components/LoadingView Default 1`] = `
-<div>
+<div
+  className="css-view-1dbjc4n"
+  style={
+    Object {
+      "display": "flex",
+      "height": "100%",
+      "overflowX": "hidden",
+      "overflowY": "hidden",
+    }
+  }
+>
   <div>
-    Loading...
+    <div>
+      Loading...
+    </div>
   </div>
 </div>
 `;
 
-exports[`Storyshots Domain Components/LoadingView Not Loading 1`] = `<div />`;
+exports[`Storyshots Domain Components/LoadingView Not Loading 1`] = `
+<div
+  className="css-view-1dbjc4n"
+  style={
+    Object {
+      "display": "flex",
+      "height": "100%",
+      "overflowX": "hidden",
+      "overflowY": "hidden",
+    }
+  }
+>
+  <div />
+</div>
+`;
 
-exports[`Storyshots Page Components/Index Default 1`] = `
-<div>
-  <div>
-    Hello World!
-  </div>
-  <button
-    role="logout"
-  >
-    Logout!
-  </button>
-  <button
-    role="add"
-  >
-    Add!!!
-  </button>
+exports[`Storyshots Domain Components/Task Default 1`] = `
+<div
+  className="css-view-1dbjc4n"
+  style={
+    Object {
+      "display": "flex",
+      "height": "100%",
+      "overflowX": "hidden",
+      "overflowY": "hidden",
+    }
+  }
+>
   <div
     style={
       Object {
@@ -44,57 +79,11 @@ exports[`Storyshots Page Components/Index Default 1`] = `
   >
     <div>
       タスク名: 
-      タスク1
+      タスク名
     </div>
     <div>
       メモ: 
-    </div>
-    <div>
-      ステータス: 
-      登録
-    </div>
-    <div>
-      期日: 
-    </div>
-    <div>
-      作業見積: 
-    </div>
-    <div>
-      作業見積単位: 
-    </div>
-    <div>
-      タグ: 
-      
-    </div>
-    <button
-      onClick={[Function]}
-      role="update"
-    >
-      Update
-    </button>
-    <button
-      onClick={[Function]}
-      role="delete"
-    >
-      Delete
-    </button>
-  </div>
-  <div
-    style={
-      Object {
-        "border": "solid 1px #ccc",
-        "margin": "10px",
-        "padding": "10px",
-      }
-    }
-  >
-    <div>
-      タスク名: 
-      タスク1
-    </div>
-    <div>
-      メモ: 
-      メモ2
+      メモ
     </div>
     <div>
       ステータス: 
@@ -132,8 +121,144 @@ exports[`Storyshots Page Components/Index Default 1`] = `
 </div>
 `;
 
+exports[`Storyshots Domain Components/Task Optional 1`] = `
+<div
+  className="css-view-1dbjc4n"
+  style={
+    Object {
+      "display": "flex",
+      "height": "100%",
+      "overflowX": "hidden",
+      "overflowY": "hidden",
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "border": "solid 1px #ccc",
+        "margin": "10px",
+        "padding": "10px",
+      }
+    }
+  >
+    <div>
+      タスク名: 
+      タスク
+    </div>
+    <div>
+      メモ: 
+    </div>
+    <div>
+      ステータス: 
+      登録
+    </div>
+    <div>
+      期日: 
+    </div>
+    <div>
+      作業見積: 
+    </div>
+    <div>
+      作業見積単位: 
+    </div>
+    <div>
+      タグ: 
+      
+    </div>
+    <button
+      onClick={[Function]}
+      role="update"
+    >
+      Update
+    </button>
+    <button
+      onClick={[Function]}
+      role="delete"
+    >
+      Delete
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Page Components/Index Default 1`] = `
+<div
+  className="css-view-1dbjc4n"
+  style={
+    Object {
+      "display": "flex",
+      "height": "100%",
+      "overflowX": "hidden",
+      "overflowY": "hidden",
+    }
+  }
+>
+  <div>
+    <div>
+      Hello World!
+    </div>
+    <button
+      role="logout"
+    >
+      Logout!
+    </button>
+    <button
+      role="add"
+    >
+      Add!!!
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Page Components/Index Not Loaded 1`] = `
+<div
+  className="css-view-1dbjc4n"
+  style={
+    Object {
+      "display": "flex",
+      "height": "100%",
+      "overflowX": "hidden",
+      "overflowY": "hidden",
+    }
+  }
+>
+  <div>
+    <div>
+      Hello World!
+    </div>
+    <button
+      role="logout"
+    >
+      Logout!
+    </button>
+    <button
+      role="add"
+    >
+      Add!!!
+    </button>
+    <div>
+      Loading tasks...
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Page Components/Index Not Logged In 1`] = `
-<div>
-  Loading...
+<div
+  className="css-view-1dbjc4n"
+  style={
+    Object {
+      "display": "flex",
+      "height": "100%",
+      "overflowX": "hidden",
+      "overflowY": "hidden",
+    }
+  }
+>
+  <div>
+    Loading...
+  </div>
 </div>
 `;

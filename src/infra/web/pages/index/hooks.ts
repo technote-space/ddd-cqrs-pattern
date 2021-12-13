@@ -18,7 +18,7 @@ export const useHooks = (props: Props, auth: IAuth, api: IApi) => {
   const user = auth.useUser();
   const onLogout = auth.useLogout();
   const caller = api.useCaller();
-  const { data: tasks, mutate } = api.useSWR(client => [client.tasks, {
+  const { data: tasks, mutate, isValidating } = api.useSWR(client => [client.tasks, {
     headers: { authorization: getAuthorization(user) },
     enabled: user.isLoggedIn,
   }]);
@@ -57,6 +57,7 @@ export const useHooks = (props: Props, auth: IAuth, api: IApi) => {
     user,
     onLogout,
     tasks,
+    isValidating,
     onAdd,
     onUpdate,
     onDelete,

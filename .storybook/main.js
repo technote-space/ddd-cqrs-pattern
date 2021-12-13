@@ -11,7 +11,6 @@ module.exports = {
     "../src/**/*.stories.tsx",
   ],
   "addons": [
-    "storybook-addon-performance/register",
     "@storybook/addon-essentials",
     "@storybook/addon-actions",
     "@storybook/addon-links",

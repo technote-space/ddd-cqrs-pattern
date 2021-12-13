@@ -1,9 +1,9 @@
 import renderer from 'react-test-renderer';
-import { NoTheme } from '@/web/theme/noTheme';
+import { ReactNativeForWebTheme } from '@/web/theme/reactNativeForWebTheme';
 
 describe('NoTheme', () => {
   it('should return theme', () => {
-    const theme = new NoTheme();
+    const theme = new ReactNativeForWebTheme();
     const tree = renderer.create(theme.render({ children: <div>test</div> }));
     expect(tree).toMatchSnapshot();
   });

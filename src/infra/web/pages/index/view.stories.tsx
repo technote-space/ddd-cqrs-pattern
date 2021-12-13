@@ -7,6 +7,7 @@ export default {
   argTypes: {
     user: { control: { type: 'object' } },
     tasks: { control: { type: 'object' } },
+    isValidating: { control: { type: 'boolean' } },
   },
 } as ComponentMeta<typeof View>;
 
@@ -28,10 +29,19 @@ Default.args = {
       タグ: ['テスト1', 'テスト2'],
     },
   ],
+  isValidating: false,
 };
 
 export const NotLoggedIn = Template.bind({});
 NotLoggedIn.args = {
   user: { isLoggedIn: false },
   tasks: undefined,
+  isValidating: true,
+};
+
+export const NotLoaded = Template.bind({});
+NotLoaded.args = {
+  user: { isLoggedIn: true, user: { authorization: '' } },
+  tasks: undefined,
+  isValidating: true,
 };

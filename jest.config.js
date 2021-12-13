@@ -38,5 +38,7 @@ module.exports = {
   transformIgnorePatterns: [
     '^.+\\.module\\.(css|sass|scss)$',
   ],
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.tsx'],
+  globalSetup: '<rootDir>/jest.global.setup.js',
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+  preset: 'react-native-web'
 }

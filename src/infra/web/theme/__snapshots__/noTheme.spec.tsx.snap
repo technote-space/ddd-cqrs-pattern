@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`NoTheme should return theme 1`] = `
-<div>
-  test
-</div>
-`;
