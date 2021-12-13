@@ -39,4 +39,5 @@ module.exports = {
     '^.+\\.module\\.(css|sass|scss)$',
   ],
   setupFilesAfterEnv: ['<rootDir>/jest.setup.tsx'],
+  preset: 'react-native-web'
 }

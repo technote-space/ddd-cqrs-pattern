@@ -17,16 +17,19 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
       "^/*": [
-        "./*"
+        "./src/*"
       ],
       "$/*": [
-        "./domain/*"
+        "./src/domain/*"
       ],
       "@/*": [
-        "./infra/*"
+        "./src/infra/*"
+      ],
+      "react-native": [
+        "./node_modules/react-native-web"
       ]
     },
     "experimentalDecorators": true,

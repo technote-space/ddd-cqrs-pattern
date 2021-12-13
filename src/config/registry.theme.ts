@@ -1,4 +1,4 @@
 import { container } from 'tsyringe';
-import { NoTheme } from '@/web/theme/noTheme';
+import { ReactNativeForWebTheme } from '@/web/theme/reactNativeForWebTheme';
 
-container.registerSingleton('ITheme', NoTheme);
+container.registerSingleton('ITheme', ReactNativeForWebTheme);

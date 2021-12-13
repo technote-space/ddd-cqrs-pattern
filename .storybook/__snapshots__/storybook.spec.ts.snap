@@ -1,166 +1,264 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Storyshots Domain Components/LayoutView Default 1`] = `
-<main>
-  <div>
-    Hello World!
-  </div>
-</main>
-`;
-
-exports[`Storyshots Domain Components/LoadingView Default 1`] = `
-<div>
-  <div>
-    Loading...
-  </div>
+<div
+  className="css-view-1dbjc4n"
+  style={
+    Object {
+      "display": "flex",
+      "height": "100%",
+      "overflowX": "hidden",
+      "overflowY": "hidden",
+    }
+  }
+>
+  <main>
+    <div>
+      Hello World!
+    </div>
+  </main>
 </div>
 `;
 
-exports[`Storyshots Domain Components/LoadingView Not Loading 1`] = `<div />`;
-
-exports[`Storyshots Domain Components/Task Default 1`] = `
+exports[`Storyshots Domain Components/LoadingView Default 1`] = `
 <div
+  className="css-view-1dbjc4n"
   style={
     Object {
-      "border": "solid 1px #ccc",
-      "margin": "10px",
-      "padding": "10px",
+      "display": "flex",
+      "height": "100%",
+      "overflowX": "hidden",
+      "overflowY": "hidden",
     }
   }
 >
   <div>
-    タスク名: 
-    タスク名
+    <div>
+      Loading...
+    </div>
   </div>
-  <div>
-    メモ: 
-    メモ
-  </div>
-  <div>
-    ステータス: 
-    実行中
-  </div>
-  <div>
-    期日: 
-    2022-01-23T10:00:00+09:00
-  </div>
-  <div>
-    作業見積: 
-    10
-  </div>
-  <div>
-    作業見積単位: 
-    日
-  </div>
-  <div>
-    タグ: 
-    テスト1, テスト2
-  </div>
-  <button
-    onClick={[Function]}
-    role="update"
+</div>
+`;
+
+exports[`Storyshots Domain Components/LoadingView Not Loading 1`] = `
+<div
+  className="css-view-1dbjc4n"
+  style={
+    Object {
+      "display": "flex",
+      "height": "100%",
+      "overflowX": "hidden",
+      "overflowY": "hidden",
+    }
+  }
+>
+  <div />
+</div>
+`;
+
+exports[`Storyshots Domain Components/Task Default 1`] = `
+<div
+  className="css-view-1dbjc4n"
+  style={
+    Object {
+      "display": "flex",
+      "height": "100%",
+      "overflowX": "hidden",
+      "overflowY": "hidden",
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "border": "solid 1px #ccc",
+        "margin": "10px",
+        "padding": "10px",
+      }
+    }
   >
-    Update
-  </button>
-  <button
-    onClick={[Function]}
-    role="delete"
-  >
-    Delete
-  </button>
+    <div>
+      タスク名: 
+      タスク名
+    </div>
+    <div>
+      メモ: 
+      メモ
+    </div>
+    <div>
+      ステータス: 
+      実行中
+    </div>
+    <div>
+      期日: 
+      2022-01-23T10:00:00+09:00
+    </div>
+    <div>
+      作業見積: 
+      10
+    </div>
+    <div>
+      作業見積単位: 
+      日
+    </div>
+    <div>
+      タグ: 
+      テスト1, テスト2
+    </div>
+    <button
+      onClick={[Function]}
+      role="update"
+    >
+      Update
+    </button>
+    <button
+      onClick={[Function]}
+      role="delete"
+    >
+      Delete
+    </button>
+  </div>
 </div>
 `;
 
 exports[`Storyshots Domain Components/Task Optional 1`] = `
 <div
+  className="css-view-1dbjc4n"
   style={
     Object {
-      "border": "solid 1px #ccc",
-      "margin": "10px",
-      "padding": "10px",
+      "display": "flex",
+      "height": "100%",
+      "overflowX": "hidden",
+      "overflowY": "hidden",
     }
   }
 >
-  <div>
-    タスク名: 
-    タスク
-  </div>
-  <div>
-    メモ: 
-  </div>
-  <div>
-    ステータス: 
-    登録
-  </div>
-  <div>
-    期日: 
-  </div>
-  <div>
-    作業見積: 
-  </div>
-  <div>
-    作業見積単位: 
-  </div>
-  <div>
-    タグ: 
-    
-  </div>
-  <button
-    onClick={[Function]}
-    role="update"
+  <div
+    style={
+      Object {
+        "border": "solid 1px #ccc",
+        "margin": "10px",
+        "padding": "10px",
+      }
+    }
   >
-    Update
-  </button>
-  <button
-    onClick={[Function]}
-    role="delete"
-  >
-    Delete
-  </button>
+    <div>
+      タスク名: 
+      タスク
+    </div>
+    <div>
+      メモ: 
+    </div>
+    <div>
+      ステータス: 
+      登録
+    </div>
+    <div>
+      期日: 
+    </div>
+    <div>
+      作業見積: 
+    </div>
+    <div>
+      作業見積単位: 
+    </div>
+    <div>
+      タグ: 
+      
+    </div>
+    <button
+      onClick={[Function]}
+      role="update"
+    >
+      Update
+    </button>
+    <button
+      onClick={[Function]}
+      role="delete"
+    >
+      Delete
+    </button>
+  </div>
 </div>
 `;
 
 exports[`Storyshots Page Components/Index Default 1`] = `
-<div>
+<div
+  className="css-view-1dbjc4n"
+  style={
+    Object {
+      "display": "flex",
+      "height": "100%",
+      "overflowX": "hidden",
+      "overflowY": "hidden",
+    }
+  }
+>
   <div>
-    Hello World!
+    <div>
+      Hello World!
+    </div>
+    <button
+      role="logout"
+    >
+      Logout!
+    </button>
+    <button
+      role="add"
+    >
+      Add!!!
+    </button>
   </div>
-  <button
-    role="logout"
-  >
-    Logout!
-  </button>
-  <button
-    role="add"
-  >
-    Add!!!
-  </button>
 </div>
 `;
 
 exports[`Storyshots Page Components/Index Not Loaded 1`] = `
-<div>
+<div
+  className="css-view-1dbjc4n"
+  style={
+    Object {
+      "display": "flex",
+      "height": "100%",
+      "overflowX": "hidden",
+      "overflowY": "hidden",
+    }
+  }
+>
   <div>
-    Hello World!
-  </div>
-  <button
-    role="logout"
-  >
-    Logout!
-  </button>
-  <button
-    role="add"
-  >
-    Add!!!
-  </button>
-  <div>
-    Loading tasks...
+    <div>
+      Hello World!
+    </div>
+    <button
+      role="logout"
+    >
+      Logout!
+    </button>
+    <button
+      role="add"
+    >
+      Add!!!
+    </button>
+    <div>
+      Loading tasks...
+    </div>
   </div>
 </div>
 `;
 
 exports[`Storyshots Page Components/Index Not Logged In 1`] = `
-<div>
-  Loading...
+<div
+  className="css-view-1dbjc4n"
+  style={
+    Object {
+      "display": "flex",
+      "height": "100%",
+      "overflowX": "hidden",
+      "overflowY": "hidden",
+    }
+  }
+>
+  <div>
+    Loading...
+  </div>
 </div>
 `;
