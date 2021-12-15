@@ -1,3 +1,4 @@
+import type { ThemeColor } from '$/web/theme/color';
 import aspida from '@aspida/axios';
 import { container } from 'tsyringe';
 import App from '@/web/app';
@@ -34,6 +35,36 @@ container.registerInstance('auth0Config', {
   clientId: process.env.NEXT_PUBLIC_AUTH0_CLIENT_ID,
 });
 container.registerInstance('client', api(aspida()));
+container.registerInstance('ThemeColor', {
+  background: {
+    light: '#fffaf0',
+    dark: '#1a202c',
+  },
+  text: {
+    light: '#1a202c',
+    dark: '#fff',
+  },
+  subText: {
+    light: '#e2e8f0',
+    dark: '#e2e8f0',
+  },
+  primary: {
+    light: '#6200ee',
+    dark: '#5200ae',
+  },
+  accent: {
+    light: '#03dac6',
+    dark: '#019856',
+  },
+  primaryText: {
+    light: '#fff',
+    dark: '#fff',
+  },
+  accentText: {
+    light: '#000',
+    dark: '#fff',
+  },
+} as ThemeColor);
 
 // pages
 container.registerSingleton('IIndexPage', IndexPage);

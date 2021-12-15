@@ -43,6 +43,7 @@ describe('tsyringe', () => {
     expect(() => container.resolve('contexts')).not.toThrow();
     expect(() => container.resolve('providers')).not.toThrow();
     expect(() => container.resolve('auth0Config')).not.toThrow();
+    expect(() => container.resolve('ThemeColor')).not.toThrow();
     expect(() => container.resolve('client')).not.toThrow();
     expect(() => container.resolve('IIndexPage')).not.toThrow();
 
