@@ -12,7 +12,7 @@ module.exports = {
     "@typescript-eslint",
     "import",
     "unused-imports",
-    "strict-dependencies"
+    "@technote-space/strict-dependencies"
   ],
   "rules": {
     "import/order": [
@@ -54,32 +54,33 @@ module.exports = {
     ],
     "import/no-anonymous-default-export": "off",
     "react-hooks/rules-of-hooks": "off",
-    "strict-dependencies/strict-dependencies": [
+    "@technote-space/strict-dependencies/strict-dependencies": [
       "error",
       [
         {
           "module": "src/domain",
-          "allowReferenceFrom": ["src/infra/**", "src/pages/**", "src/usecase/**", "src/presentation/**", "src/**/*.spec.ts", "src/__mocks__/**"],
+          "allowReferenceFrom": ["src/infra/**", "src/usecase/**", "src/presentation/**"],
           "allowSameModule": true
         },
         {
           "module": "src/infra",
-          "allowReferenceFrom": ["src/pages/**", "src/config/registry.*", "src/**/*.spec.ts", "src/__mocks__/**"],
+          "allowReferenceFrom": ["src/pages/**", "src/config/registry.*", "src/__mocks__/**"],
           "allowSameModule": true
         },
         {
           "module": "src/usecase",
-          "allowReferenceFrom": ["src/presentation/**", "src/infra/**", "src/pages/api/**", "src/config/registry.migration.ts", "src/bin/**"],
+          "allowReferenceFrom": ["src/presentation/**", "src/infra/web/**", "src/bin/**"],
           "allowSameModule": true
         },
         {
           "module": "src/presentation",
-          "allowReferenceFrom": ["src/pages/api/**", "src/infra/**"],
+          "allowReferenceFrom": ["src/pages/api/**"],
           "allowSameModule": true
         }
       ],
       {
-        "resolveRelativeImport": true
+        "resolveRelativeImport": true,
+        "allowTypeImport": true
       }
     ]
   }

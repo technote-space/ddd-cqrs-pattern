@@ -3032,6 +3032,11 @@
     form-data "^4.0.0"
     minimist "^1.2.5"
 
+"@technote-space/eslint-plugin-strict-dependencies@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@technote-space/eslint-plugin-strict-dependencies/-/eslint-plugin-strict-dependencies-0.2.0.tgz#6fa4278203abd7018cdc111676a79b1943f0dd1a"
+  integrity sha512-WlqR7N6XnPGmVYhLqi6E34Ywi+GBoa7/hwAn/3okZuU10124gS4jW8l9siZBrCDyQf6gVEeCp2yfv8Y+az9TnA==
+
 "@testing-library/dom@^8.0.0":
   version "8.11.1"
   resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-8.11.1.tgz#03fa2684aa09ade589b460db46b4c7be9fc69753"
@@ -6660,11 +6665,6 @@ eslint-plugin-storybook@^0.5.3:
     "@storybook/csf" "^0.0.1"
     "@typescript-eslint/experimental-utils" "^5.3.0"
     requireindex "^1.1.0"
-
-eslint-plugin-strict-dependencies@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-strict-dependencies/-/eslint-plugin-strict-dependencies-0.0.2.tgz#bf0dd3b259ccd1d26f2e12443bc1852e76c6040c"
-  integrity sha512-D91d13/PvWFN5e1Mxv7+FNNRtV7gNct9OIyZNQM+bVTV1FeLeqITnSOkGSIdwuRgpTOHfYBQOs2rSolTyECCPQ==
 
 eslint-plugin-unused-imports@^2.0.0:
   version "2.0.0"
