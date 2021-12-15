@@ -23,7 +23,7 @@ const View: VFC<HooksParams> = ({
     <button role="logout" onClick={onLogout}>Logout!</button>
     <button role="add" onClick={onAdd}>Add!!!</button>
     {isValidating && <div>Loading tasks...</div>}
-    {!isValidating && tasks?.map(task => <Task
+    {tasks?.map(task => <Task
       key={task.id}
       task={task}
       onUpdate={onUpdate}

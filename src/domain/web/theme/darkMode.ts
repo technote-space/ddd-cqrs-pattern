@@ -1,17 +1,10 @@
-import type { IContext, Dispatch } from '$/web/shared/store';
+import type { IContext } from '$/web/shared/store';
 
 export type StoreContext = {
   darkMode: boolean;
 };
 
-export interface IDarkModeContext extends IContext<StoreContext> {
-  useDarkMode(): boolean;
+export type IDarkModeContext = IContext<StoreContext>
 
-  toggleDarkMode(dispatch: Dispatch): void;
-}
-
-export interface IDarkMode {
-  useColorModeValue<T>(lightModeValue: T, darkModeValue: T): T;
-
-  useToggleDarkMode(): () => void;
-}
+export type useDarkMode = () => boolean;
+export type useToggleDarkMode = () => () => void;

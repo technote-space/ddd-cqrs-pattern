@@ -5,9 +5,9 @@ import IndexPage from '@/web/pages/index';
 import Api from '@/web/shared/api';
 import { Auth0Auth, Auth0ContextProvider, AuthContext } from '@/web/shared/auth/auth0auth';
 import LayoutComponent from '@/web/shared/layout';
-import { Loading, LoadingComponent, LoadingContext } from '@/web/shared/loading';
+import { LoadingComponent, LoadingContext } from '@/web/shared/loading/redux';
 import { ReduxContextProvider } from '@/web/shared/store/reduxStore';
-import { DarkMode, DarkModeContext } from '@/web/theme/darkMode';
+import { DarkModeContext } from '@/web/theme/drakMode/redux';
 import api from '^/pages/api/$api';
 
 container.registerSingleton('IApp', App);
@@ -17,10 +17,8 @@ container.registerSingleton('IApi', Api);
 container.registerSingleton('Auth0ContextProvider', Auth0ContextProvider);
 container.registerSingleton('ILayoutComponent', LayoutComponent);
 container.registerSingleton('ILoadingContext', LoadingContext);
-container.registerSingleton('ILoading', Loading);
 container.registerSingleton('ILoadingComponent', LoadingComponent);
 container.registerSingleton('IDarkModeContext', DarkModeContext);
-container.registerSingleton('IDarkMode', DarkMode);
 container.registerSingleton('ReduxContextProvider', ReduxContextProvider);
 container.registerInstance('contexts', [
   'IAuthContext',

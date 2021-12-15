@@ -3,6 +3,7 @@ import * as auth0 from '@auth0/auth0-react';
 import { renderHook } from '@testing-library/react-hooks';
 import * as redux from 'react-redux';
 import renderer from 'react-test-renderer';
+import * as loadingHooks from '@/web/shared/loading';
 import { TestApi } from '^/__mocks__/api';
 import TestEnv from '^/__mocks__/env';
 import { createLocalHandler, useMockServer } from '^/__mocks__/server';
@@ -64,10 +65,12 @@ describe('Auth0Auth', () => {
 
     const mockAdd = jest.fn();
     const mockDelete = jest.fn();
+    jest.spyOn(loadingHooks, 'useLoading').mockReturnValue(jest.fn());
+    jest.spyOn(loadingHooks, 'useAddProcess').mockReturnValue(mockAdd);
+    jest.spyOn(loadingHooks, 'useDeleteProcess').mockReturnValue(mockDelete);
+    jest.spyOn(loadingHooks, 'useIsProcessRunning').mockReturnValue(jest.fn());
     const auth = new Auth0Auth(
       { useUser: () => ({ isLoggedIn: false }) } as never,
-      { useProcess: () => [], add: mockAdd, delete: mockDelete } as never,
-      { useLoading: jest.fn() } as never,
       new TestApi(),
     );
 
@@ -95,14 +98,17 @@ describe('Auth0Auth', () => {
           loginWithRedirect: jest.fn(),
         } as never);
 
+        const mockWithLoading = jest.fn(callback => callback());
         const mockAdd = jest.fn();
         const mockDelete = jest.fn();
         const mockSetUser = jest.fn();
-        const mockWithLoading = jest.fn(callback => callback());
+        const mockIsProcessRunning = jest.fn(() => false);
+        jest.spyOn(loadingHooks, 'useLoading').mockReturnValue(mockWithLoading);
+        jest.spyOn(loadingHooks, 'useAddProcess').mockReturnValue(mockAdd);
+        jest.spyOn(loadingHooks, 'useDeleteProcess').mockReturnValue(mockDelete);
+        jest.spyOn(loadingHooks, 'useIsProcessRunning').mockReturnValue(mockIsProcessRunning);
         const auth = new Auth0Auth(
           { useUser: () => ({ isLoggedIn: false }), setUser: mockSetUser } as never,
-          { useProcess: () => [], add: mockAdd, delete: mockDelete } as never,
-          { useLoading: () => mockWithLoading, isProcessRunning: () => false } as never,
           new TestApi(),
         );
 
@@ -126,14 +132,17 @@ describe('Auth0Auth', () => {
           loginWithRedirect: jest.fn(),
         } as never);
 
+        const mockWithLoading = jest.fn(callback => callback());
         const mockAdd = jest.fn();
         const mockDelete = jest.fn();
         const mockSetUser = jest.fn();
-        const mockWithLoading = jest.fn(callback => callback());
+        const mockIsProcessRunning = jest.fn(() => true);
+        jest.spyOn(loadingHooks, 'useLoading').mockReturnValue(mockWithLoading);
+        jest.spyOn(loadingHooks, 'useAddProcess').mockReturnValue(mockAdd);
+        jest.spyOn(loadingHooks, 'useDeleteProcess').mockReturnValue(mockDelete);
+        jest.spyOn(loadingHooks, 'useIsProcessRunning').mockReturnValue(mockIsProcessRunning);
         const auth = new Auth0Auth(
           { useUser: () => ({ isLoggedIn: false }), setUser: mockSetUser } as never,
-          { useProcess: () => [{ id: 'login' }], add: mockAdd, delete: mockDelete } as never,
-          { useLoading: () => mockWithLoading, isProcessRunning: () => true } as never,
           new TestApi(),
         );
 
@@ -158,17 +167,20 @@ describe('Auth0Auth', () => {
           loginWithRedirect: mockLoginWithRedirect,
         } as never);
 
+        const mockWithLoading = jest.fn(callback => callback());
         const mockAdd = jest.fn();
         const mockDelete = jest.fn();
         const mockSetUser = jest.fn();
-        const mockWithLoading = jest.fn(callback => callback());
+        const mockIsProcessRunning = jest.fn(() => false);
+        jest.spyOn(loadingHooks, 'useLoading').mockReturnValue(mockWithLoading);
+        jest.spyOn(loadingHooks, 'useAddProcess').mockReturnValue(mockAdd);
+        jest.spyOn(loadingHooks, 'useDeleteProcess').mockReturnValue(mockDelete);
+        jest.spyOn(loadingHooks, 'useIsProcessRunning').mockReturnValue(mockIsProcessRunning);
         const auth = new Auth0Auth(
           {
             useUser: () => ({ isLoggedIn: true, user: { authorization: 'token' } }),
             setUser: mockSetUser,
           } as never,
-          { useProcess: () => [], add: mockAdd, delete: mockDelete } as never,
-          { useLoading: () => mockWithLoading, isProcessRunning: () => false } as never,
           new TestApi(),
         );
 
@@ -193,17 +205,20 @@ describe('Auth0Auth', () => {
           loginWithRedirect: mockLoginWithRedirect,
         } as never);
 
+        const mockWithLoading = jest.fn(callback => callback());
         const mockAdd = jest.fn();
         const mockDelete = jest.fn();
         const mockSetUser = jest.fn();
-        const mockWithLoading = jest.fn(callback => callback());
+        const mockIsProcessRunning = jest.fn(() => false);
+        jest.spyOn(loadingHooks, 'useLoading').mockReturnValue(mockWithLoading);
+        jest.spyOn(loadingHooks, 'useAddProcess').mockReturnValue(mockAdd);
+        jest.spyOn(loadingHooks, 'useDeleteProcess').mockReturnValue(mockDelete);
+        jest.spyOn(loadingHooks, 'useIsProcessRunning').mockReturnValue(mockIsProcessRunning);
         const auth = new Auth0Auth(
           {
             useUser: () => ({ isLoggedIn: false }),
             setUser: mockSetUser,
           } as never,
-          { useProcess: () => [], add: mockAdd, delete: mockDelete } as never,
-          { useLoading: () => mockWithLoading, isProcessRunning: () => false } as never,
           new TestApi(),
         );
 
@@ -227,8 +242,6 @@ describe('Auth0Auth', () => {
     } as never);
 
     const auth = new Auth0Auth(
-      {} as never,
-      {} as never,
       {} as never,
       {} as never,
     );
