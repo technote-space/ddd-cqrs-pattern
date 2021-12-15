@@ -1,14 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NoTheme should return theme 1`] = `
+exports[`ReactNativeForWebTheme should return theme 1`] = `
 <div
   className="css-view-1dbjc4n"
   style={
     Object {
       "display": "flex",
-      "height": "100%",
-      "overflowX": "hidden",
-      "overflowY": "hidden",
     }
   }
 >

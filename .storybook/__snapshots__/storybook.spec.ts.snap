@@ -2,15 +2,7 @@
 
 exports[`Storyshots Domain Components/LayoutView Default 1`] = `
 <div
-  className="css-view-1dbjc4n"
-  style={
-    Object {
-      "display": "flex",
-      "height": "100%",
-      "overflowX": "hidden",
-      "overflowY": "hidden",
-    }
-  }
+  className="empty-theme"
 >
   <main>
     <div>
@@ -22,15 +14,7 @@ exports[`Storyshots Domain Components/LayoutView Default 1`] = `
 
 exports[`Storyshots Domain Components/LoadingView Default 1`] = `
 <div
-  className="css-view-1dbjc4n"
-  style={
-    Object {
-      "display": "flex",
-      "height": "100%",
-      "overflowX": "hidden",
-      "overflowY": "hidden",
-    }
-  }
+  className="empty-theme"
 >
   <div>
     <div>
@@ -42,15 +26,7 @@ exports[`Storyshots Domain Components/LoadingView Default 1`] = `
 
 exports[`Storyshots Domain Components/LoadingView Not Loading 1`] = `
 <div
-  className="css-view-1dbjc4n"
-  style={
-    Object {
-      "display": "flex",
-      "height": "100%",
-      "overflowX": "hidden",
-      "overflowY": "hidden",
-    }
-  }
+  className="empty-theme"
 >
   <div />
 </div>
@@ -58,15 +34,7 @@ exports[`Storyshots Domain Components/LoadingView Not Loading 1`] = `
 
 exports[`Storyshots Domain Components/Task Default 1`] = `
 <div
-  className="css-view-1dbjc4n"
-  style={
-    Object {
-      "display": "flex",
-      "height": "100%",
-      "overflowX": "hidden",
-      "overflowY": "hidden",
-    }
-  }
+  className="empty-theme"
 >
   <div
     style={
@@ -123,15 +91,7 @@ exports[`Storyshots Domain Components/Task Default 1`] = `
 
 exports[`Storyshots Domain Components/Task Optional 1`] = `
 <div
-  className="css-view-1dbjc4n"
-  style={
-    Object {
-      "display": "flex",
-      "height": "100%",
-      "overflowX": "hidden",
-      "overflowY": "hidden",
-    }
-  }
+  className="empty-theme"
 >
   <div
     style={
@@ -184,15 +144,7 @@ exports[`Storyshots Domain Components/Task Optional 1`] = `
 
 exports[`Storyshots Page Components/Index Default 1`] = `
 <div
-  className="css-view-1dbjc4n"
-  style={
-    Object {
-      "display": "flex",
-      "height": "100%",
-      "overflowX": "hidden",
-      "overflowY": "hidden",
-    }
-  }
+  className="empty-theme"
 >
   <div>
     <div>
@@ -214,15 +166,7 @@ exports[`Storyshots Page Components/Index Default 1`] = `
 
 exports[`Storyshots Page Components/Index Not Loaded 1`] = `
 <div
-  className="css-view-1dbjc4n"
-  style={
-    Object {
-      "display": "flex",
-      "height": "100%",
-      "overflowX": "hidden",
-      "overflowY": "hidden",
-    }
-  }
+  className="empty-theme"
 >
   <div>
     <div>
@@ -247,15 +191,7 @@ exports[`Storyshots Page Components/Index Not Loaded 1`] = `
 
 exports[`Storyshots Page Components/Index Not Logged In 1`] = `
 <div
-  className="css-view-1dbjc4n"
-  style={
-    Object {
-      "display": "flex",
-      "height": "100%",
-      "overflowX": "hidden",
-      "overflowY": "hidden",
-    }
-  }
+  className="empty-theme"
 >
   <div>
     Loading...

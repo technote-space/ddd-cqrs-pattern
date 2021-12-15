@@ -17,9 +17,6 @@ describe('tsyringe', () => {
     process.env['NOTION_SECRET'] = 'secret';
     process.env['NOTION_BASE_URL'] = 'https://example.com';
 
-    // theme
-    expect(() => container.resolve('ITheme')).not.toThrow();
-
     // sharedMethod
     expect(() => container.resolve('useProcess')).not.toThrow();
     expect(() => container.resolve('useAddProcess')).not.toThrow();
@@ -30,6 +27,7 @@ describe('tsyringe', () => {
     expect(() => container.resolve('useToggleDarkMode')).not.toThrow();
 
     // shared
+    expect(() => container.resolve('ITheme')).not.toThrow();
     expect(() => container.resolve('IApp')).not.toThrow();
     expect(() => container.resolve('IAuthContext')).not.toThrow();
     expect(() => container.resolve('IAuth/front')).not.toThrow();

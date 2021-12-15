@@ -9,8 +9,10 @@ import LayoutComponent from '@/web/shared/layout';
 import { LoadingComponent, LoadingContext } from '@/web/shared/loading/redux';
 import { ReduxContextProvider } from '@/web/shared/store/reduxStore';
 import { DarkModeContext } from '@/web/theme/drakMode/redux';
+import { ReactNativeForWebTheme } from '@/web/theme/reactNativeForWeb';
 import api from '^/pages/api/$api';
 
+container.registerSingleton('ITheme', ReactNativeForWebTheme);
 container.registerSingleton('IApp', App);
 container.registerSingleton('IAuthContext', AuthContext);
 container.registerSingleton('IAuth/front', Auth0Auth);
