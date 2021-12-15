@@ -20,6 +20,15 @@ describe('tsyringe', () => {
     // theme
     expect(() => container.resolve('ITheme')).not.toThrow();
 
+    // sharedMethod
+    expect(() => container.resolve('useProcess')).not.toThrow();
+    expect(() => container.resolve('useAddProcess')).not.toThrow();
+    expect(() => container.resolve('useDeleteProcess')).not.toThrow();
+    expect(() => container.resolve('useLoading')).not.toThrow();
+    expect(() => container.resolve('useIsProcessRunning')).not.toThrow();
+    expect(() => container.resolve('useDarkMode')).not.toThrow();
+    expect(() => container.resolve('useToggleDarkMode')).not.toThrow();
+
     // shared
     expect(() => container.resolve('IApp')).not.toThrow();
     expect(() => container.resolve('IAuthContext')).not.toThrow();
@@ -27,15 +36,8 @@ describe('tsyringe', () => {
     expect(() => container.resolve('IApi')).not.toThrow();
     expect(() => container.resolve('ILayoutComponent')).not.toThrow();
     expect(() => container.resolve('ILoadingContext')).not.toThrow();
-    expect(() => container.resolve('useProcess')).not.toThrow();
-    expect(() => container.resolve('useAddProcess')).not.toThrow();
-    expect(() => container.resolve('useDeleteProcess')).not.toThrow();
-    expect(() => container.resolve('useLoading')).not.toThrow();
-    expect(() => container.resolve('useIsProcessRunning')).not.toThrow();
     expect(() => container.resolve('ILoadingComponent')).not.toThrow();
     expect(() => container.resolve('IDarkModeContext')).not.toThrow();
-    expect(() => container.resolve('useDarkMode')).not.toThrow();
-    expect(() => container.resolve('useToggleDarkMode')).not.toThrow();
     expect(() => container.resolve('Auth0ContextProvider')).not.toThrow();
     expect(() => container.resolve('ReduxContextProvider')).not.toThrow();
     expect(() => container.resolve('contexts')).not.toThrow();
