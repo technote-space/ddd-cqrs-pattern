@@ -3,8 +3,8 @@ import type { Reducer } from '$/web/shared/store';
 import { memo } from 'react';
 import { singleton } from 'tsyringe';
 import { BaseComponent } from '@/web/shared/component';
-import View from '@/web/shared/loading/view';
 import { useProcess } from './hooks';
+import View from './view';
 
 @singleton()
 export class LoadingContext implements ILoadingContext {
