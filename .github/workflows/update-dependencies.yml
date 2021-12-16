@@ -1,6 +1,6 @@
 on:
   schedule:
-    - cron: 8 8 * * 5
+    - cron: 4 16 * * 6
   pull_request:
     types: [opened, reopened, closed]
   repository_dispatch:
@@ -11,6 +11,7 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
 
 name: Update dependencies
+
 jobs:
   update:
     name: Update npm dependencies
