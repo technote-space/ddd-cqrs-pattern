@@ -5,12 +5,23 @@ exports[`ReactNativeForWebTheme should return theme 1`] = `
   className="css-view-1dbjc4n"
   style={
     Object {
-      "display": "flex",
+      "WebkitFlex": 1,
+      "flex": 1,
+      "msFlex": "1 1 0%",
     }
   }
 >
-  <div>
-    test
+  <div
+    className="css-view-1dbjc4n"
+    style={
+      Object {
+        "display": "flex",
+      }
+    }
+  >
+    <div>
+      test
+    </div>
   </div>
 </div>
 `;

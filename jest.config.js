@@ -12,6 +12,7 @@ module.exports = {
     '\\$.+\\.ts',
   ],
   moduleNameMapper: {
+    'react-native-svg': 'react-native-svg-web',
     /* Handle CSS imports (with CSS modules)
     https://jestjs.io/docs/webpack#mocking-css-modules */
     '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
