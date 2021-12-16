@@ -4,6 +4,7 @@ import type NextDocument from 'next/document';
 import { default as NextAdapterDocument } from '@expo/next-adapter/document';
 import { singleton } from 'tsyringe';
 
+/* istanbul ignore next */
 @singleton()
 export default class ExpoDocument implements IDocument {
   public create(): NextDocument {
