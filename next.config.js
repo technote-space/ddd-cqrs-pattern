@@ -1,3 +1,10 @@
+const {withExpo} = require("@expo/next-adapter");
+const withPlugins = require("next-compose-plugins");
+const withTM = require("next-transpile-modules")([
+  "react-native-web",
+  "native-base",
+]);
+
 // https://github.com/Automattic/node-canvas/issues/1779#issuecomment-895885846
 if (
   process.env.LD_LIBRARY_PATH == null ||
@@ -14,7 +21,7 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
 
-module.exports = withBundleAnalyzer({
+const nextConfig = {
   webpack5: true,
   reactStrictMode: true,
   trailingSlash: true,
@@ -41,4 +48,13 @@ module.exports = withBundleAnalyzer({
   eslint: {
     dirs: ['src']
   },
-});
+};
+
+module.exports = withPlugins(
+  [
+    withBundleAnalyzer,
+    withTM,
+    [withExpo, {projectRoot: __dirname}],
+  ],
+  nextConfig
+);

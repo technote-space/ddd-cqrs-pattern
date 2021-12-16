@@ -7,7 +7,7 @@ import { useHooks } from './hooks';
 import View from './view';
 
 @singleton()
-export class ReactNativeForWebTheme extends BaseComponent<Props> implements ITheme {
+export default class ReactNativeForWebTheme extends BaseComponent<Props> implements ITheme {
   public constructor() {
     super();
   }

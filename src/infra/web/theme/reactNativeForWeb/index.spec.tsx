@@ -1,5 +1,5 @@
 import renderer from 'react-test-renderer';
-import { ReactNativeForWebTheme } from '@/web/theme/reactNativeForWeb';
+import ReactNativeForWebTheme from '@/web/theme/reactNativeForWeb';
 import * as hooks from './hooks';
 
 describe('ReactNativeForWebTheme', () => {

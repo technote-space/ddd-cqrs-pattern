@@ -7,9 +7,9 @@ export const useHooks = () => {
   const textColor = useColor('text');
   const styles = useMemo(() => StyleSheet.create({
     root: {
+      display: 'flex',
       height: '100%',
       overflow: 'hidden',
-      display: 'flex',
       backgroundColor,
       color: textColor,
     },
