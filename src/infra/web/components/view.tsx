@@ -1,8 +1,4 @@
 import type { View as ViewType } from '$/web/components/view';
-import { container } from 'tsyringe';
+import { createView } from './shared';
 
-const View: ViewType = (props) => {
-  const Component = container.resolve<ViewType>('Components/View');
-  return <Component {...props}/>;
-};
-export default View;
+export default createView<ViewType>('Components/View');
