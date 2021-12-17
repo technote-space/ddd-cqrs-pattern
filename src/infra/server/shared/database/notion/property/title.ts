@@ -1,9 +1,9 @@
 import type { TableColumn, CreateTableColumn, DatabaseRecord, CreateData } from '$/server/shared/database';
+import type { QueryDatabaseResponseProperty } from '@/server/shared/database/notion';
 import type {
   GetDatabaseResponse,
   CreateDatabaseParameters,
   CreatePageParameters,
-  QueryDatabaseResponse,
 } from '@notionhq/client/build/src/api-endpoints';
 import InvalidUsage from '$/shared/exceptions/domain/invalidUsage';
 import Base from './base';
@@ -25,7 +25,7 @@ export default class TitleProperty extends Base {
     return { title: {} };
   }
 
-  public toResultValue(property: QueryDatabaseResponse['results'][number]['properties'][string]): DatabaseRecord[string] {
+  public toResultValue(property: QueryDatabaseResponseProperty): DatabaseRecord[string] {
     /* istanbul ignore next */
     if (property.type === 'title' && property.title[0]?.type === 'text') {
       return property.title[0].text.content;

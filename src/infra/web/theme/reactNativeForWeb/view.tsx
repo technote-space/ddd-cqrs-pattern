@@ -1,15 +1,17 @@
-import type { HooksParams } from './hooks';
 import type { FC } from 'react';
 import { NativeBaseProvider } from 'native-base';
 import { memo } from 'react';
-import { View as RNView } from 'react-native';
+import ViewComponent from '@/web/components/view';
 
-
-const View: FC<HooksParams> = ({ children, styles }) => {
+const View: FC = ({ children }) => {
   return <NativeBaseProvider>
-    <RNView style={styles.root}>
+    <ViewComponent style={{
+      display: 'flex',
+      height: '100%',
+      overflow: 'hidden',
+    }}>
       {children}
-    </RNView>
+    </ViewComponent>
   </NativeBaseProvider>;
 };
 

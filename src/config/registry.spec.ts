@@ -61,5 +61,8 @@ describe('tsyringe', () => {
     expect(() => container.resolve('IUserRepository')).not.toThrow();
     expect(() => container.resolve('ITaskRepository')).not.toThrow();
     expect(() => container.resolve('ITaskQueryService')).not.toThrow();
+
+    // components
+    expect(() => container.resolve('Components/View')).not.toThrow();
   });
 });

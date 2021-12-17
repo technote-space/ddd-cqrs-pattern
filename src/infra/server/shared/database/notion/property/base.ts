@@ -1,11 +1,11 @@
 import type { Table, TableColumn, CreateTableColumn, DatabaseRecord, CreateData } from '$/server/shared/database';
+import type NotionDatabase from '..';
+import type { QueryDatabaseResponseProperty } from '..';
 import type {
   GetDatabaseResponse,
   CreateDatabaseParameters,
   CreatePageParameters,
-  QueryDatabaseResponse,
 } from '@notionhq/client/build/src/api-endpoints';
-import NotionDatabase from '..';
 
 export default abstract class Base {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -18,7 +18,7 @@ export default abstract class Base {
 
   public abstract columnToProperty(column: CreateTableColumn, tables: Table[]): CreateDatabaseParameters['properties'][string];
 
-  public abstract toResultValue(property: QueryDatabaseResponse['results'][number]['properties'][string], column: TableColumn, lazyLoading: Record<string, Record<string, string>>): DatabaseRecord[string];
+  public abstract toResultValue(property: QueryDatabaseResponseProperty, column: TableColumn, lazyLoading: Record<string, Record<string, string>>): DatabaseRecord[string];
 
   public abstract toPropertyValue(data: CreateData, column: TableColumn): Promise<CreatePageParameters['properties']>;
 }

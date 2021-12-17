@@ -58,6 +58,14 @@ module.exports = {
       "error",
       [
         {
+          "module": "react-native-web",
+          "allowReferenceFrom": ["src/infra/web/components/**"]
+        },
+        {
+          "module": "native-base",
+          "allowReferenceFrom": ["src/infra/web/components/**", "src/infra/web/theme/reactNativeForWeb/view.tsx"]
+        },
+        {
           "module": "src/domain",
           "allowReferenceFrom": ["src/infra/**", "src/usecase/**", "src/presentation/**"],
           "allowSameModule": true

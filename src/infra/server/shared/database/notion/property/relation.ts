@@ -1,8 +1,8 @@
 import type { Table, TableColumn, CreateTableColumn, Relation, CreateData } from '$/server/shared/database';
+import type { QueryDatabaseResponseProperty } from '@/server/shared/database/notion';
 import type {
   CreateDatabaseParameters,
   CreatePageParameters,
-  QueryDatabaseResponse,
 } from '@notionhq/client/build/src/api-endpoints';
 import InvalidUsage from '$/shared/exceptions/domain/invalidUsage';
 import Base from './base';
@@ -57,7 +57,7 @@ export default class RelationProperty extends Base {
     return { relation: { database_id: table.id } };
   }
 
-  public toResultValue(property: QueryDatabaseResponse['results'][number]['properties'][string], column: TableColumn, lazyLoading: Record<string, Record<string, string>>): Relation | Relation[] | null {
+  public toResultValue(property: QueryDatabaseResponseProperty, column: TableColumn, lazyLoading: Record<string, Record<string, string>>): Relation | Relation[] | null {
     /* istanbul ignore next */
     if (property.type === 'relation' && column.type === 'relation' && column.name in lazyLoading) {
       if (column.multiple) {

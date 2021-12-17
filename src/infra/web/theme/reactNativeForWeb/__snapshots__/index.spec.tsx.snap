@@ -15,7 +15,12 @@ exports[`ReactNativeForWebTheme should return theme 1`] = `
     className="css-view-1dbjc4n"
     style={
       Object {
+        "backgroundColor": "rgba(26,32,44,1.00)",
+        "color": "rgba(255,255,255,1.00)",
         "display": "flex",
+        "height": "100%",
+        "overflowX": "hidden",
+        "overflowY": "hidden",
       }
     }
   >
