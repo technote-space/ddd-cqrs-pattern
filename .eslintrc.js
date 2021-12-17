@@ -76,6 +76,11 @@ module.exports = {
           "allowSameModule": true
         },
         {
+          "module": "src/infra/web/components",
+          "allowReferenceFrom": ["src/pages/**/components/*", "src/config/registry.components", "src/infra/web/theme/reactNativeForWeb/**"],
+          "allowSameModule": true
+        },
+        {
           "module": "src/usecase",
           "allowReferenceFrom": ["src/presentation/**", "src/infra/web/**", "src/bin/**"],
           "allowSameModule": true
