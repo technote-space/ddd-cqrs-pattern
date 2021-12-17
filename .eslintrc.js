@@ -63,7 +63,7 @@ module.exports = {
         },
         {
           "module": "native-base",
-          "allowReferenceFrom": ["src/infra/web/components/**", "src/infra/web/theme/reactNativeForWeb/view.tsx"]
+          "allowReferenceFrom": ["src/infra/web/components/**", "src/infra/web/theme/nativeBase/view.tsx"]
         },
         {
           "module": "src/domain",
@@ -77,7 +77,7 @@ module.exports = {
         },
         {
           "module": "src/infra/web/components",
-          "allowReferenceFrom": ["src/pages/**/components/*", "src/config/registry.components", "src/infra/web/theme/reactNativeForWeb/**"],
+          "allowReferenceFrom": ["src/infra/web/pages/**/components/**", "src/config/registry.components", "src/infra/web/theme/nativeBase/**"],
           "allowSameModule": true
         },
         {

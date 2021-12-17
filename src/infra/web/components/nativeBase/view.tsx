@@ -1,5 +1,5 @@
 import type { View as ViewType } from '$/web/components/view';
-import { View as NBView } from 'native-base';
+import { View as NBView} from 'native-base';
 import { memo } from 'react';
 import { useColor } from '@/web/theme/color';
 

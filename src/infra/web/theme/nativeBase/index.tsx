@@ -5,7 +5,7 @@ import { BaseComponent } from '@/web/shared/component';
 import View from './view';
 
 @singleton()
-export default class ReactNativeForWebTheme extends BaseComponent<Props> implements ITheme {
+export default class NativeBaseTheme extends BaseComponent<Props> implements ITheme {
   public constructor() {
     super();
   }

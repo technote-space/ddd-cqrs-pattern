@@ -20,7 +20,7 @@ export type ViewStyle = {
   flexGrow?: number;
   flexShrink?: number;
   flexWrap?: 'wrap' | 'nowrap' | 'wrap-reverse';
-  height: number | string,
+  height?: number | string,
   justifyContent?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly';
   margin?: number | string;
   marginBottom?: number | string;
