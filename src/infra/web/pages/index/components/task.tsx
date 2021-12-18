@@ -1,7 +1,6 @@
 import type { VFC } from 'react';
+import { Text, View, Button } from 'native-base';
 import { memo, useCallback } from 'react';
-import Text from '@/web/components/text';
-import View from '@/web/components/view';
 import { TaskDto } from '^/usecase/task/taskDto';
 
 const Task: VFC<{ task: TaskDto; onUpdate: (id: string) => void; onDelete: (id: string) => void }> = ({
@@ -17,13 +16,11 @@ const Task: VFC<{ task: TaskDto; onUpdate: (id: string) => void; onDelete: (id: 
   }, [task.id, onDelete]);
   return <View
     key={task.id}
-    style={{
-      borderStyle: 'solid',
-      borderColor: '#ccc',
-      borderWidth: 1,
-      margin: 10,
-      padding: 10,
-    }}
+    borderColor="#ccc"
+    borderStyle="solid"
+    borderWidth={1}
+    m={3}
+    p={3}
   >
     <Text>タスク名: {task.タスク名}</Text>
     <Text>メモ: {task.メモ}</Text>
@@ -32,8 +29,10 @@ const Task: VFC<{ task: TaskDto; onUpdate: (id: string) => void; onDelete: (id: 
     <Text>作業見積: {task.作業見積}</Text>
     <Text>作業見積単位: {task.作業見積単位}</Text>
     <Text>タグ: {task.タグ.join(', ')}</Text>
-    <button role="update" onClick={_onUpdate}>Update</button>
-    <button role="delete" onClick={_onDelete}>Delete</button>
+    <Button.Group>
+      <Button onPress={_onUpdate}>Update</Button>
+      <Button onPress={_onDelete} colorScheme="red">Delete</Button>
+    </Button.Group>
   </View>;
 };
 

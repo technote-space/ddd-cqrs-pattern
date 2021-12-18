@@ -1,13 +1,17 @@
-import type { ITheme } from '$/web/theme';
 import 'reflect-metadata';
-import { container } from 'tsyringe';
 import { Story } from '@storybook/react';
-import { EmptyTheme } from '@/web/theme/empty';
-
-container.registerSingleton('ITheme', EmptyTheme);
+import { NativeBaseProvider, View as ViewComponent } from 'native-base';
 
 const withTheme = (Story: Story) => {
-  return (container.resolve('ITheme') as ITheme).render({ children: <Story/> });
+  return <NativeBaseProvider>
+    <ViewComponent
+      display="flex"
+      height="100%"
+      overflow="hidden"
+    >
+      <Story/>
+    </ViewComponent>
+  </NativeBaseProvider>;
 };
 export const decorators = [withTheme];
 export const parameters = {

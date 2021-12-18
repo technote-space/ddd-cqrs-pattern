@@ -1,6 +1,5 @@
 import type { IApp } from '$/web/app';
 import type { IContextProvider } from '$/web/shared/contextProvider';
-import type { ITheme } from '$/web/theme';
 import type { AppProps } from 'next/app';
 import type { ReactElement } from 'react';
 import { singleton, inject, container } from 'tsyringe';
@@ -8,7 +7,6 @@ import { singleton, inject, container } from 'tsyringe';
 @singleton()
 export default class App implements IApp {
   public constructor(
-    @inject('ITheme') private theme: ITheme,
     @inject('providers') private providers: string[],
   ) {
   }
@@ -29,8 +27,6 @@ export default class App implements IApp {
     return ({
       Component,
       pageProps,
-    }: Pick<AppProps, 'Component' | 'pageProps'>) => this.applyProviders(this.theme.render({
-      children: <Component {...pageProps} />,
-    }), 0);
+    }: Pick<AppProps, 'Component' | 'pageProps'>) => this.applyProviders(<Component {...pageProps} />, 0);
   }
 }

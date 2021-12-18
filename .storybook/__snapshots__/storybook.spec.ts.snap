@@ -2,23 +2,61 @@
 
 exports[`Storyshots Domain Components/LayoutView Default 1`] = `
 <div
-  className="empty-theme"
+  className="css-view-1dbjc4n"
+  style={
+    Object {
+      "WebkitFlex": 1,
+      "flex": 1,
+      "msFlex": "1 1 0%",
+    }
+  }
 >
-  <main>
-    <div>
-      Hello World!
-    </div>
-  </main>
+  <div
+    className="css-view-1dbjc4n"
+    style={
+      Object {
+        "display": "flex",
+        "height": "100%",
+        "overflowX": "hidden",
+        "overflowY": "hidden",
+      }
+    }
+  >
+    <main>
+      <div>
+        Hello World!
+      </div>
+    </main>
+  </div>
 </div>
 `;
 
 exports[`Storyshots Domain Components/LoadingView Default 1`] = `
 <div
-  className="empty-theme"
+  className="css-view-1dbjc4n"
+  style={
+    Object {
+      "WebkitFlex": 1,
+      "flex": 1,
+      "msFlex": "1 1 0%",
+    }
+  }
 >
-  <div>
+  <div
+    className="css-view-1dbjc4n"
+    style={
+      Object {
+        "display": "flex",
+        "height": "100%",
+        "overflowX": "hidden",
+        "overflowY": "hidden",
+      }
+    }
+  >
     <div>
-      Loading...
+      <div>
+        Loading...
+      </div>
     </div>
   </div>
 </div>
@@ -26,164 +64,807 @@ exports[`Storyshots Domain Components/LoadingView Default 1`] = `
 
 exports[`Storyshots Domain Components/LoadingView Not Loading 1`] = `
 <div
-  className="empty-theme"
+  className="css-view-1dbjc4n"
+  style={
+    Object {
+      "WebkitFlex": 1,
+      "flex": 1,
+      "msFlex": "1 1 0%",
+    }
+  }
 >
-  <div />
+  <div
+    className="css-view-1dbjc4n"
+    style={
+      Object {
+        "display": "flex",
+        "height": "100%",
+        "overflowX": "hidden",
+        "overflowY": "hidden",
+      }
+    }
+  >
+    <div />
+  </div>
 </div>
 `;
 
 exports[`Storyshots Domain Components/Task Default 1`] = `
 <div
-  className="empty-theme"
+  className="css-view-1dbjc4n"
+  style={
+    Object {
+      "WebkitFlex": 1,
+      "flex": 1,
+      "msFlex": "1 1 0%",
+    }
+  }
 >
   <div
+    className="css-view-1dbjc4n"
     style={
       Object {
-        "border": "solid 1px #ccc",
-        "margin": "10px",
-        "padding": "10px",
+        "display": "flex",
+        "height": "100%",
+        "overflowX": "hidden",
+        "overflowY": "hidden",
       }
     }
   >
-    <div>
-      タスク名: 
-      タスク名
-    </div>
-    <div>
-      メモ: 
-      メモ
-    </div>
-    <div>
-      ステータス: 
-      実行中
-    </div>
-    <div>
-      期日: 
-      2022-01-23T10:00:00+09:00
-    </div>
-    <div>
-      作業見積: 
-      10
-    </div>
-    <div>
-      作業見積単位: 
-      日
-    </div>
-    <div>
-      タグ: 
-      テスト1, テスト2
-    </div>
-    <button
-      onClick={[Function]}
-      role="update"
+    <div
+      className="css-view-1dbjc4n"
+      style={
+        Object {
+          "borderBottomColor": "rgba(204,204,204,1.00)",
+          "borderBottomStyle": "solid",
+          "borderBottomWidth": "1px",
+          "borderLeftColor": "rgba(204,204,204,1.00)",
+          "borderLeftStyle": "solid",
+          "borderLeftWidth": "1px",
+          "borderRightColor": "rgba(204,204,204,1.00)",
+          "borderRightStyle": "solid",
+          "borderRightWidth": "1px",
+          "borderTopColor": "rgba(204,204,204,1.00)",
+          "borderTopStyle": "solid",
+          "borderTopWidth": "1px",
+          "marginBottom": "12px",
+          "marginLeft": "12px",
+          "marginRight": "12px",
+          "marginTop": "12px",
+          "paddingBottom": "12px",
+          "paddingLeft": "12px",
+          "paddingRight": "12px",
+          "paddingTop": "12px",
+        }
+      }
     >
-      Update
-    </button>
-    <button
-      onClick={[Function]}
-      role="delete"
-    >
-      Delete
-    </button>
+      <div
+        className="css-text-901oao"
+        dir="auto"
+        style={
+          Object {
+            "color": "rgba(31,41,55,1.00)",
+            "fontSize": "14px",
+            "fontStyle": "normal",
+            "fontWeight": "400",
+            "letterSpacing": "0px",
+            "lineHeight": "1.5em",
+          }
+        }
+      >
+        タスク名: 
+        タスク名
+      </div>
+      <div
+        className="css-text-901oao"
+        dir="auto"
+        style={
+          Object {
+            "color": "rgba(31,41,55,1.00)",
+            "fontSize": "14px",
+            "fontStyle": "normal",
+            "fontWeight": "400",
+            "letterSpacing": "0px",
+            "lineHeight": "1.5em",
+          }
+        }
+      >
+        メモ: 
+        メモ
+      </div>
+      <div
+        className="css-text-901oao"
+        dir="auto"
+        style={
+          Object {
+            "color": "rgba(31,41,55,1.00)",
+            "fontSize": "14px",
+            "fontStyle": "normal",
+            "fontWeight": "400",
+            "letterSpacing": "0px",
+            "lineHeight": "1.5em",
+          }
+        }
+      >
+        ステータス: 
+        実行中
+      </div>
+      <div
+        className="css-text-901oao"
+        dir="auto"
+        style={
+          Object {
+            "color": "rgba(31,41,55,1.00)",
+            "fontSize": "14px",
+            "fontStyle": "normal",
+            "fontWeight": "400",
+            "letterSpacing": "0px",
+            "lineHeight": "1.5em",
+          }
+        }
+      >
+        期日: 
+        2022-01-23T10:00:00+09:00
+      </div>
+      <div
+        className="css-text-901oao"
+        dir="auto"
+        style={
+          Object {
+            "color": "rgba(31,41,55,1.00)",
+            "fontSize": "14px",
+            "fontStyle": "normal",
+            "fontWeight": "400",
+            "letterSpacing": "0px",
+            "lineHeight": "1.5em",
+          }
+        }
+      >
+        作業見積: 
+        10
+      </div>
+      <div
+        className="css-text-901oao"
+        dir="auto"
+        style={
+          Object {
+            "color": "rgba(31,41,55,1.00)",
+            "fontSize": "14px",
+            "fontStyle": "normal",
+            "fontWeight": "400",
+            "letterSpacing": "0px",
+            "lineHeight": "1.5em",
+          }
+        }
+      >
+        作業見積単位: 
+        日
+      </div>
+      <div
+        className="css-text-901oao"
+        dir="auto"
+        style={
+          Object {
+            "color": "rgba(31,41,55,1.00)",
+            "fontSize": "14px",
+            "fontStyle": "normal",
+            "fontWeight": "400",
+            "letterSpacing": "0px",
+            "lineHeight": "1.5em",
+          }
+        }
+      >
+        タグ: 
+        テスト1, テスト2
+      </div>
+      <div
+        className="css-view-1dbjc4n"
+        style={
+          Object {
+            "WebkitBoxDirection": "normal",
+            "WebkitBoxOrient": "horizontal",
+            "WebkitFlexDirection": "row",
+            "flexDirection": "row",
+            "msFlexDirection": "row",
+          }
+        }
+      >
+        <div
+          className="css-cursor-18t94o4 css-view-1dbjc4n"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          role="button"
+          style={
+            Object {
+              "WebkitAlignItems": "center",
+              "WebkitBoxAlign": "center",
+              "WebkitBoxDirection": "normal",
+              "WebkitBoxOrient": "horizontal",
+              "WebkitBoxPack": "center",
+              "WebkitFlexDirection": "row",
+              "WebkitJustifyContent": "center",
+              "alignItems": "center",
+              "backgroundColor": "rgba(6,182,212,1.00)",
+              "borderBottomLeftRadius": "4px",
+              "borderBottomRightRadius": "4px",
+              "borderTopLeftRadius": "4px",
+              "borderTopRightRadius": "4px",
+              "cursor": "pointer",
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "msFlexAlign": "center",
+              "msFlexDirection": "row",
+              "msFlexPack": "center",
+              "msTouchAction": "manipulation",
+              "outlineWidth": "0px",
+              "paddingBottom": "8px",
+              "paddingLeft": "12px",
+              "paddingRight": "12px",
+              "paddingTop": "8px",
+              "touchAction": "manipulation",
+            }
+          }
+          tabIndex="0"
+        >
+          <div
+            className="css-view-1dbjc4n"
+            style={
+              Object {
+                "WebkitAlignItems": "center",
+                "WebkitBoxAlign": "center",
+                "WebkitBoxDirection": "normal",
+                "WebkitBoxOrient": "horizontal",
+                "WebkitFlexDirection": "row",
+                "alignItems": "center",
+                "flexDirection": "row",
+                "msFlexAlign": "center",
+                "msFlexDirection": "row",
+              }
+            }
+          >
+            <div
+              className="css-view-1dbjc4n"
+            >
+              <div
+                className="css-text-901oao"
+                dir="auto"
+                style={
+                  Object {
+                    "color": "rgba(255,255,255,1.00)",
+                    "fontSize": "14px",
+                    "fontStyle": "normal",
+                    "fontWeight": "500",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
+                  }
+                }
+              >
+                Update
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="css-view-1dbjc4n"
+          style={
+            Object {
+              "width": "8px",
+            }
+          }
+        />
+        <div
+          className="css-cursor-18t94o4 css-view-1dbjc4n"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          role="button"
+          style={
+            Object {
+              "WebkitAlignItems": "center",
+              "WebkitBoxAlign": "center",
+              "WebkitBoxDirection": "normal",
+              "WebkitBoxOrient": "horizontal",
+              "WebkitBoxPack": "center",
+              "WebkitFlexDirection": "row",
+              "WebkitJustifyContent": "center",
+              "alignItems": "center",
+              "backgroundColor": "rgba(239,68,68,1.00)",
+              "borderBottomLeftRadius": "4px",
+              "borderBottomRightRadius": "4px",
+              "borderTopLeftRadius": "4px",
+              "borderTopRightRadius": "4px",
+              "cursor": "pointer",
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "msFlexAlign": "center",
+              "msFlexDirection": "row",
+              "msFlexPack": "center",
+              "msTouchAction": "manipulation",
+              "outlineWidth": "0px",
+              "paddingBottom": "8px",
+              "paddingLeft": "12px",
+              "paddingRight": "12px",
+              "paddingTop": "8px",
+              "touchAction": "manipulation",
+            }
+          }
+          tabIndex="0"
+        >
+          <div
+            className="css-view-1dbjc4n"
+            style={
+              Object {
+                "WebkitAlignItems": "center",
+                "WebkitBoxAlign": "center",
+                "WebkitBoxDirection": "normal",
+                "WebkitBoxOrient": "horizontal",
+                "WebkitFlexDirection": "row",
+                "alignItems": "center",
+                "flexDirection": "row",
+                "msFlexAlign": "center",
+                "msFlexDirection": "row",
+              }
+            }
+          >
+            <div
+              className="css-view-1dbjc4n"
+            >
+              <div
+                className="css-text-901oao"
+                dir="auto"
+                style={
+                  Object {
+                    "color": "rgba(255,255,255,1.00)",
+                    "fontSize": "14px",
+                    "fontStyle": "normal",
+                    "fontWeight": "500",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
+                  }
+                }
+              >
+                Delete
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;
 
 exports[`Storyshots Domain Components/Task Optional 1`] = `
 <div
-  className="empty-theme"
+  className="css-view-1dbjc4n"
+  style={
+    Object {
+      "WebkitFlex": 1,
+      "flex": 1,
+      "msFlex": "1 1 0%",
+    }
+  }
 >
   <div
+    className="css-view-1dbjc4n"
     style={
       Object {
-        "border": "solid 1px #ccc",
-        "margin": "10px",
-        "padding": "10px",
+        "display": "flex",
+        "height": "100%",
+        "overflowX": "hidden",
+        "overflowY": "hidden",
       }
     }
   >
-    <div>
-      タスク名: 
-      タスク
-    </div>
-    <div>
-      メモ: 
-    </div>
-    <div>
-      ステータス: 
-      登録
-    </div>
-    <div>
-      期日: 
-    </div>
-    <div>
-      作業見積: 
-    </div>
-    <div>
-      作業見積単位: 
-    </div>
-    <div>
-      タグ: 
-      
-    </div>
-    <button
-      onClick={[Function]}
-      role="update"
+    <div
+      className="css-view-1dbjc4n"
+      style={
+        Object {
+          "borderBottomColor": "rgba(204,204,204,1.00)",
+          "borderBottomStyle": "solid",
+          "borderBottomWidth": "1px",
+          "borderLeftColor": "rgba(204,204,204,1.00)",
+          "borderLeftStyle": "solid",
+          "borderLeftWidth": "1px",
+          "borderRightColor": "rgba(204,204,204,1.00)",
+          "borderRightStyle": "solid",
+          "borderRightWidth": "1px",
+          "borderTopColor": "rgba(204,204,204,1.00)",
+          "borderTopStyle": "solid",
+          "borderTopWidth": "1px",
+          "marginBottom": "12px",
+          "marginLeft": "12px",
+          "marginRight": "12px",
+          "marginTop": "12px",
+          "paddingBottom": "12px",
+          "paddingLeft": "12px",
+          "paddingRight": "12px",
+          "paddingTop": "12px",
+        }
+      }
     >
-      Update
-    </button>
-    <button
-      onClick={[Function]}
-      role="delete"
-    >
-      Delete
-    </button>
+      <div
+        className="css-text-901oao"
+        dir="auto"
+        style={
+          Object {
+            "color": "rgba(31,41,55,1.00)",
+            "fontSize": "14px",
+            "fontStyle": "normal",
+            "fontWeight": "400",
+            "letterSpacing": "0px",
+            "lineHeight": "1.5em",
+          }
+        }
+      >
+        タスク名: 
+        タスク
+      </div>
+      <div
+        className="css-text-901oao"
+        dir="auto"
+        style={
+          Object {
+            "color": "rgba(31,41,55,1.00)",
+            "fontSize": "14px",
+            "fontStyle": "normal",
+            "fontWeight": "400",
+            "letterSpacing": "0px",
+            "lineHeight": "1.5em",
+          }
+        }
+      >
+        メモ: 
+      </div>
+      <div
+        className="css-text-901oao"
+        dir="auto"
+        style={
+          Object {
+            "color": "rgba(31,41,55,1.00)",
+            "fontSize": "14px",
+            "fontStyle": "normal",
+            "fontWeight": "400",
+            "letterSpacing": "0px",
+            "lineHeight": "1.5em",
+          }
+        }
+      >
+        ステータス: 
+        登録
+      </div>
+      <div
+        className="css-text-901oao"
+        dir="auto"
+        style={
+          Object {
+            "color": "rgba(31,41,55,1.00)",
+            "fontSize": "14px",
+            "fontStyle": "normal",
+            "fontWeight": "400",
+            "letterSpacing": "0px",
+            "lineHeight": "1.5em",
+          }
+        }
+      >
+        期日: 
+      </div>
+      <div
+        className="css-text-901oao"
+        dir="auto"
+        style={
+          Object {
+            "color": "rgba(31,41,55,1.00)",
+            "fontSize": "14px",
+            "fontStyle": "normal",
+            "fontWeight": "400",
+            "letterSpacing": "0px",
+            "lineHeight": "1.5em",
+          }
+        }
+      >
+        作業見積: 
+      </div>
+      <div
+        className="css-text-901oao"
+        dir="auto"
+        style={
+          Object {
+            "color": "rgba(31,41,55,1.00)",
+            "fontSize": "14px",
+            "fontStyle": "normal",
+            "fontWeight": "400",
+            "letterSpacing": "0px",
+            "lineHeight": "1.5em",
+          }
+        }
+      >
+        作業見積単位: 
+      </div>
+      <div
+        className="css-text-901oao"
+        dir="auto"
+        style={
+          Object {
+            "color": "rgba(31,41,55,1.00)",
+            "fontSize": "14px",
+            "fontStyle": "normal",
+            "fontWeight": "400",
+            "letterSpacing": "0px",
+            "lineHeight": "1.5em",
+          }
+        }
+      >
+        タグ: 
+        
+      </div>
+      <div
+        className="css-view-1dbjc4n"
+        style={
+          Object {
+            "WebkitBoxDirection": "normal",
+            "WebkitBoxOrient": "horizontal",
+            "WebkitFlexDirection": "row",
+            "flexDirection": "row",
+            "msFlexDirection": "row",
+          }
+        }
+      >
+        <div
+          className="css-cursor-18t94o4 css-view-1dbjc4n"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          role="button"
+          style={
+            Object {
+              "WebkitAlignItems": "center",
+              "WebkitBoxAlign": "center",
+              "WebkitBoxDirection": "normal",
+              "WebkitBoxOrient": "horizontal",
+              "WebkitBoxPack": "center",
+              "WebkitFlexDirection": "row",
+              "WebkitJustifyContent": "center",
+              "alignItems": "center",
+              "backgroundColor": "rgba(6,182,212,1.00)",
+              "borderBottomLeftRadius": "4px",
+              "borderBottomRightRadius": "4px",
+              "borderTopLeftRadius": "4px",
+              "borderTopRightRadius": "4px",
+              "cursor": "pointer",
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "msFlexAlign": "center",
+              "msFlexDirection": "row",
+              "msFlexPack": "center",
+              "msTouchAction": "manipulation",
+              "outlineWidth": "0px",
+              "paddingBottom": "8px",
+              "paddingLeft": "12px",
+              "paddingRight": "12px",
+              "paddingTop": "8px",
+              "touchAction": "manipulation",
+            }
+          }
+          tabIndex="0"
+        >
+          <div
+            className="css-view-1dbjc4n"
+            style={
+              Object {
+                "WebkitAlignItems": "center",
+                "WebkitBoxAlign": "center",
+                "WebkitBoxDirection": "normal",
+                "WebkitBoxOrient": "horizontal",
+                "WebkitFlexDirection": "row",
+                "alignItems": "center",
+                "flexDirection": "row",
+                "msFlexAlign": "center",
+                "msFlexDirection": "row",
+              }
+            }
+          >
+            <div
+              className="css-view-1dbjc4n"
+            >
+              <div
+                className="css-text-901oao"
+                dir="auto"
+                style={
+                  Object {
+                    "color": "rgba(255,255,255,1.00)",
+                    "fontSize": "14px",
+                    "fontStyle": "normal",
+                    "fontWeight": "500",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
+                  }
+                }
+              >
+                Update
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="css-view-1dbjc4n"
+          style={
+            Object {
+              "width": "8px",
+            }
+          }
+        />
+        <div
+          className="css-cursor-18t94o4 css-view-1dbjc4n"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          role="button"
+          style={
+            Object {
+              "WebkitAlignItems": "center",
+              "WebkitBoxAlign": "center",
+              "WebkitBoxDirection": "normal",
+              "WebkitBoxOrient": "horizontal",
+              "WebkitBoxPack": "center",
+              "WebkitFlexDirection": "row",
+              "WebkitJustifyContent": "center",
+              "alignItems": "center",
+              "backgroundColor": "rgba(239,68,68,1.00)",
+              "borderBottomLeftRadius": "4px",
+              "borderBottomRightRadius": "4px",
+              "borderTopLeftRadius": "4px",
+              "borderTopRightRadius": "4px",
+              "cursor": "pointer",
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "msFlexAlign": "center",
+              "msFlexDirection": "row",
+              "msFlexPack": "center",
+              "msTouchAction": "manipulation",
+              "outlineWidth": "0px",
+              "paddingBottom": "8px",
+              "paddingLeft": "12px",
+              "paddingRight": "12px",
+              "paddingTop": "8px",
+              "touchAction": "manipulation",
+            }
+          }
+          tabIndex="0"
+        >
+          <div
+            className="css-view-1dbjc4n"
+            style={
+              Object {
+                "WebkitAlignItems": "center",
+                "WebkitBoxAlign": "center",
+                "WebkitBoxDirection": "normal",
+                "WebkitBoxOrient": "horizontal",
+                "WebkitFlexDirection": "row",
+                "alignItems": "center",
+                "flexDirection": "row",
+                "msFlexAlign": "center",
+                "msFlexDirection": "row",
+              }
+            }
+          >
+            <div
+              className="css-view-1dbjc4n"
+            >
+              <div
+                className="css-text-901oao"
+                dir="auto"
+                style={
+                  Object {
+                    "color": "rgba(255,255,255,1.00)",
+                    "fontSize": "14px",
+                    "fontStyle": "normal",
+                    "fontWeight": "500",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
+                  }
+                }
+              >
+                Delete
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;
 
 exports[`Storyshots Page Components/Index Default 1`] = `
 <div
-  className="empty-theme"
+  className="css-view-1dbjc4n"
+  style={
+    Object {
+      "WebkitFlex": 1,
+      "flex": 1,
+      "msFlex": "1 1 0%",
+    }
+  }
 >
-  <div>
+  <div
+    className="css-view-1dbjc4n"
+    style={
+      Object {
+        "display": "flex",
+        "height": "100%",
+        "overflowX": "hidden",
+        "overflowY": "hidden",
+      }
+    }
+  >
     <div>
-      Hello World!
+      <div>
+        Hello World!
+      </div>
+      <button
+        role="logout"
+      >
+        Logout!
+      </button>
+      <button
+        role="add"
+      >
+        Add!!!
+      </button>
     </div>
-    <button
-      role="logout"
-    >
-      Logout!
-    </button>
-    <button
-      role="add"
-    >
-      Add!!!
-    </button>
   </div>
 </div>
 `;
 
 exports[`Storyshots Page Components/Index Not Loaded 1`] = `
 <div
-  className="empty-theme"
+  className="css-view-1dbjc4n"
+  style={
+    Object {
+      "WebkitFlex": 1,
+      "flex": 1,
+      "msFlex": "1 1 0%",
+    }
+  }
 >
-  <div>
+  <div
+    className="css-view-1dbjc4n"
+    style={
+      Object {
+        "display": "flex",
+        "height": "100%",
+        "overflowX": "hidden",
+        "overflowY": "hidden",
+      }
+    }
+  >
     <div>
-      Hello World!
-    </div>
-    <button
-      role="logout"
-    >
-      Logout!
-    </button>
-    <button
-      role="add"
-    >
-      Add!!!
-    </button>
-    <div>
-      Loading tasks...
+      <div>
+        Hello World!
+      </div>
+      <button
+        role="logout"
+      >
+        Logout!
+      </button>
+      <button
+        role="add"
+      >
+        Add!!!
+      </button>
+      <div>
+        Loading tasks...
+      </div>
     </div>
   </div>
 </div>
@@ -191,10 +872,29 @@ exports[`Storyshots Page Components/Index Not Loaded 1`] = `
 
 exports[`Storyshots Page Components/Index Not Logged In 1`] = `
 <div
-  className="empty-theme"
+  className="css-view-1dbjc4n"
+  style={
+    Object {
+      "WebkitFlex": 1,
+      "flex": 1,
+      "msFlex": "1 1 0%",
+    }
+  }
 >
-  <div>
-    Loading...
+  <div
+    className="css-view-1dbjc4n"
+    style={
+      Object {
+        "display": "flex",
+        "height": "100%",
+        "overflowX": "hidden",
+        "overflowY": "hidden",
+      }
+    }
+  >
+    <div>
+      Loading...
+    </div>
   </div>
 </div>
 `;
