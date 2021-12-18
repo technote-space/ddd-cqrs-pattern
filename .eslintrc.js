@@ -77,7 +77,7 @@ module.exports = {
         },
         {
           "module": "src/infra/web/components",
-          "allowReferenceFrom": ["src/infra/web/pages/**/components/**", "src/config/registry.components", "src/infra/web/theme/nativeBase/**"],
+          "allowReferenceFrom": ["src/infra/web/pages/**"],
           "allowSameModule": true
         },
         {

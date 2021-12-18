@@ -2,9 +2,9 @@ import type { HooksParams } from './hooks';
 import type { VFC } from 'react';
 import dynamic from 'next/dynamic';
 import { memo } from 'react';
-import AddButton from '@/web/pages/index/components/addButton';
-import LogoutButton from '@/web/pages/index/components/logoutButton';
-import Message from '@/web/pages/index/components/message';
+import AddButton from '@/web/components/addButton';
+import LogoutButton from '@/web/components/logoutButton';
+import Message from '@/web/components/message';
 
 const Task = dynamic(() => import('./components/task'));
 
