@@ -2,7 +2,8 @@ import type { Props } from '$/web/pages';
 import type { IApi } from '$/web/shared/api';
 import type { IAuth, UserResult } from '$/web/shared/auth';
 import dayjs from 'dayjs';
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
+import { useAddProcess, useDeleteProcess } from '@/web/shared/loading';
 
 const getAuthorization = (user: UserResult): string => {
   /* istanbul ignore next */
@@ -18,7 +19,7 @@ export const useHooks = (props: Props, auth: IAuth, api: IApi) => {
   const user = auth.useUser();
   const onLogout = auth.useLogout();
   const caller = api.useCaller();
-  const { data: tasks, mutate, isValidating } = api.useSWR(client => [client.tasks, {
+  const { data: tasks, isValidating, mutate } = api.useSWR(client => [client.tasks, {
     headers: { authorization: getAuthorization(user) },
     enabled: user.isLoggedIn,
   }]);
@@ -52,6 +53,16 @@ export const useHooks = (props: Props, auth: IAuth, api: IApi) => {
       }, headers: { authorization: getAuthorization(user) },
     })).then(() => mutate());
   }, [user, caller, mutate]);
+
+  const addProcess = useAddProcess();
+  const deleteProcess = useDeleteProcess();
+  useEffect(() => {
+    if (tasks) {
+      deleteProcess('loadingTasks');
+    } else {
+      addProcess('loadingTasks', 'タスク読み込み中...');
+    }
+  }, [tasks, addProcess, deleteProcess]);
 
   return {
     user,

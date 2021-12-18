@@ -1,4 +1,5 @@
 import { renderHook } from '@testing-library/react-hooks';
+import * as loadingHooks from '@/web/shared/loading';
 import { TestApi } from '^/__mocks__/api';
 import { createLocalHandler, useMockServer } from '^/__mocks__/server';
 import { useHooks } from './hooks';
@@ -32,6 +33,10 @@ describe('useHooks', () => {
   ]);
 
   it('ログイン済みの場合にタスク一覧を取得', async () => {
+    const mockAdd = jest.fn();
+    const mockDelete = jest.fn();
+    jest.spyOn(loadingHooks, 'useAddProcess').mockReturnValue(mockAdd);
+    jest.spyOn(loadingHooks, 'useDeleteProcess').mockReturnValue(mockDelete);
     const mockUseUser = jest.fn(() => ({ isLoggedIn: true, user: { authorization: 'token' } }));
     const mockUseLogout = jest.fn();
     const { result, waitFor } = renderHook(() => useHooks({}, {
@@ -64,5 +69,7 @@ describe('useHooks', () => {
     ]);
     expect(mockUseUser).toBeCalled();
     expect(mockUseLogout).toBeCalled();
+    expect(mockAdd).toBeCalledWith('loadingTasks', 'タスク読み込み中...');
+    expect(mockDelete).toBeCalledWith('loadingTasks');
   });
 });

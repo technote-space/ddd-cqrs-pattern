@@ -2,6 +2,8 @@ import * as redux from 'react-redux';
 import renderer from 'react-test-renderer';
 import { LoadingContext, LoadingComponent } from '.';
 
+jest.mock('./view', () => () => null);
+
 describe('LoadingContext', () => {
   const context = new LoadingContext();
 
@@ -54,7 +56,7 @@ describe('LoadingContext', () => {
 
 describe('LoadingComponent', () => {
   it('ローディング用 View を描画する', () => {
-    jest.spyOn(redux, 'useSelector').mockReturnValue([]);
+    jest.spyOn(redux, 'useSelector').mockReturnValue([{ message: undefined }, { message: 'message' }]);
     const component = new LoadingComponent();
 
     const tree = renderer.create(component.render({}));

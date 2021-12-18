@@ -58,12 +58,8 @@ module.exports = {
       "error",
       [
         {
-          "module": "react-native-web",
-          "allowReferenceFrom": ["src/infra/web/components/**"]
-        },
-        {
           "module": "native-base",
-          "allowReferenceFrom": ["src/infra/web/**/components/**", "src/infra/web/theme/nativeBase/index.tsx"]
+          "allowReferenceFrom": ["src/infra/web/**/components/**", "src/infra/web/**/view.tsx", "src/infra/web/theme/nativeBase/index.tsx"]
         },
         {
           "module": "src/domain",
@@ -77,7 +73,7 @@ module.exports = {
         },
         {
           "module": "src/infra/web/components",
-          "allowReferenceFrom": ["src/infra/web/pages/**"],
+          "allowReferenceFrom": ["src/infra/web/**/view.tsx", "src/infra/web/pages/**"],
           "allowSameModule": true
         },
         {

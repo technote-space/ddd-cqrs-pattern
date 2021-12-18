@@ -70,7 +70,7 @@ export class Auth0Auth implements IAuth {
 
     useEffect(() => {
       if (isLoading) {
-        addProcess('loadingAuth0');
+        addProcess('loadingAuth0', '認証確認中...');
       } else {
         deleteProcess('loadingAuth0');
       }
