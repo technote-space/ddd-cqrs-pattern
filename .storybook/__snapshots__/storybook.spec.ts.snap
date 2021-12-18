@@ -808,19 +808,162 @@ exports[`Storyshots Page Components/Index Default 1`] = `
     }
   >
     <div>
-      <div>
-        Hello World!
+      <div
+        className="css-cursor-18t94o4 css-view-1dbjc4n"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        role="button"
+        style={
+          Object {
+            "WebkitAlignItems": "center",
+            "WebkitBoxAlign": "center",
+            "WebkitBoxDirection": "normal",
+            "WebkitBoxOrient": "horizontal",
+            "WebkitBoxPack": "center",
+            "WebkitFlexDirection": "row",
+            "WebkitJustifyContent": "center",
+            "alignItems": "center",
+            "backgroundColor": "rgba(6,182,212,1.00)",
+            "borderBottomLeftRadius": "4px",
+            "borderBottomRightRadius": "4px",
+            "borderTopLeftRadius": "4px",
+            "borderTopRightRadius": "4px",
+            "cursor": "pointer",
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "msFlexAlign": "center",
+            "msFlexDirection": "row",
+            "msFlexPack": "center",
+            "msTouchAction": "manipulation",
+            "outlineWidth": "0px",
+            "paddingBottom": "8px",
+            "paddingLeft": "12px",
+            "paddingRight": "12px",
+            "paddingTop": "8px",
+            "touchAction": "manipulation",
+          }
+        }
+        tabIndex="0"
+      >
+        <div
+          className="css-view-1dbjc4n"
+          style={
+            Object {
+              "WebkitAlignItems": "center",
+              "WebkitBoxAlign": "center",
+              "WebkitBoxDirection": "normal",
+              "WebkitBoxOrient": "horizontal",
+              "WebkitFlexDirection": "row",
+              "alignItems": "center",
+              "flexDirection": "row",
+              "msFlexAlign": "center",
+              "msFlexDirection": "row",
+            }
+          }
+        >
+          <div
+            className="css-view-1dbjc4n"
+          >
+            <div
+              className="css-text-901oao"
+              dir="auto"
+              style={
+                Object {
+                  "color": "rgba(255,255,255,1.00)",
+                  "fontSize": "14px",
+                  "fontStyle": "normal",
+                  "fontWeight": "500",
+                  "letterSpacing": "0px",
+                  "lineHeight": "1.5em",
+                }
+              }
+            >
+              ログアウト
+            </div>
+          </div>
+        </div>
       </div>
-      <button
-        role="logout"
+      <div
+        className="css-cursor-18t94o4 css-view-1dbjc4n"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        role="button"
+        style={
+          Object {
+            "WebkitAlignItems": "center",
+            "WebkitBoxAlign": "center",
+            "WebkitBoxDirection": "normal",
+            "WebkitBoxOrient": "horizontal",
+            "WebkitBoxPack": "center",
+            "WebkitFlexDirection": "row",
+            "WebkitJustifyContent": "center",
+            "alignItems": "center",
+            "backgroundColor": "rgba(6,182,212,1.00)",
+            "borderBottomLeftRadius": "4px",
+            "borderBottomRightRadius": "4px",
+            "borderTopLeftRadius": "4px",
+            "borderTopRightRadius": "4px",
+            "cursor": "pointer",
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "msFlexAlign": "center",
+            "msFlexDirection": "row",
+            "msFlexPack": "center",
+            "msTouchAction": "manipulation",
+            "outlineWidth": "0px",
+            "paddingBottom": "8px",
+            "paddingLeft": "12px",
+            "paddingRight": "12px",
+            "paddingTop": "8px",
+            "touchAction": "manipulation",
+          }
+        }
+        tabIndex="0"
       >
-        Logout!
-      </button>
-      <button
-        role="add"
-      >
-        Add!!!
-      </button>
+        <div
+          className="css-view-1dbjc4n"
+          style={
+            Object {
+              "WebkitAlignItems": "center",
+              "WebkitBoxAlign": "center",
+              "WebkitBoxDirection": "normal",
+              "WebkitBoxOrient": "horizontal",
+              "WebkitFlexDirection": "row",
+              "alignItems": "center",
+              "flexDirection": "row",
+              "msFlexAlign": "center",
+              "msFlexDirection": "row",
+            }
+          }
+        >
+          <div
+            className="css-view-1dbjc4n"
+          >
+            <div
+              className="css-text-901oao"
+              dir="auto"
+              style={
+                Object {
+                  "color": "rgba(255,255,255,1.00)",
+                  "fontSize": "14px",
+                  "fontStyle": "normal",
+                  "fontWeight": "500",
+                  "letterSpacing": "0px",
+                  "lineHeight": "1.5em",
+                }
+              }
+            >
+              追加
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -849,20 +992,176 @@ exports[`Storyshots Page Components/Index Not Loaded 1`] = `
     }
   >
     <div>
-      <div>
-        Hello World!
+      <div
+        className="css-cursor-18t94o4 css-view-1dbjc4n"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        role="button"
+        style={
+          Object {
+            "WebkitAlignItems": "center",
+            "WebkitBoxAlign": "center",
+            "WebkitBoxDirection": "normal",
+            "WebkitBoxOrient": "horizontal",
+            "WebkitBoxPack": "center",
+            "WebkitFlexDirection": "row",
+            "WebkitJustifyContent": "center",
+            "alignItems": "center",
+            "backgroundColor": "rgba(6,182,212,1.00)",
+            "borderBottomLeftRadius": "4px",
+            "borderBottomRightRadius": "4px",
+            "borderTopLeftRadius": "4px",
+            "borderTopRightRadius": "4px",
+            "cursor": "pointer",
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "msFlexAlign": "center",
+            "msFlexDirection": "row",
+            "msFlexPack": "center",
+            "msTouchAction": "manipulation",
+            "outlineWidth": "0px",
+            "paddingBottom": "8px",
+            "paddingLeft": "12px",
+            "paddingRight": "12px",
+            "paddingTop": "8px",
+            "touchAction": "manipulation",
+          }
+        }
+        tabIndex="0"
+      >
+        <div
+          className="css-view-1dbjc4n"
+          style={
+            Object {
+              "WebkitAlignItems": "center",
+              "WebkitBoxAlign": "center",
+              "WebkitBoxDirection": "normal",
+              "WebkitBoxOrient": "horizontal",
+              "WebkitFlexDirection": "row",
+              "alignItems": "center",
+              "flexDirection": "row",
+              "msFlexAlign": "center",
+              "msFlexDirection": "row",
+            }
+          }
+        >
+          <div
+            className="css-view-1dbjc4n"
+          >
+            <div
+              className="css-text-901oao"
+              dir="auto"
+              style={
+                Object {
+                  "color": "rgba(255,255,255,1.00)",
+                  "fontSize": "14px",
+                  "fontStyle": "normal",
+                  "fontWeight": "500",
+                  "letterSpacing": "0px",
+                  "lineHeight": "1.5em",
+                }
+              }
+            >
+              ログアウト
+            </div>
+          </div>
+        </div>
       </div>
-      <button
-        role="logout"
+      <div
+        className="css-cursor-18t94o4 css-view-1dbjc4n"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        role="button"
+        style={
+          Object {
+            "WebkitAlignItems": "center",
+            "WebkitBoxAlign": "center",
+            "WebkitBoxDirection": "normal",
+            "WebkitBoxOrient": "horizontal",
+            "WebkitBoxPack": "center",
+            "WebkitFlexDirection": "row",
+            "WebkitJustifyContent": "center",
+            "alignItems": "center",
+            "backgroundColor": "rgba(6,182,212,1.00)",
+            "borderBottomLeftRadius": "4px",
+            "borderBottomRightRadius": "4px",
+            "borderTopLeftRadius": "4px",
+            "borderTopRightRadius": "4px",
+            "cursor": "pointer",
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "msFlexAlign": "center",
+            "msFlexDirection": "row",
+            "msFlexPack": "center",
+            "msTouchAction": "manipulation",
+            "outlineWidth": "0px",
+            "paddingBottom": "8px",
+            "paddingLeft": "12px",
+            "paddingRight": "12px",
+            "paddingTop": "8px",
+            "touchAction": "manipulation",
+          }
+        }
+        tabIndex="0"
       >
-        Logout!
-      </button>
-      <button
-        role="add"
+        <div
+          className="css-view-1dbjc4n"
+          style={
+            Object {
+              "WebkitAlignItems": "center",
+              "WebkitBoxAlign": "center",
+              "WebkitBoxDirection": "normal",
+              "WebkitBoxOrient": "horizontal",
+              "WebkitFlexDirection": "row",
+              "alignItems": "center",
+              "flexDirection": "row",
+              "msFlexAlign": "center",
+              "msFlexDirection": "row",
+            }
+          }
+        >
+          <div
+            className="css-view-1dbjc4n"
+          >
+            <div
+              className="css-text-901oao"
+              dir="auto"
+              style={
+                Object {
+                  "color": "rgba(255,255,255,1.00)",
+                  "fontSize": "14px",
+                  "fontStyle": "normal",
+                  "fontWeight": "500",
+                  "letterSpacing": "0px",
+                  "lineHeight": "1.5em",
+                }
+              }
+            >
+              追加
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="css-text-901oao"
+        dir="auto"
+        style={
+          Object {
+            "color": "rgba(31,41,55,1.00)",
+            "fontSize": "14px",
+            "fontStyle": "normal",
+            "fontWeight": "400",
+            "letterSpacing": "0px",
+            "lineHeight": "1.5em",
+          }
+        }
       >
-        Add!!!
-      </button>
-      <div>
         Loading tasks...
       </div>
     </div>
@@ -892,7 +1191,20 @@ exports[`Storyshots Page Components/Index Not Logged In 1`] = `
       }
     }
   >
-    <div>
+    <div
+      className="css-text-901oao"
+      dir="auto"
+      style={
+        Object {
+          "color": "rgba(31,41,55,1.00)",
+          "fontSize": "14px",
+          "fontStyle": "normal",
+          "fontWeight": "400",
+          "letterSpacing": "0px",
+          "lineHeight": "1.5em",
+        }
+      }
+    >
       Loading...
     </div>
   </div>
