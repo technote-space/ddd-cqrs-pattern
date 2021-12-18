@@ -1,6 +1,6 @@
 const path = require('path');
 const {TsconfigPathsPlugin} = require('tsconfig-paths-webpack-plugin');
-// const toPath = (_path) => path.join(process.cwd(), _path);
+const toPath = (_path) => path.join(process.cwd(), _path);
 
 module.exports = {
   core: {
@@ -23,8 +23,8 @@ module.exports = {
     ];
     config.resolve.alias = {
       ...config.resolve.alias,
-      // "@emotion/core": toPath("node_modules/@emotion/react"),
-      // "emotion-theming": toPath("node_modules/@emotion/react"),
+      "react-native": toPath("node_modules/react-native-web"),
+      "react-native-svg": toPath("node_modules/react-native-svg-web"),
     };
     config.module.rules.push({
       test: /\.scss$/,
