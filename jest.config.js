@@ -27,6 +27,7 @@ module.exports = {
     '^\\^/(.*)$': '<rootDir>/src/$1',
     '^\\$/(.*)$': '<rootDir>/src/domain/$1',
     '^@/(.*)$': '<rootDir>/src/infra/$1',
+    '^#/(.*)$': '<rootDir>/src/infra/web/components/$1',
   },
   testMatch: ['**/?(*.)+(spec).[jt]s?(x)'],
   testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],

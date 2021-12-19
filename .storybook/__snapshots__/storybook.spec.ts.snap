@@ -132,6 +132,9 @@ exports[`Storyshots Domain Components/Task Default 1`] = `
       className="css-view-1dbjc4n"
       style={
         Object {
+          "WebkitBoxDirection": "normal",
+          "WebkitBoxOrient": "vertical",
+          "WebkitFlexDirection": "column",
           "borderBottomColor": "rgba(204,204,204,1.00)",
           "borderBottomStyle": "solid",
           "borderBottomWidth": "1px",
@@ -144,135 +147,183 @@ exports[`Storyshots Domain Components/Task Default 1`] = `
           "borderTopColor": "rgba(204,204,204,1.00)",
           "borderTopStyle": "solid",
           "borderTopWidth": "1px",
+          "display": "flex",
+          "flexDirection": "column",
           "marginBottom": "12px",
           "marginLeft": "12px",
           "marginRight": "12px",
           "marginTop": "12px",
+          "maxWidth": "600px",
+          "msFlexDirection": "column",
           "paddingBottom": "12px",
           "paddingLeft": "12px",
           "paddingRight": "12px",
           "paddingTop": "12px",
+          "width": "100%",
         }
       }
     >
       <div
-        className="css-text-901oao"
-        dir="auto"
+        className="css-view-1dbjc4n"
         style={
           Object {
-            "color": "rgba(31,41,55,1.00)",
-            "fontSize": "14px",
-            "fontStyle": "normal",
-            "fontWeight": "400",
-            "letterSpacing": "0px",
-            "lineHeight": "1.5em",
+            "WebkitAlignItems": "center",
+            "WebkitBoxAlign": "center",
+            "WebkitBoxDirection": "normal",
+            "WebkitBoxOrient": "horizontal",
+            "WebkitFlexDirection": "row",
+            "alignItems": "center",
+            "display": "flex",
+            "flexDirection": "row",
+            "msFlexAlign": "center",
+            "msFlexDirection": "row",
           }
         }
       >
-        タスク名: 
-        タスク名
-      </div>
-      <div
-        className="css-text-901oao"
-        dir="auto"
-        style={
-          Object {
-            "color": "rgba(31,41,55,1.00)",
-            "fontSize": "14px",
-            "fontStyle": "normal",
-            "fontWeight": "400",
-            "letterSpacing": "0px",
-            "lineHeight": "1.5em",
+        <div
+          className="css-text-901oao"
+          dir="auto"
+          style={
+            Object {
+              "color": "rgba(64,64,64,1.00)",
+              "fontSize": "24px",
+              "fontStyle": "normal",
+              "fontWeight": "700",
+              "letterSpacing": "0px",
+              "lineHeight": "1.25em",
+            }
           }
-        }
-      >
-        メモ: 
-        メモ
-      </div>
-      <div
-        className="css-text-901oao"
-        dir="auto"
-        style={
-          Object {
-            "color": "rgba(31,41,55,1.00)",
-            "fontSize": "14px",
-            "fontStyle": "normal",
-            "fontWeight": "400",
-            "letterSpacing": "0px",
-            "lineHeight": "1.5em",
+        >
+          タスク名
+        </div>
+        <div
+          className="css-view-1dbjc4n"
+          style={
+            Object {
+              "WebkitAlignItems": "center",
+              "WebkitBoxAlign": "center",
+              "alignItems": "center",
+              "backgroundColor": "rgba(167,243,208,1.00)",
+              "borderBottomColor": "rgba(0,0,0,0.00)",
+              "borderBottomLeftRadius": "2px",
+              "borderBottomRightRadius": "2px",
+              "borderBottomWidth": "1px",
+              "borderLeftColor": "rgba(0,0,0,0.00)",
+              "borderLeftWidth": "1px",
+              "borderRightColor": "rgba(0,0,0,0.00)",
+              "borderRightWidth": "1px",
+              "borderTopColor": "rgba(0,0,0,0.00)",
+              "borderTopLeftRadius": "2px",
+              "borderTopRightRadius": "2px",
+              "borderTopWidth": "1px",
+              "marginLeft": "8px",
+              "msFlexAlign": "center",
+              "paddingBottom": "2px",
+              "paddingLeft": "8px",
+              "paddingRight": "8px",
+              "paddingTop": "2px",
+            }
           }
-        }
-      >
-        ステータス: 
-        実行中
-      </div>
-      <div
-        className="css-text-901oao"
-        dir="auto"
-        style={
-          Object {
-            "color": "rgba(31,41,55,1.00)",
-            "fontSize": "14px",
-            "fontStyle": "normal",
-            "fontWeight": "400",
-            "letterSpacing": "0px",
-            "lineHeight": "1.5em",
+        >
+          <div
+            className="css-text-901oao"
+            dir="auto"
+            style={
+              Object {
+                "color": "rgba(5,150,105,1.00)",
+                "fontSize": "12px",
+                "fontStyle": "normal",
+                "fontWeight": "500",
+                "letterSpacing": "0px",
+                "lineHeight": "1.5em",
+              }
+            }
+          >
+            実行中
+          </div>
+        </div>
+        <div
+          className="css-cursor-18t94o4 css-view-1dbjc4n"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          role="button"
+          style={
+            Object {
+              "backgroundColor": "rgba(6,182,212,1.00)",
+              "borderBottomLeftRadius": "9999px",
+              "borderBottomRightRadius": "9999px",
+              "borderTopLeftRadius": "9999px",
+              "borderTopRightRadius": "9999px",
+              "cursor": "pointer",
+              "marginLeft": "16px",
+              "msTouchAction": "manipulation",
+              "outlineWidth": "0px",
+              "paddingBottom": "4px",
+              "paddingLeft": "4px",
+              "paddingRight": "4px",
+              "paddingTop": "4px",
+              "touchAction": "manipulation",
+            }
           }
-        }
-      >
-        期日: 
-        2022-01-23T10:00:00+09:00
-      </div>
-      <div
-        className="css-text-901oao"
-        dir="auto"
-        style={
-          Object {
-            "color": "rgba(31,41,55,1.00)",
-            "fontSize": "14px",
-            "fontStyle": "normal",
-            "fontWeight": "400",
-            "letterSpacing": "0px",
-            "lineHeight": "1.5em",
+          tabIndex="0"
+        >
+          <div
+            className="css-view-1dbjc4n"
+            style={
+              Object {
+                "color": "rgba(250,250,250,1.00)",
+                "fontSize": "32px",
+                "height": "32px",
+                "lineHeight": "32px",
+                "width": "32px",
+              }
+            }
+          />
+        </div>
+        <div
+          className="css-cursor-18t94o4 css-view-1dbjc4n"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          role="button"
+          style={
+            Object {
+              "backgroundColor": "rgba(239,68,68,1.00)",
+              "borderBottomLeftRadius": "9999px",
+              "borderBottomRightRadius": "9999px",
+              "borderTopLeftRadius": "9999px",
+              "borderTopRightRadius": "9999px",
+              "cursor": "pointer",
+              "marginLeft": "4px",
+              "msTouchAction": "manipulation",
+              "outlineWidth": "0px",
+              "paddingBottom": "4px",
+              "paddingLeft": "4px",
+              "paddingRight": "4px",
+              "paddingTop": "4px",
+              "touchAction": "manipulation",
+            }
           }
-        }
-      >
-        作業見積: 
-        10
-      </div>
-      <div
-        className="css-text-901oao"
-        dir="auto"
-        style={
-          Object {
-            "color": "rgba(31,41,55,1.00)",
-            "fontSize": "14px",
-            "fontStyle": "normal",
-            "fontWeight": "400",
-            "letterSpacing": "0px",
-            "lineHeight": "1.5em",
-          }
-        }
-      >
-        作業見積単位: 
-        日
-      </div>
-      <div
-        className="css-text-901oao"
-        dir="auto"
-        style={
-          Object {
-            "color": "rgba(31,41,55,1.00)",
-            "fontSize": "14px",
-            "fontStyle": "normal",
-            "fontWeight": "400",
-            "letterSpacing": "0px",
-            "lineHeight": "1.5em",
-          }
-        }
-      >
-        タグ: 
-        テスト1, テスト2
+          tabIndex="0"
+        >
+          <div
+            className="css-view-1dbjc4n"
+            style={
+              Object {
+                "color": "rgba(250,250,250,1.00)",
+                "fontSize": "32px",
+                "height": "32px",
+                "lineHeight": "32px",
+                "width": "32px",
+              }
+            }
+          />
+        </div>
       </div>
       <div
         className="css-view-1dbjc4n"
@@ -281,77 +332,109 @@ exports[`Storyshots Domain Components/Task Default 1`] = `
             "WebkitBoxDirection": "normal",
             "WebkitBoxOrient": "horizontal",
             "WebkitFlexDirection": "row",
+            "display": "flex",
             "flexDirection": "row",
             "msFlexDirection": "row",
           }
         }
       >
         <div
-          className="css-cursor-18t94o4 css-view-1dbjc4n"
-          onBlur={[Function]}
-          onClick={[Function]}
-          onContextMenu={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          role="button"
+          className="css-view-1dbjc4n"
           style={
             Object {
-              "WebkitAlignItems": "center",
-              "WebkitBoxAlign": "center",
               "WebkitBoxDirection": "normal",
-              "WebkitBoxOrient": "horizontal",
-              "WebkitBoxPack": "center",
-              "WebkitFlexDirection": "row",
-              "WebkitJustifyContent": "center",
-              "alignItems": "center",
-              "backgroundColor": "rgba(6,182,212,1.00)",
-              "borderBottomLeftRadius": "4px",
-              "borderBottomRightRadius": "4px",
-              "borderTopLeftRadius": "4px",
-              "borderTopRightRadius": "4px",
-              "cursor": "pointer",
-              "flexDirection": "row",
-              "justifyContent": "center",
-              "msFlexAlign": "center",
-              "msFlexDirection": "row",
-              "msFlexPack": "center",
-              "msTouchAction": "manipulation",
-              "outlineWidth": "0px",
-              "paddingBottom": "8px",
-              "paddingLeft": "12px",
-              "paddingRight": "12px",
-              "paddingTop": "8px",
-              "touchAction": "manipulation",
+              "WebkitBoxFlex": 1,
+              "WebkitBoxOrient": "vertical",
+              "WebkitFlexDirection": "column",
+              "WebkitFlexGrow": 1,
+              "display": "flex",
+              "flexDirection": "column",
+              "flexGrow": 1,
+              "msFlexDirection": "column",
+              "msFlexPositive": 1,
             }
           }
-          tabIndex="0"
         >
           <div
             className="css-view-1dbjc4n"
             style={
               Object {
-                "WebkitAlignItems": "center",
-                "WebkitBoxAlign": "center",
+                "marginBottom": "8px",
+                "marginLeft": "4px",
+                "marginRight": "4px",
+                "marginTop": "8px",
+                "whiteSpace": "pre",
+              }
+            }
+          >
+            <div
+              className="css-text-901oao"
+              dir="auto"
+              style={
+                Object {
+                  "color": "rgba(31,41,55,1.00)",
+                  "fontSize": "14px",
+                  "fontStyle": "normal",
+                  "fontWeight": "400",
+                  "letterSpacing": "0px",
+                  "lineHeight": "1.5em",
+                }
+              }
+            >
+              メモ
+            </div>
+          </div>
+          <div
+            className="css-view-1dbjc4n"
+            style={
+              Object {
                 "WebkitBoxDirection": "normal",
                 "WebkitBoxOrient": "horizontal",
                 "WebkitFlexDirection": "row",
-                "alignItems": "center",
                 "flexDirection": "row",
-                "msFlexAlign": "center",
                 "msFlexDirection": "row",
               }
             }
           >
             <div
               className="css-view-1dbjc4n"
+              style={
+                Object {
+                  "WebkitAlignItems": "center",
+                  "WebkitBoxAlign": "center",
+                  "alignItems": "center",
+                  "backgroundColor": "rgba(229,231,235,1.00)",
+                  "borderBottomColor": "rgba(0,0,0,0.00)",
+                  "borderBottomLeftRadius": "2px",
+                  "borderBottomRightRadius": "2px",
+                  "borderBottomWidth": "1px",
+                  "borderLeftColor": "rgba(0,0,0,0.00)",
+                  "borderLeftWidth": "1px",
+                  "borderRightColor": "rgba(0,0,0,0.00)",
+                  "borderRightWidth": "1px",
+                  "borderTopColor": "rgba(0,0,0,0.00)",
+                  "borderTopLeftRadius": "2px",
+                  "borderTopRightRadius": "2px",
+                  "borderTopWidth": "1px",
+                  "marginBottom": "4px",
+                  "marginLeft": "4px",
+                  "marginRight": "4px",
+                  "marginTop": "4px",
+                  "msFlexAlign": "center",
+                  "paddingBottom": "2px",
+                  "paddingLeft": "8px",
+                  "paddingRight": "8px",
+                  "paddingTop": "2px",
+                }
+              }
             >
               <div
                 className="css-text-901oao"
                 dir="auto"
                 style={
                   Object {
-                    "color": "rgba(255,255,255,1.00)",
-                    "fontSize": "14px",
+                    "color": "rgba(75,85,99,1.00)",
+                    "fontSize": "12px",
                     "fontStyle": "normal",
                     "fontWeight": "500",
                     "letterSpacing": "0px",
@@ -359,7 +442,59 @@ exports[`Storyshots Domain Components/Task Default 1`] = `
                   }
                 }
               >
-                Update
+                テスト1
+              </div>
+            </div>
+            <div
+              className="css-view-1dbjc4n"
+            />
+            <div
+              className="css-view-1dbjc4n"
+              style={
+                Object {
+                  "WebkitAlignItems": "center",
+                  "WebkitBoxAlign": "center",
+                  "alignItems": "center",
+                  "backgroundColor": "rgba(229,231,235,1.00)",
+                  "borderBottomColor": "rgba(0,0,0,0.00)",
+                  "borderBottomLeftRadius": "2px",
+                  "borderBottomRightRadius": "2px",
+                  "borderBottomWidth": "1px",
+                  "borderLeftColor": "rgba(0,0,0,0.00)",
+                  "borderLeftWidth": "1px",
+                  "borderRightColor": "rgba(0,0,0,0.00)",
+                  "borderRightWidth": "1px",
+                  "borderTopColor": "rgba(0,0,0,0.00)",
+                  "borderTopLeftRadius": "2px",
+                  "borderTopRightRadius": "2px",
+                  "borderTopWidth": "1px",
+                  "marginBottom": "4px",
+                  "marginLeft": "4px",
+                  "marginRight": "4px",
+                  "marginTop": "4px",
+                  "msFlexAlign": "center",
+                  "paddingBottom": "2px",
+                  "paddingLeft": "8px",
+                  "paddingRight": "8px",
+                  "paddingTop": "2px",
+                }
+              }
+            >
+              <div
+                className="css-text-901oao"
+                dir="auto"
+                style={
+                  Object {
+                    "color": "rgba(75,85,99,1.00)",
+                    "fontSize": "12px",
+                    "fontStyle": "normal",
+                    "fontWeight": "500",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
+                  }
+                }
+              >
+                テスト2
               </div>
             </div>
           </div>
@@ -368,86 +503,77 @@ exports[`Storyshots Domain Components/Task Default 1`] = `
           className="css-view-1dbjc4n"
           style={
             Object {
-              "width": "8px",
-            }
-          }
-        />
-        <div
-          className="css-cursor-18t94o4 css-view-1dbjc4n"
-          onBlur={[Function]}
-          onClick={[Function]}
-          onContextMenu={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          role="button"
-          style={
-            Object {
               "WebkitAlignItems": "center",
               "WebkitBoxAlign": "center",
-              "WebkitBoxDirection": "normal",
-              "WebkitBoxOrient": "horizontal",
               "WebkitBoxPack": "center",
-              "WebkitFlexDirection": "row",
               "WebkitJustifyContent": "center",
               "alignItems": "center",
-              "backgroundColor": "rgba(239,68,68,1.00)",
-              "borderBottomLeftRadius": "4px",
-              "borderBottomRightRadius": "4px",
-              "borderTopLeftRadius": "4px",
-              "borderTopRightRadius": "4px",
-              "cursor": "pointer",
-              "flexDirection": "row",
+              "backgroundColor": "rgba(186,230,253,1.00)",
+              "borderBottomColor": "rgba(0,0,0,0.00)",
+              "borderBottomLeftRadius": "10px",
+              "borderBottomRightRadius": "10px",
+              "borderBottomWidth": "1px",
+              "borderLeftColor": "rgba(0,0,0,0.00)",
+              "borderLeftWidth": "1px",
+              "borderRightColor": "rgba(0,0,0,0.00)",
+              "borderRightWidth": "1px",
+              "borderTopColor": "rgba(0,0,0,0.00)",
+              "borderTopLeftRadius": "10px",
+              "borderTopRightRadius": "10px",
+              "borderTopWidth": "1px",
               "justifyContent": "center",
               "msFlexAlign": "center",
-              "msFlexDirection": "row",
               "msFlexPack": "center",
-              "msTouchAction": "manipulation",
-              "outlineWidth": "0px",
-              "paddingBottom": "8px",
+              "paddingBottom": "12px",
               "paddingLeft": "12px",
               "paddingRight": "12px",
-              "paddingTop": "8px",
-              "touchAction": "manipulation",
+              "paddingTop": "12px",
             }
           }
-          tabIndex="0"
         >
           <div
-            className="css-view-1dbjc4n"
+            className="css-text-901oao"
+            dir="auto"
             style={
               Object {
-                "WebkitAlignItems": "center",
-                "WebkitBoxAlign": "center",
-                "WebkitBoxDirection": "normal",
-                "WebkitBoxOrient": "horizontal",
-                "WebkitFlexDirection": "row",
-                "alignItems": "center",
-                "flexDirection": "row",
-                "msFlexAlign": "center",
-                "msFlexDirection": "row",
+                "color": "rgba(31,41,55,1.00)",
+                "fontSize": "14px",
+                "fontStyle": "normal",
+                "fontWeight": "700",
+                "letterSpacing": "0px",
+                "lineHeight": "1.5em",
               }
             }
           >
-            <div
-              className="css-view-1dbjc4n"
-            >
-              <div
-                className="css-text-901oao"
-                dir="auto"
-                style={
-                  Object {
-                    "color": "rgba(255,255,255,1.00)",
-                    "fontSize": "14px",
-                    "fontStyle": "normal",
-                    "fontWeight": "500",
-                    "letterSpacing": "0px",
-                    "lineHeight": "1.5em",
-                  }
+            開始予定：
+            <span
+              className="css-text-901oao css-textHasAncestor-16my406"
+              style={
+                Object {
+                  "fontSize": "1.5em",
                 }
-              >
-                Delete
-              </div>
-            </div>
+              }
+            >
+              24日
+            </span>
+            後
+          </div>
+          <div
+            className="css-text-901oao"
+            dir="auto"
+            style={
+              Object {
+                "color": "rgba(31,41,55,1.00)",
+                "fontSize": "14px",
+                "fontStyle": "normal",
+                "fontWeight": "400",
+                "letterSpacing": "0px",
+                "lineHeight": "1.5em",
+                "marginTop": "4px",
+              }
+            }
+          >
+            2022/01/23 10:00
           </div>
         </div>
       </div>
@@ -482,6 +608,9 @@ exports[`Storyshots Domain Components/Task Optional 1`] = `
       className="css-view-1dbjc4n"
       style={
         Object {
+          "WebkitBoxDirection": "normal",
+          "WebkitBoxOrient": "vertical",
+          "WebkitFlexDirection": "column",
           "borderBottomColor": "rgba(204,204,204,1.00)",
           "borderBottomStyle": "solid",
           "borderBottomWidth": "1px",
@@ -494,132 +623,258 @@ exports[`Storyshots Domain Components/Task Optional 1`] = `
           "borderTopColor": "rgba(204,204,204,1.00)",
           "borderTopStyle": "solid",
           "borderTopWidth": "1px",
+          "display": "flex",
+          "flexDirection": "column",
           "marginBottom": "12px",
           "marginLeft": "12px",
           "marginRight": "12px",
           "marginTop": "12px",
+          "maxWidth": "600px",
+          "msFlexDirection": "column",
           "paddingBottom": "12px",
           "paddingLeft": "12px",
           "paddingRight": "12px",
           "paddingTop": "12px",
+          "width": "100%",
         }
       }
     >
       <div
-        className="css-text-901oao"
-        dir="auto"
+        className="css-view-1dbjc4n"
         style={
           Object {
-            "color": "rgba(31,41,55,1.00)",
-            "fontSize": "14px",
-            "fontStyle": "normal",
-            "fontWeight": "400",
-            "letterSpacing": "0px",
-            "lineHeight": "1.5em",
+            "WebkitAlignItems": "center",
+            "WebkitBoxAlign": "center",
+            "WebkitBoxDirection": "normal",
+            "WebkitBoxOrient": "horizontal",
+            "WebkitFlexDirection": "row",
+            "alignItems": "center",
+            "display": "flex",
+            "flexDirection": "row",
+            "msFlexAlign": "center",
+            "msFlexDirection": "row",
           }
         }
       >
-        タスク名: 
-        タスク
+        <div
+          className="css-text-901oao"
+          dir="auto"
+          style={
+            Object {
+              "color": "rgba(64,64,64,1.00)",
+              "fontSize": "24px",
+              "fontStyle": "normal",
+              "fontWeight": "700",
+              "letterSpacing": "0px",
+              "lineHeight": "1.25em",
+            }
+          }
+        >
+          タスク
+        </div>
+        <div
+          className="css-view-1dbjc4n"
+          style={
+            Object {
+              "WebkitAlignItems": "center",
+              "WebkitBoxAlign": "center",
+              "alignItems": "center",
+              "backgroundColor": "rgba(167,243,208,1.00)",
+              "borderBottomColor": "rgba(0,0,0,0.00)",
+              "borderBottomLeftRadius": "2px",
+              "borderBottomRightRadius": "2px",
+              "borderBottomWidth": "1px",
+              "borderLeftColor": "rgba(0,0,0,0.00)",
+              "borderLeftWidth": "1px",
+              "borderRightColor": "rgba(0,0,0,0.00)",
+              "borderRightWidth": "1px",
+              "borderTopColor": "rgba(0,0,0,0.00)",
+              "borderTopLeftRadius": "2px",
+              "borderTopRightRadius": "2px",
+              "borderTopWidth": "1px",
+              "marginLeft": "8px",
+              "msFlexAlign": "center",
+              "paddingBottom": "2px",
+              "paddingLeft": "8px",
+              "paddingRight": "8px",
+              "paddingTop": "2px",
+            }
+          }
+        >
+          <div
+            className="css-text-901oao"
+            dir="auto"
+            style={
+              Object {
+                "color": "rgba(5,150,105,1.00)",
+                "fontSize": "12px",
+                "fontStyle": "normal",
+                "fontWeight": "500",
+                "letterSpacing": "0px",
+                "lineHeight": "1.5em",
+              }
+            }
+          >
+            登録
+          </div>
+        </div>
+        <div
+          className="css-cursor-18t94o4 css-view-1dbjc4n"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          role="button"
+          style={
+            Object {
+              "backgroundColor": "rgba(6,182,212,1.00)",
+              "borderBottomLeftRadius": "9999px",
+              "borderBottomRightRadius": "9999px",
+              "borderTopLeftRadius": "9999px",
+              "borderTopRightRadius": "9999px",
+              "cursor": "pointer",
+              "marginLeft": "16px",
+              "msTouchAction": "manipulation",
+              "outlineWidth": "0px",
+              "paddingBottom": "4px",
+              "paddingLeft": "4px",
+              "paddingRight": "4px",
+              "paddingTop": "4px",
+              "touchAction": "manipulation",
+            }
+          }
+          tabIndex="0"
+        >
+          <div
+            className="css-view-1dbjc4n"
+            style={
+              Object {
+                "color": "rgba(250,250,250,1.00)",
+                "fontSize": "32px",
+                "height": "32px",
+                "lineHeight": "32px",
+                "width": "32px",
+              }
+            }
+          />
+        </div>
+        <div
+          className="css-cursor-18t94o4 css-view-1dbjc4n"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          role="button"
+          style={
+            Object {
+              "backgroundColor": "rgba(239,68,68,1.00)",
+              "borderBottomLeftRadius": "9999px",
+              "borderBottomRightRadius": "9999px",
+              "borderTopLeftRadius": "9999px",
+              "borderTopRightRadius": "9999px",
+              "cursor": "pointer",
+              "marginLeft": "4px",
+              "msTouchAction": "manipulation",
+              "outlineWidth": "0px",
+              "paddingBottom": "4px",
+              "paddingLeft": "4px",
+              "paddingRight": "4px",
+              "paddingTop": "4px",
+              "touchAction": "manipulation",
+            }
+          }
+          tabIndex="0"
+        >
+          <div
+            className="css-view-1dbjc4n"
+            style={
+              Object {
+                "color": "rgba(250,250,250,1.00)",
+                "fontSize": "32px",
+                "height": "32px",
+                "lineHeight": "32px",
+                "width": "32px",
+              }
+            }
+          />
+        </div>
       </div>
       <div
-        className="css-text-901oao"
-        dir="auto"
+        className="css-view-1dbjc4n"
         style={
           Object {
-            "color": "rgba(31,41,55,1.00)",
-            "fontSize": "14px",
-            "fontStyle": "normal",
-            "fontWeight": "400",
-            "letterSpacing": "0px",
-            "lineHeight": "1.5em",
+            "WebkitBoxDirection": "normal",
+            "WebkitBoxOrient": "horizontal",
+            "WebkitFlexDirection": "row",
+            "display": "flex",
+            "flexDirection": "row",
+            "msFlexDirection": "row",
           }
         }
       >
-        メモ: 
-      </div>
-      <div
-        className="css-text-901oao"
-        dir="auto"
-        style={
-          Object {
-            "color": "rgba(31,41,55,1.00)",
-            "fontSize": "14px",
-            "fontStyle": "normal",
-            "fontWeight": "400",
-            "letterSpacing": "0px",
-            "lineHeight": "1.5em",
+        <div
+          className="css-view-1dbjc4n"
+          style={
+            Object {
+              "WebkitBoxDirection": "normal",
+              "WebkitBoxFlex": 1,
+              "WebkitBoxOrient": "vertical",
+              "WebkitFlexDirection": "column",
+              "WebkitFlexGrow": 1,
+              "display": "flex",
+              "flexDirection": "column",
+              "flexGrow": 1,
+              "msFlexDirection": "column",
+              "msFlexPositive": 1,
+            }
           }
-        }
-      >
-        ステータス: 
-        登録
+        />
       </div>
-      <div
-        className="css-text-901oao"
-        dir="auto"
-        style={
-          Object {
-            "color": "rgba(31,41,55,1.00)",
-            "fontSize": "14px",
-            "fontStyle": "normal",
-            "fontWeight": "400",
-            "letterSpacing": "0px",
-            "lineHeight": "1.5em",
-          }
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Page Components/Index Default 1`] = `
+<div
+  className="css-view-1dbjc4n"
+  style={
+    Object {
+      "WebkitFlex": 1,
+      "flex": 1,
+      "msFlex": "1 1 0%",
+    }
+  }
+>
+  <div
+    className="css-view-1dbjc4n"
+    style={
+      Object {
+        "display": "flex",
+        "height": "100%",
+        "overflowX": "hidden",
+        "overflowY": "hidden",
+      }
+    }
+  >
+    <div
+      className="css-view-1dbjc4n"
+      style={
+        Object {
+          "WebkitAlignItems": "center",
+          "WebkitBoxAlign": "center",
+          "WebkitBoxPack": "center",
+          "WebkitJustifyContent": "center",
+          "alignItems": "center",
+          "display": "flex",
+          "justifyContent": "center",
+          "msFlexAlign": "center",
+          "msFlexPack": "center",
         }
-      >
-        期日: 
-      </div>
-      <div
-        className="css-text-901oao"
-        dir="auto"
-        style={
-          Object {
-            "color": "rgba(31,41,55,1.00)",
-            "fontSize": "14px",
-            "fontStyle": "normal",
-            "fontWeight": "400",
-            "letterSpacing": "0px",
-            "lineHeight": "1.5em",
-          }
-        }
-      >
-        作業見積: 
-      </div>
-      <div
-        className="css-text-901oao"
-        dir="auto"
-        style={
-          Object {
-            "color": "rgba(31,41,55,1.00)",
-            "fontSize": "14px",
-            "fontStyle": "normal",
-            "fontWeight": "400",
-            "letterSpacing": "0px",
-            "lineHeight": "1.5em",
-          }
-        }
-      >
-        作業見積単位: 
-      </div>
-      <div
-        className="css-text-901oao"
-        dir="auto"
-        style={
-          Object {
-            "color": "rgba(31,41,55,1.00)",
-            "fontSize": "14px",
-            "fontStyle": "normal",
-            "fontWeight": "400",
-            "letterSpacing": "0px",
-            "lineHeight": "1.5em",
-          }
-        }
-      >
-        タグ: 
-        
-      </div>
+      }
+    >
       <div
         className="css-view-1dbjc4n"
         style={
@@ -705,7 +960,7 @@ exports[`Storyshots Domain Components/Task Optional 1`] = `
                   }
                 }
               >
-                Update
+                ログアウト
               </div>
             </div>
           </div>
@@ -728,6 +983,102 @@ exports[`Storyshots Domain Components/Task Optional 1`] = `
           role="button"
           style={
             Object {
+              "backgroundColor": "rgba(0,0,0,0.00)",
+              "borderBottomLeftRadius": "4px",
+              "borderBottomRightRadius": "4px",
+              "borderTopLeftRadius": "4px",
+              "borderTopRightRadius": "4px",
+              "cursor": "pointer",
+              "msTouchAction": "manipulation",
+              "outlineWidth": "0px",
+              "paddingBottom": "8px",
+              "paddingLeft": "8px",
+              "paddingRight": "8px",
+              "paddingTop": "8px",
+              "touchAction": "manipulation",
+            }
+          }
+          tabIndex="0"
+        >
+          <div
+            className="css-view-1dbjc4n"
+            style={
+              Object {
+                "color": "rgba(38,38,38,1.00)",
+                "fontSize": "32px",
+                "height": "32px",
+                "lineHeight": "32px",
+                "width": "32px",
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Page Components/Index Not Loaded 1`] = `
+<div
+  className="css-view-1dbjc4n"
+  style={
+    Object {
+      "WebkitFlex": 1,
+      "flex": 1,
+      "msFlex": "1 1 0%",
+    }
+  }
+>
+  <div
+    className="css-view-1dbjc4n"
+    style={
+      Object {
+        "display": "flex",
+        "height": "100%",
+        "overflowX": "hidden",
+        "overflowY": "hidden",
+      }
+    }
+  >
+    <div
+      className="css-view-1dbjc4n"
+      style={
+        Object {
+          "WebkitAlignItems": "center",
+          "WebkitBoxAlign": "center",
+          "WebkitBoxPack": "center",
+          "WebkitJustifyContent": "center",
+          "alignItems": "center",
+          "display": "flex",
+          "justifyContent": "center",
+          "msFlexAlign": "center",
+          "msFlexPack": "center",
+        }
+      }
+    >
+      <div
+        className="css-view-1dbjc4n"
+        style={
+          Object {
+            "WebkitBoxDirection": "normal",
+            "WebkitBoxOrient": "horizontal",
+            "WebkitFlexDirection": "row",
+            "flexDirection": "row",
+            "msFlexDirection": "row",
+          }
+        }
+      >
+        <div
+          className="css-cursor-18t94o4 css-view-1dbjc4n"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          role="button"
+          style={
+            Object {
               "WebkitAlignItems": "center",
               "WebkitBoxAlign": "center",
               "WebkitBoxDirection": "normal",
@@ -736,7 +1087,7 @@ exports[`Storyshots Domain Components/Task Optional 1`] = `
               "WebkitFlexDirection": "row",
               "WebkitJustifyContent": "center",
               "alignItems": "center",
-              "backgroundColor": "rgba(239,68,68,1.00)",
+              "backgroundColor": "rgba(6,182,212,1.00)",
               "borderBottomLeftRadius": "4px",
               "borderBottomRightRadius": "4px",
               "borderTopLeftRadius": "4px",
@@ -791,530 +1142,172 @@ exports[`Storyshots Domain Components/Task Optional 1`] = `
                   }
                 }
               >
-                Delete
+                ログアウト
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Page Components/Index Default 1`] = `
-<div
-  className="css-view-1dbjc4n"
-  style={
-    Object {
-      "WebkitFlex": 1,
-      "flex": 1,
-      "msFlex": "1 1 0%",
-    }
-  }
->
-  <div
-    className="css-view-1dbjc4n"
-    style={
-      Object {
-        "display": "flex",
-        "height": "100%",
-        "overflowX": "hidden",
-        "overflowY": "hidden",
-      }
-    }
-  >
-    <div
-      className="css-view-1dbjc4n"
-      style={
-        Object {
-          "WebkitBoxDirection": "normal",
-          "WebkitBoxOrient": "horizontal",
-          "WebkitFlexDirection": "row",
-          "flexDirection": "row",
-          "msFlexDirection": "row",
-        }
-      }
-    >
-      <div
-        className="css-cursor-18t94o4 css-view-1dbjc4n"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onContextMenu={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        role="button"
-        style={
-          Object {
-            "WebkitAlignItems": "center",
-            "WebkitBoxAlign": "center",
-            "WebkitBoxDirection": "normal",
-            "WebkitBoxOrient": "horizontal",
-            "WebkitBoxPack": "center",
-            "WebkitFlexDirection": "row",
-            "WebkitJustifyContent": "center",
-            "alignItems": "center",
-            "backgroundColor": "rgba(6,182,212,1.00)",
-            "borderBottomLeftRadius": "4px",
-            "borderBottomRightRadius": "4px",
-            "borderTopLeftRadius": "4px",
-            "borderTopRightRadius": "4px",
-            "cursor": "pointer",
-            "flexDirection": "row",
-            "justifyContent": "center",
-            "msFlexAlign": "center",
-            "msFlexDirection": "row",
-            "msFlexPack": "center",
-            "msTouchAction": "manipulation",
-            "outlineWidth": "0px",
-            "paddingBottom": "8px",
-            "paddingLeft": "12px",
-            "paddingRight": "12px",
-            "paddingTop": "8px",
-            "touchAction": "manipulation",
-          }
-        }
-        tabIndex="0"
-      >
         <div
           className="css-view-1dbjc4n"
           style={
             Object {
-              "WebkitAlignItems": "center",
-              "WebkitBoxAlign": "center",
-              "WebkitBoxDirection": "normal",
-              "WebkitBoxOrient": "horizontal",
-              "WebkitFlexDirection": "row",
-              "alignItems": "center",
-              "flexDirection": "row",
-              "msFlexAlign": "center",
-              "msFlexDirection": "row",
+              "width": "8px",
             }
           }
+        />
+        <div
+          className="css-cursor-18t94o4 css-view-1dbjc4n"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          role="button"
+          style={
+            Object {
+              "backgroundColor": "rgba(0,0,0,0.00)",
+              "borderBottomLeftRadius": "4px",
+              "borderBottomRightRadius": "4px",
+              "borderTopLeftRadius": "4px",
+              "borderTopRightRadius": "4px",
+              "cursor": "pointer",
+              "msTouchAction": "manipulation",
+              "outlineWidth": "0px",
+              "paddingBottom": "8px",
+              "paddingLeft": "8px",
+              "paddingRight": "8px",
+              "paddingTop": "8px",
+              "touchAction": "manipulation",
+            }
+          }
+          tabIndex="0"
         >
           <div
             className="css-view-1dbjc4n"
-          >
-            <div
-              className="css-text-901oao"
-              dir="auto"
-              style={
-                Object {
-                  "color": "rgba(255,255,255,1.00)",
-                  "fontSize": "14px",
-                  "fontStyle": "normal",
-                  "fontWeight": "500",
-                  "letterSpacing": "0px",
-                  "lineHeight": "1.5em",
-                }
+            style={
+              Object {
+                "color": "rgba(38,38,38,1.00)",
+                "fontSize": "32px",
+                "height": "32px",
+                "lineHeight": "32px",
+                "width": "32px",
               }
-            >
-              ログアウト
-            </div>
-          </div>
+            }
+          />
         </div>
       </div>
       <div
         className="css-view-1dbjc4n"
         style={
           Object {
-            "width": "8px",
-          }
-        }
-      />
-      <div
-        className="css-cursor-18t94o4 css-view-1dbjc4n"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onContextMenu={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        role="button"
-        style={
-          Object {
             "WebkitAlignItems": "center",
             "WebkitBoxAlign": "center",
             "WebkitBoxDirection": "normal",
             "WebkitBoxOrient": "horizontal",
-            "WebkitBoxPack": "center",
             "WebkitFlexDirection": "row",
-            "WebkitJustifyContent": "center",
             "alignItems": "center",
-            "backgroundColor": "rgba(6,182,212,1.00)",
-            "borderBottomLeftRadius": "4px",
-            "borderBottomRightRadius": "4px",
-            "borderTopLeftRadius": "4px",
-            "borderTopRightRadius": "4px",
-            "cursor": "pointer",
             "flexDirection": "row",
-            "justifyContent": "center",
+            "marginBottom": "4px",
+            "marginTop": "4px",
             "msFlexAlign": "center",
             "msFlexDirection": "row",
-            "msFlexPack": "center",
-            "msTouchAction": "manipulation",
-            "outlineWidth": "0px",
-            "paddingBottom": "8px",
-            "paddingLeft": "12px",
-            "paddingRight": "12px",
-            "paddingTop": "8px",
-            "touchAction": "manipulation",
           }
         }
-        tabIndex="0"
       >
         <div
+          aria-label="loading"
+          aria-valuemax={1}
+          aria-valuemin={0}
           className="css-view-1dbjc4n"
+          role="progressbar"
           style={
             Object {
               "WebkitAlignItems": "center",
               "WebkitBoxAlign": "center",
-              "WebkitBoxDirection": "normal",
-              "WebkitBoxOrient": "horizontal",
-              "WebkitFlexDirection": "row",
+              "WebkitBoxPack": "center",
+              "WebkitJustifyContent": "center",
               "alignItems": "center",
-              "flexDirection": "row",
+              "justifyContent": "center",
               "msFlexAlign": "center",
-              "msFlexDirection": "row",
+              "msFlexPack": "center",
             }
           }
+          tabIndex="0"
         >
           <div
-            className="css-view-1dbjc4n"
-          >
-            <div
-              className="css-text-901oao"
-              dir="auto"
-              style={
-                Object {
-                  "color": "rgba(255,255,255,1.00)",
-                  "fontSize": "14px",
-                  "fontStyle": "normal",
-                  "fontWeight": "500",
-                  "letterSpacing": "0px",
-                  "lineHeight": "1.5em",
-                }
+            className="css-view-1dbjc4n r-animationKeyframes-127358a"
+            style={
+              Object {
+                "WebkitAnimationDuration": "0.75s",
+                "WebkitAnimationIterationCount": "infinite",
+                "WebkitAnimationTimingFunction": "linear",
+                "animationDuration": "0.75s",
+                "animationIterationCount": "infinite",
+                "animationTimingFunction": "linear",
+                "height": "20px",
+                "width": "20px",
               }
+            }
+          >
+            <svg
+              height="100%"
+              viewBox="0 0 32 32"
+              width="100%"
             >
-              追加
-            </div>
+              <circle
+                cx="16"
+                cy="16"
+                fill="none"
+                r="14"
+                strokeWidth="4"
+                style={
+                  Object {
+                    "opacity": 0.2,
+                    "stroke": "#06b6d4",
+                  }
+                }
+              />
+              <circle
+                cx="16"
+                cy="16"
+                fill="none"
+                r="14"
+                strokeWidth="4"
+                style={
+                  Object {
+                    "stroke": "#06b6d4",
+                    "strokeDasharray": 80,
+                    "strokeDashoffset": 60,
+                  }
+                }
+              />
+            </svg>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Page Components/Index Not Loaded 1`] = `
-<div
-  className="css-view-1dbjc4n"
-  style={
-    Object {
-      "WebkitFlex": 1,
-      "flex": 1,
-      "msFlex": "1 1 0%",
-    }
-  }
->
-  <div
-    className="css-view-1dbjc4n"
-    style={
-      Object {
-        "display": "flex",
-        "height": "100%",
-        "overflowX": "hidden",
-        "overflowY": "hidden",
-      }
-    }
-  >
-    <div
-      className="css-view-1dbjc4n"
-      style={
-        Object {
-          "WebkitBoxDirection": "normal",
-          "WebkitBoxOrient": "horizontal",
-          "WebkitFlexDirection": "row",
-          "flexDirection": "row",
-          "msFlexDirection": "row",
-        }
-      }
-    >
-      <div
-        className="css-cursor-18t94o4 css-view-1dbjc4n"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onContextMenu={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        role="button"
-        style={
-          Object {
-            "WebkitAlignItems": "center",
-            "WebkitBoxAlign": "center",
-            "WebkitBoxDirection": "normal",
-            "WebkitBoxOrient": "horizontal",
-            "WebkitBoxPack": "center",
-            "WebkitFlexDirection": "row",
-            "WebkitJustifyContent": "center",
-            "alignItems": "center",
-            "backgroundColor": "rgba(6,182,212,1.00)",
-            "borderBottomLeftRadius": "4px",
-            "borderBottomRightRadius": "4px",
-            "borderTopLeftRadius": "4px",
-            "borderTopRightRadius": "4px",
-            "cursor": "pointer",
-            "flexDirection": "row",
-            "justifyContent": "center",
-            "msFlexAlign": "center",
-            "msFlexDirection": "row",
-            "msFlexPack": "center",
-            "msTouchAction": "manipulation",
-            "outlineWidth": "0px",
-            "paddingBottom": "8px",
-            "paddingLeft": "12px",
-            "paddingRight": "12px",
-            "paddingTop": "8px",
-            "touchAction": "manipulation",
-          }
-        }
-        tabIndex="0"
-      >
         <div
           className="css-view-1dbjc4n"
           style={
             Object {
-              "WebkitAlignItems": "center",
-              "WebkitBoxAlign": "center",
-              "WebkitBoxDirection": "normal",
-              "WebkitBoxOrient": "horizontal",
-              "WebkitFlexDirection": "row",
-              "alignItems": "center",
-              "flexDirection": "row",
-              "msFlexAlign": "center",
-              "msFlexDirection": "row",
+              "width": "8px",
             }
           }
-        >
-          <div
-            className="css-view-1dbjc4n"
-          >
-            <div
-              className="css-text-901oao"
-              dir="auto"
-              style={
-                Object {
-                  "color": "rgba(255,255,255,1.00)",
-                  "fontSize": "14px",
-                  "fontStyle": "normal",
-                  "fontWeight": "500",
-                  "letterSpacing": "0px",
-                  "lineHeight": "1.5em",
-                }
-              }
-            >
-              ログアウト
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        className="css-view-1dbjc4n"
-        style={
-          Object {
-            "width": "8px",
-          }
-        }
-      />
-      <div
-        className="css-cursor-18t94o4 css-view-1dbjc4n"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onContextMenu={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        role="button"
-        style={
-          Object {
-            "WebkitAlignItems": "center",
-            "WebkitBoxAlign": "center",
-            "WebkitBoxDirection": "normal",
-            "WebkitBoxOrient": "horizontal",
-            "WebkitBoxPack": "center",
-            "WebkitFlexDirection": "row",
-            "WebkitJustifyContent": "center",
-            "alignItems": "center",
-            "backgroundColor": "rgba(6,182,212,1.00)",
-            "borderBottomLeftRadius": "4px",
-            "borderBottomRightRadius": "4px",
-            "borderTopLeftRadius": "4px",
-            "borderTopRightRadius": "4px",
-            "cursor": "pointer",
-            "flexDirection": "row",
-            "justifyContent": "center",
-            "msFlexAlign": "center",
-            "msFlexDirection": "row",
-            "msFlexPack": "center",
-            "msTouchAction": "manipulation",
-            "outlineWidth": "0px",
-            "paddingBottom": "8px",
-            "paddingLeft": "12px",
-            "paddingRight": "12px",
-            "paddingTop": "8px",
-            "touchAction": "manipulation",
-          }
-        }
-        tabIndex="0"
-      >
+        />
         <div
-          className="css-view-1dbjc4n"
+          className="css-text-901oao"
+          dir="auto"
           style={
             Object {
-              "WebkitAlignItems": "center",
-              "WebkitBoxAlign": "center",
-              "WebkitBoxDirection": "normal",
-              "WebkitBoxOrient": "horizontal",
-              "WebkitFlexDirection": "row",
-              "alignItems": "center",
-              "flexDirection": "row",
-              "msFlexAlign": "center",
-              "msFlexDirection": "row",
+              "color": "rgba(6,182,212,1.00)",
+              "fontSize": "16px",
+              "fontStyle": "normal",
+              "fontWeight": "700",
+              "letterSpacing": "0px",
+              "lineHeight": "1.25em",
             }
           }
         >
-          <div
-            className="css-view-1dbjc4n"
-          >
-            <div
-              className="css-text-901oao"
-              dir="auto"
-              style={
-                Object {
-                  "color": "rgba(255,255,255,1.00)",
-                  "fontSize": "14px",
-                  "fontStyle": "normal",
-                  "fontWeight": "500",
-                  "letterSpacing": "0px",
-                  "lineHeight": "1.5em",
-                }
-              }
-            >
-              追加
-            </div>
-          </div>
+          Loading...
         </div>
-      </div>
-    </div>
-    <div
-      className="css-view-1dbjc4n"
-      style={
-        Object {
-          "WebkitAlignItems": "center",
-          "WebkitBoxAlign": "center",
-          "WebkitBoxDirection": "normal",
-          "WebkitBoxOrient": "horizontal",
-          "WebkitFlexDirection": "row",
-          "alignItems": "center",
-          "flexDirection": "row",
-          "marginBottom": "4px",
-          "marginTop": "4px",
-          "msFlexAlign": "center",
-          "msFlexDirection": "row",
-        }
-      }
-    >
-      <div
-        aria-label="loading"
-        aria-valuemax={1}
-        aria-valuemin={0}
-        className="css-view-1dbjc4n"
-        role="progressbar"
-        style={
-          Object {
-            "WebkitAlignItems": "center",
-            "WebkitBoxAlign": "center",
-            "WebkitBoxPack": "center",
-            "WebkitJustifyContent": "center",
-            "alignItems": "center",
-            "justifyContent": "center",
-            "msFlexAlign": "center",
-            "msFlexPack": "center",
-          }
-        }
-        tabIndex="0"
-      >
-        <div
-          className="css-view-1dbjc4n r-animationKeyframes-127358a"
-          style={
-            Object {
-              "WebkitAnimationDuration": "0.75s",
-              "WebkitAnimationIterationCount": "infinite",
-              "WebkitAnimationTimingFunction": "linear",
-              "animationDuration": "0.75s",
-              "animationIterationCount": "infinite",
-              "animationTimingFunction": "linear",
-              "height": "20px",
-              "width": "20px",
-            }
-          }
-        >
-          <svg
-            height="100%"
-            viewBox="0 0 32 32"
-            width="100%"
-          >
-            <circle
-              cx="16"
-              cy="16"
-              fill="none"
-              r="14"
-              strokeWidth="4"
-              style={
-                Object {
-                  "opacity": 0.2,
-                  "stroke": "#06b6d4",
-                }
-              }
-            />
-            <circle
-              cx="16"
-              cy="16"
-              fill="none"
-              r="14"
-              strokeWidth="4"
-              style={
-                Object {
-                  "stroke": "#06b6d4",
-                  "strokeDasharray": 80,
-                  "strokeDashoffset": 60,
-                }
-              }
-            />
-          </svg>
-        </div>
-      </div>
-      <div
-        className="css-view-1dbjc4n"
-        style={
-          Object {
-            "width": "8px",
-          }
-        }
-      />
-      <div
-        className="css-text-901oao"
-        dir="auto"
-        style={
-          Object {
-            "color": "rgba(6,182,212,1.00)",
-            "fontSize": "16px",
-            "fontStyle": "normal",
-            "fontWeight": "700",
-            "letterSpacing": "0px",
-            "lineHeight": "1.25em",
-          }
-        }
-      >
-        Loading...
       </div>
     </div>
   </div>

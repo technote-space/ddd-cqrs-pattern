@@ -2,10 +2,11 @@ import type { HooksParams } from './hooks';
 import type { VFC } from 'react';
 import dynamic from 'next/dynamic';
 import { memo } from 'react';
-import AddButton from '@/web/components/button/addButton';
-import ButtonGroup from '@/web/components/button/group';
-import LogoutButton from '@/web/components/button/logoutButton';
-import Loading from '@/web/components/loading';
+import AddButton from '#/button/addButton';
+import ButtonGroup from '#/button/group';
+import LogoutButton from '#/button/logoutButton';
+import Center from '#/layout/center';
+import Loading from '#/loading';
 
 const Task = dynamic(() => import('./components/task'));
 
@@ -22,7 +23,7 @@ const View: VFC<HooksParams> = ({
     return null;
   }
 
-  return <>
+  return <Center>
     <ButtonGroup>
       <LogoutButton onPress={onLogout}/>
       <AddButton onPress={onAdd}/>
@@ -34,7 +35,7 @@ const View: VFC<HooksParams> = ({
       onUpdate={onUpdate}
       onDelete={onDelete}
     />)}
-  </>;
+  </Center>;
 };
 
 View.displayName = 'IndexView';

@@ -28,6 +28,9 @@
       "@/*": [
         "./src/infra/*"
       ],
+      "#/*": [
+        "./src/infra/web/components/*"
+      ],
       "react-native": [
         "react-native-web"
       ]

@@ -1,7 +1,7 @@
 import type { VFC } from 'react';
 import { memo } from 'react';
-import Loading from '@/web/components/loading';
-import Modal from '@/web/components/modal';
+import Loading from '#/loading';
+import Modal from '#/modal';
 
 type Props = {
   isLoading: boolean;

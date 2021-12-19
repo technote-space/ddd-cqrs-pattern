@@ -1,9 +1,11 @@
 const {withExpo} = require("@expo/next-adapter");
 const withPlugins = require("next-compose-plugins");
+const withFonts = require('next-fonts');
 const withTM = require("next-transpile-modules")([
   "react-native-web",
   "react-native-svg-web",
   "native-base",
+  '@expo/vector-icons',
 ]);
 
 // https://github.com/Automattic/node-canvas/issues/1779#issuecomment-895885846
@@ -43,6 +45,7 @@ module.exports = withPlugins(
   [
     withBundleAnalyzer,
     withTM,
+    [withFonts, {projectRoot: __dirname}],
     [withExpo, {projectRoot: __dirname}],
   ],
   nextConfig

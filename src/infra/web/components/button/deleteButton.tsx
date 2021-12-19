@@ -4,7 +4,12 @@ import { AntDesign } from '@expo/vector-icons';
 import { IconButton } from 'native-base';
 
 const AddButton: FC<IIconButtonProps> = (props) => {
-  return <IconButton variant="solid" _icon={{ as: AntDesign, name: 'addfile' }} {...props}/>;
+  return <IconButton
+    variant="solid"
+    borderRadius="full"
+    _icon={{ as: AntDesign, name: 'delete' }}
+    colorScheme="red" {...props}
+  />;
 };
 
 AddButton.displayName = 'AddButton';
