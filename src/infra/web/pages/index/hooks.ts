@@ -25,7 +25,7 @@ export const useHooks = (props: Props, auth: IAuth, api: IApi) => {
   }]);
   const onDelete = useCallback((id: string) => {
     console.log(id);
-    caller(client => client.tasks._taskId(id).delete({ headers: { authorization: getAuthorization(user) } })).then(() => mutate());
+    caller(client => client.tasks._taskId(id).delete({ headers: { authorization: getAuthorization(user) } }), '削除中...').then(() => mutate());
   }, [user, caller, mutate]);
   const onAdd = useCallback(() => {
     caller(client => client.tasks.post({
@@ -38,7 +38,7 @@ export const useHooks = (props: Props, auth: IAuth, api: IApi) => {
         作業見積単位: '日',
         タグ: ['追加テストのタグ１', '追加テストのタグ２'],
       }, headers: { authorization: getAuthorization(user) },
-    })).then(() => mutate());
+    }), '追加中...').then(() => mutate());
   }, [user, caller, mutate]);
   const onUpdate = useCallback((id: string) => {
     caller(client => client.tasks._taskId(id).put({
@@ -51,7 +51,7 @@ export const useHooks = (props: Props, auth: IAuth, api: IApi) => {
         作業見積単位: '時間',
         タグ: ['更新テストのタグ１'],
       }, headers: { authorization: getAuthorization(user) },
-    })).then(() => mutate());
+    }), '更新中...').then(() => mutate());
   }, [user, caller, mutate]);
 
   const addProcess = useAddProcess();

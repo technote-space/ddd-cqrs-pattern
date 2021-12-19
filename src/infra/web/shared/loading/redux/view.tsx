@@ -1,7 +1,7 @@
 import type { VFC } from 'react';
-import { Modal } from 'native-base';
 import { memo } from 'react';
 import Loading from '@/web/components/loading';
+import Modal from '@/web/components/modal';
 
 type Props = {
   isLoading: boolean;

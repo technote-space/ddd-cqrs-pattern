@@ -33,8 +33,10 @@ describe('useHooks', () => {
   ]);
 
   it('ログイン済みの場合にタスク一覧を取得', async () => {
+    const mockWithLoading = jest.fn(callback => callback());
     const mockAdd = jest.fn();
     const mockDelete = jest.fn();
+    jest.spyOn(loadingHooks, 'useLoading').mockReturnValue(mockWithLoading);
     jest.spyOn(loadingHooks, 'useAddProcess').mockReturnValue(mockAdd);
     jest.spyOn(loadingHooks, 'useDeleteProcess').mockReturnValue(mockDelete);
     const mockUseUser = jest.fn(() => ({ isLoggedIn: true, user: { authorization: 'token' } }));
@@ -71,5 +73,6 @@ describe('useHooks', () => {
     expect(mockUseLogout).toBeCalled();
     expect(mockAdd).toBeCalledWith('loadingTasks', 'タスク読み込み中...');
     expect(mockDelete).toBeCalledWith('loadingTasks');
+    expect(mockWithLoading).not.toBeCalled();
   });
 });

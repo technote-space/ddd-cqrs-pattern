@@ -6,6 +6,7 @@ import useAspidaSWR from '@aspida/swr';
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { inject, singleton } from 'tsyringe';
+import { useLoading } from '@/web/shared/loading';
 
 @singleton()
 export default class Api implements IApi {
@@ -40,10 +41,11 @@ export default class Api implements IApi {
 
   public useCaller(): Caller {
     const dispatch = useDispatch();
+    const withLoading = useLoading();
 
-    return useCallback(async generatePromise => {
+    return useCallback(async (generatePromise, message) => {
       try {
-        return await generatePromise(this.client);
+        return await withLoading(() => generatePromise(this.client), message);
       } catch (e) {
         if (Api.isAuthError(e)) {
           this.authContext.setUser(dispatch, { isLoggedIn: false });
@@ -51,6 +53,6 @@ export default class Api implements IApi {
 
         throw e;
       }
-    }, [dispatch]);
+    }, [dispatch, withLoading]);
   }
 }

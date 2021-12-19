@@ -1,5 +1,6 @@
 import * as useAspidaSWR from '@aspida/swr';
 import { renderHook } from '@testing-library/react-hooks';
+import * as loadingHooks from '@/web/shared/loading';
 import Api from './api';
 
 jest.mock('react-redux');
@@ -43,6 +44,8 @@ describe('Api', () => {
       const mockGeneratePromise = jest.fn(() => {
         throw new AxiosError();
       });
+      const mockWithLoading = jest.fn(callback => callback());
+      jest.spyOn(loadingHooks, 'useLoading').mockReturnValue(mockWithLoading);
 
       const api = new Api({} as never, { setUser: mockSetUser } as never);
       const caller = renderHook(() => api.useCaller()).result.current;

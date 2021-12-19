@@ -118,7 +118,7 @@ describe('Auth0Auth', () => {
         expect(mockAdd).not.toBeCalled();
         expect(mockDelete).toBeCalledTimes(1);
 
-        expect(mockWithLoading).toBeCalledTimes(1);
+        expect(mockWithLoading).toBeCalledTimes(2);
         await waitFor(() => expect(mockSetUser).toBeCalledTimes(1));
         expect(mockSetUser).toBeCalledWith(undefined, { user: { authorization: 'token' }, isLoggedIn: true });
       });
