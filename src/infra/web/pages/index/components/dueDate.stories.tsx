@@ -1,8 +1,9 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import dayjs from 'dayjs';
 import DueDate from './dueDate';
 
 export default {
-  title: 'Domain Components/Index',
+  title: 'Domain Components/Index/DueDate',
   component: DueDate,
   argTypes: {
     status: { control: { type: 'string' } },
@@ -17,7 +18,7 @@ const Template: ComponentStory<typeof DueDate> = (args) => <DueDate {...args} />
 export const Default = Template.bind({});
 Default.args = {
   status: '登録',
-  dueDate: '2022-01-23 10:00',
+  dueDate: dayjs().subtract(-15, 'day').format('YYYY-MM-DD HH:mm'),
   estimateValue: 10,
   estimateUnit: '日',
 };
@@ -30,33 +31,33 @@ NoDueDate.args = {
 export const Deleted = Template.bind({});
 Deleted.args = {
   status: '削除(登録)',
-  dueDate: '2022-01-23 10:00',
+  dueDate: dayjs().subtract(-15, 'day').format('YYYY-MM-DD HH:mm'),
 };
 
 export const Finished = Template.bind({});
 Finished.args = {
   status: '完了',
-  dueDate: '2022-01-23 10:00',
+  dueDate: dayjs().format('YYYY-MM-DD HH:mm'),
 };
 
 export const NoEstimate = Template.bind({});
 NoEstimate.args = {
   status: '進行中',
-  dueDate: '2022-01-23 10:00',
+  dueDate: dayjs().subtract(-5, 'day').format('YYYY-MM-DD HH:mm'),
 };
 
 export const NotStarted = Template.bind({});
 NotStarted.args = {
   status: '登録',
-  dueDate: '2022-01-23 10:00',
+  dueDate: dayjs().subtract(-15, 'day').format('YYYY-MM-DD HH:mm'),
   estimateValue: 10,
   estimateUnit: '日',
 };
 
 export const Started = Template.bind({});
 Started.args = {
-  status: '登録',
-  dueDate: '2022-01-23 10:00',
+  status: '進行中',
+  dueDate: dayjs().subtract(-5, 'day').format('YYYY-MM-DD HH:mm'),
   estimateValue: 10,
   estimateUnit: '日',
 };
@@ -64,7 +65,7 @@ Started.args = {
 export const Expired = Template.bind({});
 Expired.args = {
   status: '登録',
-  dueDate: '2022-01-23 10:00',
+  dueDate: dayjs().subtract(5, 'hour').format('YYYY-MM-DD HH:mm'),
   estimateValue: 10,
-  estimateUnit: '日',
+  estimateUnit: '時間',
 };
