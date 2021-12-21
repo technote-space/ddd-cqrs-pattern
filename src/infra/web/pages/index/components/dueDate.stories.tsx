@@ -6,10 +6,10 @@ export default {
   title: 'Domain Components/Index/DueDate',
   component: DueDate,
   argTypes: {
-    status: { control: { type: 'string' } },
-    dueDate: { control: { type: 'string' } },
+    status: { control: { type: 'inline-radio' }, options: ['登録', '実行中', '完了', '削除(登録)', '削除(実行中)', '削除(完了)'] },
+    dueDate: { control: { type: 'date' } },
     estimateValue: { control: { type: 'number' } },
-    estimateUnit: { control: { type: 'string' } },
+    estimateUnit: { control: { type: 'inline-radio' }, options: ['日', '時間'] },
   },
 } as ComponentMeta<typeof DueDate>;
 
