@@ -2,7 +2,7 @@ import { renderHook } from '@testing-library/react-hooks';
 import * as loadingHooks from '@/web/shared/loading';
 import { TestApi } from '^/__mocks__/api';
 import { createLocalHandler, useMockServer } from '^/__mocks__/server';
-import { useHooks } from './hooks';
+import { useHooks } from '.';
 
 jest.mock('react-redux');
 

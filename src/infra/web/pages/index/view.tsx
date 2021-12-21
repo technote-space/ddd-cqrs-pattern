@@ -13,7 +13,7 @@ const Task = dynamic(() => import('./components/task'));
 const View: VFC<HooksParams> = ({
   user,
   tasks,
-  isValidating,
+  isValidatingTasks,
   onLogout,
   onAdd,
   onUpdate,
@@ -28,7 +28,7 @@ const View: VFC<HooksParams> = ({
       <LogoutButton onPress={onLogout}/>
       <AddButton onPress={onAdd}/>
     </ButtonGroup>
-    {isValidating && <Loading/>}
+    {isValidatingTasks && <Loading/>}
     {tasks?.map(task => <Task
       key={task.id}
       task={task}
