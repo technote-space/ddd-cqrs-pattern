@@ -14,7 +14,7 @@ type Props = {
   current?: dayjs.ConfigType;
 };
 
-const getDiffString = (diff: number): string => {
+export const getDiffString = (diff: number): string => {
   const sec = Math.floor(diff / 1000);
   const min = Math.floor(sec / 60);
   const hour = Math.floor(min / 60);
