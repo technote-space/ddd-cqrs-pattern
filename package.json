@@ -97,7 +97,6 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.4.5",
     "lint-staged": "^12.1.2",
-    "mockdate": "^3.0.5",
     "msw": "^0.36.3",
     "next-compose-plugins": "^2.2.1",
     "next-transpile-modules": "^9.0.0",

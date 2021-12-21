@@ -11,6 +11,7 @@ type Props = {
   dueDate: string | null;
   estimateValue: number | null;
   estimateUnit: string | null;
+  current?: dayjs.ConfigType;
 };
 
 const getDiffString = (diff: number): string => {
@@ -24,7 +25,7 @@ const getDiffString = (diff: number): string => {
   return `${sec}秒`;
 };
 
-const DueDate: VFC<IBadgeProps & Props> = ({ status, dueDate, estimateValue, estimateUnit, ...props }) => {
+const DueDate: VFC<IBadgeProps & Props> = ({ status, dueDate, estimateValue, estimateUnit, current, ...props }) => {
   if (!dueDate) {
     return null;
   }
@@ -43,22 +44,22 @@ const DueDate: VFC<IBadgeProps & Props> = ({ status, dueDate, estimateValue, est
   }
 
   const startDate = getStartDate(dueDate, estimateValue, estimateUnit);
-  if (startDate && startDate.isAfter(dayjs())) {
+  if (startDate && startDate.isAfter(dayjs(current))) {
     return <Badge borderRadius={10} p={3} justifyContent="center" alignSelf="center" colorScheme="info" {...props}>
-      <Text bold>開始予定：<Text fontSize="1.5em">{getDiffString(startDate.diff())}</Text>後</Text>
+      <Text bold>開始予定：<Text fontSize="1.5em">{getDiffString(startDate.diff(current))}</Text>後</Text>
       <Text mt={1}>{dueDateObj.format('YYYY/MM/DD HH:mm')}</Text>
     </Badge>;
   }
 
-  if (dueDateObj.isAfter(dayjs())) {
+  if (dueDateObj.isAfter(dayjs(current))) {
     return <Badge borderRadius={10} p={3} justifyContent="center" alignSelf="center" colorScheme="success" {...props}>
-      <Text bold>残り期限：<Text fontSize="1.5em">{getDiffString(dueDateObj.diff())}</Text></Text>
+      <Text bold>残り期限：<Text fontSize="1.5em">{getDiffString(dueDateObj.diff(current))}</Text></Text>
       <Text mt={1}>{dueDateObj.format('YYYY/MM/DD HH:mm')}</Text>
     </Badge>;
   }
 
   return <Badge borderRadius={10} p={3} justifyContent="center" alignSelf="center" colorScheme="danger" {...props}>
-    <Text bold>期限から<Text fontSize="1.5em">{getDiffString(-dueDateObj.diff())}</Text>経過</Text>
+    <Text bold>期限から<Text fontSize="1.5em">{getDiffString(-dueDateObj.diff(current))}</Text>経過</Text>
     <Text mt={1}>{dueDateObj.format('YYYY/MM/DD HH:mm')}</Text>
   </Badge>;
 };

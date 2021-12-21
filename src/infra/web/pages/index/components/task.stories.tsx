@@ -10,7 +10,8 @@ export default {
   },
 } as ComponentMeta<typeof Task>;
 
-const Template: ComponentStory<typeof Task> = (args) => <Task {...args} />;
+const current = dayjs('2000-01-23');
+const Template: ComponentStory<typeof Task> = (args) => <Task current={current} {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
@@ -19,7 +20,7 @@ Default.args = {
     タスク名: 'タスク名',
     メモ: 'メモ',
     ステータス: '実行中',
-    期日: dayjs().subtract(-15, 'day').format('YYYY-MM-DD HH:mm'),
+    期日: dayjs(current).subtract(-15, 'day').format('YYYY-MM-DD HH:mm'),
     作業見積: 10,
     作業見積単位: '日',
     タグ: ['テスト1', 'テスト2'],
@@ -33,7 +34,7 @@ LongText.args = {
     タスク名: 'タスクタスクタスクタスクタスクタスクタスクタスクタスクタスクタスク',
     メモ: 'メモメモメモメモメモメモメモメモメモ\nメモメモメモメモメモメモメモメモメモメモメモメモメモメモメモメモメモメモメモ',
     ステータス: '実行中',
-    期日: dayjs().subtract(5, 'hour').format('YYYY-MM-DD HH:mm'),
+    期日: dayjs(current).subtract(5, 'hour').format('YYYY-MM-DD HH:mm'),
     作業見積: 10,
     作業見積単位: '時間',
     タグ: ['テストテストテストテストテストテストテストテストテストテストテストテストテストテスト', 'テスト1', 'テスト2'],

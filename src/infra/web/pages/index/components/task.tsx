@@ -1,5 +1,6 @@
 import type { TaskDto } from '^/usecase/task/taskDto';
 import type { VFC } from 'react';
+import dayjs from 'dayjs';
 import { memo, useCallback } from 'react';
 import DueDate from '@/web/pages/index/components/dueDate';
 import StatusBadge from '@/web/pages/index/components/statusBadge';
@@ -11,10 +12,11 @@ import HStack from '#/layout/hStack';
 import Heading from '#/text/heading';
 import LongText from '#/text/longText';
 
-const Task: VFC<{ task: TaskDto; onUpdate: (id: string) => void; onDelete: (id: string) => void }> = ({
+const Task: VFC<{ task: TaskDto; onUpdate: (id: string) => void; onDelete: (id: string) => void; current?: dayjs.ConfigType }> = ({
   task,
   onUpdate,
   onDelete,
+  current,
 }) => {
   const _onUpdate = useCallback(() => {
     onUpdate(task.id);
@@ -45,7 +47,13 @@ const Task: VFC<{ task: TaskDto; onUpdate: (id: string) => void; onDelete: (id: 
           {task.タグ.map((tag, index) => <TagBadge key={index} tag={tag}/>)}
         </HStack>}
       </Flex>
-      <DueDate status={task.ステータス} dueDate={task.期日} estimateValue={task.作業見積} estimateUnit={task.作業見積単位}/>
+      <DueDate
+        status={task.ステータス}
+        dueDate={task.期日}
+        estimateValue={task.作業見積}
+        estimateUnit={task.作業見積単位}
+        current={current}
+      />
     </Flex>
   </Flex>;
 };

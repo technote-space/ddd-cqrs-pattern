@@ -81,7 +81,7 @@ exports[`Storyshots Domain Components/Index/DueDate Default 1`] = `
             }
           }
         >
-          7703日
+          5日
         </span>
         後
       </div>
@@ -100,7 +100,7 @@ exports[`Storyshots Domain Components/Index/DueDate Default 1`] = `
           }
         }
       >
-        2022/01/05 03:29
+        2000/02/07 00:00
       </div>
     </div>
   </div>
@@ -179,7 +179,7 @@ exports[`Storyshots Domain Components/Index/DueDate Deleted 1`] = `
           }
         }
       >
-        2022/01/05 03:29
+        2000/02/07 00:00
       </div>
     </div>
   </div>
@@ -219,7 +219,7 @@ exports[`Storyshots Domain Components/Index/DueDate Expired 1`] = `
           "WebkitJustifyContent": "center",
           "alignItems": "center",
           "alignSelf": "center",
-          "backgroundColor": "rgba(186,230,253,1.00)",
+          "backgroundColor": "rgba(254,202,202,1.00)",
           "borderBottomColor": "rgba(0,0,0,0.00)",
           "borderBottomLeftRadius": "10px",
           "borderBottomRightRadius": "10px",
@@ -258,7 +258,7 @@ exports[`Storyshots Domain Components/Index/DueDate Expired 1`] = `
           }
         }
       >
-        開始予定：
+        期限から
         <span
           className="css-text-901oao css-textHasAncestor-16my406"
           style={
@@ -267,9 +267,9 @@ exports[`Storyshots Domain Components/Index/DueDate Expired 1`] = `
             }
           }
         >
-          7698日
+          5時間
         </span>
-        後
+        経過
       </div>
       <div
         className="css-text-901oao"
@@ -286,7 +286,7 @@ exports[`Storyshots Domain Components/Index/DueDate Expired 1`] = `
           }
         }
       >
-        2021/12/20 22:29
+        2000/01/22 19:00
       </div>
     </div>
   </div>
@@ -365,7 +365,7 @@ exports[`Storyshots Domain Components/Index/DueDate Finished 1`] = `
           }
         }
       >
-        2021/12/21 03:29
+        2000/01/23 00:00
       </div>
     </div>
   </div>
@@ -469,7 +469,7 @@ exports[`Storyshots Domain Components/Index/DueDate No Estimate 1`] = `
           }
         }
       >
-        2021/12/26 03:29
+        2000/01/28 00:00
       </div>
     </div>
   </div>
@@ -557,7 +557,7 @@ exports[`Storyshots Domain Components/Index/DueDate Not Started 1`] = `
             }
           }
         >
-          7703日
+          5日
         </span>
         後
       </div>
@@ -576,7 +576,7 @@ exports[`Storyshots Domain Components/Index/DueDate Not Started 1`] = `
           }
         }
       >
-        2022/01/05 03:29
+        2000/02/07 00:00
       </div>
     </div>
   </div>
@@ -616,7 +616,7 @@ exports[`Storyshots Domain Components/Index/DueDate Started 1`] = `
           "WebkitJustifyContent": "center",
           "alignItems": "center",
           "alignSelf": "center",
-          "backgroundColor": "rgba(186,230,253,1.00)",
+          "backgroundColor": "rgba(167,243,208,1.00)",
           "borderBottomColor": "rgba(0,0,0,0.00)",
           "borderBottomLeftRadius": "10px",
           "borderBottomRightRadius": "10px",
@@ -655,7 +655,7 @@ exports[`Storyshots Domain Components/Index/DueDate Started 1`] = `
           }
         }
       >
-        開始予定：
+        残り期限：
         <span
           className="css-text-901oao css-textHasAncestor-16my406"
           style={
@@ -664,9 +664,8 @@ exports[`Storyshots Domain Components/Index/DueDate Started 1`] = `
             }
           }
         >
-          7693日
+          5日
         </span>
-        後
       </div>
       <div
         className="css-text-901oao"
@@ -683,7 +682,7 @@ exports[`Storyshots Domain Components/Index/DueDate Started 1`] = `
           }
         }
       >
-        2021/12/26 03:29
+        2000/01/28 00:00
       </div>
     </div>
   </div>
@@ -787,7 +786,7 @@ exports[`Storyshots Domain Components/Index/Task Default 1`] = `
               "WebkitAlignItems": "center",
               "WebkitBoxAlign": "center",
               "alignItems": "center",
-              "backgroundColor": "rgba(167,243,208,1.00)",
+              "backgroundColor": "rgba(254,202,202,1.00)",
               "borderBottomColor": "rgba(0,0,0,0.00)",
               "borderBottomLeftRadius": "2px",
               "borderBottomRightRadius": "2px",
@@ -814,7 +813,7 @@ exports[`Storyshots Domain Components/Index/Task Default 1`] = `
             dir="auto"
             style={
               Object {
-                "color": "rgba(5,150,105,1.00)",
+                "color": "rgba(220,38,38,1.00)",
                 "fontSize": "12px",
                 "fontStyle": "normal",
                 "fontWeight": "500",
@@ -1167,7 +1166,7 @@ exports[`Storyshots Domain Components/Index/Task Default 1`] = `
                 }
               }
             >
-              7703日
+              5日
             </span>
             後
           </div>
@@ -1186,7 +1185,7 @@ exports[`Storyshots Domain Components/Index/Task Default 1`] = `
               }
             }
           >
-            2022/01/05 03:29
+            2000/02/07 00:00
           </div>
         </div>
       </div>
@@ -1292,7 +1291,7 @@ exports[`Storyshots Domain Components/Index/Task Long Text 1`] = `
               "WebkitAlignItems": "center",
               "WebkitBoxAlign": "center",
               "alignItems": "center",
-              "backgroundColor": "rgba(167,243,208,1.00)",
+              "backgroundColor": "rgba(254,202,202,1.00)",
               "borderBottomColor": "rgba(0,0,0,0.00)",
               "borderBottomLeftRadius": "2px",
               "borderBottomRightRadius": "2px",
@@ -1319,7 +1318,7 @@ exports[`Storyshots Domain Components/Index/Task Long Text 1`] = `
             dir="auto"
             style={
               Object {
-                "color": "rgba(5,150,105,1.00)",
+                "color": "rgba(220,38,38,1.00)",
                 "fontSize": "12px",
                 "fontStyle": "normal",
                 "fontWeight": "500",
@@ -1680,7 +1679,7 @@ exports[`Storyshots Domain Components/Index/Task Long Text 1`] = `
               "WebkitJustifyContent": "center",
               "alignItems": "center",
               "alignSelf": "center",
-              "backgroundColor": "rgba(186,230,253,1.00)",
+              "backgroundColor": "rgba(254,202,202,1.00)",
               "borderBottomColor": "rgba(0,0,0,0.00)",
               "borderBottomLeftRadius": "10px",
               "borderBottomRightRadius": "10px",
@@ -1719,7 +1718,7 @@ exports[`Storyshots Domain Components/Index/Task Long Text 1`] = `
               }
             }
           >
-            開始予定：
+            期限から
             <span
               className="css-text-901oao css-textHasAncestor-16my406"
               style={
@@ -1728,9 +1727,9 @@ exports[`Storyshots Domain Components/Index/Task Long Text 1`] = `
                 }
               }
             >
-              7698日
+              5時間
             </span>
-            後
+            経過
           </div>
           <div
             className="css-text-901oao"
@@ -1747,7 +1746,7 @@ exports[`Storyshots Domain Components/Index/Task Long Text 1`] = `
               }
             }
           >
-            2021/12/20 22:29
+            2000/01/22 19:00
           </div>
         </div>
       </div>

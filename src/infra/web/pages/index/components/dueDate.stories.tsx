@@ -13,12 +13,13 @@ export default {
   },
 } as ComponentMeta<typeof DueDate>;
 
-const Template: ComponentStory<typeof DueDate> = (args) => <DueDate {...args} />;
+const current = dayjs('2000-01-23');
+const Template: ComponentStory<typeof DueDate> = (args) => <DueDate current={current} {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
   status: '登録',
-  dueDate: dayjs().subtract(-15, 'day').format('YYYY-MM-DD HH:mm'),
+  dueDate: dayjs(current).subtract(-15, 'day').format('YYYY-MM-DD HH:mm'),
   estimateValue: 10,
   estimateUnit: '日',
 };
@@ -31,25 +32,25 @@ NoDueDate.args = {
 export const Deleted = Template.bind({});
 Deleted.args = {
   status: '削除(登録)',
-  dueDate: dayjs().subtract(-15, 'day').format('YYYY-MM-DD HH:mm'),
+  dueDate: dayjs(current).subtract(-15, 'day').format('YYYY-MM-DD HH:mm'),
 };
 
 export const Finished = Template.bind({});
 Finished.args = {
   status: '完了',
-  dueDate: dayjs().format('YYYY-MM-DD HH:mm'),
+  dueDate: dayjs(current).format('YYYY-MM-DD HH:mm'),
 };
 
 export const NoEstimate = Template.bind({});
 NoEstimate.args = {
   status: '進行中',
-  dueDate: dayjs().subtract(-5, 'day').format('YYYY-MM-DD HH:mm'),
+  dueDate: dayjs(current).subtract(-5, 'day').format('YYYY-MM-DD HH:mm'),
 };
 
 export const NotStarted = Template.bind({});
 NotStarted.args = {
   status: '登録',
-  dueDate: dayjs().subtract(-15, 'day').format('YYYY-MM-DD HH:mm'),
+  dueDate: dayjs(current).subtract(-15, 'day').format('YYYY-MM-DD HH:mm'),
   estimateValue: 10,
   estimateUnit: '日',
 };
@@ -57,7 +58,7 @@ NotStarted.args = {
 export const Started = Template.bind({});
 Started.args = {
   status: '進行中',
-  dueDate: dayjs().subtract(-5, 'day').format('YYYY-MM-DD HH:mm'),
+  dueDate: dayjs(current).subtract(-5, 'day').format('YYYY-MM-DD HH:mm'),
   estimateValue: 10,
   estimateUnit: '日',
 };
@@ -65,7 +66,7 @@ Started.args = {
 export const Expired = Template.bind({});
 Expired.args = {
   status: '登録',
-  dueDate: dayjs().subtract(5, 'hour').format('YYYY-MM-DD HH:mm'),
+  dueDate: dayjs(current).subtract(5, 'hour').format('YYYY-MM-DD HH:mm'),
   estimateValue: 10,
   estimateUnit: '時間',
 };
