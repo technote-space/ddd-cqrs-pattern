@@ -1,20 +1,20 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import dayjs from 'dayjs';
-import DueDate from './dueDate';
+import StatusBadge from './statusBadge';
 
 export default {
-  title: 'Domain Components/Index/DueDate',
-  component: DueDate,
+  title: 'Domain Components/Index/StatusBadge',
+  component: StatusBadge,
   argTypes: {
     status: { control: { type: 'string' } },
     dueDate: { control: { type: 'string' } },
     estimateValue: { control: { type: 'number' } },
     estimateUnit: { control: { type: 'string' } },
   },
-} as ComponentMeta<typeof DueDate>;
+} as ComponentMeta<typeof StatusBadge>;
 
 const current = dayjs('2000-01-23');
-const Template: ComponentStory<typeof DueDate> = (args) => <DueDate current={current} {...args} />;
+const Template: ComponentStory<typeof StatusBadge> = (args) => <StatusBadge current={current} {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
@@ -22,11 +22,6 @@ Default.args = {
   dueDate: dayjs(current).subtract(-15, 'day').format('YYYY-MM-DD HH:mm'),
   estimateValue: 10,
   estimateUnit: '日',
-};
-
-export const NoDueDate = Template.bind({});
-NoDueDate.args = {
-  status: '登録',
 };
 
 export const Finished = Template.bind({});
@@ -53,20 +48,12 @@ export const InProgress = Template.bind({});
 InProgress.args = {
   status: '実行中',
   dueDate: dayjs(current).subtract(-5, 'day').format('YYYY-MM-DD HH:mm'),
-  estimateValue: 10,
-  estimateUnit: '日',
 };
 
 export const NotStarted = Template.bind({});
 NotStarted.args = {
   status: '登録',
-  dueDate: dayjs(current).subtract(-15, 'day').format('YYYY-MM-DD HH:mm'),
+  dueDate: dayjs(current).subtract(-5, 'day').format('YYYY-MM-DD HH:mm'),
   estimateValue: 10,
   estimateUnit: '日',
-};
-
-export const NoEstimate = Template.bind({});
-NoEstimate.args = {
-  status: '実行中',
-  dueDate: dayjs(current).subtract(-5, 'day').format('YYYY-MM-DD HH:mm'),
 };
