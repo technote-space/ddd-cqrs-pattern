@@ -17,7 +17,7 @@ export default class Api implements IApi {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  private static isAxiosError(error?: any): error is AxiosError {
+  public static isAxiosError(error?: any): error is AxiosError {
     return !!error?.isAxiosError;
   }
 

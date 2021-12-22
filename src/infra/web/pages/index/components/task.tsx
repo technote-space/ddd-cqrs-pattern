@@ -12,18 +12,24 @@ import HStack from '#/layout/hStack';
 import Heading from '#/text/heading';
 import LongText from '#/text/longText';
 
-const Task: VFC<{ task: TaskDto; onUpdate: (id: string) => void; onDelete: (id: string) => void; current?: dayjs.ConfigType }> = ({
+type Props = {
+  task: TaskDto;
+  onUpdate: (task: TaskDto) => void;
+  onDelete: (task: TaskDto) => void;
+  current?: dayjs.ConfigType;
+};
+const Task: VFC<Props> = ({
   task,
   onUpdate,
   onDelete,
   current,
 }) => {
   const _onUpdate = useCallback(() => {
-    onUpdate(task.id);
-  }, [task.id, onUpdate]);
+    onUpdate(task);
+  }, [task, onUpdate]);
   const _onDelete = useCallback(() => {
-    onDelete(task.id);
-  }, [task.id, onDelete]);
+    onDelete(task);
+  }, [task, onDelete]);
   return <Flex
     key={task.id}
     borderColor="#ccc"

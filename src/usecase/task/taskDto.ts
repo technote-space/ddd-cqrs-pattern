@@ -1,3 +1,4 @@
+import type { CreateSchema } from '@/web/helpers/form';
 import Tag from '$/server/tag/tag';
 import Tags from '$/server/tag/tags';
 import TagName from '$/server/tag/valueObject/tagName';
@@ -45,3 +46,14 @@ export const toEntity = (userId: UserId, data: Omit<TaskDto, 'id'>): Task => Tas
   userId,
   Tags.create(data.タグ.map(tag => Tag.create(TagName.create(tag)))),
 );
+
+export type FormValues = Omit<TaskDto, 'id'>;
+export const createSchema: CreateSchema = schemaBuilder => ({
+  タスク名: schemaBuilder.string().required().label('タスク名'),
+  メモ: schemaBuilder.string().nullable().label('メモ'),
+  ステータス: schemaBuilder.string().required().label('ステータス'),
+  期日: schemaBuilder.date().nullable().label('期日'),
+  作業見積: schemaBuilder.number().nullable().label('作業見積'),
+  作業見積単位: schemaBuilder.string().nullable().label('作業見積単位'),
+  タグ: schemaBuilder.array().label('タグ'),
+});

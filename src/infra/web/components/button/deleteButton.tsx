@@ -13,7 +13,8 @@ const DeleteButton: FC<IIconButtonProps> = (props) => {
     variant="solid"
     borderRadius="full"
     icon={<DeleteIcon/>}
-    colorScheme="red" {...props}
+    colorScheme="red"
+    {...props}
   />;
 };
 

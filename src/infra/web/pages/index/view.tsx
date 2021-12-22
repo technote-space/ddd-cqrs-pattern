@@ -9,33 +9,67 @@ import Center from '#/layout/center';
 import Loading from '#/loading';
 
 const Task = dynamic(() => import('./components/task'));
+const TaskFormModal = dynamic(() => import('./components/taskFormModal'));
+const DeleteAlertDialog = dynamic(() => import('./components/deleteAlertDialog'));
 
 const View: VFC<HooksParams> = ({
   user,
+  onLogout,
+
   tasks,
   isValidatingTasks,
-  onLogout,
-  onAdd,
-  onUpdate,
+
+  isOpenTaskFormDialog,
+  handleOpenAddTaskFormDialog,
+  handleOpenUpdateTaskFormDialog,
+  handleCloseTaskFormDialog,
+  selectedTask,
+  validationErrors,
+  onSubmitForm,
+  control,
+  isDisabled,
+
+  isOpenDeleteTaskDialog,
+  handleOpenDeleteTaskDialog,
+  handleCloseDeleteTaskDialog,
+  deleteTargetTask,
   onDelete,
 }) => {
   if (!user.isLoggedIn) {
     return null;
   }
 
-  return <Center>
-    <ButtonGroup>
-      <LogoutButton onPress={onLogout}/>
-      <AddButton onPress={onAdd}/>
-    </ButtonGroup>
-    {isValidatingTasks && <Loading/>}
-    {tasks?.map(task => <Task
-      key={task.id}
-      task={task}
-      onUpdate={onUpdate}
+  console.log(tasks);
+  return <>
+    <Center>
+      <ButtonGroup>
+        <LogoutButton onPress={onLogout}/>
+        <AddButton onPress={handleOpenAddTaskFormDialog}/>
+      </ButtonGroup>
+      {isValidatingTasks && <Loading/>}
+      {tasks?.map(task => <Task
+        key={task.id}
+        task={task}
+        onUpdate={handleOpenUpdateTaskFormDialog}
+        onDelete={handleOpenDeleteTaskDialog}
+      />)}
+    </Center>
+    <TaskFormModal
+      isOpenTaskFormDialog={isOpenTaskFormDialog}
+      handleCloseTaskFormDialog={handleCloseTaskFormDialog}
+      selectedTask={selectedTask}
+      validationErrors={validationErrors}
+      onSubmitForm={onSubmitForm}
+      control={control}
+      isDisabled={isDisabled}
+    />
+    <DeleteAlertDialog
+      isOpenDeleteTaskDialog={isOpenDeleteTaskDialog}
+      handleCloseDeleteTaskDialog={handleCloseDeleteTaskDialog}
+      deleteTargetTask={deleteTargetTask}
       onDelete={onDelete}
-    />)}
-  </Center>;
+    />
+  </>;
 };
 
 View.displayName = 'IndexView';
