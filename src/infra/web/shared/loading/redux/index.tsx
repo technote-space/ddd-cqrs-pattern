@@ -23,7 +23,10 @@ export class LoadingContext implements ILoadingContext {
     return {
       [LoadingContext.ADD_LOADING]: (store, action) => ({
         ...store,
-        process: [...store?.process ?? [], { id: action.id, message: action.message }],
+        process: [
+          ...store?.process.filter(process => process.id !== action.id) ?? [],
+          { id: action.id, message: action.message },
+        ],
       }),
       [LoadingContext.DELETE_LOADING]: (store, action) => ({
         ...store,
