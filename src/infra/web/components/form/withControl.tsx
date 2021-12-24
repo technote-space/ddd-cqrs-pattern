@@ -23,7 +23,8 @@ export type Props<T> = T extends FieldValues ? IFormControlProps & {
 const defaultProps = { px: 2, m: 0, mt: 4 };
 
 type ComponentProps = Record<string, any>;
-export type WithControlProps<P extends ComponentProps, T extends FieldValues = any> = {
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type WithControlProps<P extends ComponentProps = {}, T extends FieldValues = any> = {
   isInvalid?: boolean;
   isDisabled?: boolean;
   isRequired?: boolean;

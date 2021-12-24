@@ -9,7 +9,15 @@ const UpdateIcon = createIcon({
 });
 
 const UpdateButton: FC<IIconButtonProps> = (props) => {
-  return <IconButton variant="solid" borderRadius="full" icon={<UpdateIcon/>} {...props}/>;
+  return <IconButton
+    variant="solid"
+    borderRadius="full"
+    alignItems="center"
+    justifyContent="center"
+    alignSelf="center"
+    icon={<UpdateIcon/>}
+    {...props}
+  />;
 };
 
 UpdateButton.displayName = 'UpdateButton';

@@ -14,9 +14,9 @@ export const useHooks = (props: Props, auth: IAuth, api: IApi) => {
   const user = auth.useUser();
   const onLogout = auth.useLogout();
 
-  const { mutateTasks, ...tasksProps } = useTasks(auth, api);
+  const { mutateTasks, tasks, ...tasksProps } = useTasks(auth, api);
   const { reset, handleSubmit, ...taskFormProps } = useTaskForm();
-  const { selectedTask, ...taskFormDialogProps } = useTaskFormDialog(reset);
+  const { selectedTask, ...taskFormDialogProps } = useTaskFormDialog(reset, tasks);
   const { onSubmit, validationErrors } = useOnSubmit(useCallback((body: FormValues) => {
     const headers = { authorization: getAuthorization(user) };
     if (selectedTask) {
@@ -26,13 +26,13 @@ export const useHooks = (props: Props, auth: IAuth, api: IApi) => {
     }
   }, [user, selectedTask]), api, mutateTasks);
   const onSubmitForm = useMemo(() => handleSubmit(onSubmit), [handleSubmit, onSubmit]);
-  const deleteTaskDialogProps = useDeleteTaskDialog();
-
+  const deleteTaskDialogProps = useDeleteTaskDialog(tasks);
 
   return {
     user,
     onLogout,
 
+    tasks,
     ...tasksProps,
     ...taskFormDialogProps,
     ...deleteTaskDialogProps,

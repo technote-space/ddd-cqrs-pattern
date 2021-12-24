@@ -1,7 +1,7 @@
 import type { HooksParams } from './hooks';
 import type { VFC } from 'react';
 import dynamic from 'next/dynamic';
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
 import AddButton from '#/button/addButton';
 import ButtonGroup from '#/button/group';
 import LogoutButton from '#/button/logoutButton';
@@ -18,10 +18,11 @@ const View: VFC<HooksParams> = ({
 
   tasks,
   isValidatingTasks,
+  updateTaskHandlers,
+  deleteTaskHandlers,
 
   isOpenTaskFormDialog,
   handleOpenAddTaskFormDialog,
-  handleOpenUpdateTaskFormDialog,
   handleCloseTaskFormDialog,
   selectedTask,
   validationErrors,
@@ -30,7 +31,6 @@ const View: VFC<HooksParams> = ({
   isDisabled,
 
   isOpenDeleteTaskDialog,
-  handleOpenDeleteTaskDialog,
   handleCloseDeleteTaskDialog,
   deleteTargetTask,
   onDelete,
@@ -39,7 +39,6 @@ const View: VFC<HooksParams> = ({
     return null;
   }
 
-  console.log(tasks);
   return <>
     <Center>
       <ButtonGroup>
@@ -47,12 +46,12 @@ const View: VFC<HooksParams> = ({
         <AddButton onPress={handleOpenAddTaskFormDialog}/>
       </ButtonGroup>
       {isValidatingTasks && <Loading/>}
-      {tasks?.map(task => <Task
+      {useMemo(() => tasks?.map(task => <Task
         key={task.id}
         task={task}
-        onUpdate={handleOpenUpdateTaskFormDialog}
-        onDelete={handleOpenDeleteTaskDialog}
-      />)}
+        onUpdate={updateTaskHandlers[task.id]}
+        onDelete={deleteTaskHandlers[task.id]}
+      />), [tasks, updateTaskHandlers, deleteTaskHandlers])}
     </Center>
     <TaskFormModal
       isOpenTaskFormDialog={isOpenTaskFormDialog}

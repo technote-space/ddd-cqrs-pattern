@@ -12,6 +12,9 @@ const DeleteButton: FC<IIconButtonProps> = (props) => {
   return <IconButton
     variant="solid"
     borderRadius="full"
+    alignItems="center"
+    justifyContent="center"
+    alignSelf="center"
     icon={<DeleteIcon/>}
     colorScheme="red"
     {...props}

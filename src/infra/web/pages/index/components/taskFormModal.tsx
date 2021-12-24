@@ -6,6 +6,7 @@ import { memo, useRef } from 'react';
 import Button from '#/button/button';
 import Modal from '#/dialog/modal';
 import FormLayout from '#/form/layout';
+import MultiSelect from '#/form/multipleSelect';
 import TextArea from '#/form/textArea';
 import TextInput from '#/form/textInput';
 
@@ -79,6 +80,12 @@ const TaskFormModal: VFC<Props> = ({
             validationErrors={validationErrors}
             label="作業見積単位"
             placeholder="作業見積単位を入力してください"
+          />
+          <MultiSelect
+            name="タグ"
+            control={control}
+            validationErrors={validationErrors}
+            label="タグ"
           />
         </FormLayout>
       </Modal.Body>

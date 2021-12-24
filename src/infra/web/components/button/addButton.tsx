@@ -9,7 +9,14 @@ const AddIcon = createIcon({
 });
 
 const AddButton: FC<IIconButtonProps> = (props) => {
-  return <IconButton variant="solid" icon={<AddIcon/>} {...props}/>;
+  return <IconButton
+    variant="solid"
+    alignItems="center"
+    justifyContent="center"
+    alignSelf="center"
+    icon={<AddIcon/>}
+    {...props}
+  />;
 };
 
 AddButton.displayName = 'AddButton';
