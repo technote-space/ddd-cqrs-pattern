@@ -3,6 +3,8 @@ import { container } from 'tsyringe';
 import { NativeBaseThemeProvider } from '@/web/theme/nativeBase';
 import LayoutComponent from '.';
 
+jest.mock('react-redux');
+
 describe('LayoutComponent', () => {
   it('Layoutのコンテキストプロバイダー', () => {
     container.registerInstance('ThemeColor', {

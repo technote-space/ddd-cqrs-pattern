@@ -6,6 +6,7 @@ import DueDate from '@/web/pages/index/components/dueDate';
 import StatusBadge from '@/web/pages/index/components/statusBadge';
 import TagBadge from '@/web/pages/index/components/tagBadge';
 import DeleteButton from '#/button/deleteButton';
+import ButtonGroup from '#/button/group';
 import UpdateButton from '#/button/updateButton';
 import Flex from '#/layout/flex';
 import HStack from '#/layout/hStack';
@@ -37,8 +38,10 @@ const Task: VFC<Props> = ({
     <Flex flexDirection="row" alignItems="center">
       <Heading>{task.タスク名}</Heading>
       <StatusBadge ml={2} status={task.ステータス} dueDate={task.期日} estimateValue={task.作業見積} estimateUnit={task.作業見積単位}/>
-      <UpdateButton ml={4} size="sm" onPress={onUpdate}/>
-      <DeleteButton ml={1} size="sm" onPress={onDelete}/>
+      <ButtonGroup alignSelf="right">
+        <UpdateButton ml={4} size="sm" onPress={onUpdate}/>
+        <DeleteButton ml={1} size="sm" onPress={onDelete}/>
+      </ButtonGroup>
     </Flex>
     <Flex flexDirection="row">
       <Flex flex={1}>

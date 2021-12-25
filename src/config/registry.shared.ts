@@ -9,6 +9,7 @@ import LayoutComponent from '@/web/shared/layout';
 import { LoadingComponent, LoadingContext } from '@/web/shared/loading/redux';
 import { ReduxContextProvider } from '@/web/shared/store/reduxStore';
 import { NativeBaseThemeProvider } from '@/web/theme/nativeBase';
+import { ColorModeContext } from '@/web/theme/nativeBase/colorModeManager';
 import api from '^/pages/api/$api';
 
 container.registerSingleton('IDocument', ExpoDocument);
@@ -22,9 +23,11 @@ container.registerSingleton('ILoadingContext', LoadingContext);
 container.registerSingleton('ILoadingComponent', LoadingComponent);
 container.registerSingleton('ReduxContextProvider', ReduxContextProvider);
 container.registerSingleton('NativeBaseThemeProvider', NativeBaseThemeProvider);
+container.registerSingleton('IColorModeManagerContext', ColorModeContext);
 container.registerInstance('contexts', [
   'IAuthContext',
   'ILoadingContext',
+  'IColorModeManagerContext',
 ]);
 container.registerInstance('providers', [
   'Auth0ContextProvider',

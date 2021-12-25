@@ -2,6 +2,8 @@ import renderer from 'react-test-renderer';
 import { container } from 'tsyringe';
 import { NativeBaseThemeProvider } from '@/web/theme/nativeBase';
 
+jest.mock('react-redux');
+
 describe('NativeBaseTheme', () => {
   it('should return theme', () => {
     container.registerInstance('ThemeColor', {
