@@ -40,7 +40,7 @@ export const useHooks = (props: Props, auth: IAuth, api: IApi) => {
     if (isOpenTaskFormDialog || isOpenDeleteTaskDialog) {
       resetValidationErrors();
     }
-  }, [isOpenTaskFormDialog, isOpenDeleteTaskDialog]);
+  }, [isOpenTaskFormDialog, isOpenDeleteTaskDialog, resetValidationErrors]);
 
   return {
     user,
