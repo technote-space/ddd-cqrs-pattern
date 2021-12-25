@@ -25,6 +25,9 @@ export const useOnSubmit = <FormValues, DataType>(
 ) => {
   const caller = api.useCaller();
   const [validationErrors, setValidationErrors] = useState<ValidationErrors>({});
+  const resetValidationErrors = useCallback(() => {
+    setValidationErrors({});
+  }, [setValidationErrors]);
   const onSubmit = useCallback(async (params: FormValues) => {
     setValidationErrors({});
     try {
@@ -48,5 +51,5 @@ export const useOnSubmit = <FormValues, DataType>(
     }
   }, [caller, getCallerParams, setValidationErrors, afterSubmit, handleError]);
 
-  return { validationErrors, onSubmit };
+  return { validationErrors, resetValidationErrors, onSubmit };
 };
