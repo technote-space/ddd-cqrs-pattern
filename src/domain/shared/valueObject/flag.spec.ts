@@ -31,6 +31,6 @@ describe('Flags', () => {
   });
 
   it('should throw error if not included flag', () => {
-    expect(TestFlags.create('test3').validate()).toEqual(['定義されていないフラグです: test3']);
+    expect(TestFlags.create('test3').validate()).toEqual([{ name: 'test', error: '定義されていないフラグです: test3' }]);
   });
 });

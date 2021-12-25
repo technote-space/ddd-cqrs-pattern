@@ -24,7 +24,7 @@ describe('NotionTaskRepository', () => {
         タグ: [{ id: 'test1', value: '宿題' }, { id: 'test2', value: 'テスト' }],
         メモ: 'メモメモ',
         ユーザー: { id: 'user', value: 'テストユーザー' },
-        作業見積: 10,
+        作業見積値: 10,
         作業見積単位: '日',
         期日: '2022-01-01T10:00:00+09:00',
       }));
@@ -55,7 +55,7 @@ describe('NotionTaskRepository', () => {
         タグ: [],
         メモ: null,
         ユーザー: { id: 'user', value: 'テストユーザー' },
-        作業見積: null,
+        作業見積値: null,
         作業見積単位: null,
         期日: null,
       }));
@@ -109,7 +109,7 @@ describe('NotionTaskRepository', () => {
         タスク名: 'name',
         メモ: 'memo',
         ユーザー: 'user',
-        作業見積: 10,
+        作業見積値: 10,
         作業見積単位: '日',
         期日: '2022-01-01T01:00:00.000Z',
       });
@@ -142,7 +142,7 @@ describe('NotionTaskRepository', () => {
         タスク名: 'name',
         メモ: null,
         ユーザー: 'user',
-        作業見積: null,
+        作業見積値: null,
         作業見積単位: null,
         期日: null,
       });

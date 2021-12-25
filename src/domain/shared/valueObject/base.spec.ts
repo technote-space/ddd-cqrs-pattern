@@ -1,3 +1,4 @@
+import type { ValidationError } from './base';
 import Base from './base';
 
 class Test extends Base<number, number>() {
@@ -9,7 +10,7 @@ class Test extends Base<number, number>() {
     return 0;
   }
 
-  public validate(): string[] | undefined {
+  public validate(): ValidationError[] | undefined {
     return undefined;
   }
 
@@ -31,7 +32,7 @@ class TestArray extends Base<number[], number[]>() {
     return 0;
   }
 
-  public validate(): string[] | undefined {
+  public validate(): ValidationError[] | undefined {
     return undefined;
   }
 
@@ -49,7 +50,7 @@ class TestObject extends Base<{ test: number }, { test: number }>() {
     return 0;
   }
 
-  public validate(): string[] | undefined {
+  public validate(): ValidationError[] | undefined {
     return undefined;
   }
 

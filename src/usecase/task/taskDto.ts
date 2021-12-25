@@ -18,7 +18,7 @@ export type TaskDto = {
   メモ: string | null;
   ステータス: string;
   期日: string | null;
-  作業見積: number | null;
+  作業見積値: number | null;
   作業見積単位: string | null;
   タグ: string[];
 };
@@ -29,7 +29,7 @@ export const fromEntity = (entity: Task): TaskDto => ({
   メモ: entity.memo?.value ?? null,
   ステータス: entity.status.value,
   期日: entity.dueDate?.value.toISOString() ?? null,
-  作業見積: entity.estimate?.value.value.value ?? null,
+  作業見積値: entity.estimate?.value.value.value ?? null,
   作業見積単位: entity.estimate?.value.unit.value ?? null,
   タグ: entity.tags.collections.map(tag => tag.tagName.value),
 });
@@ -39,12 +39,12 @@ export const toEntity = (userId: UserId, data: Omit<TaskDto, 'id'>): Task => Tas
   data.メモ ? Memo.create(data.メモ) : null,
   Status.create(data.ステータス),
   data.期日 ? DueDate.create(data.期日) : null,
-  data.作業見積 && data.作業見積単位 ? Estimate.create({
-    value: EstimateValue.create(data.作業見積),
+  data.作業見積値 && data.作業見積単位 ? Estimate.create({
+    value: EstimateValue.create(data.作業見積値),
     unit: EstimateUnit.create(data.作業見積単位),
   }) : null,
   userId,
-  Tags.create(data.タグ.map(tag => Tag.create(TagName.create(tag)))),
+  Tags.create((data.タグ ?? []).map(tag => Tag.create(TagName.create(tag)))),
 );
 
 export type FormValues = Omit<TaskDto, 'id'>;
@@ -53,7 +53,7 @@ export const createSchema: CreateSchema = schemaBuilder => ({
   メモ: schemaBuilder.string().nullable().label('メモ'),
   ステータス: schemaBuilder.string().required().label('ステータス'),
   期日: schemaBuilder.date().nullable().label('期日'),
-  作業見積: schemaBuilder.number().nullable().label('作業見積'),
+  作業見積値: schemaBuilder.number().nullable().label('作業見積値'),
   作業見積単位: schemaBuilder.string().nullable().label('作業見積単位'),
   タグ: schemaBuilder.array().label('タグ'),
 });

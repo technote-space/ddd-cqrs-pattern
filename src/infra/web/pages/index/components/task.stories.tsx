@@ -21,7 +21,7 @@ Default.args = {
     メモ: 'メモ',
     ステータス: '実行中',
     期日: dayjs(current).subtract(-15, 'day').format('YYYY-MM-DD HH:mm'),
-    作業見積: 10,
+    作業見積値: 10,
     作業見積単位: '日',
     タグ: ['テスト1', 'テスト2'],
   },
@@ -35,7 +35,7 @@ LongText.args = {
     メモ: 'メモメモメモメモメモメモメモメモメモ\nメモメモメモメモメモメモメモメモメモメモメモメモメモメモメモメモメモメモメモ',
     ステータス: '実行中',
     期日: dayjs(current).subtract(5, 'hour').format('YYYY-MM-DD HH:mm'),
-    作業見積: 10,
+    作業見積値: 10,
     作業見積単位: '時間',
     タグ: ['テストテストテストテストテストテストテストテストテストテストテストテストテストテスト', 'テスト1', 'テスト2'],
   },
@@ -43,5 +43,5 @@ LongText.args = {
 
 export const Optional = Template.bind({});
 Optional.args = {
-  task: { id: 'id', タスク名: 'タスク', メモ: null, ステータス: '登録', 期日: null, 作業見積: null, 作業見積単位: null, タグ: [] },
+  task: { id: 'id', タスク名: 'タスク', メモ: null, ステータス: '登録', 期日: null, 作業見積値: null, 作業見積単位: null, タグ: [] },
 };

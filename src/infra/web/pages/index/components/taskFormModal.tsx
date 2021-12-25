@@ -68,10 +68,10 @@ const TaskFormModal: VFC<Props> = ({
             placeholder="期日を入力してください"
           />
           <TextInput
-            name="作業見積"
+            name="作業見積値"
             control={control}
             validationErrors={validationErrors}
-            label="作業見積"
+            label="作業見積値"
             placeholder="作業見積を入力してください"
           />
           <TextInput

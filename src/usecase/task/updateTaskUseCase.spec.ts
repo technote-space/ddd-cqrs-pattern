@@ -26,7 +26,7 @@ describe('UpdateTaskUseCase', () => {
       メモ: null,
       ステータス: '登録',
       期日: null,
-      作業見積: null,
+      作業見積値: null,
       作業見積単位: null,
       タグ: [],
     });
@@ -38,7 +38,7 @@ describe('UpdateTaskUseCase', () => {
     expect(result.メモ).toBeNull();
     expect(result.ステータス).toBe('登録');
     expect(result.期日).toBeNull();
-    expect(result.作業見積).toBeNull();
+    expect(result.作業見積値).toBeNull();
     expect(result.作業見積単位).toBeNull();
     expect(result.タグ).toEqual([]);
   });

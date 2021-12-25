@@ -69,9 +69,9 @@
       "type": "rich_text",
       "rich_text": {}
     },
-    "作業見積": {
+    "作業見積値": {
       "id": "oumE",
-      "name": "作業見積",
+      "name": "作業見積値",
       "type": "number",
       "number": {
         "format": "number"

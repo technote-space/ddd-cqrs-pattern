@@ -1,4 +1,5 @@
 import type { ValidationErrors } from '$/shared/exceptions/domain/validation';
+import type { ValidationError } from '$/shared/valueObject/base';
 import InvalidValueException from '$/shared/exceptions/domain/invalidValue';
 import ValidationException from '$/shared/exceptions/domain/validation';
 
@@ -8,24 +9,35 @@ export default abstract class Base {
   }
 
   public getErrors(): ValidationErrors {
-    const isValidationError = (error: ValidationErrors | undefined): error is ValidationErrors => !!error;
-    return Object.assign({}, ...Object.keys(this).map(key => {
+    return Object.keys(this).reduce((acc, key) => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const member = this[key as keyof this] as any;
       if (member && 'validate' in member && 'getName' in member) {
-        const errors: string[] | undefined = member.validate();
+        const errors: ValidationError[] | undefined = member.validate();
         if (errors?.length) {
-          const name: string = member.getName();
-          return { [key.replace(/^_/, '')]: { name, errors } };
+          return errors.reduce((acc, error) => {
+            return {
+              ...acc,
+              [error.name]: [...new Set([...(acc[error.name] ?? []), error.error])],
+            };
+          }, acc);
         }
       }
 
       if (member && 'validate' in member && 'collections' in member) {
-        return member.validate();
+        const errors: ValidationErrors | undefined = member.validate();
+        if (errors) {
+          return Object.entries(errors).reduce((acc, [key, value]) => {
+            return {
+              ...acc,
+              [key]: [...new Set([...(acc[key] ?? []), ...value])],
+            };
+          }, acc);
+        }
       }
 
-      return undefined;
-    }).filter(isValidationError));
+      return acc;
+    }, {} as ValidationErrors);
   }
 
   public validate(): void | never {

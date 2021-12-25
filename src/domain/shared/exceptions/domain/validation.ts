@@ -1,11 +1,7 @@
 import Exception from './exception';
 
-type ValidationError = {
-  name: string;
-  errors: string[];
-};
 export type ValidationErrors = {
-  [id: string]: ValidationError
+  [name: string]: string[];
 };
 
 export default class ValidationException extends Exception {

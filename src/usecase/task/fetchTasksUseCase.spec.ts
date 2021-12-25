@@ -40,7 +40,7 @@ describe('FetchTasksUseCase', () => {
     expect(tasks[0].メモ).toBe('memo1');
     expect(tasks[0].ステータス).toBe('登録');
     expect(tasks[0].期日).toBe('2021-12-31T15:00:00.000Z');
-    expect(tasks[0].作業見積).toBe(10);
+    expect(tasks[0].作業見積値).toBe(10);
     expect(tasks[0].作業見積単位).toBe('日');
     expect(tasks[0].タグ).toHaveLength(2);
     expect(tasks[0].タグ[0]).toBe('tag1');
@@ -51,7 +51,7 @@ describe('FetchTasksUseCase', () => {
     expect(tasks[1].メモ).toBeNull();
     expect(tasks[1].ステータス).toBe('実行中');
     expect(tasks[1].期日).toBeNull();
-    expect(tasks[1].作業見積).toBeNull();
+    expect(tasks[1].作業見積値).toBeNull();
     expect(tasks[1].作業見積単位).toBeNull();
     expect(tasks[1].タグ).toHaveLength(0);
   });

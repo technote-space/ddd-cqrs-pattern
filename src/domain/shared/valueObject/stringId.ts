@@ -1,3 +1,4 @@
+import type { ValidationError } from './base';
 import InvalidValueException from '$/shared/exceptions/domain/invalidValue';
 import Base from './base';
 
@@ -26,14 +27,14 @@ export default abstract class StringId extends Base<number | string | null, stri
     this.reconstruct(id);
   }
 
-  public validate(): string[] | undefined {
+  public validate(): ValidationError[] | undefined {
     const text = this.fromInput();
     if (text === null) {
       return undefined;
     }
 
     if (!text.length) {
-      return ['値を指定してください'];
+      return [{ name: this.getName(), error: '値を指定してください' }];
     }
 
     return undefined;

@@ -7,6 +7,6 @@ describe('TaskName', () => {
 
   it('長さが 64 より長いとエラー', () => {
     expect(TaskName.create('a'.repeat(64)).validate()).toEqual([]);
-    expect(TaskName.create('a'.repeat(65)).validate()).toEqual(['64文字より短く入力してください']);
+    expect(TaskName.create('a'.repeat(65)).validate()).toEqual([{ name: 'タスク名', error: '64文字より短く入力してください' }]);
   });
 });

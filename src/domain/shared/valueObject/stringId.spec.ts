@@ -26,7 +26,7 @@ describe('StringId', () => {
   it('should validate', () => {
     expect(TestStringId.create('123').validate()).toBeUndefined();
     expect(TestStringId.create(null).validate()).toBeUndefined();
-    expect(TestStringId.create('').validate()).toEqual(['値を指定してください']);
+    expect(TestStringId.create('').validate()).toEqual([{ name: 'test', error: '値を指定してください' }]);
   });
 
   it('should set generated id', () => {

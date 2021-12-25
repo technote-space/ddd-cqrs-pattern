@@ -7,6 +7,6 @@ describe('TagName', () => {
 
   it('長さが 16 より長いとエラー', () => {
     expect(TagName.create('a'.repeat(16)).validate()).toEqual([]);
-    expect(TagName.create('a'.repeat(17)).validate()).toEqual(['16文字より短く入力してください']);
+    expect(TagName.create('a'.repeat(17)).validate()).toEqual([{ name: 'タグ名', error: '16文字より短く入力してください' }]);
   });
 });

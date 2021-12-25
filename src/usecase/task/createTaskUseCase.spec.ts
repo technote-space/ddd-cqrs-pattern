@@ -15,7 +15,7 @@ describe('CreateTaskUseCase', () => {
       メモ: 'memo',
       ステータス: '登録',
       期日: '2022-01-01T10:00:00+09:00',
-      作業見積: 10,
+      作業見積値: 10,
       作業見積単位: '日',
       タグ: ['tag1', 'tag2'],
     });
@@ -26,7 +26,7 @@ describe('CreateTaskUseCase', () => {
     expect(result.メモ).toBe('memo');
     expect(result.ステータス).toBe('登録');
     expect(result.期日).toBe('2022-01-01T01:00:00.000Z');
-    expect(result.作業見積).toBe(10);
+    expect(result.作業見積値).toBe(10);
     expect(result.作業見積単位).toBe('日');
     expect(result.タグ).toEqual(['tag1', 'tag2']);
   });

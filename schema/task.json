@@ -19,7 +19,7 @@
       "type": "datetime"
     },
     {
-      "name": "作業見積",
+      "name": "作業見積値",
       "type": "int"
     },
     {
