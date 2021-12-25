@@ -37,8 +37,8 @@ export class NativeBaseThemeProvider implements IContextProvider {
       return <NativeBaseProvider theme={theme}>
         <Box
           display="flex"
-          height="100%"
-          overflow="hidden"
+          height="100vh"
+          overflow="auto"
           _light={{ bg: '#fffaf0' }}
           _dark={{ bg: '#1a202c' }}
         >

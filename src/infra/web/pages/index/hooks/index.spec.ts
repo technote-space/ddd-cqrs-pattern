@@ -40,11 +40,7 @@ describe('useHooks', () => {
     jest.spyOn(loadingHooks, 'useAddProcess').mockReturnValue(mockAdd);
     jest.spyOn(loadingHooks, 'useDeleteProcess').mockReturnValue(mockDelete);
     const mockUseUser = jest.fn(() => ({ isLoggedIn: true, user: { authorization: 'token' } }));
-    const mockUseLogout = jest.fn();
-    const { result, waitFor } = renderHook(() => useHooks({}, {
-      useUser: mockUseUser,
-      useLogout: mockUseLogout,
-    }, new TestApi()));
+    const { result, waitFor } = renderHook(() => useHooks({}, { useUser: mockUseUser } as never, new TestApi()));
 
     await waitFor(() => expect(result.current.tasks).not.toBeUndefined());
     expect(result.current.tasks).toEqual([
@@ -70,7 +66,6 @@ describe('useHooks', () => {
       },
     ]);
     expect(mockUseUser).toBeCalled();
-    expect(mockUseLogout).toBeCalled();
     expect(mockAdd).toBeCalledWith('loadingTasks', 'タスク読み込み中...');
     expect(mockDelete).toBeCalledWith('loadingTasks');
     expect(mockWithLoading).not.toBeCalled();

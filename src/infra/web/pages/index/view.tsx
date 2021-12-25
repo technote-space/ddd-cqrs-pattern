@@ -4,9 +4,7 @@ import dynamic from 'next/dynamic';
 import { memo, useMemo } from 'react';
 import AddButton from '#/button/addButton';
 import ButtonGroup from '#/button/group';
-import LogoutButton from '#/button/logoutButton';
-import ToggleDarkModeButton from '#/button/toggleDarkModeButton';
-import Center from '#/layout/center';
+import Flex from '#/layout/flex';
 import Loading from '#/loading';
 
 const Task = dynamic(() => import('./components/task'));
@@ -15,7 +13,6 @@ const DeleteAlertDialog = dynamic(() => import('./components/deleteAlertDialog')
 
 const View: VFC<HooksParams> = ({
   user,
-  onLogout,
 
   tasks,
   isValidatingTasks,
@@ -35,29 +32,24 @@ const View: VFC<HooksParams> = ({
   handleCloseDeleteTaskDialog,
   deleteTargetTask,
   onDelete,
-
-  isDarkMode,
-  toggleColorMode,
 }) => {
   if (!user.isLoggedIn) {
     return null;
   }
 
   return <>
-    <Center>
+    <Flex alignItems="center">
       <ButtonGroup>
-        <LogoutButton onPress={onLogout}/>
         <AddButton onPress={handleOpenAddTaskFormDialog}/>
-        <ToggleDarkModeButton isDarkMode={isDarkMode} toggleColorMode={toggleColorMode}/>
       </ButtonGroup>
-      {isValidatingTasks && <Loading position="fixed" right={4} top={4}/>}
+      {isValidatingTasks && <Loading position="fixed" top={4}/>}
       {useMemo(() => tasks?.map(task => <Task
         key={task.id}
         task={task}
         onUpdate={updateTaskHandlers[task.id]}
         onDelete={deleteTaskHandlers[task.id]}
       />), [tasks, updateTaskHandlers, deleteTaskHandlers])}
-    </Center>
+    </Flex>
     <TaskFormModal
       isOpenTaskFormDialog={isOpenTaskFormDialog}
       handleCloseTaskFormDialog={handleCloseTaskFormDialog}

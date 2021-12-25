@@ -12,9 +12,15 @@ export default {
   },
 } as ComponentMeta<typeof View>;
 
-const Template: ComponentStory<typeof View> = (args) => <View {...args} />;
+const Template: ComponentStory<typeof View> = (args) => <View
+  {...args}
+  updateTaskHandlers={{}}
+  deleteTaskHandlers={{}}
+/>;
 
 export const Default = Template.bind({});
+export const NotLoggedIn = Template.bind({});
+
 Default.args = {
   user: { isLoggedIn: true, user: { authorization: '' } },
   tasks: [
@@ -32,8 +38,6 @@ Default.args = {
   ],
   isValidatingTasks: false,
 };
-
-export const NotLoggedIn = Template.bind({});
 NotLoggedIn.args = {
   user: { isLoggedIn: false },
   tasks: undefined,

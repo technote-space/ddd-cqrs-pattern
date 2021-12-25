@@ -7,17 +7,20 @@ import { getAuthorization } from '@/web/pages/index/helpers/auth';
 import { useDeleteTaskDialog, useTaskFormDialog } from '@/web/pages/index/hooks/dialog';
 import { useDeleteTask, useTaskForm } from '@/web/pages/index/hooks/form';
 import { FormValues } from '^/usecase/task/taskDto';
-import { useDarkMode } from './darkMode';
 import { useTasks } from './data';
 
 // eslint-disable-next-line unused-imports/no-unused-vars
 export const useHooks = (props: Props, auth: IAuth, api: IApi) => {
   const user = auth.useUser();
-  const onLogout = auth.useLogout();
-
   const { mutateTasks, tasks, ...tasksProps } = useTasks(auth, api);
   const { reset, handleSubmit, ...taskFormProps } = useTaskForm();
-  const { selectedTask, ...taskFormDialogProps } = useTaskFormDialog(reset, tasks);
+  const { selectedTask, handleCloseTaskFormDialog, ...taskFormDialogProps } = useTaskFormDialog(reset, tasks);
+  const { handleCloseDeleteTaskDialog, ...deleteTaskDialogProps } = useDeleteTaskDialog(tasks);
+  const afterSubmit = useCallback(() => {
+    handleCloseTaskFormDialog();
+    handleCloseDeleteTaskDialog();
+    mutateTasks().then();
+  }, [handleCloseTaskFormDialog, handleCloseDeleteTaskDialog, mutateTasks]);
   const { onSubmit, validationErrors } = useOnSubmit(useCallback((body: FormValues) => {
     const headers = { authorization: getAuthorization(user) };
     if (selectedTask) {
@@ -25,24 +28,22 @@ export const useHooks = (props: Props, auth: IAuth, api: IApi) => {
     } else {
       return [client => client.tasks.post({ body, headers }), '追加中...'];
     }
-  }, [user, selectedTask]), api, mutateTasks);
+  }, [user, selectedTask]), api, afterSubmit);
   const onSubmitForm = useMemo(() => handleSubmit(onSubmit), [handleSubmit, onSubmit]);
-  const deleteTaskDialogProps = useDeleteTaskDialog(tasks);
 
   return {
     user,
-    onLogout,
-
     tasks,
     ...tasksProps,
     ...taskFormDialogProps,
     ...deleteTaskDialogProps,
-    ...useDeleteTask(auth, api, deleteTaskDialogProps.deleteTargetTask, mutateTasks),
+    ...useDeleteTask(auth, api, deleteTaskDialogProps.deleteTargetTask, afterSubmit),
     ...taskFormProps,
+    handleCloseTaskFormDialog,
+    handleCloseDeleteTaskDialog,
     onSubmitForm,
     selectedTask,
     validationErrors,
-    ...useDarkMode(),
   };
 };
 export type HooksParams = ReturnType<typeof useHooks>;

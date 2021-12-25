@@ -56,7 +56,17 @@ const WithControl = <U extends WithControlProps<any>>(
         const error = errors[name];
         if (error && 'message' in error) return error.message;
       }
-      if (validationErrors && (key ?? name) in validationErrors) return validationErrors[key ?? name].errors.join(', ');
+
+      if (!validationErrors) {
+        return null;
+      }
+
+      const searchName = key ?? name;
+      const found = Object.values(validationErrors).find(error => error.name === searchName);
+      if (found) {
+        return found.errors.join(', ');
+      }
+
       return null;
     })();
     const componentProps = (renderProps: UseControllerReturn<FieldValues, any>) =>
