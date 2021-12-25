@@ -50,7 +50,7 @@ const View: VFC<HooksParams> = ({
         <AddButton onPress={handleOpenAddTaskFormDialog}/>
         <ToggleDarkModeButton isDarkMode={isDarkMode} toggleColorMode={toggleColorMode}/>
       </ButtonGroup>
-      {isValidatingTasks && <Loading/>}
+      {isValidatingTasks && <Loading position="fixed" right={4} top={4}/>}
       {useMemo(() => tasks?.map(task => <Task
         key={task.id}
         task={task}
