@@ -384,7 +384,7 @@ describe('NotionDatabase', () => {
         expect(req.body).toEqual({
             properties: {
               'タスク名': { title: [] },
-              'タグ': { relation: [{ id: '12345678-7353-4df6-a730-5df7bd0869b1' }, { id: '12345678-3f93-456d-8379-6748cbd60655' }] },
+              'タグ': { relation: [] },
               'ユーザー': { relation: [] },
               'ステータス': { rich_text: [] },
               'メモ': { rich_text: [] },
