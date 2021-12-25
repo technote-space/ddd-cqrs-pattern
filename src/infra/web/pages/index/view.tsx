@@ -5,6 +5,7 @@ import { memo, useMemo } from 'react';
 import AddButton from '#/button/addButton';
 import ButtonGroup from '#/button/group';
 import LogoutButton from '#/button/logoutButton';
+import ToggleDarkModeButton from '#/button/toggleDarkModeButton';
 import Center from '#/layout/center';
 import Loading from '#/loading';
 
@@ -34,6 +35,9 @@ const View: VFC<HooksParams> = ({
   handleCloseDeleteTaskDialog,
   deleteTargetTask,
   onDelete,
+
+  isDarkMode,
+  toggleColorMode,
 }) => {
   if (!user.isLoggedIn) {
     return null;
@@ -44,6 +48,7 @@ const View: VFC<HooksParams> = ({
       <ButtonGroup>
         <LogoutButton onPress={onLogout}/>
         <AddButton onPress={handleOpenAddTaskFormDialog}/>
+        <ToggleDarkModeButton isDarkMode={isDarkMode} toggleColorMode={toggleColorMode}/>
       </ButtonGroup>
       {isValidatingTasks && <Loading/>}
       {useMemo(() => tasks?.map(task => <Task

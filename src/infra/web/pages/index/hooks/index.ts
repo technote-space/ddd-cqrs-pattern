@@ -7,6 +7,7 @@ import { getAuthorization } from '@/web/pages/index/helpers/auth';
 import { useDeleteTaskDialog, useTaskFormDialog } from '@/web/pages/index/hooks/dialog';
 import { useDeleteTask, useTaskForm } from '@/web/pages/index/hooks/form';
 import { FormValues } from '^/usecase/task/taskDto';
+import { useDarkMode } from './darkMode';
 import { useTasks } from './data';
 
 // eslint-disable-next-line unused-imports/no-unused-vars
@@ -41,6 +42,7 @@ export const useHooks = (props: Props, auth: IAuth, api: IApi) => {
     onSubmitForm,
     selectedTask,
     validationErrors,
+    ...useDarkMode(),
   };
 };
 export type HooksParams = ReturnType<typeof useHooks>;
