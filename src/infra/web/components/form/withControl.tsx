@@ -62,9 +62,9 @@ const WithControl = <U extends WithControlProps<any>>(
       }
 
       const searchName = key ?? name;
-      const found = Object.values(validationErrors).find(error => error.name === searchName);
+      const found = Object.keys(validationErrors).find(key => key === searchName);
       if (found) {
-        return found.errors.join(', ');
+        return validationErrors[found].join(', ');
       }
 
       return null;

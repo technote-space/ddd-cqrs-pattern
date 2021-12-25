@@ -28,7 +28,7 @@ export default function CollectionBase<T extends Base>() {
     public validate(): ValidationErrors | undefined {
       const errors = this.collections.reduce((acc, item, index) => ({
         ...acc,
-        ...Object.fromEntries(Object.entries(item.getErrors()).map(([key, value]) => [`${index}: ${key}`, value])),
+        ...Object.fromEntries(Object.entries(item.getErrors()).map(([key, value]) => [`${key}[${index}]`, value])),
       }), {} as ValidationErrors);
 
       if (Object.keys(errors).length) {

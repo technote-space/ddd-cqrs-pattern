@@ -7,6 +7,6 @@ describe('EstimateValue', () => {
 
   it('値が 1 より小さいとエラー', () => {
     expect(EstimateValue.create(1).validate()).toEqual(undefined);
-    expect(EstimateValue.create(0).validate()).toEqual(['1以上の値を入力してください']);
+    expect(EstimateValue.create(0).validate()).toEqual([{ name: '作業見積値', error: '1以上の値を入力してください' }]);
   });
 });

@@ -21,7 +21,7 @@ export type DatabaseType = {
   タグ: Relation[];
   メモ: string | null;
   ユーザー: Relation;
-  作業見積: number | null;
+  作業見積値: number | null;
   作業見積単位: string | null;
   期日: string | null;
 };
@@ -34,8 +34,8 @@ export default class Mapper {
       data.メモ ? Memo.create(data.メモ) : null,
       Status.create(data.ステータス),
       data.期日 ? DueDate.create(data.期日) : null,
-      data.作業見積 && data.作業見積単位 ? Estimate.create({
-        value: EstimateValue.create(data.作業見積),
+      data.作業見積値 && data.作業見積単位 ? Estimate.create({
+        value: EstimateValue.create(data.作業見積値),
         unit: EstimateUnit.create(data.作業見積単位),
       }) : null,
       UserId.create(data.ユーザー.id),

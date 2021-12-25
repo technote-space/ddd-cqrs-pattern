@@ -1,3 +1,4 @@
+import type { ValidationError } from './base';
 import dayjs from 'dayjs';
 import isDate from 'validator/lib/isDate';
 import isISO8601 from 'validator/lib/isISO8601';
@@ -13,9 +14,9 @@ export default abstract class Date extends Base<dayjs.ConfigType, dayjs.Dayjs, s
     return dayjs(this.inner);
   }
 
-  public validate(): string[] | undefined {
+  public validate(): ValidationError[] | undefined {
     if (typeof this.input === 'string' && !(isDate(this.input) || isISO8601(this.input))) {
-      return ['日付の形式が正しくありません'];
+      return [{ name: this.getName(), error: '日付の形式が正しくありません' }];
     }
 
     return undefined;

@@ -13,7 +13,7 @@ describe('CreateTaskController', () => {
       メモ: null,
       ステータス: '登録',
       期日: null,
-      作業見積: null,
+      作業見積値: null,
       作業見積単位: null,
       タグ: [],
     } as TaskDto));
@@ -27,7 +27,7 @@ describe('CreateTaskController', () => {
       メモ: null,
       ステータス: '登録',
       期日: null,
-      作業見積: null,
+      作業見積値: null,
       作業見積単位: null,
       タグ: [],
     };

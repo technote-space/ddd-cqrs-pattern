@@ -44,7 +44,7 @@ export default class NotionTaskRepository implements ITaskRepository {
       タグ: task.tags.collections.map(tag => tag.tagName.value),
       メモ: task.memo?.value ?? null,
       ユーザー: task.userId.value,
-      作業見積: task.estimate?.value.value.value ?? null,
+      作業見積値: task.estimate?.value.value.value ?? null,
       作業見積単位: task.estimate?.value.unit.value ?? null,
       期日: task.dueDate?.value.toISOString() ?? null,
     };

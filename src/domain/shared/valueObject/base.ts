@@ -2,6 +2,10 @@
 // to avoid "Static members cannot reference class type parameters." error
 import InvalidUsage from '$/shared/exceptions/domain/invalidUsage';
 
+export type ValidationError = {
+  name: string;
+  error: string;
+};
 export default function Base<Input, Output, Inner = Output>() { // eslint-disable-line @typescript-eslint/explicit-module-boundary-types
   interface BaseStatic<T extends Base> {
     new(): T;
@@ -71,7 +75,7 @@ export default function Base<Input, Output, Inner = Output>() { // eslint-disabl
 
     public abstract getName(): string;
 
-    public abstract validate(): string[] | undefined;
+    public abstract validate(): ValidationError[] | undefined;
 
     public static create<T extends Base>(this: BaseStatic<T>, value: Input): T {
       Base._isCreating = true;

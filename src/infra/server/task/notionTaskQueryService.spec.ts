@@ -12,7 +12,7 @@ describe('NotionTaskQueryService', () => {
           タスク名: 'name1',
           メモ: 'memo1',
           ユーザー: { id: 'user', value: 'テストユーザー' },
-          作業見積: 10,
+          作業見積値: 10,
           作業見積単位: '日',
           期日: '2022-01-01T01:00:00.000Z',
         }, {
@@ -22,7 +22,7 @@ describe('NotionTaskQueryService', () => {
           タスク名: 'name2',
           メモ: null,
           ユーザー: { id: 'user', value: 'テストユーザー' },
-          作業見積: null,
+          作業見積値: null,
           作業見積単位: null,
           期日: null,
         }],

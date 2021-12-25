@@ -1,3 +1,4 @@
+import type { ValidationError } from './base';
 import isNumeric from 'validator/lib/isNumeric';
 import Base from './base';
 
@@ -33,20 +34,20 @@ export default abstract class Float extends Base<number | string, number>() {
     return false;
   }
 
-  public validate(): string[] | undefined {
+  public validate(): ValidationError[] | undefined {
     if (typeof this.input === 'string' && !isNumeric(this.input)) {
-      return ['数値の形式が正しくありません'];
+      return [{ name: this.getName(), error: '数値の形式が正しくありません' }];
     }
 
     const num = this.fromInput();
     const max = this.getMaxNumber();
     if (max !== undefined && num > max) {
-      return [`${max}以下の値を入力してください`];
+      return [{ name: this.getName(), error: `${max}以下の値を入力してください` }];
     }
 
     const min = this.getMinNumber();
     if (min !== undefined && num < min) {
-      return [`${min}以上の値を入力してください`];
+      return [{ name: this.getName(), error: `${min}以上の値を入力してください` }];
     }
 
     return undefined;
