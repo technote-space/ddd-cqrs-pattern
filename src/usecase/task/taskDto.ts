@@ -20,7 +20,7 @@ export type TaskDto = {
   期日: string | null;
   作業見積値: number | null;
   作業見積単位: string | null;
-  タグ: string[];
+  タグ?: string[];
 };
 
 export const fromEntity = (entity: Task): TaskDto => ({
