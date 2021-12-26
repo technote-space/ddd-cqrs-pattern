@@ -46,7 +46,7 @@ const Task: VFC<Props> = ({
     <Flex flexDirection="row">
       <Flex flex={1}>
         {task.メモ && <LongText>{task.メモ}</LongText>}
-        {!!task.タグ.length && <HStack flexWrap="wrap">
+        {!!task.タグ?.length && <HStack flexWrap="wrap">
           {task.タグ.map((tag, index) => <TagBadge key={index} tag={tag}/>)}
         </HStack>}
       </Flex>
