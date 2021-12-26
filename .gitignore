@@ -11,6 +11,9 @@
 /build/
 /out/
 
+# expo
+/.expo/
+
 # production
 /build
 

@@ -1,4 +1,4 @@
-import { IndexPageProps } from './server';
+import IndexPageProps from './server';
 
 describe('IndexPageProps', () => {
   describe('getStaticProps', () => {

@@ -1,55 +1,71 @@
 import type { HooksParams } from './hooks';
-import type { TaskDto } from '^/usecase/task/taskDto';
 import type { VFC } from 'react';
-import { memo, useCallback } from 'react';
+import dynamic from 'next/dynamic';
+import { memo, useMemo } from 'react';
+import AddButton from '#/button/addButton';
+import ButtonGroup from '#/button/group';
+import Flex from '#/layout/flex';
+import Loading from '#/loading';
 
-const Task: VFC<{ task: TaskDto; onUpdate: (id: string) => void; onDelete: (id: string) => void }> = ({
-  task,
-  onUpdate,
-  onDelete,
-}) => {
-  const _onUpdate = useCallback(() => {
-    onUpdate(task.id);
-  }, [task.id, onUpdate]);
-  const _onDelete = useCallback(() => {
-    onDelete(task.id);
-  }, [task.id, onDelete]);
-  return <div key={task.id} style={{ border: 'solid 1px #ccc', margin: '10px', padding: '10px' }}>
-    <div>タスク名: {task.タスク名}</div>
-    <div>メモ: {task.メモ}</div>
-    <div>ステータス: {task.ステータス}</div>
-    <div>期日: {task.期日}</div>
-    <div>作業見積: {task.作業見積}</div>
-    <div>作業見積単位: {task.作業見積単位}</div>
-    <div>タグ: {task.タグ.join(', ')}</div>
-    <button role="update" onClick={_onUpdate}>Update</button>
-    <button role="delete" onClick={_onDelete}>Delete</button>
-  </div>;
-};
+const Task = dynamic(() => import('./components/task'));
+const TaskFormModal = dynamic(() => import('./components/taskFormModal'));
+const DeleteAlertDialog = dynamic(() => import('./components/deleteAlertDialog'));
 
 const View: VFC<HooksParams> = ({
   user,
+
   tasks,
-  onLogout,
-  onAdd,
-  onUpdate,
+  isValidatingTasks,
+  updateTaskHandlers,
+  deleteTaskHandlers,
+
+  isOpenTaskFormDialog,
+  handleOpenAddTaskFormDialog,
+  handleCloseTaskFormDialog,
+  selectedTask,
+  validationErrors,
+  onSubmitForm,
+  control,
+  isDisabled,
+
+  isOpenDeleteTaskDialog,
+  handleCloseDeleteTaskDialog,
+  deleteTargetTask,
   onDelete,
 }) => {
   if (!user.isLoggedIn) {
-    return <div>Loading...</div>;
+    return null;
   }
 
-  return <div>
-    <div>Hello World!</div>
-    <button role="logout" onClick={onLogout}>Logout!</button>
-    <button role="add" onClick={onAdd}>Add!!!</button>
-    {tasks?.map(task => <Task
-      key={task.id}
-      task={task}
-      onUpdate={onUpdate}
+  return <>
+    <Flex alignItems="center">
+      <ButtonGroup>
+        <AddButton onPress={handleOpenAddTaskFormDialog}/>
+      </ButtonGroup>
+      {isValidatingTasks && <Loading position="fixed" top={4}/>}
+      {useMemo(() => tasks?.map(task => <Task
+        key={task.id}
+        task={task}
+        onUpdate={updateTaskHandlers[task.id]}
+        onDelete={deleteTaskHandlers[task.id]}
+      />), [tasks, updateTaskHandlers, deleteTaskHandlers])}
+    </Flex>
+    <TaskFormModal
+      isOpenTaskFormDialog={isOpenTaskFormDialog}
+      handleCloseTaskFormDialog={handleCloseTaskFormDialog}
+      selectedTask={selectedTask}
+      validationErrors={validationErrors}
+      onSubmitForm={onSubmitForm}
+      control={control}
+      isDisabled={isDisabled}
+    />
+    <DeleteAlertDialog
+      isOpenDeleteTaskDialog={isOpenDeleteTaskDialog}
+      handleCloseDeleteTaskDialog={handleCloseDeleteTaskDialog}
+      deleteTargetTask={deleteTargetTask}
       onDelete={onDelete}
-    />)}
-  </div>;
+    />
+  </>;
 };
 
 View.displayName = 'IndexView';

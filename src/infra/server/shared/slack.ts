@@ -5,7 +5,7 @@ import { IncomingWebhook } from '@slack/webhook';
 import { inject, singleton } from 'tsyringe';
 
 @singleton()
-export class Slack implements ISlack {
+export default class Slack implements ISlack {
   public constructor(
     @inject('IEnv') private env: IEnv
   ) {

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2020",
     "lib": [
       "dom",
       "dom.iterable",
@@ -17,16 +17,22 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
       "^/*": [
-        "./*"
+        "./src/*"
       ],
       "$/*": [
-        "./domain/*"
+        "./src/domain/*"
       ],
       "@/*": [
-        "./infra/*"
+        "./src/infra/*"
+      ],
+      "#/*": [
+        "./src/infra/web/components/*"
+      ],
+      "react-native": [
+        "react-native-web"
       ]
     },
     "experimentalDecorators": true,

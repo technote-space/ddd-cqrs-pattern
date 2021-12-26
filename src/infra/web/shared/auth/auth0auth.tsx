@@ -1,6 +1,7 @@
+import type IEnv from '$/server/shared/env';
 import type { IApi } from '$/web/shared/api';
 import type { IAuthContext, IAuth, StoreContext, UserResult, LogoutCallback } from '$/web/shared/auth';
-import type { ILoading, ILoadingContext } from '$/web/shared/loading';
+import type { IContextProvider } from '$/web/shared/contextProvider';
 import type { Dispatch, Reducer } from '$/web/shared/store';
 import type { AppState } from '@auth0/auth0-react';
 import { useAuth0 } from '@auth0/auth0-react';
@@ -9,8 +10,7 @@ import { createBrowserHistory } from 'history';
 import { memo, PropsWithChildren, useCallback, useEffect, VFC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { inject, singleton } from 'tsyringe';
-import IEnv from '$/server/shared/env';
-import { IContextProvider } from '$/web/shared/contextProvider';
+import { useAddProcess, useDeleteProcess, useIsProcessRunning, useLoading } from '@/web/shared/loading';
 
 @singleton()
 export class AuthContext implements IAuthContext {
@@ -54,8 +54,6 @@ export type Auth0Config = {
 export class Auth0Auth implements IAuth {
   public constructor(
     @inject('IAuthContext') private authContext: IAuthContext,
-    @inject('ILoadingContext') private loadingContext: ILoadingContext,
-    @inject('ILoading') private loading: ILoading,
     @inject('IApi') private api: IApi,
   ) {
   }
@@ -63,18 +61,20 @@ export class Auth0Auth implements IAuth {
   public useUser(): UserResult {
     const { isLoading, isAuthenticated, error, getAccessTokenSilently, loginWithRedirect } = useAuth0();
     const user = this.authContext.useUser();
-    const process = this.loadingContext.useProcess();
     const dispatch = useDispatch();
-    const withLoading = this.loading.useLoading();
+    const withLoading = useLoading();
+    const addProcess = useAddProcess();
+    const deleteProcess = useDeleteProcess();
+    const isProcessRunning = useIsProcessRunning();
     const caller = this.api.useCaller();
 
     useEffect(() => {
       if (isLoading) {
-        this.loadingContext.add(dispatch, 'loadingAuth0');
+        addProcess('loadingAuth0', '認証確認中...');
       } else {
-        this.loadingContext.delete(dispatch, 'loadingAuth0');
+        deleteProcess('loadingAuth0');
       }
-    }, [dispatch, isLoading]);
+    }, [isLoading, addProcess, deleteProcess]);
 
     useEffect(() => {
       if (isLoading) {
@@ -89,7 +89,7 @@ export class Auth0Auth implements IAuth {
       }
 
       // auth0 にログインしていてログイン状態でない場合はログイン
-      if (isAuthenticated && !user.isLoggedIn && !this.loading.isProcessRunning('login', process)) {
+      if (isAuthenticated && !user.isLoggedIn && !isProcessRunning('login')) {
         (async () => {
           await withLoading(async () => {
             const { authorization } = await caller(async client => client.login.$post({ body: { token: await getAccessTokenSilently() } }));
@@ -108,8 +108,8 @@ export class Auth0Auth implements IAuth {
         }).then();
       }
     }, [
-      dispatch, isLoading, error, isAuthenticated, user.isLoggedIn, process,
-      caller, getAccessTokenSilently, loginWithRedirect, withLoading,
+      dispatch, isLoading, error, isAuthenticated, user.isLoggedIn,
+      caller, getAccessTokenSilently, loginWithRedirect, withLoading, isProcessRunning,
     ]);
 
     return user;

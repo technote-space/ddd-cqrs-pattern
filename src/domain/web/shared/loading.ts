@@ -1,5 +1,5 @@
 import type { IComponent } from '$/web/shared/component';
-import type { Dispatch, IContext } from '$/web/shared/store';
+import type { IContext } from '$/web/shared/store';
 
 export type LoadingProcess = {
   id: string;
@@ -10,20 +10,12 @@ export type StoreContext = {
   process: Array<LoadingProcess>;
 };
 
-export interface ILoadingContext extends IContext<StoreContext> {
-  useProcess(): Array<LoadingProcess>;
+export type ILoadingContext = IContext<StoreContext>
 
-  add(dispatch: Dispatch, id: string, message?: string): void;
-
-  delete(dispatch: Dispatch, id: string): void;
-
-  update(dispatch: Dispatch, id: string, value: { message?: string; progress?: number; }): void;
-}
-
-export interface ILoading {
-  useLoading<T>(): (callback: () => Promise<T>, message?: string, identifier?: string) => Promise<T>;
-
-  isProcessRunning(identifier: string, process: Array<LoadingProcess>): boolean;
-}
+export type useProcess = () => Array<LoadingProcess>;
+export type useAddProcess = () => (id: string, message?: string) => void;
+export type useDeleteProcess = () => (id: string) => void;
+export type useLoading = () => <T>(callback: () => Promise<T>, message?: string, identifier?: string) => Promise<T>;
+export type useIsProcessRunning = () => (identifier: string) => boolean;
 
 export type ILoadingComponent = IComponent

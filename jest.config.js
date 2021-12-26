@@ -12,6 +12,7 @@ module.exports = {
     '\\$.+\\.ts',
   ],
   moduleNameMapper: {
+    'react-native-svg': 'react-native-svg-web',
     /* Handle CSS imports (with CSS modules)
     https://jestjs.io/docs/webpack#mocking-css-modules */
     '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
@@ -26,6 +27,7 @@ module.exports = {
     '^\\^/(.*)$': '<rootDir>/src/$1',
     '^\\$/(.*)$': '<rootDir>/src/domain/$1',
     '^@/(.*)$': '<rootDir>/src/infra/$1',
+    '^#/(.*)$': '<rootDir>/src/infra/web/components/$1',
   },
   testMatch: ['**/?(*.)+(spec).[jt]s?(x)'],
   testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],
@@ -38,5 +40,7 @@ module.exports = {
   transformIgnorePatterns: [
     '^.+\\.module\\.(css|sass|scss)$',
   ],
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.tsx'],
+  globalSetup: '<rootDir>/jest.global.setup.js',
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+  preset: 'react-native-web'
 }

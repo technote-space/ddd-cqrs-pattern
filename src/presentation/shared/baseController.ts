@@ -1,3 +1,4 @@
+import type { ISlack } from '$/server/shared/slack';
 import type { ErrorStatus } from '$/shared/exceptions/exception';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import DomainException from '$/shared/exceptions/domain/exception';
@@ -36,6 +37,9 @@ export type ReturnType<Data extends ResultData = undefined> = Required<Result<Da
 
 export default abstract class BaseController<Data extends ResultData = undefined, Body extends BodyType = undefined> {
   private request!: NextApiRequest;
+
+  protected constructor(private slack: ISlack) {
+  }
 
   protected abstract execute(): Promise<Result<Data> | void>;
 
@@ -79,6 +83,10 @@ export default abstract class BaseController<Data extends ResultData = undefined
         data: result.data,
       } as Required<Result<Data>>;
     } catch (error) {
+      if (error instanceof Error) {
+        await this.slack.sendError(error);
+      }
+
       if (error instanceof DomainException) {
         return {
           status: error.status,

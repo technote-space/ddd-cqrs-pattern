@@ -1,5 +1,6 @@
 import type EstimateUnit from '$/server/task/valueObject/estimateUnit';
 import type EstimateValue from '$/server/task/valueObject/estimateValue';
+import type { ValidationError } from '$/shared/valueObject/base';
 import Base from '$/shared/valueObject/base';
 
 type InputType = {
@@ -35,7 +36,7 @@ export default class Estimate extends Base<InputType, InputType>() {
     return 0;
   }
 
-  public validate(): string[] | undefined {
+  public validate(): ValidationError[] | undefined {
     return [
       ...(this.input.value.validate() ?? []),
       ...(this.input.unit.validate() ?? []),

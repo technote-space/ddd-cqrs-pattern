@@ -2,7 +2,7 @@ import EstimateUnit from '$/server/task/valueObject/estimateUnit';
 import EstimateValue from '$/server/task/valueObject/estimateValue';
 import Estimate from './estimate';
 
-describe('EstimateUnit', () => {
+describe('Estimate', () => {
   it('名前が「作業見積」', () => {
     expect(Estimate.create({
       value: EstimateValue.create(1),
@@ -58,6 +58,6 @@ describe('EstimateUnit', () => {
     expect(Estimate.create({
       value: EstimateValue.create(0),
       unit: EstimateUnit.create('時間'),
-    }).validate()).toEqual(['1以上の値を入力してください']);
+    }).validate()).toEqual([{ name: '作業見積値', error: '1以上の値を入力してください' }]);
   });
 });

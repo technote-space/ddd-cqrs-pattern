@@ -1,7 +1,7 @@
 import type IAuth from '$/server/shared/auth';
 import type { AuthContents } from '$/server/shared/auth';
 import type IEnv from '$/server/shared/env';
-import fetch from 'node-fetch';
+import axios from 'axios';
 import { singleton, inject } from 'tsyringe';
 
 @singleton()
@@ -12,19 +12,19 @@ export default class Auth0Auth implements IAuth {
   }
 
   public async verify(token: string): Promise<null | AuthContents> {
-    const response = await fetch(`https://${this.env.getValue('NEXT_PUBLIC_AUTH0_DOMAIN')}/userinfo`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    try {
+      const response = await axios.get(`https://${this.env.getValue('NEXT_PUBLIC_AUTH0_DOMAIN')}/userinfo`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
-    if (!response.ok) {
+      const contents = await response.data as { sub: string };
+      return {
+        sub: contents.sub,
+      };
+    } catch (e) {
       return null;
     }
-
-    const contents = await response.json() as { sub: string };
-    return {
-      sub: contents.sub,
-    };
   }
 }

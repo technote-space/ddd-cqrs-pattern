@@ -1,4 +1,3 @@
-import type LoginOrRegisterUseCase from '^/usecase/user/loginOrRegisterUseCase';
 import { createRequest } from '^/__mocks__/request';
 import LoginOrRegisterController from './loginOrRegisterController';
 
@@ -6,7 +5,8 @@ describe('LoginOrRegisterController', () => {
   it('認証トークンが返る', async () => {
     const mockInvoke = jest.fn(() => Promise.resolve('token'));
     const controller = new LoginOrRegisterController(
-      { invoke: mockInvoke } as never as LoginOrRegisterUseCase,
+      {} as never,
+      { invoke: mockInvoke } as never,
     );
 
     const result = await controller.invoke(createRequest({

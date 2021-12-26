@@ -1,14 +1,19 @@
 import 'reflect-metadata';
-import '^/config/registry.theme';
-import { container } from 'tsyringe';
-import { withPerformance } from 'storybook-addon-performance';
 import { Story } from '@storybook/react';
-import type { ITheme } from '$/web/theme';
+import { NativeBaseProvider, View as ViewComponent } from 'native-base';
 
-const withChakra = (Story: Story) => {
-  return (container.resolve('ITheme') as ITheme).render({ children: <Story/> });
+const withTheme = (Story: Story) => {
+  return <NativeBaseProvider>
+    <ViewComponent
+      display="flex"
+      height="100%"
+      overflow="hidden"
+    >
+      <Story/>
+    </ViewComponent>
+  </NativeBaseProvider>;
 };
-export const decorators = [withChakra, withPerformance];
+export const decorators = [withTheme];
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {

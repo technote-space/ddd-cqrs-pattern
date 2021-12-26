@@ -237,7 +237,7 @@ describe('NotionDatabase', () => {
           },
           'ステータス': '完了',
           'メモ': null,
-          '作業見積': null,
+          '作業見積値': null,
           'タスク名': '別ユーザータスク',
         },
         {
@@ -254,7 +254,7 @@ describe('NotionDatabase', () => {
           },
           'ステータス': '実行中',
           'メモ': 'テスト',
-          '作業見積': 10,
+          '作業見積値': 10,
           'タスク名': '次のタスク',
         },
         {
@@ -274,7 +274,7 @@ describe('NotionDatabase', () => {
           },
           'ステータス': '登録',
           'メモ': null,
-          '作業見積': null,
+          '作業見積値': null,
           'タスク名': '新しいタスク',
         },
       ]);
@@ -303,7 +303,7 @@ describe('NotionDatabase', () => {
         },
         'ステータス': '実行中',
         'メモ': 'テスト',
-        '作業見積': 10,
+        '作業見積値': 10,
         'タスク名': '次のタスク',
       });
     });
@@ -364,7 +364,7 @@ describe('NotionDatabase', () => {
               'ユーザー': { relation: [{ id: 'test' }] },
               'ステータス': { rich_text: [{ type: 'text', text: { content: '登録' } }] },
               'メモ': { rich_text: [{ type: 'text', text: { content: 'メモメモ' } }] },
-              '作業見積': { number: 10 },
+              '作業見積値': { number: 10 },
               '作業見積単位': { rich_text: [{ type: 'text', text: { content: '日' } }] },
               '期日': { date: { start: '2022-01-01T10:00:00-09:00' } },
             },
@@ -384,11 +384,11 @@ describe('NotionDatabase', () => {
         expect(req.body).toEqual({
             properties: {
               'タスク名': { title: [] },
-              'タグ': { relation: [{ id: '12345678-7353-4df6-a730-5df7bd0869b1' }, { id: '12345678-3f93-456d-8379-6748cbd60655' }] },
+              'タグ': { relation: [] },
               'ユーザー': { relation: [] },
               'ステータス': { rich_text: [] },
               'メモ': { rich_text: [] },
-              '作業見積': { number: null },
+              '作業見積値': { number: null },
               '作業見積単位': { rich_text: [] },
               '期日': { date: null },
             },
@@ -409,7 +409,7 @@ describe('NotionDatabase', () => {
         'ユーザー': 'test',
         'ステータス': '登録',
         'メモ': 'メモメモ',
-        '作業見積': '10',
+        '作業見積値': '10',
         '作業見積単位': '日',
         '期日': '2022-01-01T10:00:00-09:00',
       });
@@ -430,7 +430,7 @@ describe('NotionDatabase', () => {
         },
         'ステータス': '登録',
         'メモ': 'メモメモ',
-        '作業見積': 10,
+        '作業見積値': 10,
         '作業見積単位': '日',
         '期日': '2022-01-01T10:00:00.000+09:00',
       });
@@ -469,7 +469,7 @@ describe('NotionDatabase', () => {
         'ユーザー': null,
         'ステータス': null,
         'メモ': null,
-        '作業見積': null,
+        '作業見積値': null,
         '作業見積単位': null,
         '期日': null,
       });
@@ -510,7 +510,7 @@ describe('NotionDatabase', () => {
                 'ユーザー': { relation: [{ id: 'test' }] },
                 'ステータス': { rich_text: [{ type: 'text', text: { content: '登録' } }] },
                 'メモ': { rich_text: [{ type: 'text', text: { content: 'メモメモ' } }] },
-                '作業見積': { number: 10 },
+                '作業見積値': { number: 10 },
                 '作業見積単位': { rich_text: [{ type: 'text', text: { content: '日' } }] },
                 '期日': { date: { start: '2022-01-01T10:00:00-09:00' } },
               },
@@ -531,7 +531,7 @@ describe('NotionDatabase', () => {
         'ユーザー': 'test',
         'ステータス': '登録',
         'メモ': 'メモメモ',
-        '作業見積': '10',
+        '作業見積値': '10',
         '作業見積単位': '日',
         '期日': '2022-01-01T10:00:00-09:00',
       });
@@ -549,7 +549,7 @@ describe('NotionDatabase', () => {
           },
           'ステータス': '登録',
           'メモ': 'メモメモ',
-          '作業見積': 10,
+          '作業見積値': 10,
           '作業見積単位': '日',
           '期日': '2022-01-01T10:00:00.000+09:00',
         },

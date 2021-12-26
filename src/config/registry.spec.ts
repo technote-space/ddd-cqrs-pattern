@@ -17,20 +17,22 @@ describe('tsyringe', () => {
     process.env['NOTION_SECRET'] = 'secret';
     process.env['NOTION_BASE_URL'] = 'https://example.com';
 
-    // theme
-    expect(() => container.resolve('ITheme')).not.toThrow();
+    // sharedMethod
+    expect(() => container.resolve('useProcess')).not.toThrow();
+    expect(() => container.resolve('useAddProcess')).not.toThrow();
+    expect(() => container.resolve('useDeleteProcess')).not.toThrow();
+    expect(() => container.resolve('useLoading')).not.toThrow();
+    expect(() => container.resolve('useIsProcessRunning')).not.toThrow();
 
     // shared
+    expect(() => container.resolve('IDocument')).not.toThrow();
     expect(() => container.resolve('IApp')).not.toThrow();
     expect(() => container.resolve('IAuthContext')).not.toThrow();
     expect(() => container.resolve('IAuth/front')).not.toThrow();
     expect(() => container.resolve('IApi')).not.toThrow();
     expect(() => container.resolve('ILayoutComponent')).not.toThrow();
     expect(() => container.resolve('ILoadingContext')).not.toThrow();
-    expect(() => container.resolve('ILoading')).not.toThrow();
     expect(() => container.resolve('ILoadingComponent')).not.toThrow();
-    expect(() => container.resolve('IDarkModeContext')).not.toThrow();
-    expect(() => container.resolve('IDarkMode')).not.toThrow();
     expect(() => container.resolve('Auth0ContextProvider')).not.toThrow();
     expect(() => container.resolve('ReduxContextProvider')).not.toThrow();
     expect(() => container.resolve('contexts')).not.toThrow();

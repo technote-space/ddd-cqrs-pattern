@@ -2,17 +2,13 @@
 
 exports[`App App を生成 1`] = `
 <div
-  className="theme"
+  className="provider2"
 >
   <div
-    className="provider2"
+    className="provider1"
   >
-    <div
-      className="provider1"
-    >
-      <div>
-        test
-      </div>
+    <div>
+      test
     </div>
   </div>
 </div>

@@ -1,18 +1,8 @@
 import type { IContextProvider } from '$/web/shared/contextProvider';
-import type { ITheme } from '$/web/theme';
 import type { PropsWithChildren, VFC } from 'react';
 import renderer from 'react-test-renderer';
 import { container } from 'tsyringe';
-import { App } from './app';
-
-class TestTheme implements ITheme {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  public render({ children }: PropsWithChildren<any>) {
-    return <div className="theme">
-      {children}
-    </div>;
-  }
-}
+import App from './app';
 
 class Provider1 implements IContextProvider {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -35,7 +25,6 @@ describe('App', () => {
     container.registerSingleton('Provider1', Provider1);
     container.registerSingleton('Provider2', Provider2);
     const app = new App(
-      new TestTheme(),
       ['Provider1', 'Provider2'],
     );
 

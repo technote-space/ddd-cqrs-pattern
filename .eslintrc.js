@@ -11,7 +11,8 @@ module.exports = {
   "plugins": [
     "@typescript-eslint",
     "import",
-    "unused-imports"
+    "unused-imports",
+    "@technote-space/strict-dependencies"
   ],
   "rules": {
     "import/order": [
@@ -52,6 +53,44 @@ module.exports = {
       {"vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_"}
     ],
     "import/no-anonymous-default-export": "off",
-    "react-hooks/rules-of-hooks": "off"
+    "react-hooks/rules-of-hooks": "off",
+    "@technote-space/strict-dependencies/strict-dependencies": [
+      "error",
+      [
+        {
+          "module": "native-base",
+          "allowReferenceFrom": ["src/infra/web/components/**", "src/infra/web/theme/nativeBase/index.tsx", "src/infra/web/helpers/nativeBase.ts"]
+        },
+        {
+          "module": "src/domain",
+          "allowReferenceFrom": ["src/infra/**", "src/usecase/**", "src/presentation/**"],
+          "allowSameModule": true
+        },
+        {
+          "module": "src/infra",
+          "allowReferenceFrom": ["src/pages/**", "src/config/registry.*", "src/__mocks__/**"],
+          "allowSameModule": true
+        },
+        {
+          "module": "src/infra/web/components",
+          "allowReferenceFrom": ["src/infra/web/**/view.tsx", "src/infra/web/pages/**"],
+          "allowSameModule": true
+        },
+        {
+          "module": "src/usecase",
+          "allowReferenceFrom": ["src/presentation/**", "src/infra/web/**", "src/bin/**"],
+          "allowSameModule": true
+        },
+        {
+          "module": "src/presentation",
+          "allowReferenceFrom": ["src/pages/api/**"],
+          "allowSameModule": true
+        }
+      ],
+      {
+        "resolveRelativeImport": true,
+        "allowTypeImport": true
+      }
+    ]
   }
 }

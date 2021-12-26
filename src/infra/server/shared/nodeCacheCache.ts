@@ -3,7 +3,7 @@ import NodeCache from 'node-cache';
 import { singleton } from 'tsyringe';
 
 @singleton()
-export class NodeCacheCache implements ICache {
+export default class NodeCacheCache implements ICache {
   private cache: NodeCache;
 
   public constructor() {

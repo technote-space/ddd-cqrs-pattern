@@ -6,8 +6,13 @@ import { createRequest } from '^/__mocks__/request';
 import BaseController from './baseController';
 
 class TestController<T extends ResultData = undefined> extends BaseController<T> {
-  public constructor(private result?: Result<T> | undefined, private error?: Error, private callback?: (controller: TestController<T>) => void) {
-    super();
+  public constructor(
+    private result?: Result<T> | undefined,
+    private error?: Error,
+    private callback?: (controller: TestController<T>) => void,
+    private sendError?: () => void,
+  ) {
+    super({ sendError: sendError ?? jest.fn() } as never);
   }
 
   protected execute(): Promise<Result<T> | void> {
@@ -71,7 +76,8 @@ describe('BaseController', () => {
   });
 
   it('ドメインエラー', async () => {
-    const controller = new TestController(undefined, new InvalidControl('test'));
+    const mockSendError = jest.fn();
+    const controller = new TestController(undefined, new InvalidControl('test'), undefined, mockSendError);
 
     const response = await controller.invoke(createRequest());
 
@@ -85,10 +91,12 @@ describe('BaseController', () => {
         },
       },
     });
+    expect(mockSendError).toBeCalledTimes(1);
   });
 
   it('HTTPエラー', async () => {
-    const controller = new TestController(undefined, new Forbidden());
+    const mockSendError = jest.fn();
+    const controller = new TestController(undefined, new Forbidden(), undefined, mockSendError);
 
     const response = await controller.invoke(createRequest());
 
@@ -99,12 +107,23 @@ describe('BaseController', () => {
         message: 'Forbidden',
       },
     });
+    expect(mockSendError).toBeCalledTimes(1);
   });
 
   it('その他のエラー', async () => {
-    const controller = new TestController(undefined, new Error());
+    const mockSendError = jest.fn();
+    const controller = new TestController(undefined, new Error(), undefined, mockSendError);
 
     await expect(controller.invoke(createRequest())).rejects.toThrow();
+    expect(mockSendError).toBeCalledTimes(1);
+  });
+
+  it('エラー以外の場合は Slack は送信されない', async () => {
+    const mockSendError = jest.fn();
+    const controller = new TestController(undefined, { test: 123 } as never, undefined, mockSendError);
+
+    await expect(controller.invoke(createRequest())).rejects.toEqual({ test: 123 });
+    expect(mockSendError).not.toBeCalled();
   });
 
   it('設定されていない認証トークンを取得しようとするとエラー', async () => {

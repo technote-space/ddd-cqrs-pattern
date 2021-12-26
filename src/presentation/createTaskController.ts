@@ -1,3 +1,4 @@
+import type { ISlack } from '$/server/shared/slack';
 import type { Result } from './shared/baseController';
 import type IUserSessionProvider from './shared/userSessionProvider';
 import type { CreateData } from '^/usecase/task/createTaskUseCase';
@@ -9,10 +10,11 @@ import BaseController from './shared/baseController';
 @singleton()
 export default class CreateTaskController extends BaseController<TaskDto, CreateData> {
   public constructor(
+    @inject('ISlack') slack: ISlack,
     @inject('IUserSessionProvider') private userSessionProvider: IUserSessionProvider,
     @inject(CreateTaskUseCase) private useCase: CreateTaskUseCase,
   ) {
-    super();
+    super(slack);
   }
 
   protected async execute(): Promise<Result<TaskDto> | void> {

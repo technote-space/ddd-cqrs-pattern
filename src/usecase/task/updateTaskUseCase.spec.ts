@@ -1,4 +1,3 @@
-import type ITaskRepository from '$/server/task/taskRepository';
 import Tags from '$/server/tag/tags';
 import Task from '$/server/task/task';
 import Status from '$/server/task/valueObject/status';
@@ -20,14 +19,14 @@ describe('UpdateTaskUseCase', () => {
       Tags.create([]),
     )));
     const mockSave = jest.fn(() => Promise.resolve());
-    const useCase = new UpdateTaskUseCase({ findById: mockFindById, save: mockSave } as never as ITaskRepository);
+    const useCase = new UpdateTaskUseCase({ findById: mockFindById, save: mockSave } as never);
 
     const result = await useCase.invoke({ userId: UserId.create('test') }, TaskId.create('taskId'), {
       タスク名: 'task',
       メモ: null,
       ステータス: '登録',
       期日: null,
-      作業見積: null,
+      作業見積値: null,
       作業見積単位: null,
       タグ: [],
     });
@@ -39,7 +38,7 @@ describe('UpdateTaskUseCase', () => {
     expect(result.メモ).toBeNull();
     expect(result.ステータス).toBe('登録');
     expect(result.期日).toBeNull();
-    expect(result.作業見積).toBeNull();
+    expect(result.作業見積値).toBeNull();
     expect(result.作業見積単位).toBeNull();
     expect(result.タグ).toEqual([]);
   });

@@ -1,4 +1,3 @@
-import type CreateTaskUseCase from '^/usecase/task/createTaskUseCase';
 import type { TaskDto } from '^/usecase/task/taskDto';
 import UserId from '$/server/user/valueObject/userId';
 import { createRequest } from '^/__mocks__/request';
@@ -14,20 +13,21 @@ describe('CreateTaskController', () => {
       メモ: null,
       ステータス: '登録',
       期日: null,
-      作業見積: null,
+      作業見積値: null,
       作業見積単位: null,
       タグ: [],
     } as TaskDto));
     const controller = new CreateTaskController(
+      {} as never,
       { getUserSession: mockGetUserSession },
-      { invoke: mockInvoke } as never as CreateTaskUseCase,
+      { invoke: mockInvoke } as never,
     );
     const body = {
       タスク名: 'name',
       メモ: null,
       ステータス: '登録',
       期日: null,
-      作業見積: null,
+      作業見積値: null,
       作業見積単位: null,
       タグ: [],
     };

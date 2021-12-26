@@ -1,5 +1,4 @@
 import type { TaskDto } from '^/usecase/task/taskDto';
-import type UpdateTaskUseCase from '^/usecase/task/updateTaskUseCase';
 import TaskId from '$/server/task/valueObject/taskId';
 import UserId from '$/server/user/valueObject/userId';
 import { createRequest } from '^/__mocks__/request';
@@ -15,20 +14,21 @@ describe('UpdateTaskUseCase', () => {
       メモ: null,
       ステータス: '登録',
       期日: null,
-      作業見積: null,
+      作業見積値: null,
       作業見積単位: null,
       タグ: [],
     } as TaskDto));
     const controller = new UpdateTaskController(
+      {} as never,
       { getUserSession: mockGetUserSession },
-      { invoke: mockInvoke } as never as UpdateTaskUseCase,
+      { invoke: mockInvoke } as never,
     );
     const body = {
       タスク名: 'name',
       メモ: null,
       ステータス: '登録',
       期日: null,
-      作業見積: null,
+      作業見積値: null,
       作業見積単位: null,
       タグ: [],
     };

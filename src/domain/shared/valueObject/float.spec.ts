@@ -41,14 +41,14 @@ describe('Float', () => {
 
   it('should validate', () => {
     expect(TestFloat.create('123').validate()).toBeUndefined();
-    expect(TestFloat.create('abc').validate()).toEqual(['数値の形式が正しくありません']);
+    expect(TestFloat.create('abc').validate()).toEqual([{ name: 'test', error: '数値の形式が正しくありません' }]);
   });
 });
 
 describe('Float with limit', () => {
   it('should validate', () => {
-    expect(TestFloatWithLimit.create('11').validate()).toEqual(['10以下の値を入力してください']);
-    expect(TestFloatWithLimit.create('-11').validate()).toEqual(['-10以上の値を入力してください']);
+    expect(TestFloatWithLimit.create('11').validate()).toEqual([{ name: 'test', error: '10以下の値を入力してください' }]);
+    expect(TestFloatWithLimit.create('-11').validate()).toEqual([{ name: 'test', error: '-10以上の値を入力してください' }]);
   });
 });
 

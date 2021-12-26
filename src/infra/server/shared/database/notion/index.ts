@@ -23,6 +23,8 @@ import { singleton, inject } from 'tsyringe';
 import InvalidUsage from '$/shared/exceptions/domain/invalidUsage';
 import Factory from './property/factory';
 
+export type QueryDatabaseResponseProperty<T = QueryDatabaseResponse['results'][number]> = T extends { properties: Record<string, infer U> } ? U : never;
+
 @singleton()
 export default class NotionDatabase implements IDatabase {
   private static $cache?: Table[];
@@ -77,7 +79,7 @@ export default class NotionDatabase implements IDatabase {
         has_children: boolean;
         archived: boolean;
       };
-      const filterDatabase = (result: ListBlockChildrenResponse['results'][number]): result is DatabaseType => result.type === 'child_database';
+      const filterDatabase = (result: ListBlockChildrenResponse['results'][number]): result is DatabaseType => 'type' in result && result.type === 'child_database';
 
       NotionDatabase.$cache = await response.results.filter(filterDatabase).filter(result => result.child_database.title in schemas).reduce(async (prev, result) => {
         const acc = await prev;
@@ -137,6 +139,13 @@ export default class NotionDatabase implements IDatabase {
         [column.name]: this.factory.getPropertyByColumn(column.type).columnToProperty(column, tables),
       }))),
     });
+
+    /* istanbul ignore next */
+    if (!('title' in response)) {
+      /* istanbul ignore next */
+      throw new InvalidUsage('サポートされていないフォーマットです');
+    }
+
     const title = response.title[0];
     /* istanbul ignore next */
     if (title.type !== 'text') {
@@ -221,10 +230,11 @@ export default class NotionDatabase implements IDatabase {
     });
 
     /* istanbul ignore next */
-    if (!response.results.length) {
+    if (!response.results.length || !('properties' in response.results[0])) {
       /* istanbul ignore next */
       return {};
     }
+    const properties = response.results[0].properties;
 
     type TitleType = {
       type: 'title';
@@ -233,9 +243,10 @@ export default class NotionDatabase implements IDatabase {
       }[];
     };
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    const title = Object.keys(response.results[0].properties).find(name => response.results[0].properties[name].type === 'title')!;
+    const title = Object.keys(properties).find(name => properties[name].type === 'title')!;
     return Object.fromEntries(response.results.map(result => {
-      return [result.id, (result.properties[title] as TitleType).title[0].plain_text];
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      return [result.id, ((result as any).properties[title] as TitleType).title[0].plain_text];
     }));
   }
 
@@ -261,7 +272,7 @@ export default class NotionDatabase implements IDatabase {
   private parseResultProperties<T extends DatabaseRecord>(result: QueryDatabaseResponse['results'][number], columns: TableColumn[], lazyLoading: Record<string, Record<string, string>>): T {
     return {
       ...Object.fromEntries(columns.map(column => {
-        if (!(column.name in result.properties)) {
+        if (!('properties' in result) || !(column.name in result.properties)) {
           return [column.name, null];
         }
 
