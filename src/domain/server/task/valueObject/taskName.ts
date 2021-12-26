@@ -1,7 +1,7 @@
 import Text from '$/shared/valueObject/text';
 
 export default class TaskName extends Text {
-  public getName(): string {
+  public static getLabel(): string {
     return 'タスク名';
   }
 

@@ -11,23 +11,23 @@ describe('CreateTaskUseCase', () => {
     const useCase = new CreateTaskUseCase({ save: mockSave } as never);
 
     const result = await useCase.invoke({ userId: UserId.create('test') }, {
-      タスク名: 'task',
-      メモ: 'memo',
-      ステータス: '登録',
-      期日: '2022-01-01T10:00:00+09:00',
-      作業見積値: 10,
-      作業見積単位: '日',
-      タグ: ['tag1', 'tag2'],
+      taskName: 'task',
+      memo: 'memo',
+      status: '登録',
+      dueDate: '2022-01-01T10:00:00+09:00',
+      estimateValue: 10,
+      estimateUnit: '日',
+      tags: ['tag1', 'tag2'],
     });
 
     expect(mockSave).toBeCalledTimes(1);
     expect(result.id).toBe('taskId');
-    expect(result.タスク名).toBe('task');
-    expect(result.メモ).toBe('memo');
-    expect(result.ステータス).toBe('登録');
-    expect(result.期日).toBe('2022-01-01T01:00:00.000Z');
-    expect(result.作業見積値).toBe(10);
-    expect(result.作業見積単位).toBe('日');
-    expect(result.タグ).toEqual(['tag1', 'tag2']);
+    expect(result.taskName).toBe('task');
+    expect(result.memo).toBe('memo');
+    expect(result.status).toBe('登録');
+    expect(result.dueDate).toBe('2022-01-01T01:00:00.000Z');
+    expect(result.estimateValue).toBe(10);
+    expect(result.estimateUnit).toBe('日');
+    expect(result.tags).toEqual(['tag1', 'tag2']);
   });
 });

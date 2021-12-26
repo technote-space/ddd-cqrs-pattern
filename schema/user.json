@@ -1,9 +1,8 @@
 {
   "table": "users",
-  "name": "ユーザー",
   "columns": [
     {
-      "name": "ユーザー識別子",
+      "name": "token",
       "type": "title"
     }
   ]

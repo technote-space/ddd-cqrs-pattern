@@ -4,14 +4,14 @@ import UserId from '$/server/user/valueObject/userId';
 
 export type DatabaseType = {
   id: string;
-  ユーザー識別子: string;
+  token: string;
 };
 
 export default class Mapper {
   public static toEntity(data: DatabaseType): User {
     return User.reconstruct(
       UserId.create(data.id),
-      Token.create(data.ユーザー識別子),
+      Token.create(data.token),
     );
   }
 }

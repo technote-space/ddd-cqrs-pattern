@@ -12,7 +12,7 @@ export default class Estimate extends Base<InputType, InputType>() {
   private _hours!: number;
   private _setHours = false;
 
-  public getName(): string {
+  public static getLabel(): string {
     return '作業見積';
   }
 
@@ -38,8 +38,8 @@ export default class Estimate extends Base<InputType, InputType>() {
 
   public validate(): ValidationError[] | undefined {
     return [
-      ...(this.input.value.validate() ?? []),
-      ...(this.input.unit.validate() ?? []),
+      ...(this.input.value.validate('estimateValue') ?? []),
+      ...(this.input.unit.validate('estimateUnit') ?? []),
     ];
   }
 }

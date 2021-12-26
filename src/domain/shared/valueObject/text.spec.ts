@@ -1,9 +1,6 @@
 import Text from './text';
 
 class TestText extends Text {
-  public getName(): string {
-    return 'test';
-  }
 }
 
 class TestTextWithLimit extends TestText {
@@ -35,14 +32,14 @@ describe('Text', () => {
   });
 
   it('should validate', () => {
-    expect(TestText.create('123').validate()).toEqual([]);
-    expect(TestText.create('').validate()).toEqual([{ name: 'test', error: '値を指定してください' }]);
+    expect(TestText.create('123').validate('test')).toEqual([]);
+    expect(TestText.create('').validate('test')).toEqual([{ name: 'test', error: '値を指定してください' }]);
   });
 });
 
 describe('Text with limit', () => {
   it('should validate', () => {
-    expect(TestTextWithLimit.create('1234').validate()).toEqual([{ name: 'test', error: '5文字より長く入力してください' }]);
-    expect(TestTextWithLimit.create('12345678901').validate()).toEqual([{ name: 'test', error: '10文字より短く入力してください' }]);
+    expect(TestTextWithLimit.create('1234').validate('test')).toEqual([{ name: 'test', error: '5文字より長く入力してください' }]);
+    expect(TestTextWithLimit.create('12345678901').validate('test')).toEqual([{ name: 'test', error: '10文字より短く入力してください' }]);
   });
 });

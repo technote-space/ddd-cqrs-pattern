@@ -12,18 +12,6 @@ export default abstract class Base {
     return Object.keys(this).reduce((acc, key) => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const member = this[key as keyof this] as any;
-      if (member && 'validate' in member && 'getName' in member) {
-        const errors: ValidationError[] | undefined = member.validate();
-        if (errors?.length) {
-          return errors.reduce((acc, error) => {
-            return {
-              ...acc,
-              [error.name]: [...new Set([...(acc[error.name] ?? []), error.error])],
-            };
-          }, acc);
-        }
-      }
-
       if (member && 'validate' in member && 'collections' in member) {
         const errors: ValidationErrors | undefined = member.validate();
         if (errors) {
@@ -31,6 +19,19 @@ export default abstract class Base {
             return {
               ...acc,
               [key]: [...new Set([...(acc[key] ?? []), ...value])],
+            };
+          }, acc);
+        }
+      }
+
+      if (member && 'validate' in member) {
+        const name = key.replace(/^_/, '');
+        const errors: ValidationError[] | undefined = member.validate(name);
+        if (errors?.length) {
+          return errors.reduce((acc, error) => {
+            return {
+              ...acc,
+              [error.name]: [...new Set([...(acc[error.name] ?? []), error.error])],
             };
           }, acc);
         }

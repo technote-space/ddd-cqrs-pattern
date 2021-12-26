@@ -1,7 +1,7 @@
 import Text from '$/shared/valueObject/text';
 
 export default class Memo extends Text {
-  public getName(): string {
+  public static getLabel(): string {
     return 'メモ';
   }
 

@@ -27,10 +27,10 @@ describe('Flags', () => {
   });
 
   it('should validate', () => {
-    expect(TestFlags.create('test1').validate()).toBeUndefined();
+    expect(TestFlags.create('test1').validate('test')).toBeUndefined();
   });
 
   it('should throw error if not included flag', () => {
-    expect(TestFlags.create('test3').validate()).toEqual([{ name: 'test', error: '定義されていないフラグです: test3' }]);
+    expect(TestFlags.create('test3').validate('test')).toEqual([{ name: 'test', error: '定義されていないフラグです: test3' }]);
   });
 });

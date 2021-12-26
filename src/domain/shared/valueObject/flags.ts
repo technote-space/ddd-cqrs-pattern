@@ -5,9 +5,9 @@ export default function Flags<FlagTypes extends string>() { // eslint-disable-li
   abstract class Flags extends Base<string, FlagTypes>() {
     protected abstract get flagTypes(): FlagTypes[];
 
-    public validate(): ValidationError[] | undefined {
+    public validate(name: string): ValidationError[] | undefined {
       if (!(this.flagTypes as string[]).includes(this.input)) {
-        return [{ name: this.getName(), error: `定義されていないフラグです: ${this.input}` }];
+        return [{ name, error: `定義されていないフラグです: ${this.input}` }];
       }
 
       return undefined;

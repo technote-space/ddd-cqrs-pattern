@@ -63,7 +63,7 @@ export default class NotionDatabase implements IDatabase {
 
   public async listTables(): Promise<Table[]> {
     if (!NotionDatabase.$cache) {
-      const schemas: Record<string, CreateTableParam> = Object.assign({}, ...this.schemas.map(schema => ({ [schema.name]: schema })));
+      const schemas: Record<string, CreateTableParam> = Object.assign({}, ...this.schemas.map(schema => ({ [schema.table]: schema })));
       const response = await this.client.blocks.children.list({
         block_id: this.env.getValue('NOTION_PARENT_ID'),
       });
@@ -89,7 +89,6 @@ export default class NotionDatabase implements IDatabase {
         return acc.concat({
           id: result.id,
           table: schema.table,
-          name: result.child_database.title,
           columns: [{
             id: 'id',
             name: 'id',
@@ -107,8 +106,8 @@ export default class NotionDatabase implements IDatabase {
     return (await this.listTables()).find(t => t[key] === value)!;
   }
 
-  protected async getTableByName(name: string): Promise<Table> {
-    return this.getTable(name, 'name');
+  protected async getTableById(name: string): Promise<Table> {
+    return this.getTable(name, 'id');
   }
 
   public async createTable(table: string): Promise<Table> {
@@ -140,24 +139,10 @@ export default class NotionDatabase implements IDatabase {
       }))),
     });
 
-    /* istanbul ignore next */
-    if (!('title' in response)) {
-      /* istanbul ignore next */
-      throw new InvalidUsage('サポートされていないフォーマットです');
-    }
-
-    const title = response.title[0];
-    /* istanbul ignore next */
-    if (title.type !== 'text') {
-      /* istanbul ignore next */
-      throw new InvalidUsage('サポートされていないフォーマットです');
-    }
-
     NotionDatabase.$cache = undefined;
     return {
       id: response.id,
       table: schema.table,
-      name: title.text.content,
       columns: Object.values(response.properties).map(property => this.factory.getProperty(property.type).propertyToColumn(property, schema.columns)).filter(NotionDatabase.filterNotUndefined),
     };
   }
@@ -215,12 +200,12 @@ export default class NotionDatabase implements IDatabase {
     };
   }
 
-  private async lazyLoadForTable(tableInfo: Table, table: Table, ids: string[]): Promise<Record<string, string>> {
+  private async lazyLoadForTable(tableInfo: Table, table: Table, column: string, ids: string[]): Promise<Record<string, string>> {
     const response = await this.client.databases.query({
       database_id: table.id,
       filter: {
         or: ids.map(id => ({
-          property: `Related to ${tableInfo.name} (${table.name})`,
+          property: `Related to ${tableInfo.table} (${column})`,
           type: 'relation',
           relation: {
             contains: id,
@@ -263,9 +248,9 @@ export default class NotionDatabase implements IDatabase {
 
     return Object.assign({}, ...await tableInfo.columns.filter(filterRelation).reduce(async (prev, column) => {
       const acc = await prev;
-      const table = await this.getTableByName(column.name);
+      const table = await this.getTableById(column.relation_id);
       const ids = results.map(result => result.id);
-      return acc.concat({ [column.name]: await this.lazyLoadForTable(tableInfo, table, ids) });
+      return acc.concat({ [column.name]: await this.lazyLoadForTable(tableInfo, table, column.name, ids) });
     }, Promise.resolve([] as Record<string, Record<string, string>>[])));
   }
 

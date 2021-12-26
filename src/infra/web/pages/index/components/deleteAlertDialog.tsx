@@ -28,7 +28,7 @@ const DeleteAlertDialog: VFC<Props> = ({
       <AlertDialog.CloseButton/>
       <AlertDialog.Header>タスク削除</AlertDialog.Header>
       <AlertDialog.Body>
-        <Heading>{deleteTargetTask?.タスク名}</Heading>
+        <Heading>{deleteTargetTask?.taskName}</Heading>
         <Text>このタスクを削除してもよろしいですか？</Text>
       </AlertDialog.Body>
       <AlertDialog.Footer>

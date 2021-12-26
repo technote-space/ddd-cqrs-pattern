@@ -34,8 +34,9 @@ describe('Entity CollectionBase', () => {
 
       expect(errors).not.toBeUndefined();
       expect(errors).toEqual({
-        'test[1]': ['値を指定してください'],
-        'test[2]': ['値を指定してください'],
+        'text3[2]': ['値を指定してください'],
+        'text4[1]': ['値を指定してください'],
+        'text4[2]': ['値を指定してください'],
       });
     });
   });
@@ -67,9 +68,11 @@ describe('Entity Base with collection', () => {
 
       expect(errors).not.toBeUndefined();
       expect(errors).toEqual({
-        test: ['値を指定してください'],
-        'test[1]': ['値を指定してください'],
-        'test[2]': ['値を指定してください'],
+        text3: ['値を指定してください'],
+        'text3[2]': ['値を指定してください'],
+        'text4': ['値を指定してください'],
+        'text4[1]': ['値を指定してください'],
+        'text4[2]': ['値を指定してください'],
       });
     });
   });

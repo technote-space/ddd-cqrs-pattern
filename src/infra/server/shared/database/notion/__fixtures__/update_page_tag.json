@@ -11,7 +11,7 @@
   },
   "archived": false,
   "properties": {
-    "ユーザー": {
+    "user": {
       "id": "OhsR",
       "type": "relation",
       "relation": [
@@ -20,12 +20,12 @@
         }
       ]
     },
-    "Related to タスク (タグ)": {
+    "Related to tasks (tags)": {
       "id": "X%3CWw",
       "type": "relation",
       "relation": []
     },
-    "タグ名": {
+    "tagName": {
       "id": "title",
       "type": "title",
       "title": [

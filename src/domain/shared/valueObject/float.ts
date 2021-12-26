@@ -34,20 +34,20 @@ export default abstract class Float extends Base<number | string, number>() {
     return false;
   }
 
-  public validate(): ValidationError[] | undefined {
+  public validate(name: string): ValidationError[] | undefined {
     if (typeof this.input === 'string' && !isNumeric(this.input)) {
-      return [{ name: this.getName(), error: '数値の形式が正しくありません' }];
+      return [{ name, error: '数値の形式が正しくありません' }];
     }
 
     const num = this.fromInput();
     const max = this.getMaxNumber();
     if (max !== undefined && num > max) {
-      return [{ name: this.getName(), error: `${max}以下の値を入力してください` }];
+      return [{ name, error: `${max}以下の値を入力してください` }];
     }
 
     const min = this.getMinNumber();
     if (min !== undefined && num < min) {
-      return [{ name: this.getName(), error: `${min}以上の値を入力してください` }];
+      return [{ name, error: `${min}以上の値を入力してください` }];
     }
 
     return undefined;

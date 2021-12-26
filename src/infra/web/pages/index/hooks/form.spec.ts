@@ -5,13 +5,13 @@ describe('useDeleteTask', () => {
   it('削除対象が選択されている場合に削除', () => {
     const task = {
       id: 'id',
-      タスク名: 'タスク名',
-      メモ: null,
-      ステータス: '登録',
-      期日: null,
-      作業見積値: null,
-      作業見積単位: null,
-      タグ: [],
+      taskName: 'タスク名',
+      memo: null,
+      status: '登録',
+      dueDate: null,
+      estimateValue: null,
+      estimateUnit: null,
+      tags: [],
     };
     const mockUseUser = jest.fn(() => ({ isLoggedIn: false }));
     const mockCaller = jest.fn(() => Promise.resolve());

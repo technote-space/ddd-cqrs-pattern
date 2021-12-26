@@ -1,7 +1,7 @@
 import Int from '$/shared/valueObject/int';
 
 export default class EstimateValue extends Int {
-  public getName(): string {
+  public static getLabel(): string {
     return '作業見積値';
   }
 

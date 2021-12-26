@@ -58,7 +58,7 @@ describe('Entity Base', () => {
       expect(error).not.toBeUndefined();
       expect(error?.message).toBe('バリデーションエラーが発生しました');
       expect(error?.errors).toEqual({
-        test: ['値を指定してください'],
+        text4: ['値を指定してください'],
       });
     });
 
@@ -73,7 +73,8 @@ describe('Entity Base', () => {
       expect(error).not.toBeUndefined();
       expect(error?.message).toBe('バリデーションエラーが発生しました');
       expect(error?.errors).toEqual({
-        test: ['値を指定してください', '5文字より短く入力してください'],
+        text2: ['値を指定してください'],
+        text4: ['5文字より短く入力してください'],
       });
     });
   });

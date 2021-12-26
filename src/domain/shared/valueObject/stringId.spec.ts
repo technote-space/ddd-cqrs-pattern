@@ -1,9 +1,6 @@
 import StringId from './stringId';
 
 class TestStringId extends StringId {
-  public getName(): string {
-    return 'test';
-  }
 }
 
 describe('StringId', () => {
@@ -24,9 +21,9 @@ describe('StringId', () => {
   });
 
   it('should validate', () => {
-    expect(TestStringId.create('123').validate()).toBeUndefined();
-    expect(TestStringId.create(null).validate()).toBeUndefined();
-    expect(TestStringId.create('').validate()).toEqual([{ name: 'test', error: '値を指定してください' }]);
+    expect(TestStringId.create('123').validate('test')).toBeUndefined();
+    expect(TestStringId.create(null).validate('test')).toBeUndefined();
+    expect(TestStringId.create('').validate('test')).toEqual([{ name: 'test', error: '値を指定してください' }]);
   });
 
   it('should set generated id', () => {

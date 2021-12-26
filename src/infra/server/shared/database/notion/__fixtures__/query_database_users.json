@@ -14,12 +14,12 @@
       },
       "archived": false,
       "properties": {
-        "Related to タグ (ユーザー)": {
+        "Related to tags (user)": {
           "id": "T~sP",
           "type": "relation",
           "relation": []
         },
-        "Related to タスク (ユーザー)": {
+        "Related to tasks (user)": {
           "id": "W%3DTT",
           "type": "relation",
           "relation": [
@@ -28,7 +28,7 @@
             }
           ]
         },
-        "ユーザー識別子": {
+        "token": {
           "id": "title",
           "type": "title",
           "title": [
@@ -67,7 +67,7 @@
       },
       "archived": false,
       "properties": {
-        "Related to タグ (ユーザー)": {
+        "Related to tags (user)": {
           "id": "T~sP",
           "type": "relation",
           "relation": [
@@ -79,7 +79,7 @@
             }
           ]
         },
-        "Related to タスク (ユーザー)": {
+        "Related to tasks (user)": {
           "id": "W%3DTT",
           "type": "relation",
           "relation": [
@@ -91,7 +91,7 @@
             }
           ]
         },
-        "ユーザー識別子": {
+        "token": {
           "id": "title",
           "type": "title",
           "title": [

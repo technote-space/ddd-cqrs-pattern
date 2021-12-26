@@ -73,9 +73,11 @@ export default function Base<Input, Output, Inner = Output>() { // eslint-disabl
 
     public abstract compare(value: this): number;
 
-    public abstract getName(): string;
+    public static getLabel(): string {
+      throw new Error('Not implemented.');
+    }
 
-    public abstract validate(): ValidationError[] | undefined;
+    public abstract validate(name: string): ValidationError[] | undefined;
 
     public static create<T extends Base>(this: BaseStatic<T>, value: Input): T {
       Base._isCreating = true;

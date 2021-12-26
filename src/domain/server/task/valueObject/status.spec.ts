@@ -1,8 +1,8 @@
 import Status from './status';
 
 describe('Status', () => {
-  it('名前が「ステータス」', () => {
-    expect(Status.create('登録').getName()).toBe('ステータス');
+  it('ラベルが「ステータス」', () => {
+    expect(Status.getLabel()).toBe('ステータス');
   });
 
   it('「登録」「実行中」「完了」のときのみ削除可能', () => {
