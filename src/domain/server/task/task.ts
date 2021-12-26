@@ -112,4 +112,8 @@ export default class Task extends Base {
 
     this.update(task.taskName, task.memo, task.status, task.dueDate, task.estimate, task.tags);
   }
+
+  public canDelete(): boolean {
+    return this.status.canDeleteCompletely();
+  }
 }

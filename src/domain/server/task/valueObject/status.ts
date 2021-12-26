@@ -18,6 +18,10 @@ export default class Status extends Flags<'登録' | '実行中' | '完了' | '�
     return !this.canDelete();
   }
 
+  public canDeleteCompletely(): boolean {
+    return this.canRestore();
+  }
+
   public onDelete(): Status | never {
     if (this.value === '登録') {
       return Status.create('削除(登録)');

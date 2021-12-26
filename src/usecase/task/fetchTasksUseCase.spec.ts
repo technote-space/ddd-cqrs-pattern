@@ -43,8 +43,8 @@ describe('FetchTasksUseCase', () => {
     expect(tasks[0].作業見積値).toBe(10);
     expect(tasks[0].作業見積単位).toBe('日');
     expect(tasks[0].タグ).toHaveLength(2);
-    expect(tasks[0].タグ[0]).toBe('tag1');
-    expect(tasks[0].タグ[1]).toBe('tag2');
+    expect(tasks[0].タグ![0]).toBe('tag1'); // eslint-disable-line @typescript-eslint/no-non-null-assertion
+    expect(tasks[0].タグ![1]).toBe('tag2'); // eslint-disable-line @typescript-eslint/no-non-null-assertion
 
     expect(tasks[1].id).toBe('test2');
     expect(tasks[1].タスク名).toBe('name2');
