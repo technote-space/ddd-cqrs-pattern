@@ -86,6 +86,7 @@ const TaskFormModal: VFC<Props> = ({
             control={control}
             validationErrors={validationErrors}
             label="タグ"
+            placeholder="追加するタグを入力してください"
           />
         </FormLayout>
       </Modal.Body>

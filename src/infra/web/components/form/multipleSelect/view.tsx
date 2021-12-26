@@ -8,6 +8,7 @@ import Flex from '#/layout/flex';
 const View: VFC<HooksParams> = ({
   tags,
   isDisabled,
+  placeholder,
   addTagValue,
   handleChangeAddTagValue,
   isOpenAddModal,
@@ -30,6 +31,7 @@ const View: VFC<HooksParams> = ({
       handleOpen={handleOpenAddTag}
       handleClose={handleCloseAddTag}
       handleSubmit={handleSubmitAddTag}
+      placeholder={placeholder}
       isDisabled={isDisabled}
     />
   </Flex>;
