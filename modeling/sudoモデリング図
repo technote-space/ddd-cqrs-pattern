@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-12-08T17:31:48.556Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.93 Safari/537.36" etag="R75-KLf0PN7mgkH-EPgD" version="15.9.4" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2021-12-26T08:53:23.094Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36" etag="qWlmlDZsD0_bHspQabsl" version="15.9.4" type="github" pages="2">
   <diagram id="r37XWGFIWC_b_wO5FmI3" name="システム関連図・ユースケース図">
-    <mxGraphModel dx="1307" dy="910" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="957" dy="560" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -200,7 +200,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="eV9iofXecpb7EGIl0VRe" name="オブジェクト図・ドメインモデル図">
-    <mxGraphModel dx="1307" dy="910" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="957" dy="560" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="voT4gvB8MNvEA69gext--0" />
         <mxCell id="voT4gvB8MNvEA69gext--1" parent="voT4gvB8MNvEA69gext--0" />
@@ -330,7 +330,7 @@
         <mxCell id="voT4gvB8MNvEA69gext--31" value="タスク集約" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=5" parent="voT4gvB8MNvEA69gext--1" vertex="1">
           <mxGeometry x="152.5" y="747.5" width="105" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="voT4gvB8MNvEA69gext--32" value="&lt;font style=&quot;font-size: 12px&quot;&gt;&lt;b&gt;&lt;u&gt;タスク&lt;/u&gt;&lt;/b&gt;&lt;br&gt;&lt;b&gt;&lt;i&gt;(Task)&lt;/i&gt;&lt;/b&gt;&lt;br&gt;タスク名&lt;br&gt;メモ&lt;br&gt;ステータス&lt;br&gt;期日&lt;br&gt;作業見積&lt;br&gt;ユーザーID&lt;br&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=15;fillColor=default;" parent="voT4gvB8MNvEA69gext--1" vertex="1">
+        <mxCell id="voT4gvB8MNvEA69gext--32" value="&lt;font style=&quot;font-size: 12px&quot;&gt;&lt;b&gt;&lt;u&gt;タスク&lt;/u&gt;&lt;/b&gt;&lt;br&gt;&lt;b&gt;&lt;i&gt;(Task)&lt;/i&gt;&lt;/b&gt;&lt;br&gt;タスク名(taskName)&lt;br&gt;メモ(memo)&lt;br&gt;ステータス(status)&lt;br&gt;期日(dueDate)&lt;br&gt;作業見積(estimate)&lt;br&gt;ユーザーID(userId)&lt;br&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=15;fillColor=default;" parent="voT4gvB8MNvEA69gext--1" vertex="1">
           <mxGeometry x="50" y="790" width="120" height="160" as="geometry" />
         </mxCell>
         <mxCell id="voT4gvB8MNvEA69gext--33" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;fillColor=default;align=center;verticalAlign=bottom;" parent="voT4gvB8MNvEA69gext--1" vertex="1">
@@ -348,7 +348,7 @@
             <mxPoint x="475" y="785" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="voT4gvB8MNvEA69gext--37" value="登録" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;fontSize=14;align=center;" parent="voT4gvB8MNvEA69gext--1" vertex="1">
+        <mxCell id="voT4gvB8MNvEA69gext--37" value="登録&lt;br&gt;(registered)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;fontSize=14;align=center;" parent="voT4gvB8MNvEA69gext--1" vertex="1">
           <mxGeometry x="430" y="820" width="89.5" height="37.5" as="geometry" />
         </mxCell>
         <mxCell id="voT4gvB8MNvEA69gext--38" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=none;endSize=8;strokeColor=#ff0000;rounded=0;fontSize=14;startArrow=open;startFill=0;endFill=0;" parent="voT4gvB8MNvEA69gext--1" edge="1">
@@ -357,7 +357,7 @@
             <mxPoint x="466" y="858" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="voT4gvB8MNvEA69gext--39" value="実行中" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;fontSize=14;align=center;" parent="voT4gvB8MNvEA69gext--1" vertex="1">
+        <mxCell id="voT4gvB8MNvEA69gext--39" value="実行中&lt;br&gt;(inProgress)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;fontSize=14;align=center;" parent="voT4gvB8MNvEA69gext--1" vertex="1">
           <mxGeometry x="430" y="890" width="89.5" height="40" as="geometry" />
         </mxCell>
         <mxCell id="voT4gvB8MNvEA69gext--40" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=none;endSize=8;strokeColor=#ff0000;rounded=0;fontSize=14;startArrow=open;startFill=0;endFill=0;" parent="voT4gvB8MNvEA69gext--1" edge="1">
@@ -366,10 +366,10 @@
             <mxPoint x="467" y="930" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="voT4gvB8MNvEA69gext--41" value="完了" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;fontSize=14;align=center;" parent="voT4gvB8MNvEA69gext--1" vertex="1">
+        <mxCell id="voT4gvB8MNvEA69gext--41" value="完了&lt;br&gt;(completed)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;fontSize=14;align=center;" parent="voT4gvB8MNvEA69gext--1" vertex="1">
           <mxGeometry x="430" y="970" width="89.5" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="voT4gvB8MNvEA69gext--42" value="削除" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;fontSize=14;align=center;" parent="voT4gvB8MNvEA69gext--1" vertex="1">
+        <mxCell id="voT4gvB8MNvEA69gext--42" value="削除&lt;br&gt;(deleted)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;fontSize=14;align=center;" parent="voT4gvB8MNvEA69gext--1" vertex="1">
           <mxGeometry x="555" y="890" width="84.5" height="40" as="geometry" />
         </mxCell>
         <mxCell id="voT4gvB8MNvEA69gext--43" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;fontSize=14;exitX=1;exitY=0.5;exitDx=0;exitDy=0;startArrow=open;startFill=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" parent="voT4gvB8MNvEA69gext--1" source="voT4gvB8MNvEA69gext--37" target="voT4gvB8MNvEA69gext--42" edge="1">
@@ -411,7 +411,7 @@
             <mxPoint x="477" y="940" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="voT4gvB8MNvEA69gext--50" value="&lt;b&gt;&lt;u&gt;タグ&lt;br&gt;(Tag)&lt;/u&gt;&lt;/b&gt;&lt;br&gt;タグ名" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;fillColor=default;" parent="voT4gvB8MNvEA69gext--1" vertex="1">
+        <mxCell id="voT4gvB8MNvEA69gext--50" value="&lt;b&gt;&lt;u&gt;タグ&lt;br&gt;(Tag)&lt;/u&gt;&lt;/b&gt;&lt;br&gt;タグ名(tagName)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;fillColor=default;" parent="voT4gvB8MNvEA69gext--1" vertex="1">
           <mxGeometry x="240" y="790" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="voT4gvB8MNvEA69gext--51" value="" style="endArrow=diamondThin;html=1;endSize=12;startArrow=none;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=12;entryX=0.992;entryY=0.184;entryDx=0;entryDy=0;entryPerimeter=0;endFill=1;" parent="voT4gvB8MNvEA69gext--1" target="voT4gvB8MNvEA69gext--32" edge="1">
@@ -439,7 +439,7 @@
         <mxCell id="voT4gvB8MNvEA69gext--56" value="ユーザー集約" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=5" parent="voT4gvB8MNvEA69gext--1" vertex="1">
           <mxGeometry x="152.5" y="1031" width="105" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="voT4gvB8MNvEA69gext--57" value="&lt;font style=&quot;font-size: 12px&quot;&gt;&lt;b&gt;&lt;u&gt;ユーザー&lt;/u&gt;&lt;/b&gt;&lt;br&gt;&lt;b&gt;&lt;i&gt;(User)&lt;/i&gt;&lt;/b&gt;&lt;br&gt;ユーザー識別子&lt;br&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=15;fillColor=default;" parent="voT4gvB8MNvEA69gext--1" vertex="1">
+        <mxCell id="voT4gvB8MNvEA69gext--57" value="&lt;font style=&quot;font-size: 12px&quot;&gt;&lt;b&gt;&lt;u&gt;ユーザー&lt;/u&gt;&lt;/b&gt;&lt;br&gt;&lt;b&gt;&lt;i&gt;(User)&lt;/i&gt;&lt;/b&gt;&lt;br&gt;ユーザー識別子(token)&lt;br&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=15;fillColor=default;" parent="voT4gvB8MNvEA69gext--1" vertex="1">
           <mxGeometry x="130" y="1061" width="155" height="60" as="geometry" />
         </mxCell>
         <mxCell id="voT4gvB8MNvEA69gext--58" value="" style="endArrow=blockThin;html=1;endSize=12;startArrow=none;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=12;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="voT4gvB8MNvEA69gext--1" source="voT4gvB8MNvEA69gext--32" target="voT4gvB8MNvEA69gext--57" edge="1">
@@ -521,13 +521,13 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="l0G5bUWcO8xDhi6hQLSh-0" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" edge="1" parent="voT4gvB8MNvEA69gext--1">
+        <mxCell id="l0G5bUWcO8xDhi6hQLSh-0" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" parent="voT4gvB8MNvEA69gext--1" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="190" y="820" as="sourcePoint" />
             <mxPoint x="540" y="650" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="l0G5bUWcO8xDhi6hQLSh-1" value="・未使用のタグの削除は必要であれば今後検討" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="voT4gvB8MNvEA69gext--1">
+        <mxCell id="l0G5bUWcO8xDhi6hQLSh-1" value="・未使用のタグの削除は必要であれば今後検討" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="voT4gvB8MNvEA69gext--1" vertex="1">
           <mxGeometry x="540" y="620" width="260" height="40" as="geometry" />
         </mxCell>
       </root>
