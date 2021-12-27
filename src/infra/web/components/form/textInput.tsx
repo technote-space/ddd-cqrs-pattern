@@ -1,6 +1,7 @@
 import type { WithControlProps } from '#/form/withControl';
 import type { IInputProps } from 'native-base';
-import type { VFC } from 'react';
+import type { ReactElement } from 'react';
+import type { FieldValues } from 'react-hook-form';
 import { Input } from 'native-base';
 import WithControl from '#/form/withControl';
 
@@ -9,7 +10,7 @@ type Props = {
   variant?: IInputProps['variant'];
 };
 
-const TextInput: VFC<WithControlProps<Props>> = ({ placeholder, variant, isDisabled, field }) => {
+const TextInput = <T extends FieldValues>({ placeholder, variant, isDisabled, field }: WithControlProps<Props, T>): ReactElement => {
   return <Input
     placeholder={placeholder}
     variant={variant ?? 'outline'}

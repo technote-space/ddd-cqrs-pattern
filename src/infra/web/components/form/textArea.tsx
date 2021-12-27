@@ -1,6 +1,7 @@
 import type { WithControlProps } from '#/form/withControl';
 import type { ITextAreaProps } from 'native-base/lib/typescript/components/primitives/TextArea';
-import type { VFC } from 'react';
+import type { ReactElement } from 'react';
+import type { FieldValues } from 'react-hook-form';
 import { TextArea as NBTextArea } from 'native-base';
 import WithControl from '#/form/withControl';
 
@@ -9,7 +10,12 @@ type Props = {
   numberOfLines?: ITextAreaProps['numberOfLines'];
 };
 
-const TextArea: VFC<WithControlProps<Props>> = ({ placeholder, numberOfLines, isDisabled, field }) => {
+const TextArea = <T extends FieldValues>({
+  placeholder,
+  numberOfLines,
+  isDisabled,
+  field,
+}: WithControlProps<Props, T>): ReactElement => {
   return <NBTextArea
     placeholder={placeholder}
     numberOfLines={numberOfLines ?? 5}

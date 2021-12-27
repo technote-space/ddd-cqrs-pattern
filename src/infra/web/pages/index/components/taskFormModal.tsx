@@ -38,7 +38,7 @@ const TaskFormModal: VFC<Props> = ({
       <Modal.Body>
         <FormLayout>
           <TextInput
-            name="タスク名"
+            name="taskName"
             control={control}
             validationErrors={validationErrors}
             label="タスク名"
@@ -46,14 +46,14 @@ const TaskFormModal: VFC<Props> = ({
             isRequired={true}
           />
           <TextArea
-            name="メモ"
+            name="memo"
             control={control}
             validationErrors={validationErrors}
             label="メモ"
             placeholder="メモを入力してください"
           />
           <TextInput
-            name="ステータス"
+            name="status"
             control={control}
             validationErrors={validationErrors}
             label="ステータス"
@@ -61,28 +61,28 @@ const TaskFormModal: VFC<Props> = ({
             isRequired={true}
           />
           <TextInput
-            name="期日"
+            name="dueDate"
             control={control}
             validationErrors={validationErrors}
             label="期日"
             placeholder="期日を入力してください"
           />
           <TextInput
-            name="作業見積値"
+            name="estimateValue"
             control={control}
             validationErrors={validationErrors}
             label="作業見積値"
             placeholder="作業見積を入力してください"
           />
           <TextInput
-            name="作業見積単位"
+            name="estimateUnit"
             control={control}
             validationErrors={validationErrors}
             label="作業見積単位"
             placeholder="作業見積単位を入力してください"
           />
           <MultiSelect
-            name="タグ"
+            name="tags"
             control={control}
             validationErrors={validationErrors}
             label="タグ"
