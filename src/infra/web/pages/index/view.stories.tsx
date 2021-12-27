@@ -14,6 +14,7 @@ export default {
 
 const Template: ComponentStory<typeof View> = (args) => <View
   {...args}
+  formFields={{} as never}
   updateTaskHandlers={{}}
   deleteTaskHandlers={{}}
 />;
