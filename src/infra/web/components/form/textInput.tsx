@@ -10,9 +10,9 @@ type Props = {
   variant?: IInputProps['variant'];
 };
 
-const TextInput = <T extends FieldValues>({ placeholder, variant, isDisabled, field }: WithControlProps<Props, T>): ReactElement => {
+const TextInput = <T extends FieldValues>({ placeholder, variant, label, isDisabled, field }: WithControlProps<Props, T>): ReactElement => {
   return <Input
-    placeholder={placeholder}
+    placeholder={placeholder ?? label ? `${label}を入力してください` : undefined}
     variant={variant ?? 'outline'}
     isDisabled={isDisabled}
     onBlur={field.onBlur}

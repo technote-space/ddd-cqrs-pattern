@@ -1,4 +1,6 @@
 import type { CreateSchema } from '@/web/helpers/form';
+import type { FormComponentType } from '@/web/pages/index/components/taskFormModal';
+import { useMemo } from 'react';
 import Tag from '$/server/tag/tag';
 import Tags from '$/server/tag/tags';
 import TagName from '$/server/tag/valueObject/tagName';
@@ -57,3 +59,51 @@ export const createSchema: CreateSchema = schemaBuilder => ({
   estimateUnit: schemaBuilder.string().nullable().label(EstimateUnit.getLabel()),
   tags: schemaBuilder.array().label(TagName.getLabel()),
 });
+
+export type FormFields = {
+  [key in keyof FormValues]: {
+    label: string;
+    isRequired?: boolean;
+    component: FormComponentType;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    props?: Record<string, any>;
+  }
+};
+export const useFormFields = (): { formFields: FormFields } => {
+  return useMemo(() => ({
+    formFields: {
+      taskName: {
+        label: TaskName.getLabel(),
+        isRequired: true,
+        component: 'textInput',
+      },
+      memo: {
+        label: Memo.getLabel(),
+        component: 'textArea',
+      },
+      status: {
+        label: Status.getLabel(),
+        isRequired: true,
+        component: 'select',
+        props: { items: Status.create('').flagTypes },
+      },
+      dueDate: {
+        label: DueDate.getLabel(),
+        component: 'datePicker',
+      },
+      estimateValue: {
+        label: EstimateValue.getLabel(),
+        component: 'numberInput',
+      },
+      estimateUnit: {
+        label: EstimateUnit.getLabel(),
+        component: 'select',
+        props: { items: EstimateUnit.create('').flagTypes },
+      },
+      tags: {
+        label: TagName.getLabel(),
+        component: 'multipleSelect',
+      },
+    },
+  }), []);
+};

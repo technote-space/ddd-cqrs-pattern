@@ -13,11 +13,12 @@ type Props = {
 const TextArea = <T extends FieldValues>({
   placeholder,
   numberOfLines,
+  label,
   isDisabled,
   field,
 }: WithControlProps<Props, T>): ReactElement => {
   return <NBTextArea
-    placeholder={placeholder}
+    placeholder={placeholder ?? label ? `${label}を入力してください` : undefined}
     numberOfLines={numberOfLines ?? 5}
     isDisabled={isDisabled}
     onBlur={field.onBlur}

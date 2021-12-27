@@ -25,7 +25,7 @@ export const useHooks = <T extends FieldValues>(props: WithControlProps<Props, T
   return {
     tags,
     isDisabled: !!props.isDisabled,
-    placeholder: props.placeholder,
+    placeholder: props.placeholder ?? props.label ? `${props.label}を入力してください` : undefined,
     ...useAddTag({ handleAddTag }),
     ...useDeleteTag({ tags, handleDeleteTag }),
   };

@@ -10,10 +10,9 @@ import Badge from '#/data/badge';
 
 export type Props<P extends ComponentProps, T> = T extends FieldValues ? (P & IFormControlProps & {
   name: FieldPath<T>;
-  key?: string;
   control: Control<T>;
   validationErrors?: ValidationErrors;
-  label?: ReactNode;
+  label?: string;
   beforeLabel?: ReactNode;
   afterLabel?: ReactNode;
   isRequired?: boolean;
@@ -28,6 +27,7 @@ export type WithControlProps<P extends ComponentProps = {}, T extends FieldValue
   isInvalid?: boolean;
   isDisabled?: boolean;
   isRequired?: boolean;
+  label?: string;
 } & UseControllerReturn<T> & P;
 
 const WithControl = <P extends ComponentProps, T extends FieldValues>(
@@ -36,7 +36,6 @@ const WithControl = <P extends ComponentProps, T extends FieldValues>(
   // eslint-disable-next-line react/display-name
   ({
     name,
-    key,
     control,
     validationErrors,
     label,
@@ -59,8 +58,7 @@ const WithControl = <P extends ComponentProps, T extends FieldValues>(
         return null;
       }
 
-      const searchName = key ?? name;
-      const found = Object.keys(validationErrors).find(key => key === searchName);
+      const found = Object.keys(validationErrors).find(key => key === name);
       if (found) {
         return validationErrors[found].join(', ');
       }
@@ -74,7 +72,8 @@ const WithControl = <P extends ComponentProps, T extends FieldValues>(
         isRequired,
         isDisabled,
         isInvalid: isInvalid || !!error,
-      } as WithControlProps<any>);
+        label,
+      } as never as WithControlProps<P, T>);
 
     return (
       <FormControl {...defaultProps} {...props} isInvalid={!!error} isDisabled={isDisabled}>
