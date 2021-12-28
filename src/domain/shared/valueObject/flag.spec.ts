@@ -5,7 +5,7 @@ class TestFlags extends Flags<'test1' | 'test2'>() {
     return 'test';
   }
 
-  protected get flagTypes(): ('test1' | 'test2')[] {
+  public get flagTypes(): ('test1' | 'test2')[] {
     return ['test1', 'test2'];
   }
 }
