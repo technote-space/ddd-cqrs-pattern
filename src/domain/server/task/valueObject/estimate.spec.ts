@@ -3,11 +3,8 @@ import EstimateValue from '$/server/task/valueObject/estimateValue';
 import Estimate from './estimate';
 
 describe('Estimate', () => {
-  it('名前が「作業見積」', () => {
-    expect(Estimate.create({
-      value: EstimateValue.create(1),
-      unit: EstimateUnit.create('日'),
-    }).getName()).toBe('作業見積');
+  it('ラベルが「作業見積」', () => {
+    expect(Estimate.getLabel()).toBe('作業見積');
   });
 
   it('作業見積単位が「時間」の場合の時間の計算', () => {
@@ -58,6 +55,6 @@ describe('Estimate', () => {
     expect(Estimate.create({
       value: EstimateValue.create(0),
       unit: EstimateUnit.create('時間'),
-    }).validate()).toEqual([{ name: '作業見積値', error: '1以上の値を入力してください' }]);
+    }).validate()).toEqual([{ name: 'estimateValue', error: '1以上の値を入力してください' }]);
   });
 });

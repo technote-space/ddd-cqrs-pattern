@@ -22,24 +22,24 @@ describe('UpdateTaskUseCase', () => {
     const useCase = new UpdateTaskUseCase({ findById: mockFindById, save: mockSave } as never);
 
     const result = await useCase.invoke({ userId: UserId.create('test') }, TaskId.create('taskId'), {
-      タスク名: 'task',
-      メモ: null,
-      ステータス: '登録',
-      期日: null,
-      作業見積値: null,
-      作業見積単位: null,
-      タグ: [],
+      taskName: 'task',
+      memo: null,
+      status: '登録',
+      dueDate: null,
+      estimateValue: null,
+      estimateUnit: null,
+      tags: [],
     });
 
     expect(mockFindById).toBeCalledTimes(1);
     expect(mockSave).toBeCalledTimes(1);
     expect(result.id).toBe('taskId');
-    expect(result.タスク名).toBe('task');
-    expect(result.メモ).toBeNull();
-    expect(result.ステータス).toBe('登録');
-    expect(result.期日).toBeNull();
-    expect(result.作業見積値).toBeNull();
-    expect(result.作業見積単位).toBeNull();
-    expect(result.タグ).toEqual([]);
+    expect(result.taskName).toBe('task');
+    expect(result.memo).toBeNull();
+    expect(result.status).toBe('登録');
+    expect(result.dueDate).toBeNull();
+    expect(result.estimateValue).toBeNull();
+    expect(result.estimateUnit).toBeNull();
+    expect(result.tags).toEqual([]);
   });
 });

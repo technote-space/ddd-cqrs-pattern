@@ -8,7 +8,7 @@ describe('NotionUserRepository', () => {
     it('指定されたIDのユーザーを取得', async () => {
       const mockFind = jest.fn(() => Promise.resolve({
         id: 'test',
-        ユーザー識別子: 'token',
+        token: 'token',
       }));
       const repository = new NotionUserRepository({ find: mockFind } as never);
 
@@ -32,7 +32,7 @@ describe('NotionUserRepository', () => {
       const mockSearch = jest.fn(() => Promise.resolve({
         results: [{
           id: 'test',
-          ユーザー識別子: 'token',
+          token: 'token',
         }],
         hasMore: false,
         cursor: null,
@@ -66,7 +66,7 @@ describe('NotionUserRepository', () => {
 
       const user = User.create(Token.create('token'));
       await repository.save(user);
-      expect(mockCreate).toBeCalledWith('users', { ユーザー識別子: 'token' });
+      expect(mockCreate).toBeCalledWith('users', { token: 'token' });
       expect(user.userId.value).toBe('1234567890');
     });
 
@@ -75,7 +75,7 @@ describe('NotionUserRepository', () => {
       const repository = new NotionUserRepository({ update: mockUpdate } as never);
 
       await repository.save(User.reconstruct(UserId.create('id'), Token.create('token')));
-      expect(mockUpdate).toBeCalledWith('users', { id: 'id', ユーザー識別子: 'token' });
+      expect(mockUpdate).toBeCalledWith('users', { id: 'id', token: 'token' });
     });
   });
 });

@@ -14,9 +14,9 @@ export default abstract class Date extends Base<dayjs.ConfigType, dayjs.Dayjs, s
     return dayjs(this.inner);
   }
 
-  public validate(): ValidationError[] | undefined {
+  public validate(name: string): ValidationError[] | undefined {
     if (typeof this.input === 'string' && !(isDate(this.input) || isISO8601(this.input))) {
-      return [{ name: this.getName(), error: '日付の形式が正しくありません' }];
+      return [{ name, error: '日付の形式が正しくありません' }];
     }
 
     return undefined;

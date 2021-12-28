@@ -104,4 +104,8 @@ describe('Base', () => {
       test.value.test = 345;
     }).toThrow();
   });
+
+  it('should throw error if getLabel is not implemented', () => {
+    expect(() => Test.getLabel()).toThrow();
+  });
 });

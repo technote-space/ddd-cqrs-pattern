@@ -9,13 +9,13 @@ describe('FetchTasksController', () => {
     const mockGetUserSession = jest.fn(() => Promise.resolve(userSession));
     const mockInvoke = jest.fn(() => Promise.resolve([{
       id: 'task-id',
-      タスク名: 'name',
-      メモ: null,
-      ステータス: '登録',
-      期日: null,
-      作業見積値: null,
-      作業見積単位: null,
-      タグ: [],
+      taskName: 'name',
+      memo: null,
+      status: '登録',
+      dueDate: null,
+      estimateValue: null,
+      estimateUnit: null,
+      tags: [],
     }] as TaskDto[]));
     const controller = new FetchTasksController(
       {} as never,

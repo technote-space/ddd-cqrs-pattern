@@ -28,7 +28,7 @@ export default class NotionUserRepository implements IUserRepository {
     const response = await this.database.search<DatabaseType>('users', {
         filter: [
           {
-            property: 'ユーザー識別子',
+            property: 'token',
             condition: {
               text: {
                 equals: token.value,
@@ -48,7 +48,7 @@ export default class NotionUserRepository implements IUserRepository {
 
   public async save(user: User): Promise<void> {
     const data = {
-      ユーザー識別子: user.token.value,
+      token: user.token.value,
     };
 
     if (user.userId.isSetId()) {

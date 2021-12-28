@@ -1,7 +1,7 @@
 import StringId from '$/shared/valueObject/stringId';
 
 export default class Token extends StringId {
-  public getName(): string {
+  public static getLabel(): string {
     return 'ユーザー識別子';
   }
 }

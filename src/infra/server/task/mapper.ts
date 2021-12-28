@@ -16,30 +16,30 @@ import UserId from '$/server/user/valueObject/userId';
 
 export type DatabaseType = {
   id: string;
-  タスク名: string;
-  ステータス: string;
-  タグ: Relation[];
-  メモ: string | null;
-  ユーザー: Relation;
-  作業見積値: number | null;
-  作業見積単位: string | null;
-  期日: string | null;
+  taskName: string;
+  memo: string | null;
+  status: string;
+  tags: Relation[];
+  user: Relation;
+  estimateValue: number | null;
+  estimateUnit: string | null;
+  dueDate: string | null;
 };
 
 export default class Mapper {
   public static toEntity(data: DatabaseType): Task {
     return Task.reconstruct(
       TaskId.create(data.id),
-      TaskName.create(data.タスク名),
-      data.メモ ? Memo.create(data.メモ) : null,
-      Status.create(data.ステータス),
-      data.期日 ? DueDate.create(data.期日) : null,
-      data.作業見積値 && data.作業見積単位 ? Estimate.create({
-        value: EstimateValue.create(data.作業見積値),
-        unit: EstimateUnit.create(data.作業見積単位),
+      TaskName.create(data.taskName),
+      data.memo ? Memo.create(data.memo) : null,
+      Status.create(data.status),
+      data.dueDate ? DueDate.create(data.dueDate) : null,
+      data.estimateValue && data.estimateUnit ? Estimate.create({
+        value: EstimateValue.create(data.estimateValue),
+        unit: EstimateUnit.create(data.estimateUnit),
       }) : null,
-      UserId.create(data.ユーザー.id),
-      Tags.create(data.タグ.map(tag => Tag.reconstruct(TagId.create(tag.id), TagName.create(tag.value)))),
+      UserId.create(data.user.id),
+      Tags.create(data.tags.map(tag => Tag.reconstruct(TagId.create(tag.id), TagName.create(tag.value)))),
     );
   }
 }

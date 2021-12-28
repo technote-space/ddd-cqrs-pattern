@@ -1,8 +1,9 @@
 import type { ValidationErrors } from '$/shared/exceptions/domain/validation';
 import type { FormValues, TaskDto } from '^/usecase/task/taskDto';
+import type { FormFields } from '^/usecase/task/taskDto';
 import type { VFC } from 'react';
 import type { Control } from 'react-hook-form';
-import { memo, useRef } from 'react';
+import { memo, useMemo, useRef } from 'react';
 import Button from '#/button/button';
 import Modal from '#/dialog/modal';
 import FormLayout from '#/form/layout';
@@ -18,7 +19,19 @@ type Props = {
   onSubmitForm: () => void;
   control: Control<FormValues>;
   isDisabled: boolean;
+  formFields: FormFields;
 };
+
+const FormComponents = {
+  textInput: TextInput,
+  textArea: TextArea,
+  multipleSelect: MultiSelect,
+  numberInput: TextInput,
+  datePicker: TextInput,
+  select: TextInput,
+} as const;
+export type FormComponentType = keyof typeof FormComponents;
+
 const TaskFormModal: VFC<Props> = ({
   isOpenTaskFormDialog,
   handleCloseTaskFormDialog,
@@ -26,6 +39,8 @@ const TaskFormModal: VFC<Props> = ({
   validationErrors,
   onSubmitForm,
   control,
+  isDisabled,
+  formFields,
 }) => {
   const cancelRef = useRef();
   return <Modal
@@ -37,57 +52,18 @@ const TaskFormModal: VFC<Props> = ({
       <Modal.Header>{selectedTask ? 'タスク編集' : 'タスク追加'}</Modal.Header>
       <Modal.Body>
         <FormLayout>
-          <TextInput
-            name="タスク名"
-            control={control}
-            validationErrors={validationErrors}
-            label="タスク名"
-            placeholder="タスク名を入力してください"
-            isRequired={true}
-          />
-          <TextArea
-            name="メモ"
-            control={control}
-            validationErrors={validationErrors}
-            label="メモ"
-            placeholder="メモを入力してください"
-          />
-          <TextInput
-            name="ステータス"
-            control={control}
-            validationErrors={validationErrors}
-            label="ステータス"
-            placeholder="ステータスを入力してください"
-            isRequired={true}
-          />
-          <TextInput
-            name="期日"
-            control={control}
-            validationErrors={validationErrors}
-            label="期日"
-            placeholder="期日を入力してください"
-          />
-          <TextInput
-            name="作業見積値"
-            control={control}
-            validationErrors={validationErrors}
-            label="作業見積値"
-            placeholder="作業見積を入力してください"
-          />
-          <TextInput
-            name="作業見積単位"
-            control={control}
-            validationErrors={validationErrors}
-            label="作業見積単位"
-            placeholder="作業見積単位を入力してください"
-          />
-          <MultiSelect
-            name="タグ"
-            control={control}
-            validationErrors={validationErrors}
-            label="タグ"
-            placeholder="追加するタグを入力してください"
-          />
+          {useMemo(() => Object.entries(formFields).map(([name, { label, isRequired, component, props }], index) => {
+            const Component = FormComponents[component];
+            return <Component
+              key={index}
+              name={name as keyof FormValues}
+              control={control}
+              validationErrors={validationErrors}
+              label={label}
+              isRequired={isRequired}
+              {...props}
+            />;
+          }), [formFields, control, validationErrors])}
         </FormLayout>
       </Modal.Body>
       <Modal.Footer>
@@ -100,7 +76,7 @@ const TaskFormModal: VFC<Props> = ({
           >
             キャンセル
           </Button>
-          <Button colorScheme="danger" onPress={onSubmitForm}>
+          <Button colorScheme="danger" onPress={onSubmitForm} isDisabled={isDisabled}>
             送信
           </Button>
         </Button.Group>

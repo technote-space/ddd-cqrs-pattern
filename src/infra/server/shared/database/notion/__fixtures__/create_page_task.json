@@ -11,7 +11,7 @@
   },
   "archived": false,
   "properties": {
-    "タグ": {
+    "tags": {
       "id": "%3Ar%3AY",
       "type": "relation",
       "relation": [
@@ -23,7 +23,7 @@
         }
       ]
     },
-    "作業見積単位": {
+    "estimateUnit": {
       "id": "CXs_",
       "type": "rich_text",
       "rich_text": [
@@ -46,7 +46,7 @@
         }
       ]
     },
-    "期日": {
+    "dueDate": {
       "id": "Kd%3CM",
       "type": "date",
       "date": {
@@ -54,7 +54,7 @@
         "end": null
       }
     },
-    "ユーザー": {
+    "user": {
       "id": "OhsR",
       "type": "relation",
       "relation": [
@@ -63,7 +63,7 @@
         }
       ]
     },
-    "ステータス": {
+    "status": {
       "id": "diSm",
       "type": "rich_text",
       "rich_text": [
@@ -86,7 +86,7 @@
         }
       ]
     },
-    "メモ": {
+    "memo": {
       "id": "g%3D~a",
       "type": "rich_text",
       "rich_text": [
@@ -109,12 +109,12 @@
         }
       ]
     },
-    "作業見積値": {
+    "estimateValue": {
       "id": "oumE",
       "type": "number",
       "number": 10
     },
-    "タスク名": {
+    "taskName": {
       "id": "title",
       "type": "title",
       "title": [

@@ -27,6 +27,7 @@ const View: VFC<HooksParams> = ({
   onSubmitForm,
   control,
   isDisabled,
+  formFields,
 
   isOpenDeleteTaskDialog,
   handleCloseDeleteTaskDialog,
@@ -58,6 +59,7 @@ const View: VFC<HooksParams> = ({
       onSubmitForm={onSubmitForm}
       control={control}
       isDisabled={isDisabled}
+      formFields={formFields}
     />
     <DeleteAlertDialog
       isOpenDeleteTaskDialog={isOpenDeleteTaskDialog}

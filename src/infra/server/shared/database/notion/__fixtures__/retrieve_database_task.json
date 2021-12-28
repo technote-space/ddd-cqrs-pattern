@@ -9,7 +9,7 @@
     {
       "type": "text",
       "text": {
-        "content": "タスク",
+        "content": "tasks",
         "link": null
       },
       "annotations": {
@@ -20,66 +20,66 @@
         "code": false,
         "color": "default"
       },
-      "plain_text": "タスク",
+      "plain_text": "tasks",
       "href": null
     }
   ],
   "properties": {
-    "タグ": {
+    "tags": {
       "id": "%3Ar%3AY",
-      "name": "タグ",
+      "name": "tags",
       "type": "relation",
       "relation": {
         "database_id": "12345678-99ac-4de4-8d2f-f67a6bfc4aeb",
-        "synced_property_name": "Related to タスク (タグ)",
+        "synced_property_name": "Related to tasks (tags)",
         "synced_property_id": "X<Ww"
       }
     },
-    "作業見積単位": {
+    "estimateUnit": {
       "id": "CXs_",
-      "name": "作業見積単位",
+      "name": "estimateUnit",
       "type": "rich_text",
       "rich_text": {}
     },
-    "期日": {
+    "dueDate": {
       "id": "Kd%3CM",
-      "name": "期日",
+      "name": "dueDate",
       "type": "date",
       "date": {}
     },
-    "ユーザー": {
+    "user": {
       "id": "OhsR",
-      "name": "ユーザー",
+      "name": "user",
       "type": "relation",
       "relation": {
         "database_id": "12345678-a74f-4552-bde9-54b92453e1b6",
-        "synced_property_name": "Related to タスク (ユーザー)",
+        "synced_property_name": "Related to tasks (user)",
         "synced_property_id": "W=TT"
       }
     },
-    "ステータス": {
+    "status": {
       "id": "diSm",
-      "name": "ステータス",
+      "name": "status",
       "type": "rich_text",
       "rich_text": {}
     },
-    "メモ": {
+    "memo": {
       "id": "g%3D~a",
-      "name": "メモ",
+      "name": "memo",
       "type": "rich_text",
       "rich_text": {}
     },
-    "作業見積値": {
+    "estimateValue": {
       "id": "oumE",
-      "name": "作業見積値",
+      "name": "estimateValue",
       "type": "number",
       "number": {
         "format": "number"
       }
     },
-    "タスク名": {
+    "taskName": {
       "id": "title",
-      "name": "タスク名",
+      "name": "taskName",
       "type": "title",
       "title": {}
     }

@@ -21,13 +21,13 @@ describe('NotionDatabase', () => {
     return require('./__fixtures__/retrieve_database_task.json');
   });
   const commonColumns = [
-    { name: 'タグ', type: 'relation', relation: 'tags', multiple: true, aggregates: true },
-    { name: 'ユーザー', type: 'relation', relation: 'users' },
+    { name: 'tags', type: 'relation', relation: 'tags', multiple: true, aggregates: true },
+    { name: 'user', type: 'relation', relation: 'users' },
   ] as CreateTableColumn[];
   const commonSchemas = [
-    { table: 'users', name: 'ユーザー', columns: commonColumns },
-    { table: 'tags', name: 'タグ', columns: commonColumns },
-    { table: 'tasks', name: 'タスク', columns: commonColumns },
+    { table: 'users', columns: commonColumns },
+    { table: 'tags', columns: commonColumns },
+    { table: 'tasks', columns: commonColumns },
   ];
 
   describe('テーブル作成済み', () => {
@@ -43,35 +43,34 @@ describe('NotionDatabase', () => {
       }));
       const tables = await database.listTables();
       expect(tables).toHaveLength(3);
-      expect(tables[0].name).toBe('ユーザー');
-      expect(tables[1].name).toBe('タグ');
-      expect(tables[2].name).toBe('タスク');
+      expect(tables[0].table).toBe('users');
+      expect(tables[1].table).toBe('tags');
+      expect(tables[2].table).toBe('tasks');
 
       // test cache
       const tables2 = await database.listTables();
       expect(tables2).toHaveLength(3);
-      expect(tables2[0].name).toBe('ユーザー');
-      expect(tables2[1].name).toBe('タグ');
-      expect(tables2[2].name).toBe('タスク');
+      expect(tables2[0].table).toBe('users');
+      expect(tables2[1].table).toBe('tags');
+      expect(tables2[2].table).toBe('tasks');
     });
 
     it('スキーマ定義にないテーブルは取得されない', async () => {
       const database = new NotionDatabase([
-        { table: 'tasks', name: 'タスク', columns: commonColumns },
+        { table: 'tasks', columns: commonColumns },
       ], new TestEnv({ NOTION_SECRET: 'secret', NOTION_PARENT_ID: '__block_id__' }));
       const tables = await database.listTables();
       expect(tables).toHaveLength(1);
-      expect(tables[0].name).toBe('タスク');
+      expect(tables[0].table).toBe('tasks');
     });
 
     it('すでに作成済みのテーブルを作成しようとしても何も起こらない', async () => {
       const database = new NotionDatabase([
-        { table: 'tasks', name: 'タスク', columns: commonColumns },
+        { table: 'tasks',columns: commonColumns },
       ], new TestEnv({ NOTION_SECRET: 'secret', NOTION_PARENT_ID: '__block_id__' }));
 
       const table = await database.createTable('tasks');
       expect(table.id).toBe('12345678-805e-4279-802d-749613f9f84e');
-      expect(table.name).toBe('タスク');
       expect(table.table).toBe('tasks');
       expect(table.columns).toHaveLength(9);
     });
@@ -90,10 +89,10 @@ describe('NotionDatabase', () => {
     useMockServer([
       createNotionHandler('get', '/blocks/__block_id__/children', 200, {
         results: [{
-          'id': '12345678-0000-0000-0000-000000000000',
-          'type': 'child_database',
-          'child_database': {
-            'title': 'a',
+          id: '12345678-0000-0000-0000-000000000000',
+          type: 'child_database',
+          child_database: {
+            title: 'a',
           },
         }],
       }),
@@ -103,9 +102,9 @@ describe('NotionDatabase', () => {
 
     it('新しいテーブルを作成する', async () => {
       const database = new NotionDatabase([
-        { table: 'a', name: 'a', columns: commonColumns },
+        { table: 'a', columns: commonColumns },
         {
-          table: 'tests', name: 'test', columns: [
+          table: 'tests', columns: [
             { name: 'test1', type: 'title' },
             { name: 'test2', type: 'datetime' },
             { name: 'test3', type: 'int' },
@@ -120,7 +119,6 @@ describe('NotionDatabase', () => {
 
       const table = await database.createTable('tests');
       expect(table.id).toBe('12345678-805e-4279-802d-749613f9f84e');
-      expect(table.name).toBe('test');
       expect(table.table).toBe('tests');
       expect(table.columns).toHaveLength(1);
       expect(table.columns[0].name).toBe('test');
@@ -228,54 +226,54 @@ describe('NotionDatabase', () => {
       expect(result.results).toEqual([
         {
           id: '12345678-2acd-4600-b40b-a4a8a4229178',
-          'タグ': [],
-          '作業見積単位': null,
-          '期日': '2021-11-26T10:00:00.000+09:00',
-          'ユーザー': {
+          tags: [],
+          estimateUnit: null,
+          dueDate: '2021-11-26T10:00:00.000+09:00',
+          user: {
             id: '12345678-f7de-4c0c-b0f3-0637fbad2764',
             value: 'test2',
           },
-          'ステータス': '完了',
-          'メモ': null,
-          '作業見積値': null,
-          'タスク名': '別ユーザータスク',
+          status: '完了',
+          memo: null,
+          estimateValue: null,
+          taskName: '別ユーザータスク',
         },
         {
           id: '12345678-835a-4a19-a988-2e0b7c588d87',
-          'タグ': [{
+          tags: [{
             id: '12345678-3f93-456d-8379-6748cbd60655',
             value: '宿題',
           }],
-          '作業見積単位': '日',
-          '期日': '2021-11-29T10:00:00.000+09:00',
-          'ユーザー': {
+          estimateUnit: '日',
+          dueDate: '2021-11-29T10:00:00.000+09:00',
+          user: {
             id: '12345678-0386-4822-a079-832269ef6f01',
             value: 'test',
           },
-          'ステータス': '実行中',
-          'メモ': 'テスト',
-          '作業見積値': 10,
-          'タスク名': '次のタスク',
+          status: '実行中',
+          memo: 'テスト',
+          estimateValue: 10,
+          taskName: '次のタスク',
         },
         {
           id: '12345678-9c82-40c5-8a9b-8e9dae01dfc6',
-          'タグ': [{
+          tags: [{
             id: '12345678-3f93-456d-8379-6748cbd60655',
             value: '宿題',
           }, {
             id: '12345678-7353-4df6-a730-5df7bd0869b1',
             value: 'テスト',
           }],
-          '作業見積単位': null,
-          '期日': '2021-11-30T10:00:00.000+09:00',
-          'ユーザー': {
+          estimateUnit: null,
+          dueDate: '2021-11-30T10:00:00.000+09:00',
+          user: {
             id: '12345678-0386-4822-a079-832269ef6f01',
             value: 'test',
           },
-          'ステータス': '登録',
-          'メモ': null,
-          '作業見積値': null,
-          'タスク名': '新しいタスク',
+          status: '登録',
+          memo: null,
+          estimateValue: null,
+          taskName: '新しいタスク',
         },
       ]);
       expect(result.hasMore).toBe(false);
@@ -291,20 +289,20 @@ describe('NotionDatabase', () => {
 
       expect(result).toEqual({
         id: '12345678-835a-4a19-a988-2e0b7c588d87',
-        'タグ': [{
+        tags: [{
           id: '12345678-3f93-456d-8379-6748cbd60655',
           value: '宿題',
         }],
-        '作業見積単位': '日',
-        '期日': '2021-11-29T10:00:00.000+09:00',
-        'ユーザー': {
+        estimateUnit: '日',
+        dueDate: '2021-11-29T10:00:00.000+09:00',
+        user: {
           id: '12345678-0386-4822-a079-832269ef6f01',
           value: 'test',
         },
-        'ステータス': '実行中',
-        'メモ': 'テスト',
-        '作業見積値': 10,
-        'タスク名': '次のタスク',
+        status: '実行中',
+        memo: 'テスト',
+        estimateValue: 10,
+        taskName: '次のタスク',
       });
     });
 
@@ -359,14 +357,14 @@ describe('NotionDatabase', () => {
         expect(req.body).toEqual({
             parent: { database_id: '12345678-805e-4279-802d-749613f9f84e' },
             properties: {
-              'タスク名': { title: [{ type: 'text', text: { content: 'テスト' } }] },
-              'タグ': { relation: [{ id: '12345678-7353-4df6-a730-5df7bd0869b1' }, { id: '12345678-3f93-456d-8379-6748cbd60655' }] },
-              'ユーザー': { relation: [{ id: 'test' }] },
-              'ステータス': { rich_text: [{ type: 'text', text: { content: '登録' } }] },
-              'メモ': { rich_text: [{ type: 'text', text: { content: 'メモメモ' } }] },
-              '作業見積値': { number: 10 },
-              '作業見積単位': { rich_text: [{ type: 'text', text: { content: '日' } }] },
-              '期日': { date: { start: '2022-01-01T10:00:00-09:00' } },
+              taskName: { title: [{ type: 'text', text: { content: 'テスト' } }] },
+              tags: { relation: [{ id: '12345678-7353-4df6-a730-5df7bd0869b1' }, { id: '12345678-3f93-456d-8379-6748cbd60655' }] },
+              user: { relation: [{ id: 'test' }] },
+              status: { rich_text: [{ type: 'text', text: { content: '登録' } }] },
+              memo: { rich_text: [{ type: 'text', text: { content: 'メモメモ' } }] },
+              estimateValue: { number: 10 },
+              estimateUnit: { rich_text: [{ type: 'text', text: { content: '日' } }] },
+              dueDate: { date: { start: '2022-01-01T10:00:00-09:00' } },
             },
           },
         );
@@ -374,8 +372,8 @@ describe('NotionDatabase', () => {
       createNotionHandler('patch', '/pages/12345678-e6cc-4407-8083-cc5827653194', 200, require('./__fixtures__/update_page_tag.json'), (req) => {
         expect(req.body).toEqual({
             properties: {
-              'タグ名': { title: [{ type: 'text', text: { content: 'お散歩' } }] },
-              'ユーザー': { relation: [{ id: 'test' }] },
+              tagName: { title: [{ type: 'text', text: { content: 'お散歩' } }] },
+              user: { relation: [{ id: 'test' }] },
             },
           },
         );
@@ -383,14 +381,14 @@ describe('NotionDatabase', () => {
       createNotionHandler('patch', '/pages/12345678-6f98-43a4-a9fc-c4df60fe1fd6', 200, require('./__fixtures__/update_page_task.json'), (req) => {
         expect(req.body).toEqual({
             properties: {
-              'タスク名': { title: [] },
-              'タグ': { relation: [] },
-              'ユーザー': { relation: [] },
-              'ステータス': { rich_text: [] },
-              'メモ': { rich_text: [] },
-              '作業見積値': { number: null },
-              '作業見積単位': { rich_text: [] },
-              '期日': { date: null },
+              taskName: { title: [] },
+              tags: { relation: [] },
+              user: { relation: [] },
+              status: { rich_text: [] },
+              memo: { rich_text: [] },
+              estimateValue: { number: null },
+              estimateUnit: { rich_text: [] },
+              dueDate: { date: null },
             },
           },
         );
@@ -404,35 +402,35 @@ describe('NotionDatabase', () => {
         NOTION_PARENT_ID: '__block_id__',
       }));
       const result = await database.create('tasks', {
-        'タスク名': 'テスト',
-        'タグ': ['テスト', '宿題'],
-        'ユーザー': 'test',
-        'ステータス': '登録',
-        'メモ': 'メモメモ',
-        '作業見積値': '10',
-        '作業見積単位': '日',
-        '期日': '2022-01-01T10:00:00-09:00',
+        taskName: 'テスト',
+        tags: ['テスト', '宿題'],
+        user: 'test',
+        status: '登録',
+        memo: 'メモメモ',
+        estimateValue: '10',
+        estimateUnit: '日',
+        dueDate: '2022-01-01T10:00:00-09:00',
       });
 
       expect(result).toEqual({
         id: '12345678-6f98-43a4-a9fc-c4df60fe1fd6',
-        'タスク名': 'テスト',
-        'タグ': [{
+        taskName: 'テスト',
+        tags: [{
           id: '12345678-7353-4df6-a730-5df7bd0869b1',
           value: 'テスト',
         }, {
           id: '12345678-3f93-456d-8379-6748cbd60655',
           value: '宿題',
         }],
-        'ユーザー': {
+        user: {
           id: '12345678-0386-4822-a079-832269ef6f01',
           value: 'test',
         },
-        'ステータス': '登録',
-        'メモ': 'メモメモ',
-        '作業見積値': 10,
-        '作業見積単位': '日',
-        '期日': '2022-01-01T10:00:00.000+09:00',
+        status: '登録',
+        memo: 'メモメモ',
+        estimateValue: 10,
+        estimateUnit: '日',
+        dueDate: '2022-01-01T10:00:00.000+09:00',
       });
     });
 
@@ -442,15 +440,15 @@ describe('NotionDatabase', () => {
         NOTION_PARENT_ID: '__block_id__',
       }));
       const result = await database.update('tags', {
-        'id': '12345678-e6cc-4407-8083-cc5827653194',
-        'タグ名': 'お散歩',
-        'ユーザー': 'test',
+        id: '12345678-e6cc-4407-8083-cc5827653194',
+        tagName: 'お散歩',
+        user: 'test',
       });
 
       expect(result).toEqual({
         id: '12345678-e6cc-4407-8083-cc5827653194',
-        'タグ名': 'お散歩',
-        'ユーザー': {
+        tagName: 'お散歩',
+        user: {
           id: '12345678-0386-4822-a079-832269ef6f01',
           value: 'test',
         },
@@ -463,15 +461,15 @@ describe('NotionDatabase', () => {
         NOTION_PARENT_ID: '__block_id__',
       }));
       await database.update('tasks', {
-        'id': '12345678-6f98-43a4-a9fc-c4df60fe1fd6',
-        'タスク名': null,
-        'タグ': null,
-        'ユーザー': null,
-        'ステータス': null,
-        'メモ': null,
-        '作業見積値': null,
-        '作業見積単位': null,
-        '期日': null,
+        id: '12345678-6f98-43a4-a9fc-c4df60fe1fd6',
+        taskName: null,
+        tags: null,
+        user: null,
+        status: null,
+        memo: null,
+        estimateValue: null,
+        estimateUnit: null,
+        dueDate: null,
       });
     });
 
@@ -481,9 +479,9 @@ describe('NotionDatabase', () => {
         NOTION_PARENT_ID: '__block_id__',
       }));
       await expect(database.update('tags', {
-        'id': '12345678-0000-0000-0000-000000000000',
-        'タグ名': 'お散歩',
-        'ユーザー': 'test',
+        id: '12345678-0000-0000-0000-000000000000',
+        tags: 'お散歩',
+        user: 'test',
       })).rejects.toThrow();
     });
   });
@@ -505,14 +503,14 @@ describe('NotionDatabase', () => {
           expect(req.body).toEqual({
               parent: { database_id: '12345678-805e-4279-802d-749613f9f84e' },
               properties: {
-                'タスク名': { title: [{ type: 'text', text: { content: 'テスト' } }] },
-                'タグ': { relation: [{ id: '12345678-7353-4df6-a730-5df7bd0869b1' }, { id: '12345678-e6cc-4407-8083-cc5827653194' }] },
-                'ユーザー': { relation: [{ id: 'test' }] },
-                'ステータス': { rich_text: [{ type: 'text', text: { content: '登録' } }] },
-                'メモ': { rich_text: [{ type: 'text', text: { content: 'メモメモ' } }] },
-                '作業見積値': { number: 10 },
-                '作業見積単位': { rich_text: [{ type: 'text', text: { content: '日' } }] },
-                '期日': { date: { start: '2022-01-01T10:00:00-09:00' } },
+                taskName: { title: [{ type: 'text', text: { content: 'テスト' } }] },
+                tags: { relation: [{ id: '12345678-7353-4df6-a730-5df7bd0869b1' }, { id: '12345678-e6cc-4407-8083-cc5827653194' }] },
+                user: { relation: [{ id: 'test' }] },
+                status: { rich_text: [{ type: 'text', text: { content: '登録' } }] },
+                memo: { rich_text: [{ type: 'text', text: { content: 'メモメモ' } }] },
+                estimateValue: { number: 10 },
+                estimateUnit: { rich_text: [{ type: 'text', text: { content: '日' } }] },
+                dueDate: { date: { start: '2022-01-01T10:00:00-09:00' } },
               },
             },
           );
@@ -526,32 +524,32 @@ describe('NotionDatabase', () => {
         NOTION_PARENT_ID: '__block_id__',
       }));
       const result = await database.create('tasks', {
-        'タスク名': 'テスト',
-        'タグ': ['テスト', 'おでかけ'],
-        'ユーザー': 'test',
-        'ステータス': '登録',
-        'メモ': 'メモメモ',
-        '作業見積値': '10',
-        '作業見積単位': '日',
-        '期日': '2022-01-01T10:00:00-09:00',
+        taskName: 'テスト',
+        tags: ['テスト', 'おでかけ'],
+        user: 'test',
+        status: '登録',
+        memo: 'メモメモ',
+        estimateValue: '10',
+        estimateUnit: '日',
+        dueDate: '2022-01-01T10:00:00-09:00',
       });
 
       expect(result).toEqual({
           id: '12345678-6f98-43a4-a9fc-c4df60fe1fd6',
-          'タスク名': 'テスト',
-          'タグ': [{
+          taskName: 'テスト',
+          tags: [{
             id: '12345678-7353-4df6-a730-5df7bd0869b1',
             value: 'テスト',
           }], // relationの作成パラメータ生成 と 結果のリレーション取得時 で異なるものを設定できないため
-          'ユーザー': {
+          user: {
             id: '12345678-0386-4822-a079-832269ef6f01',
             value: 'test',
           },
-          'ステータス': '登録',
-          'メモ': 'メモメモ',
-          '作業見積値': 10,
-          '作業見積単位': '日',
-          '期日': '2022-01-01T10:00:00.000+09:00',
+          status: '登録',
+          memo: 'メモメモ',
+          estimateValue: 10,
+          estimateUnit: '日',
+          dueDate: '2022-01-01T10:00:00.000+09:00',
         },
       );
     });

@@ -27,13 +27,13 @@ describe('fromEntity', () => {
     ));
 
     expect(dto.id).toBe('id');
-    expect(dto.タスク名).toBe('task');
-    expect(dto.メモ).toBe('memo');
-    expect(dto.ステータス).toBe('登録');
-    expect(dto.期日).toBe('2020-01-23T01:00:00.000Z');
-    expect(dto.作業見積値).toBe(10);
-    expect(dto.作業見積単位).toBe('日');
-    expect(dto.タグ).toEqual(['tag']);
+    expect(dto.taskName).toBe('task');
+    expect(dto.memo).toBe('memo');
+    expect(dto.status).toBe('登録');
+    expect(dto.dueDate).toBe('2020-01-23T01:00:00.000Z');
+    expect(dto.estimateValue).toBe(10);
+    expect(dto.estimateUnit).toBe('日');
+    expect(dto.tags).toEqual(['tag']);
   });
 
   it('entity to dto', () => {
@@ -49,26 +49,26 @@ describe('fromEntity', () => {
     ));
 
     expect(dto.id).toBe('id');
-    expect(dto.タスク名).toBe('task');
-    expect(dto.メモ).toBeNull();
-    expect(dto.ステータス).toBe('登録');
-    expect(dto.期日).toBeNull();
-    expect(dto.作業見積値).toBeNull();
-    expect(dto.作業見積単位).toBeNull();
-    expect(dto.タグ).toEqual([]);
+    expect(dto.taskName).toBe('task');
+    expect(dto.memo).toBeNull();
+    expect(dto.status).toBe('登録');
+    expect(dto.dueDate).toBeNull();
+    expect(dto.estimateValue).toBeNull();
+    expect(dto.estimateUnit).toBeNull();
+    expect(dto.tags).toEqual([]);
   });
 });
 
 describe('toEntity', () => {
   it('dto to entity', () => {
     const entity = toEntity(UserId.create('user'), {
-      タスク名: 'task',
-      メモ: 'memo',
-      ステータス: '登録',
-      期日: '2020-01-23T10:00:00+09:00',
-      作業見積値: 10,
-      作業見積単位: '日',
-      タグ: ['tag'],
+      taskName: 'task',
+      memo: 'memo',
+      status: '登録',
+      dueDate: '2020-01-23T10:00:00+09:00',
+      estimateValue: 10,
+      estimateUnit: '日',
+      tags: ['tag'],
     });
 
     expect(entity.taskName.value).toBe('task');
@@ -82,12 +82,12 @@ describe('toEntity', () => {
 
   it('dto to entity', () => {
     const entity = toEntity(UserId.create('user'), {
-      タスク名: 'task',
-      メモ: null,
-      ステータス: '登録',
-      期日: null,
-      作業見積値: null,
-      作業見積単位: null,
+      taskName: 'task',
+      memo: null,
+      status: '登録',
+      dueDate: null,
+      estimateValue: null,
+      estimateUnit: null,
     });
 
     expect(entity.taskName.value).toBe('task');

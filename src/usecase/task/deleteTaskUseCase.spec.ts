@@ -26,13 +26,13 @@ describe('DeleteTaskUseCase', () => {
     expect(mockFindById).toBeCalledTimes(1);
     expect(mockDelete).toBeCalledTimes(1);
     expect(result.id).toBe('taskId');
-    expect(result.タスク名).toBe('task');
-    expect(result.メモ).toBeNull();
-    expect(result.ステータス).toBe('削除(登録)');
-    expect(result.期日).toBeNull();
-    expect(result.作業見積値).toBeNull();
-    expect(result.作業見積単位).toBeNull();
-    expect(result.タグ).toEqual([]);
+    expect(result.taskName).toBe('task');
+    expect(result.memo).toBeNull();
+    expect(result.status).toBe('削除(登録)');
+    expect(result.dueDate).toBeNull();
+    expect(result.estimateValue).toBeNull();
+    expect(result.estimateUnit).toBeNull();
+    expect(result.tags).toEqual([]);
   });
 
   it('異なるユーザーのタスクを削除しようとするとエラー', async () => {

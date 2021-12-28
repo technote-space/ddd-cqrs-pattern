@@ -1,4 +1,5 @@
 import type { WithControlProps } from '#/form/withControl';
+import type { FieldValues } from 'react-hook-form';
 import { useCallback, useMemo } from 'react';
 import { useAddTag } from '#/form/multipleSelect/hooks/addTag';
 import { useDeleteTag } from '#/form/multipleSelect/hooks/deleteTag';
@@ -7,7 +8,7 @@ export type Props = {
   placeholder?: string;
 };
 
-export const useHooks = (props: WithControlProps<Props>) => {
+export const useHooks = <T extends FieldValues>(props: WithControlProps<Props, T>) => {
   const tags: string[] = useMemo(() => props.field.value ?? [], [props.field.value]);
   const handleAddTag = useCallback((tag: string) => {
     if (tag === '' || tags.includes(tag)) {
@@ -24,7 +25,7 @@ export const useHooks = (props: WithControlProps<Props>) => {
   return {
     tags,
     isDisabled: !!props.isDisabled,
-    placeholder: props.placeholder,
+    placeholder: props.placeholder ?? props.label ? `${props.label}を入力してください` : undefined,
     ...useAddTag({ handleAddTag }),
     ...useDeleteTag({ tags, handleDeleteTag }),
   };

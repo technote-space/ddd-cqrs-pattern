@@ -22,12 +22,10 @@ export type TableColumn = {
 export type Table = {
   id: string;
   table: string;
-  name: string;
   columns: TableColumn[];
 };
 export type CreateTableParam = {
   table: string;
-  name: string;
   columns: CreateTableColumn[];
 };
 type TextSearch = {
