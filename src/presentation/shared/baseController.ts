@@ -3,6 +3,7 @@ import type { ErrorStatus } from '$/shared/exceptions/exception';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import DomainException from '$/shared/exceptions/domain/exception';
 import InvalidValueException from '$/shared/exceptions/domain/invalidValue';
+import ValidationException from '$/shared/exceptions/domain/validation';
 import HttpException from '$/shared/exceptions/http/exception';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -83,7 +84,7 @@ export default abstract class BaseController<Data extends ResultData = undefined
         data: result.data,
       } as Required<Result<Data>>;
     } catch (error) {
-      if (error instanceof Error) {
+      if (error instanceof Error && !(error instanceof ValidationException)) {
         await this.slack.sendError(error);
       }
 
