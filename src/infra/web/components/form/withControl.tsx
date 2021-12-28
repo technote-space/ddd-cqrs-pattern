@@ -8,7 +8,7 @@ import { FormControl, Text } from 'native-base';
 import { Controller, useFormState } from 'react-hook-form';
 import Badge from '#/data/badge';
 
-export type Props<P extends ComponentProps, T> = T extends FieldValues ? (P & IFormControlProps & {
+export type WithControlComponentCommonProps<T extends FieldValues> = IFormControlProps & {
   name: FieldPath<T>;
   control: Control<T>;
   validationErrors?: ValidationErrors;
@@ -17,7 +17,8 @@ export type Props<P extends ComponentProps, T> = T extends FieldValues ? (P & IF
   afterLabel?: ReactNode;
   isRequired?: boolean;
   isDisabled?: boolean;
-}) : never;
+};
+export type WithControlComponentProps<P extends ComponentProps, T> = T extends FieldValues ? (P & WithControlComponentCommonProps<T>) : never;
 
 const defaultProps = { px: 2, m: 0, mt: 4 };
 
@@ -45,7 +46,7 @@ const WithControl = <P extends ComponentProps, T extends FieldValues>(
     isRequired,
     isDisabled,
     ...props
-  }: Props<P, T>): ReactElement => {
+  }: WithControlComponentProps<P, T>): ReactElement => {
     const { errors } = useFormState({ control, name });
 
     const error = (() => {
