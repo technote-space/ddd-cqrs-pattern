@@ -4,28 +4,28 @@ import type { ReactElement } from 'react';
 import type { FieldValues } from 'react-hook-form';
 import { Select as NBSelect } from 'native-base';
 import { useMemo } from 'react';
-import WithControl from '#/form/withControl';
+import WithControl, { extractComponentProps } from '#/form/withControl';
 
-type Props = {
+type Props = ISelectProps & {
   placeholder?: string;
-  variant?: ISelectProps['variant'];
   items: string[];
 };
 
 const Select = <T extends FieldValues>({
   placeholder,
-  variant,
   items,
+  variant,
   label,
   isDisabled,
-  field,
+  ...props
 }: WithControlProps<Props, T>): ReactElement => {
   return <NBSelect
     placeholder={placeholder ?? label ? `${label}を選択してください` : undefined}
     variant={variant ?? 'outline'}
     isDisabled={isDisabled}
-    onValueChange={field.onChange}
-    selectedValue={field.value ?? ''}
+    onValueChange={props.field.onChange}
+    selectedValue={props.field.value ?? ''}
+    {...extractComponentProps(props)}
   >
     {useMemo(() => items.map((item, index) => <NBSelect.Item key={index} label={item} value={item}/>), [items])}
   </NBSelect>;
