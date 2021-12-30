@@ -24,15 +24,15 @@ const defaultProps = { px: 2, m: 0, mt: 4 };
 
 type ComponentProps = Record<string, any>;
 // eslint-disable-next-line @typescript-eslint/ban-types
-export type WithControlProps<P extends ComponentProps = {}, T extends FieldValues = FieldValues> = {
+export type WithControlProps<P extends ComponentProps = {}> = {
   isInvalid?: boolean;
   isDisabled?: boolean;
   isRequired?: boolean;
   label?: string;
-} & UseControllerReturn<T> & P;
+} & UseControllerReturn & P;
 
 // eslint-disable-next-line @typescript-eslint/ban-types
-export const extractComponentProps = <P extends ComponentProps = {}, T extends FieldValues = FieldValues>({
+export const extractComponentProps = <P extends ComponentProps = {}>({
   isInvalid,
   isDisabled,
   isRequired,
@@ -41,12 +41,12 @@ export const extractComponentProps = <P extends ComponentProps = {}, T extends F
   fieldState,
   formState,
   ...props
-}: WithControlProps<P, T>): P => {
+}: WithControlProps<P>): P => {
   return props as unknown as P;
 };
 
 const WithControl = <P extends ComponentProps, T extends FieldValues>(
-  Component: (props: WithControlProps<P, T>) => ReactElement,
+  Component: (props: WithControlProps<P>) => ReactElement,
 ) =>
   // eslint-disable-next-line react/display-name
   ({
@@ -88,7 +88,7 @@ const WithControl = <P extends ComponentProps, T extends FieldValues>(
         isDisabled,
         isInvalid: isInvalid || !!error,
         label,
-      } as never as WithControlProps<P, T>);
+      } as never as WithControlProps<P>);
 
     return (
       <FormControl {...defaultProps} {...props} isInvalid={!!error} isDisabled={isDisabled}>

@@ -1,7 +1,6 @@
 import type { WithControlProps } from '#/form/withControl';
 import type { ISelectProps } from 'native-base';
 import type { ReactElement } from 'react';
-import type { FieldValues } from 'react-hook-form';
 import { Select as NBSelect } from 'native-base';
 import { useMemo } from 'react';
 import WithControl, { extractComponentProps } from '#/form/withControl';
@@ -11,14 +10,14 @@ type Props = ISelectProps & {
   items: string[];
 };
 
-const Select = <T extends FieldValues>({
+const Select = ({
   placeholder,
   items,
   variant,
   label,
   isDisabled,
   ...props
-}: WithControlProps<Props, T>): ReactElement => {
+}: WithControlProps<Props>): ReactElement => {
   return <NBSelect
     placeholder={placeholder ?? label ? `${label}を選択してください` : undefined}
     variant={variant ?? 'outline'}

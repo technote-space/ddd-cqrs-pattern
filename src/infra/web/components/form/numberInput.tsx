@@ -1,7 +1,6 @@
 import type { WithControlProps } from '#/form/withControl';
 import type { INumberInputProps, INumberInputFieldProps } from 'native-base';
 import type { ReactElement } from 'react';
-import type { FieldValues } from 'react-hook-form';
 import {
   NumberInput as NBNumberInput,
   NumberInputField,
@@ -16,14 +15,14 @@ type Props = INumberInputProps & {
   fieldProps?: INumberInputFieldProps;
 };
 
-const NumberInput = <T extends FieldValues>({
+const NumberInput = ({
   placeholder,
   variant,
   label,
   isDisabled,
   fieldProps,
   ...props
-}: WithControlProps<Props, T>): ReactElement => {
+}: WithControlProps<Props>): ReactElement => {
   return <NBNumberInput
     isDisabled={isDisabled}
     onChange={props.field.onChange}

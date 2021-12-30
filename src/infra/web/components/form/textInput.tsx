@@ -1,7 +1,6 @@
 import type { WithControlProps } from '#/form/withControl';
 import type { IInputProps } from 'native-base';
 import type { ReactElement } from 'react';
-import type { FieldValues } from 'react-hook-form';
 import { Input } from 'native-base';
 import WithControl, { extractComponentProps } from '#/form/withControl';
 
@@ -9,13 +8,13 @@ type Props = IInputProps & {
   placeholder?: string;
 };
 
-const TextInput = <T extends FieldValues>({
+const TextInput = ({
   placeholder,
   variant,
   label,
   isDisabled,
   ...props
-}: WithControlProps<Props, T>): ReactElement => {
+}: WithControlProps<Props>): ReactElement => {
   return <Input
     placeholder={placeholder ?? label ? `${label}を入力してください` : undefined}
     variant={variant ?? 'outline'}

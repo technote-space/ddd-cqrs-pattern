@@ -1,7 +1,6 @@
 import type { WithControlProps } from '#/form/withControl';
 import type { ITextAreaProps } from 'native-base/lib/typescript/components/primitives/TextArea';
 import type { ReactElement } from 'react';
-import type { FieldValues } from 'react-hook-form';
 import { TextArea as NBTextArea } from 'native-base';
 import WithControl, { extractComponentProps } from '#/form/withControl';
 
@@ -9,13 +8,13 @@ type Props = ITextAreaProps & {
   placeholder?: string;
 };
 
-const TextArea = <T extends FieldValues>({
+const TextArea = ({
   placeholder,
   numberOfLines,
   label,
   isDisabled,
   ...props
-}: WithControlProps<Props, T>): ReactElement => {
+}: WithControlProps<Props>): ReactElement => {
   return <NBTextArea
     placeholder={placeholder ?? label ? `${label}を入力してください` : undefined}
     numberOfLines={numberOfLines ?? 5}

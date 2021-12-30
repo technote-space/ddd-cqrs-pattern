@@ -1,6 +1,5 @@
 import type { WithControlProps } from '#/form/withControl';
 import type { ReactDatePickerProps } from 'react-datepicker';
-import type { FieldValues } from 'react-hook-form';
 import dayjs from 'dayjs';
 import { useCallback, useMemo, useState } from 'react';
 import { extractComponentProps } from '#/form/withControl';
@@ -19,7 +18,7 @@ const dateFormat = (props: Props) => {
   return 'yyyy/MM/dd';
 };
 
-export const useHooks = <T extends FieldValues>(props: WithControlProps<Props, T>) => {
+export const useHooks = (props: WithControlProps<Props>) => {
   const [isOpen, setIsOpen] = useState(false);
   const handleOpen = useCallback(() => setIsOpen(true), []);
   const handleClose = useCallback(() => setIsOpen(false), []);
