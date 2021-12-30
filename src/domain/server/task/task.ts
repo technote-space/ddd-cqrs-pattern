@@ -117,6 +117,18 @@ export default class Task extends Base {
     return this.status.canDeleteCompletely();
   }
 
+  private compareDate(otherTask: this): number {
+    if (!this.dueDate) {
+      return -1;
+    }
+
+    if (!otherTask.dueDate) {
+      return 1;
+    }
+
+    return this.dueDate.compare(otherTask.dueDate);
+  }
+
   public compare(otherTask: this): number {
     const statusCompare = this.status.compare(otherTask.status);
     if (!statusCompare) {
@@ -124,15 +136,11 @@ export default class Task extends Base {
         return 0;
       }
 
-      if (!this.dueDate) {
-        return 1;
+      if (this.status.isAscendStatus()) {
+        return this.compareDate(otherTask);
       }
 
-      if (!otherTask.dueDate) {
-        return -1;
-      }
-
-      return -this.dueDate.compare(otherTask.dueDate);
+      return -this.compareDate(otherTask);
     }
 
     return statusCompare;

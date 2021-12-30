@@ -63,6 +63,10 @@ export default class Status extends Flags<StatusTypes>() {
     const orders = Object.assign({}, ...[
       '実行中', '登録', '完了', '削除(実行中)', '削除(登録)', '削除(完了)',
     ].map((status, index) => ({ [status]: index })));
-    return orders[this.value] - orders[value.value];
+    return Math.max(-1, Math.min(1, orders[this.value] - orders[value.value]));
+  }
+
+  public isAscendStatus(): boolean {
+    return ['登録', '実行中'].includes(this.value);
   }
 }
