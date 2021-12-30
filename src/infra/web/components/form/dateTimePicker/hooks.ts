@@ -23,7 +23,7 @@ export const useHooks = (props: WithControlProps<Props>) => {
   const handleOpen = useCallback(() => setIsOpen(true), []);
   const handleClose = useCallback(() => setIsOpen(false), []);
 
-  const date = useMemo(() => dayjs(props.field.value).toDate(), [props.field.value]);
+  const date = useMemo(() => dayjs(props.field.value ?? undefined).toDate(), [props.field.value]);
   const dateTimePickerProps = extractComponentProps({
     showTimeSelect: true,
     portalId: 'data-time-picker-portal',
