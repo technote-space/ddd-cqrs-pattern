@@ -8,7 +8,7 @@ import { FormControl, Text } from 'native-base';
 import { Controller, useFormState } from 'react-hook-form';
 import Badge from '#/data/badge';
 
-export type Props<P extends ComponentProps, T> = T extends FieldValues ? (P & IFormControlProps & {
+export type WithControlComponentCommonProps<T extends FieldValues> = IFormControlProps & {
   name: FieldPath<T>;
   control: Control<T>;
   validationErrors?: ValidationErrors;
@@ -17,21 +17,36 @@ export type Props<P extends ComponentProps, T> = T extends FieldValues ? (P & IF
   afterLabel?: ReactNode;
   isRequired?: boolean;
   isDisabled?: boolean;
-}) : never;
+};
+export type WithControlComponentProps<P extends ComponentProps, T> = T extends FieldValues ? (P & WithControlComponentCommonProps<T>) : never;
 
 const defaultProps = { px: 2, m: 0, mt: 4 };
 
 type ComponentProps = Record<string, any>;
 // eslint-disable-next-line @typescript-eslint/ban-types
-export type WithControlProps<P extends ComponentProps = {}, T extends FieldValues = FieldValues> = {
+export type WithControlProps<P extends ComponentProps = {}> = {
   isInvalid?: boolean;
   isDisabled?: boolean;
   isRequired?: boolean;
   label?: string;
-} & UseControllerReturn<T> & P;
+} & UseControllerReturn & P;
+
+// eslint-disable-next-line @typescript-eslint/ban-types
+export const extractComponentProps = <P extends ComponentProps = {}>({
+  isInvalid,
+  isDisabled,
+  isRequired,
+  label,
+  field,
+  fieldState,
+  formState,
+  ...props
+}: WithControlProps<P>): P => {
+  return props as unknown as P;
+};
 
 const WithControl = <P extends ComponentProps, T extends FieldValues>(
-  Component: (props: WithControlProps<P, T>) => ReactElement,
+  Component: (props: WithControlProps<P>) => ReactElement,
 ) =>
   // eslint-disable-next-line react/display-name
   ({
@@ -45,7 +60,7 @@ const WithControl = <P extends ComponentProps, T extends FieldValues>(
     isRequired,
     isDisabled,
     ...props
-  }: Props<P, T>): ReactElement => {
+  }: WithControlComponentProps<P, T>): ReactElement => {
     const { errors } = useFormState({ control, name });
 
     const error = (() => {
@@ -73,7 +88,7 @@ const WithControl = <P extends ComponentProps, T extends FieldValues>(
         isDisabled,
         isInvalid: isInvalid || !!error,
         label,
-      } as never as WithControlProps<P, T>);
+      } as never as WithControlProps<P>);
 
     return (
       <FormControl {...defaultProps} {...props} isInvalid={!!error} isDisabled={isDisabled}>

@@ -5,7 +5,7 @@ import { useHooks } from './hooks';
 import View from './view';
 import WithControl from '#/form/withControl';
 
-const MultiSelect = (props: WithControlProps<Props>): ReactElement =>
+const DateTimePicker = (props: WithControlProps<Props>): ReactElement =>
   <View {...useHooks(props)}/>;
 
-export default WithControl(MultiSelect);
+export default WithControl(DateTimePicker);

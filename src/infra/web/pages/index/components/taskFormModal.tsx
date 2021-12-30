@@ -6,8 +6,11 @@ import type { Control } from 'react-hook-form';
 import { memo, useMemo, useRef } from 'react';
 import Button from '#/button/button';
 import Modal from '#/dialog/modal';
+import DateTimePicker from '#/form/dateTimePicker';
 import FormLayout from '#/form/layout';
 import MultiSelect from '#/form/multipleSelect';
+import NumberInput from '#/form/numberInput';
+import Select from '#/form/select';
 import TextArea from '#/form/textArea';
 import TextInput from '#/form/textInput';
 
@@ -26,11 +29,12 @@ const FormComponents = {
   textInput: TextInput,
   textArea: TextArea,
   multipleSelect: MultiSelect,
-  numberInput: TextInput,
-  datePicker: TextInput,
-  select: TextInput,
+  numberInput: NumberInput,
+  dateTimePicker: DateTimePicker,
+  select: Select,
 } as const;
-export type FormComponentType = keyof typeof FormComponents;
+export type FormComponentsType = typeof FormComponents;
+export type FormComponentKey = keyof FormComponentsType;
 
 const TaskFormModal: VFC<Props> = ({
   isOpenTaskFormDialog,
@@ -61,7 +65,7 @@ const TaskFormModal: VFC<Props> = ({
               validationErrors={validationErrors}
               label={label}
               isRequired={isRequired}
-              {...props}
+              {...props as any /* eslint-disable-line @typescript-eslint/no-explicit-any */}
             />;
           }), [formFields, control, validationErrors])}
         </FormLayout>

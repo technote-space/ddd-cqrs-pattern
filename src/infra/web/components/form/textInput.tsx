@@ -1,23 +1,28 @@
 import type { WithControlProps } from '#/form/withControl';
 import type { IInputProps } from 'native-base';
 import type { ReactElement } from 'react';
-import type { FieldValues } from 'react-hook-form';
 import { Input } from 'native-base';
-import WithControl from '#/form/withControl';
+import WithControl, { extractComponentProps } from '#/form/withControl';
 
-type Props = {
+type Props = IInputProps & {
   placeholder?: string;
-  variant?: IInputProps['variant'];
 };
 
-const TextInput = <T extends FieldValues>({ placeholder, variant, label, isDisabled, field }: WithControlProps<Props, T>): ReactElement => {
+const TextInput = ({
+  placeholder,
+  variant,
+  label,
+  isDisabled,
+  ...props
+}: WithControlProps<Props>): ReactElement => {
   return <Input
     placeholder={placeholder ?? label ? `${label}を入力してください` : undefined}
     variant={variant ?? 'outline'}
     isDisabled={isDisabled}
-    onBlur={field.onBlur}
-    onChangeText={field.onChange}
-    value={field.value ?? ''}
+    onBlur={props.field.onBlur}
+    onChangeText={props.field.onChange}
+    value={props.field.value ?? ''}
+    {...extractComponentProps(props)}
   />;
 };
 

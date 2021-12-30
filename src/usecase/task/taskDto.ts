@@ -1,5 +1,6 @@
+import type { WithControlComponentCommonProps } from '#/form/withControl';
 import type { CreateSchema } from '@/web/helpers/form';
-import type { FormComponentType } from '@/web/pages/index/components/taskFormModal';
+import type { FormComponentsType, FormComponentKey } from '@/web/pages/index/components/taskFormModal';
 import { useMemo } from 'react';
 import Tag from '$/server/tag/tag';
 import Tags from '$/server/tag/tags';
@@ -63,50 +64,33 @@ export const createSchema: CreateSchema = schemaBuilder => ({
   tags: schemaBuilder.array().label(TagName.getLabel()),
 });
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type PropsType<C extends FormComponentKey> = Omit<Parameters<FormComponentsType[C]>[0], keyof WithControlComponentCommonProps<any>>;
+type FormFieldProps<C extends FormComponentKey> = {
+  label: string;
+  isRequired?: boolean;
+  component: C;
+  props: PropsType<C>;
+};
+const getFormField = <C extends FormComponentKey>(label: string, component: C, isRequired: boolean, props: PropsType<C>): FormFieldProps<C> => ({
+  label,
+  component,
+  isRequired,
+  props,
+});
 export type FormFields = {
-  [key in keyof FormValues]: {
-    label: string;
-    isRequired?: boolean;
-    component: FormComponentType;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    props?: Record<string, any>;
-  }
+  [key in keyof FormValues]: FormFieldProps<FormComponentKey>;
 };
 export const useFormFields = (): { formFields: FormFields } => {
   return useMemo(() => ({
     formFields: {
-      taskName: {
-        label: TaskName.getLabel(),
-        isRequired: true,
-        component: 'textInput',
-      },
-      memo: {
-        label: Memo.getLabel(),
-        component: 'textArea',
-      },
-      status: {
-        label: Status.getLabel(),
-        isRequired: true,
-        component: 'select',
-        props: { items: Status.create('').flagTypes },
-      },
-      dueDate: {
-        label: DueDate.getLabel(),
-        component: 'datePicker',
-      },
-      estimateValue: {
-        label: EstimateValue.getLabel(),
-        component: 'numberInput',
-      },
-      estimateUnit: {
-        label: EstimateUnit.getLabel(),
-        component: 'select',
-        props: { items: EstimateUnit.create('').flagTypes },
-      },
-      tags: {
-        label: TagName.getLabel(),
-        component: 'multipleSelect',
-      },
+      taskName: getFormField(TaskName.getLabel(), 'textInput', true, {}),
+      memo: getFormField(Memo.getLabel(), 'textArea', false, {}),
+      status: getFormField(Status.getLabel(), 'select', true, { items: Status.create('').flagTypes }),
+      dueDate: getFormField(DueDate.getLabel(), 'dateTimePicker', false, {}),
+      estimateValue: getFormField(EstimateValue.getLabel(), 'numberInput', false, { min: 0 }),
+      estimateUnit: getFormField(EstimateUnit.getLabel(), 'select', false, { items: EstimateUnit.create('').flagTypes }),
+      tags: getFormField(TagName.getLabel(), 'multipleSelect', false, {}),
     },
   }), []);
 };
