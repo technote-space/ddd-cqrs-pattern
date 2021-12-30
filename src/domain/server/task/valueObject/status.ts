@@ -1,8 +1,9 @@
 import InvalidControl from '$/shared/exceptions/domain/invalidControl';
 import Flags from '$/shared/valueObject/flags';
 
-export default class Status extends Flags<'登録' | '実行中' | '完了' | '削除(登録)' | '削除(実行中)' | '削除(完了)'>() {
-  public get flagTypes(): ('登録' | '実行中' | '完了' | '削除(登録)' | '削除(実行中)' | '削除(完了)')[] {
+type StatusTypes = '登録' | '実行中' | '完了' | '削除(登録)' | '削除(実行中)' | '削除(完了)';
+export default class Status extends Flags<StatusTypes>() {
+  public get flagTypes(): StatusTypes[] {
     return ['登録', '実行中', '完了', '削除(登録)', '削除(実行中)', '削除(完了)'];
   }
 
@@ -52,5 +53,16 @@ export default class Status extends Flags<'登録' | '実行中' | '完了' | '�
     }
 
     throw new InvalidControl('削除されていません');
+  }
+
+  public compare(value: this): number {
+    if (this.value === value.value) {
+      return 0;
+    }
+
+    const orders = Object.assign({}, ...[
+      '実行中', '登録', '完了', '削除(実行中)', '削除(登録)', '削除(完了)',
+    ].map((status, index) => ({ [status]: index })));
+    return orders[this.value] - orders[value.value];
   }
 }

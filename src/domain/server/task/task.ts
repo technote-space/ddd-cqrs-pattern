@@ -116,4 +116,25 @@ export default class Task extends Base {
   public canDelete(): boolean {
     return this.status.canDeleteCompletely();
   }
+
+  public compare(otherTask: this): number {
+    const statusCompare = this.status.compare(otherTask.status);
+    if (!statusCompare) {
+      if (!this.dueDate && !otherTask.dueDate) {
+        return 0;
+      }
+
+      if (!this.dueDate) {
+        return 1;
+      }
+
+      if (!otherTask.dueDate) {
+        return -1;
+      }
+
+      return -this.dueDate.compare(otherTask.dueDate);
+    }
+
+    return statusCompare;
+  }
 }
