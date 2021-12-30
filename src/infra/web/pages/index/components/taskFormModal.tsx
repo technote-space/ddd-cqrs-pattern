@@ -9,6 +9,7 @@ import Modal from '#/dialog/modal';
 import DateTimePicker from '#/form/dateTimePicker';
 import FormLayout from '#/form/layout';
 import MultiSelect from '#/form/multipleSelect';
+import NumberInput from '#/form/numberInput';
 import Select from '#/form/select';
 import TextArea from '#/form/textArea';
 import TextInput from '#/form/textInput';
@@ -28,7 +29,7 @@ const FormComponents = {
   textInput: TextInput,
   textArea: TextArea,
   multipleSelect: MultiSelect,
-  numberInput: TextInput,
+  numberInput: NumberInput,
   dateTimePicker: DateTimePicker,
   select: Select,
 } as const;

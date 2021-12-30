@@ -88,7 +88,7 @@ export const useFormFields = (): { formFields: FormFields } => {
       memo: getFormField(Memo.getLabel(), 'textArea', false, {}),
       status: getFormField(Status.getLabel(), 'select', true, { items: Status.create('').flagTypes }),
       dueDate: getFormField(DueDate.getLabel(), 'dateTimePicker', false, {}),
-      estimateValue: getFormField(EstimateValue.getLabel(), 'numberInput', false, {}),
+      estimateValue: getFormField(EstimateValue.getLabel(), 'numberInput', false, { min: 0 }),
       estimateUnit: getFormField(EstimateUnit.getLabel(), 'select', false, { items: EstimateUnit.create('').flagTypes }),
       tags: getFormField(TagName.getLabel(), 'multipleSelect', false, {}),
     },
