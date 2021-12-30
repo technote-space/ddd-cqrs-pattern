@@ -25,12 +25,8 @@ export default class NotionTaskQueryService implements ITaskQueryService {
           },
         },
       ],
-      sort: {
-        column: 'dueDate',
-        direction: 'descending',
-      },
     });
 
-    return response.results.map(result => Mapper.toEntity(result));
+    return response.results.map(result => Mapper.toEntity(result)).sort((a, b) => a.compare(b));
   }
 }
