@@ -39,11 +39,11 @@ exports[`Storyshots Common Components/Form/AddTag Default 1`] = `
           "WebkitJustifyContent": "center",
           "alignItems": "center",
           "alignSelf": "center",
-          "backgroundColor": "rgba(6,182,212,1.00)",
-          "borderBottomLeftRadius": "4px",
-          "borderBottomRightRadius": "4px",
-          "borderTopLeftRadius": "4px",
-          "borderTopRightRadius": "4px",
+          "backgroundColor": "rgba(0,0,0,0.00)",
+          "borderBottomLeftRadius": "9999px",
+          "borderBottomRightRadius": "9999px",
+          "borderTopLeftRadius": "9999px",
+          "borderTopRightRadius": "9999px",
           "cursor": "pointer",
           "height": "32px",
           "justifyContent": "center",
@@ -65,7 +65,7 @@ exports[`Storyshots Common Components/Form/AddTag Default 1`] = `
         stroke=""
         style={
           Object {
-            "color": "rgba(250,250,250,1.00)",
+            "color": "rgba(38,38,38,1.00)",
             "height": "32px",
             "width": "32px",
           }
@@ -124,11 +124,11 @@ exports[`Storyshots Common Components/Form/AddTag Disabled 1`] = `
           "WebkitJustifyContent": "center",
           "alignItems": "center",
           "alignSelf": "center",
-          "backgroundColor": "rgba(6,182,212,1.00)",
-          "borderBottomLeftRadius": "4px",
-          "borderBottomRightRadius": "4px",
-          "borderTopLeftRadius": "4px",
-          "borderTopRightRadius": "4px",
+          "backgroundColor": "rgba(0,0,0,0.00)",
+          "borderBottomLeftRadius": "9999px",
+          "borderBottomRightRadius": "9999px",
+          "borderTopLeftRadius": "9999px",
+          "borderTopRightRadius": "9999px",
           "cursor": "pointer",
           "height": "32px",
           "justifyContent": "center",
@@ -150,7 +150,7 @@ exports[`Storyshots Common Components/Form/AddTag Disabled 1`] = `
         stroke=""
         style={
           Object {
-            "color": "rgba(250,250,250,1.00)",
+            "color": "rgba(38,38,38,1.00)",
             "height": "32px",
             "width": "32px",
           }
@@ -209,11 +209,11 @@ exports[`Storyshots Common Components/Form/AddTag Not Opened 1`] = `
           "WebkitJustifyContent": "center",
           "alignItems": "center",
           "alignSelf": "center",
-          "backgroundColor": "rgba(6,182,212,1.00)",
-          "borderBottomLeftRadius": "4px",
-          "borderBottomRightRadius": "4px",
-          "borderTopLeftRadius": "4px",
-          "borderTopRightRadius": "4px",
+          "backgroundColor": "rgba(0,0,0,0.00)",
+          "borderBottomLeftRadius": "9999px",
+          "borderBottomRightRadius": "9999px",
+          "borderTopLeftRadius": "9999px",
+          "borderTopRightRadius": "9999px",
           "cursor": "pointer",
           "height": "32px",
           "justifyContent": "center",
@@ -235,7 +235,7 @@ exports[`Storyshots Common Components/Form/AddTag Not Opened 1`] = `
         stroke=""
         style={
           Object {
-            "color": "rgba(250,250,250,1.00)",
+            "color": "rgba(38,38,38,1.00)",
             "height": "32px",
             "width": "32px",
           }
@@ -819,11 +819,11 @@ exports[`Storyshots Common Components/Form/View Default 1`] = `
             "WebkitJustifyContent": "center",
             "alignItems": "center",
             "alignSelf": "center",
-            "backgroundColor": "rgba(6,182,212,1.00)",
-            "borderBottomLeftRadius": "4px",
-            "borderBottomRightRadius": "4px",
-            "borderTopLeftRadius": "4px",
-            "borderTopRightRadius": "4px",
+            "backgroundColor": "rgba(0,0,0,0.00)",
+            "borderBottomLeftRadius": "9999px",
+            "borderBottomRightRadius": "9999px",
+            "borderTopLeftRadius": "9999px",
+            "borderTopRightRadius": "9999px",
             "cursor": "pointer",
             "height": "32px",
             "justifyContent": "center",
@@ -845,7 +845,7 @@ exports[`Storyshots Common Components/Form/View Default 1`] = `
           stroke=""
           style={
             Object {
-              "color": "rgba(250,250,250,1.00)",
+              "color": "rgba(38,38,38,1.00)",
               "height": "32px",
               "width": "32px",
             }
@@ -1150,11 +1150,11 @@ exports[`Storyshots Common Components/Form/View Disabled 1`] = `
             "WebkitJustifyContent": "center",
             "alignItems": "center",
             "alignSelf": "center",
-            "backgroundColor": "rgba(6,182,212,1.00)",
-            "borderBottomLeftRadius": "4px",
-            "borderBottomRightRadius": "4px",
-            "borderTopLeftRadius": "4px",
-            "borderTopRightRadius": "4px",
+            "backgroundColor": "rgba(0,0,0,0.00)",
+            "borderBottomLeftRadius": "9999px",
+            "borderBottomRightRadius": "9999px",
+            "borderTopLeftRadius": "9999px",
+            "borderTopRightRadius": "9999px",
             "cursor": "pointer",
             "height": "32px",
             "justifyContent": "center",
@@ -1176,7 +1176,7 @@ exports[`Storyshots Common Components/Form/View Disabled 1`] = `
           stroke=""
           style={
             Object {
-              "color": "rgba(250,250,250,1.00)",
+              "color": "rgba(38,38,38,1.00)",
               "height": "32px",
               "width": "32px",
             }
@@ -1481,11 +1481,11 @@ exports[`Storyshots Common Components/Form/View Not Opened 1`] = `
             "WebkitJustifyContent": "center",
             "alignItems": "center",
             "alignSelf": "center",
-            "backgroundColor": "rgba(6,182,212,1.00)",
-            "borderBottomLeftRadius": "4px",
-            "borderBottomRightRadius": "4px",
-            "borderTopLeftRadius": "4px",
-            "borderTopRightRadius": "4px",
+            "backgroundColor": "rgba(0,0,0,0.00)",
+            "borderBottomLeftRadius": "9999px",
+            "borderBottomRightRadius": "9999px",
+            "borderTopLeftRadius": "9999px",
+            "borderTopRightRadius": "9999px",
             "cursor": "pointer",
             "height": "32px",
             "justifyContent": "center",
@@ -1507,7 +1507,7 @@ exports[`Storyshots Common Components/Form/View Not Opened 1`] = `
           stroke=""
           style={
             Object {
-              "color": "rgba(250,250,250,1.00)",
+              "color": "rgba(38,38,38,1.00)",
               "height": "32px",
               "width": "32px",
             }
@@ -2811,7 +2811,7 @@ exports[`Storyshots Domain Components/Index/Task Default 1`] = `
                 "WebkitJustifyContent": "center",
                 "alignItems": "center",
                 "alignSelf": "center",
-                "backgroundColor": "rgba(0,0,0,0.00)",
+                "backgroundColor": "rgba(6,182,212,1.00)",
                 "borderBottomLeftRadius": "9999px",
                 "borderBottomRightRadius": "9999px",
                 "borderTopLeftRadius": "9999px",
@@ -2839,7 +2839,7 @@ exports[`Storyshots Domain Components/Index/Task Default 1`] = `
               stroke=""
               style={
                 Object {
-                  "color": "rgba(38,38,38,1.00)",
+                  "color": "rgba(250,250,250,1.00)",
                   "height": "32px",
                   "width": "32px",
                 }
@@ -2880,7 +2880,7 @@ exports[`Storyshots Domain Components/Index/Task Default 1`] = `
                 "WebkitJustifyContent": "center",
                 "alignItems": "center",
                 "alignSelf": "center",
-                "backgroundColor": "rgba(0,0,0,0.00)",
+                "backgroundColor": "rgba(239,68,68,1.00)",
                 "borderBottomLeftRadius": "9999px",
                 "borderBottomRightRadius": "9999px",
                 "borderTopLeftRadius": "9999px",
@@ -2908,7 +2908,7 @@ exports[`Storyshots Domain Components/Index/Task Default 1`] = `
               stroke=""
               style={
                 Object {
-                  "color": "rgba(38,38,38,1.00)",
+                  "color": "rgba(250,250,250,1.00)",
                   "height": "32px",
                   "width": "32px",
                 }
@@ -3364,7 +3364,7 @@ exports[`Storyshots Domain Components/Index/Task Long Text 1`] = `
                 "WebkitJustifyContent": "center",
                 "alignItems": "center",
                 "alignSelf": "center",
-                "backgroundColor": "rgba(0,0,0,0.00)",
+                "backgroundColor": "rgba(6,182,212,1.00)",
                 "borderBottomLeftRadius": "9999px",
                 "borderBottomRightRadius": "9999px",
                 "borderTopLeftRadius": "9999px",
@@ -3392,7 +3392,7 @@ exports[`Storyshots Domain Components/Index/Task Long Text 1`] = `
               stroke=""
               style={
                 Object {
-                  "color": "rgba(38,38,38,1.00)",
+                  "color": "rgba(250,250,250,1.00)",
                   "height": "32px",
                   "width": "32px",
                 }
@@ -3433,7 +3433,7 @@ exports[`Storyshots Domain Components/Index/Task Long Text 1`] = `
                 "WebkitJustifyContent": "center",
                 "alignItems": "center",
                 "alignSelf": "center",
-                "backgroundColor": "rgba(0,0,0,0.00)",
+                "backgroundColor": "rgba(239,68,68,1.00)",
                 "borderBottomLeftRadius": "9999px",
                 "borderBottomRightRadius": "9999px",
                 "borderTopLeftRadius": "9999px",
@@ -3461,7 +3461,7 @@ exports[`Storyshots Domain Components/Index/Task Long Text 1`] = `
               stroke=""
               style={
                 Object {
-                  "color": "rgba(38,38,38,1.00)",
+                  "color": "rgba(250,250,250,1.00)",
                   "height": "32px",
                   "width": "32px",
                 }
@@ -3973,7 +3973,7 @@ exports[`Storyshots Domain Components/Index/Task Optional 1`] = `
                 "WebkitJustifyContent": "center",
                 "alignItems": "center",
                 "alignSelf": "center",
-                "backgroundColor": "rgba(0,0,0,0.00)",
+                "backgroundColor": "rgba(6,182,212,1.00)",
                 "borderBottomLeftRadius": "9999px",
                 "borderBottomRightRadius": "9999px",
                 "borderTopLeftRadius": "9999px",
@@ -4001,7 +4001,7 @@ exports[`Storyshots Domain Components/Index/Task Optional 1`] = `
               stroke=""
               style={
                 Object {
-                  "color": "rgba(38,38,38,1.00)",
+                  "color": "rgba(250,250,250,1.00)",
                   "height": "32px",
                   "width": "32px",
                 }
@@ -4042,7 +4042,7 @@ exports[`Storyshots Domain Components/Index/Task Optional 1`] = `
                 "WebkitJustifyContent": "center",
                 "alignItems": "center",
                 "alignSelf": "center",
-                "backgroundColor": "rgba(0,0,0,0.00)",
+                "backgroundColor": "rgba(239,68,68,1.00)",
                 "borderBottomLeftRadius": "9999px",
                 "borderBottomRightRadius": "9999px",
                 "borderTopLeftRadius": "9999px",
@@ -4070,7 +4070,7 @@ exports[`Storyshots Domain Components/Index/Task Optional 1`] = `
               stroke=""
               style={
                 Object {
-                  "color": "rgba(38,38,38,1.00)",
+                  "color": "rgba(250,250,250,1.00)",
                   "height": "32px",
                   "width": "32px",
                 }
@@ -4488,10 +4488,10 @@ exports[`Storyshots Page Components/Index Default 1`] = `
               "alignItems": "center",
               "alignSelf": "center",
               "backgroundColor": "rgba(0,0,0,0.00)",
-              "borderBottomLeftRadius": "4px",
-              "borderBottomRightRadius": "4px",
-              "borderTopLeftRadius": "4px",
-              "borderTopRightRadius": "4px",
+              "borderBottomLeftRadius": "9999px",
+              "borderBottomRightRadius": "9999px",
+              "borderTopLeftRadius": "9999px",
+              "borderTopRightRadius": "9999px",
               "cursor": "pointer",
               "justifyContent": "center",
               "msFlexAlign": "center",
@@ -4605,10 +4605,10 @@ exports[`Storyshots Page Components/Index Not Loaded 1`] = `
               "alignItems": "center",
               "alignSelf": "center",
               "backgroundColor": "rgba(0,0,0,0.00)",
-              "borderBottomLeftRadius": "4px",
-              "borderBottomRightRadius": "4px",
-              "borderTopLeftRadius": "4px",
-              "borderTopRightRadius": "4px",
+              "borderBottomLeftRadius": "9999px",
+              "borderBottomRightRadius": "9999px",
+              "borderTopLeftRadius": "9999px",
+              "borderTopRightRadius": "9999px",
               "cursor": "pointer",
               "justifyContent": "center",
               "msFlexAlign": "center",
