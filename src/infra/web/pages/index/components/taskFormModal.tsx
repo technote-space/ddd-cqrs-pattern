@@ -6,6 +6,7 @@ import type { Control } from 'react-hook-form';
 import { memo, useMemo, useRef } from 'react';
 import Button from '#/button/button';
 import Modal from '#/dialog/modal';
+import DateTimePicker from '#/form/dateTimePicker';
 import FormLayout from '#/form/layout';
 import MultiSelect from '#/form/multipleSelect';
 import Select from '#/form/select';
@@ -28,7 +29,7 @@ const FormComponents = {
   textArea: TextArea,
   multipleSelect: MultiSelect,
   numberInput: TextInput,
-  datePicker: TextInput,
+  dateTimePicker: DateTimePicker,
   select: Select,
 } as const;
 export type FormComponentsType = typeof FormComponents;

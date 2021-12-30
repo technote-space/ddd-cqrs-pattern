@@ -50,8 +50,15 @@ module.exports = {
     "unused-imports/no-unused-imports": "error",
     "unused-imports/no-unused-vars": [
       "error",
-      {"vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_"}
+      {
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_",
+        "ignoreRestSiblings": true
+      }
     ],
+    "@typescript-eslint/no-unused-vars": ["error", {"ignoreRestSiblings": true}],
     "import/no-anonymous-default-export": "off",
     "react-hooks/rules-of-hooks": "off",
     "@technote-space/strict-dependencies/strict-dependencies": [
