@@ -31,6 +31,20 @@ export type WithControlProps<P extends ComponentProps = {}, T extends FieldValue
   label?: string;
 } & UseControllerReturn<T> & P;
 
+// eslint-disable-next-line @typescript-eslint/ban-types
+export const extractComponentProps = <P extends ComponentProps = {}, T extends FieldValues = FieldValues>({
+  isInvalid,
+  isDisabled,
+  isRequired,
+  label,
+  field,
+  fieldState,
+  formState,
+  ...props
+}: WithControlProps<P, T>): P => {
+  return props as unknown as P;
+};
+
 const WithControl = <P extends ComponentProps, T extends FieldValues>(
   Component: (props: WithControlProps<P, T>) => ReactElement,
 ) =>
