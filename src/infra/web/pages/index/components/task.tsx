@@ -38,7 +38,7 @@ const Task: VFC<Props> = ({
     <Flex flexDirection="row" alignItems="center">
       <Heading>{task.taskName}</Heading>
       <StatusBadge ml={2} status={task.status} dueDate={task.dueDate} estimateValue={task.estimateValue} estimateUnit={task.estimateUnit}/>
-      <ButtonGroup alignSelf="right">
+      <ButtonGroup ml="auto" mb={2}>
         <UpdateButton ml={4} size="sm" onPress={onUpdate}/>
         <DeleteButton ml={1} size="sm" onPress={onDelete}/>
       </ButtonGroup>
