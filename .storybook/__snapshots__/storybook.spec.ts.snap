@@ -2783,14 +2783,13 @@ exports[`Storyshots Domain Components/Index/Task Default 1`] = `
           className="css-view-1dbjc4n"
           style={
             Object {
-              "WebkitAlignSelf": "right",
               "WebkitBoxDirection": "normal",
               "WebkitBoxOrient": "horizontal",
               "WebkitFlexDirection": "row",
-              "alignSelf": "right",
               "flexDirection": "row",
+              "marginBottom": "8px",
+              "marginLeft": "auto",
               "msFlexDirection": "row",
-              "msFlexItemAlign": "right",
             }
           }
         >
@@ -3336,14 +3335,13 @@ exports[`Storyshots Domain Components/Index/Task Long Text 1`] = `
           className="css-view-1dbjc4n"
           style={
             Object {
-              "WebkitAlignSelf": "right",
               "WebkitBoxDirection": "normal",
               "WebkitBoxOrient": "horizontal",
               "WebkitFlexDirection": "row",
-              "alignSelf": "right",
               "flexDirection": "row",
+              "marginBottom": "8px",
+              "marginLeft": "auto",
               "msFlexDirection": "row",
-              "msFlexItemAlign": "right",
             }
           }
         >
@@ -3945,14 +3943,13 @@ exports[`Storyshots Domain Components/Index/Task Optional 1`] = `
           className="css-view-1dbjc4n"
           style={
             Object {
-              "WebkitAlignSelf": "right",
               "WebkitBoxDirection": "normal",
               "WebkitBoxOrient": "horizontal",
               "WebkitFlexDirection": "row",
-              "alignSelf": "right",
               "flexDirection": "row",
+              "marginBottom": "8px",
+              "marginLeft": "auto",
               "msFlexDirection": "row",
-              "msFlexItemAlign": "right",
             }
           }
         >
