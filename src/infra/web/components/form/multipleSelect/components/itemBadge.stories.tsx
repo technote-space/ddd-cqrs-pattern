@@ -1,25 +1,25 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import TagBadge from './tagBadge';
+import ItemBadge from './itemBadge';
 
 export default {
-  title: 'Common Components/Form/TagBadge',
-  component: TagBadge,
+  title: 'Common Components/Form/ItemBadge',
+  component: ItemBadge,
   argTypes: {
-    tag: { control: { type: 'text' } },
+    item: { control: { type: 'text' } },
     isDisabled: { control: { type: 'boolean' } },
   },
-} as ComponentMeta<typeof TagBadge>;
+} as ComponentMeta<typeof ItemBadge>;
 
-const Template: ComponentStory<typeof TagBadge> = (args) => <TagBadge {...args} />;
+const Template: ComponentStory<typeof ItemBadge> = (args) => <ItemBadge {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  tag: 'タグ',
+  item: 'タグ',
   isDisabled: false,
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-  tag: 'タグ',
+  item: 'タグ',
   isDisabled: true,
 };

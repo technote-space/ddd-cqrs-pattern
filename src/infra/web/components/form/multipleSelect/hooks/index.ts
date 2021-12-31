@@ -1,32 +1,32 @@
 import type { WithControlProps } from '#/form/withControl';
 import { useCallback, useMemo } from 'react';
-import { useAddTag } from '#/form/multipleSelect/hooks/addTag';
-import { useDeleteTag } from '#/form/multipleSelect/hooks/deleteTag';
+import { useAddItem } from '#/form/multipleSelect/hooks/addItem';
+import { useDeleteItem } from '#/form/multipleSelect/hooks/deleteItem';
 
 export type Props = {
   placeholder?: string;
 };
 
 export const useHooks = (props: WithControlProps<Props>) => {
-  const tags: string[] = useMemo(() => props.field.value ?? [], [props.field.value]);
-  const handleAddTag = useCallback((tag: string) => {
-    if (tag === '' || tags.includes(tag)) {
+  const items: string[] = useMemo(() => props.field.value ?? [], [props.field.value]);
+  const handleAddItem = useCallback((item: string) => {
+    if (item === '' || items.includes(item)) {
       return false;
     }
 
-    props.field.onChange([...tags, tag]);
+    props.field.onChange([...items, item]);
     return true;
-  }, [tags, props.field]);
-  const handleDeleteTag = useCallback((tag: string) => {
-    props.field.onChange(tags.filter(_tag => _tag !== tag));
-  }, [tags, props.field]);
+  }, [items, props.field]);
+  const handleDeleteItem = useCallback((item: string) => {
+    props.field.onChange(items.filter(_item => _item !== item));
+  }, [items, props.field]);
 
   return {
-    tags,
+    items,
     isDisabled: !!props.isDisabled,
     placeholder: props.placeholder ?? props.label ? `${props.label}を入力してください` : undefined,
-    ...useAddTag({ handleAddTag }),
-    ...useDeleteTag({ tags, handleDeleteTag }),
+    ...useAddItem({ handleAddItem }),
+    ...useDeleteItem({ items, handleDeleteItem }),
   };
 };
 
