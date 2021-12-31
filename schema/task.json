@@ -1,38 +1,37 @@
 {
   "table": "tasks",
-  "name": "タスク",
   "columns": [
     {
-      "name": "タスク名",
+      "name": "taskName",
       "type": "title"
     },
     {
-      "name": "メモ",
+      "name": "memo",
       "type": "text"
     },
     {
-      "name": "ステータス",
+      "name": "status",
       "type": "text"
     },
     {
-      "name": "期日",
+      "name": "dueDate",
       "type": "datetime"
     },
     {
-      "name": "作業見積値",
+      "name": "estimateValue",
       "type": "int"
     },
     {
-      "name": "作業見積単位",
+      "name": "estimateUnit",
       "type": "text"
     },
     {
-      "name": "ユーザー",
+      "name": "user",
       "type": "relation",
       "relation": "users"
     },
     {
-      "name": "タグ",
+      "name": "tags",
       "type": "relation",
       "relation": "tags",
       "multiple": true,

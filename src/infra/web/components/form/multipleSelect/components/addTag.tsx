@@ -10,10 +10,11 @@ type Props = {
   handleOpen: () => void;
   handleClose: () => void;
   handleSubmit: () => void;
+  placeholder?: string;
   isDisabled: boolean;
 }
 
-const AddTag: VFC<Props> = ({ value, handleChanged, isOpen, handleOpen, handleClose, handleSubmit, isDisabled }) => {
+const AddTag: VFC<Props> = ({ value, handleChanged, isOpen, handleOpen, handleClose, handleSubmit, placeholder, isDisabled }) => {
   const cancelRef = useRef();
   return <>
     <AddButton size="8" ml={1} onPress={handleOpen}/>
@@ -26,6 +27,7 @@ const AddTag: VFC<Props> = ({ value, handleChanged, isOpen, handleOpen, handleCl
             value={value}
             onChangeText={handleChanged}
             isDisabled={isDisabled}
+            placeholder={placeholder}
           />
         </Modal.Body>
         <Modal.Footer>

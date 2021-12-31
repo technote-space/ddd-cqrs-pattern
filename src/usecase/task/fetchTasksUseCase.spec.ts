@@ -36,23 +36,23 @@ describe('FetchTasksUseCase', () => {
     const tasks = await useCase.invoke({ userId: UserId.create('test') });
     expect(tasks).toHaveLength(2);
     expect(tasks[0].id).toBe('test1');
-    expect(tasks[0].タスク名).toBe('name1');
-    expect(tasks[0].メモ).toBe('memo1');
-    expect(tasks[0].ステータス).toBe('登録');
-    expect(tasks[0].期日).toBe('2021-12-31T15:00:00.000Z');
-    expect(tasks[0].作業見積値).toBe(10);
-    expect(tasks[0].作業見積単位).toBe('日');
-    expect(tasks[0].タグ).toHaveLength(2);
-    expect(tasks[0].タグ[0]).toBe('tag1');
-    expect(tasks[0].タグ[1]).toBe('tag2');
+    expect(tasks[0].taskName).toBe('name1');
+    expect(tasks[0].memo).toBe('memo1');
+    expect(tasks[0].status).toBe('登録');
+    expect(tasks[0].dueDate).toBe('2021-12-31T15:00:00.000Z');
+    expect(tasks[0].estimateValue).toBe(10);
+    expect(tasks[0].estimateUnit).toBe('日');
+    expect(tasks[0].tags).toHaveLength(2);
+    expect(tasks[0].tags![0]).toBe('tag1'); // eslint-disable-line @typescript-eslint/no-non-null-assertion
+    expect(tasks[0].tags![1]).toBe('tag2'); // eslint-disable-line @typescript-eslint/no-non-null-assertion
 
     expect(tasks[1].id).toBe('test2');
-    expect(tasks[1].タスク名).toBe('name2');
-    expect(tasks[1].メモ).toBeNull();
-    expect(tasks[1].ステータス).toBe('実行中');
-    expect(tasks[1].期日).toBeNull();
-    expect(tasks[1].作業見積値).toBeNull();
-    expect(tasks[1].作業見積単位).toBeNull();
-    expect(tasks[1].タグ).toHaveLength(0);
+    expect(tasks[1].taskName).toBe('name2');
+    expect(tasks[1].memo).toBeNull();
+    expect(tasks[1].status).toBe('実行中');
+    expect(tasks[1].dueDate).toBeNull();
+    expect(tasks[1].estimateValue).toBeNull();
+    expect(tasks[1].estimateUnit).toBeNull();
+    expect(tasks[1].tags).toHaveLength(0);
   });
 });

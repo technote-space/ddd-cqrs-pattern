@@ -1,9 +1,6 @@
 import Float from './float';
 
 class TestFloat extends Float {
-  public getName(): string {
-    return 'test';
-  }
 }
 
 class TestFloatWithLimit extends TestFloat {
@@ -40,15 +37,15 @@ describe('Float', () => {
   });
 
   it('should validate', () => {
-    expect(TestFloat.create('123').validate()).toBeUndefined();
-    expect(TestFloat.create('abc').validate()).toEqual([{ name: 'test', error: '数値の形式が正しくありません' }]);
+    expect(TestFloat.create('123').validate('test')).toBeUndefined();
+    expect(TestFloat.create('abc').validate('test')).toEqual([{ name: 'test', error: '数値の形式が正しくありません' }]);
   });
 });
 
 describe('Float with limit', () => {
   it('should validate', () => {
-    expect(TestFloatWithLimit.create('11').validate()).toEqual([{ name: 'test', error: '10以下の値を入力してください' }]);
-    expect(TestFloatWithLimit.create('-11').validate()).toEqual([{ name: 'test', error: '-10以上の値を入力してください' }]);
+    expect(TestFloatWithLimit.create('11').validate('test')).toEqual([{ name: 'test', error: '10以下の値を入力してください' }]);
+    expect(TestFloatWithLimit.create('-11').validate('test')).toEqual([{ name: 'test', error: '-10以上の値を入力してください' }]);
   });
 });
 
@@ -59,7 +56,7 @@ describe('Float(truncate mode)', () => {
   });
 
   it('should validate', () => {
-    expect(TestFloatWithTruncateMode.create('11').validate()).toBeUndefined();
-    expect(TestFloatWithTruncateMode.create('-11').validate()).toBeUndefined();
+    expect(TestFloatWithTruncateMode.create('11').validate('test')).toBeUndefined();
+    expect(TestFloatWithTruncateMode.create('-11').validate('test')).toBeUndefined();
   });
 });

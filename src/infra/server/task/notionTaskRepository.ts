@@ -39,20 +39,20 @@ export default class NotionTaskRepository implements ITaskRepository {
 
   public async save(task: Task): Promise<void> {
     const data = {
-      タスク名: task.taskName.value,
-      ステータス: task.status.value,
-      タグ: task.tags.collections.map(tag => tag.tagName.value),
-      メモ: task.memo?.value ?? null,
-      ユーザー: task.userId.value,
-      作業見積値: task.estimate?.value.value.value ?? null,
-      作業見積単位: task.estimate?.value.unit.value ?? null,
-      期日: task.dueDate?.value.toISOString() ?? null,
+      taskName: task.taskName.value,
+      status: task.status.value,
+      tags: task.tags.collections.map(tag => tag.tagName.value),
+      memo: task.memo?.value ?? null,
+      user: task.userId.value,
+      estimateValue: task.estimate?.value.value.value ?? null,
+      estimateUnit: task.estimate?.value.unit.value ?? null,
+      dueDate: task.dueDate?.value.toISOString() ?? null,
     };
 
     const result = await this.store(task, data);
     task.tags.collections.forEach(tag => {
       if (!tag.tagId.isSetId()) {
-        const found = result.タグ.find(t => t.value === tag.tagName.value);
+        const found = result.tags.find(t => t.value === tag.tagName.value);
         if (found) {
           tag.tagId.setGeneratedId(found.id);
         }

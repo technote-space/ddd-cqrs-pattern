@@ -3,7 +3,7 @@ import { useCallback, useMemo } from 'react';
 import { useAddTag } from '#/form/multipleSelect/hooks/addTag';
 import { useDeleteTag } from '#/form/multipleSelect/hooks/deleteTag';
 
-type Props = {
+export type Props = {
   placeholder?: string;
 };
 
@@ -24,6 +24,7 @@ export const useHooks = (props: WithControlProps<Props>) => {
   return {
     tags,
     isDisabled: !!props.isDisabled,
+    placeholder: props.placeholder ?? props.label ? `${props.label}を入力してください` : undefined,
     ...useAddTag({ handleAddTag }),
     ...useDeleteTag({ tags, handleDeleteTag }),
   };

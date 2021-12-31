@@ -1,7 +1,7 @@
 import Token from './token';
 
 describe('Token', () => {
-  it('名前が「ユーザー識別子」', () => {
-    expect(Token.create('test').getName()).toBe('ユーザー識別子');
+  it('ラベルが「ユーザー識別子」', () => {
+    expect(Token.getLabel()).toBe('ユーザー識別子');
   });
 });

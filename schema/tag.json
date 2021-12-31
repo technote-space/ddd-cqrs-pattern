@@ -1,13 +1,12 @@
 {
   "table": "tags",
-  "name": "タグ",
   "columns": [
     {
-      "name": "タグ名",
+      "name": "tagName",
       "type": "title"
     },
     {
-      "name": "ユーザー",
+      "name": "user",
       "type": "relation",
       "relation": "users"
     }

@@ -12,7 +12,7 @@ describe('DeleteTaskUseCase', () => {
       TaskId.create('taskId'),
       TaskName.create('task'),
       null,
-      Status.create('登録'),
+      Status.create('削除(登録)'),
       null,
       null,
       UserId.create('test'),
@@ -26,16 +26,36 @@ describe('DeleteTaskUseCase', () => {
     expect(mockFindById).toBeCalledTimes(1);
     expect(mockDelete).toBeCalledTimes(1);
     expect(result.id).toBe('taskId');
-    expect(result.タスク名).toBe('task');
-    expect(result.メモ).toBeNull();
-    expect(result.ステータス).toBe('登録');
-    expect(result.期日).toBeNull();
-    expect(result.作業見積値).toBeNull();
-    expect(result.作業見積単位).toBeNull();
-    expect(result.タグ).toEqual([]);
+    expect(result.taskName).toBe('task');
+    expect(result.memo).toBeNull();
+    expect(result.status).toBe('削除(登録)');
+    expect(result.dueDate).toBeNull();
+    expect(result.estimateValue).toBeNull();
+    expect(result.estimateUnit).toBeNull();
+    expect(result.tags).toEqual([]);
   });
 
   it('異なるユーザーのタスクを削除しようとするとエラー', async () => {
+    const mockFindById = jest.fn(() => Promise.resolve(Task.reconstruct(
+      TaskId.create('taskId'),
+      TaskName.create('task'),
+      null,
+      Status.create('削除(登録)'),
+      null,
+      null,
+      UserId.create('test'),
+      Tags.create([]),
+    )));
+    const mockDelete = jest.fn(() => Promise.resolve());
+    const useCase = new DeleteTaskUseCase({ findById: mockFindById, delete: mockDelete } as never);
+
+    await expect(useCase.invoke({ userId: UserId.create('test2') }, TaskId.create('taskId'))).rejects.toThrow('Forbidden');
+
+    expect(mockFindById).toBeCalledTimes(1);
+    expect(mockDelete).not.toBeCalled();
+  });
+
+  it('削除できないステータスのタスクを削除しようとするとエラー', async () => {
     const mockFindById = jest.fn(() => Promise.resolve(Task.reconstruct(
       TaskId.create('taskId'),
       TaskName.create('task'),
@@ -49,7 +69,7 @@ describe('DeleteTaskUseCase', () => {
     const mockDelete = jest.fn(() => Promise.resolve());
     const useCase = new DeleteTaskUseCase({ findById: mockFindById, delete: mockDelete } as never);
 
-    await expect(useCase.invoke({ userId: UserId.create('test2') }, TaskId.create('taskId'))).rejects.toThrow('Forbidden');
+    await expect(useCase.invoke({ userId: UserId.create('test') }, TaskId.create('taskId'))).rejects.toThrow('その操作は許可されていません');
 
     expect(mockFindById).toBeCalledTimes(1);
     expect(mockDelete).not.toBeCalled();

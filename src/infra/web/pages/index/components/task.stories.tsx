@@ -17,13 +17,13 @@ export const Default = Template.bind({});
 Default.args = {
   task: {
     id: 'id',
-    タスク名: 'タスク名',
-    メモ: 'メモ',
-    ステータス: '実行中',
-    期日: dayjs(current).subtract(-15, 'day').format('YYYY-MM-DD HH:mm'),
-    作業見積値: 10,
-    作業見積単位: '日',
-    タグ: ['テスト1', 'テスト2'],
+    taskName: 'タスク名',
+    memo: 'メモ',
+    status: '実行中',
+    dueDate: dayjs(current).subtract(-15, 'day').format('YYYY-MM-DD HH:mm'),
+    estimateValue: 10,
+    estimateUnit: '日',
+    tags: ['テスト1', 'テスト2'],
   },
 };
 
@@ -31,17 +31,26 @@ export const LongText = Template.bind({});
 LongText.args = {
   task: {
     id: 'id',
-    タスク名: 'タスクタスクタスクタスクタスクタスクタスクタスクタスクタスクタスク',
-    メモ: 'メモメモメモメモメモメモメモメモメモ\nメモメモメモメモメモメモメモメモメモメモメモメモメモメモメモメモメモメモメモ',
-    ステータス: '実行中',
-    期日: dayjs(current).subtract(5, 'hour').format('YYYY-MM-DD HH:mm'),
-    作業見積値: 10,
-    作業見積単位: '時間',
-    タグ: ['テストテストテストテストテストテストテストテストテストテストテストテストテストテスト', 'テスト1', 'テスト2'],
+    taskName: 'タスクタスクタスクタスクタスクタスクタスクタスクタスクタスクタスク',
+    memo: 'メモメモメモメモメモメモメモメモメモ\nメモメモメモメモメモメモメモメモメモメモメモメモメモメモメモメモメモメモメモ',
+    status: '実行中',
+    dueDate: dayjs(current).subtract(5, 'hour').format('YYYY-MM-DD HH:mm'),
+    estimateValue: 10,
+    estimateUnit: '時間',
+    tags: ['テストテストテストテストテストテストテストテストテストテストテストテストテストテスト', 'テスト1', 'テスト2'],
   },
 };
 
 export const Optional = Template.bind({});
 Optional.args = {
-  task: { id: 'id', タスク名: 'タスク', メモ: null, ステータス: '登録', 期日: null, 作業見積値: null, 作業見積単位: null, タグ: [] },
+  task: {
+    id: 'id',
+    taskName: 'タスク',
+    memo: null,
+    status: '登録',
+    dueDate: null,
+    estimateValue: null,
+    estimateUnit: null,
+    tags: [],
+  },
 };

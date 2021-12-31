@@ -52,6 +52,8 @@ export type Auth0Config = {
 
 @singleton()
 export class Auth0Auth implements IAuth {
+  private _syncLoading = false;
+
   public constructor(
     @inject('IAuthContext') private authContext: IAuthContext,
     @inject('IApi') private api: IApi,
@@ -89,7 +91,8 @@ export class Auth0Auth implements IAuth {
       }
 
       // auth0 にログインしていてログイン状態でない場合はログイン
-      if (isAuthenticated && !user.isLoggedIn && !isProcessRunning('login')) {
+      if (isAuthenticated && !user.isLoggedIn && !isProcessRunning('login') && !this._syncLoading) {
+        this._syncLoading = true;
         (async () => {
           await withLoading(async () => {
             const { authorization } = await caller(async client => client.login.$post({ body: { token: await getAccessTokenSilently() } }));
@@ -98,6 +101,7 @@ export class Auth0Auth implements IAuth {
               isLoggedIn: true,
             });
           }, 'ログイン中...', 'login');
+          this._syncLoading = false;
         })();
       }
 

@@ -1,12 +1,13 @@
 import type { Props } from '$/web/pages';
 import type { IApi } from '$/web/shared/api';
 import type { IAuth } from '$/web/shared/auth';
+import type { FormValues } from '^/usecase/task/taskDto';
 import { useCallback, useMemo, useEffect } from 'react';
 import { useOnSubmit } from '@/web/helpers/form';
 import { getAuthorization } from '@/web/pages/index/helpers/auth';
 import { useDeleteTaskDialog, useTaskFormDialog } from '@/web/pages/index/hooks/dialog';
 import { useDeleteTask, useTaskForm } from '@/web/pages/index/hooks/form';
-import { FormValues } from '^/usecase/task/taskDto';
+import { useFormFields } from '^/usecase/task/taskDto';
 import { useTasks } from './data';
 
 // eslint-disable-next-line unused-imports/no-unused-vars
@@ -57,6 +58,7 @@ export const useHooks = (props: Props, auth: IAuth, api: IApi) => {
     onSubmitForm,
     selectedTask,
     validationErrors,
+    ...useFormFields()
   };
 };
 export type HooksParams = ReturnType<typeof useHooks>;

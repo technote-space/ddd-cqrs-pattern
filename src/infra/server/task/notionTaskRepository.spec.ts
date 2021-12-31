@@ -19,14 +19,14 @@ describe('NotionTaskRepository', () => {
     it('指定されたIDのタスクを取得', async () => {
       const mockFind = jest.fn(() => Promise.resolve({
         id: 'test',
-        タスク名: 'タスク',
-        ステータス: '登録',
-        タグ: [{ id: 'test1', value: '宿題' }, { id: 'test2', value: 'テスト' }],
-        メモ: 'メモメモ',
-        ユーザー: { id: 'user', value: 'テストユーザー' },
-        作業見積値: 10,
-        作業見積単位: '日',
-        期日: '2022-01-01T10:00:00+09:00',
+        taskName: 'タスク',
+        status: '登録',
+        tags: [{ id: 'test1', value: '宿題' }, { id: 'test2', value: 'テスト' }],
+        memo: 'メモメモ',
+        user: { id: 'user', value: 'テストユーザー' },
+        estimateValue: 10,
+        estimateUnit: '日',
+        dueDate: '2022-01-01T10:00:00+09:00',
       }));
       const repository = new NotionTaskRepository({ find: mockFind } as never);
 
@@ -50,14 +50,14 @@ describe('NotionTaskRepository', () => {
     it('null を含む指定されたIDのタスクを取得', async () => {
       const mockFind = jest.fn(() => Promise.resolve({
         id: 'test',
-        タスク名: 'タスク',
-        ステータス: '登録',
-        タグ: [],
-        メモ: null,
-        ユーザー: { id: 'user', value: 'テストユーザー' },
-        作業見積値: null,
-        作業見積単位: null,
-        期日: null,
+        taskName: 'タスク',
+        status: '登録',
+        tags: [],
+        memo: null,
+        user: { id: 'user', value: 'テストユーザー' },
+        estimateValue: null,
+        estimateUnit: null,
+        dueDate: null,
       }));
       const repository = new NotionTaskRepository({ find: mockFind } as never);
 
@@ -86,7 +86,7 @@ describe('NotionTaskRepository', () => {
     it('タスクIDがない場合は新しく作成', async () => {
       const mockCreate = jest.fn(() => Promise.resolve({
         id: '1234567890',
-        タグ: [{ value: 'tag1', id: 'tag-id1' }],
+        tags: [{ value: 'tag1', id: 'tag-id1' }],
       }));
       const repository = new NotionTaskRepository({ create: mockCreate } as never);
 
@@ -104,14 +104,14 @@ describe('NotionTaskRepository', () => {
       );
       await repository.save(task);
       expect(mockCreate).toBeCalledWith('tasks', {
-        ステータス: '登録',
-        タグ: ['tag1', 'tag2', 'tag3'],
-        タスク名: 'name',
-        メモ: 'memo',
-        ユーザー: 'user',
-        作業見積値: 10,
-        作業見積単位: '日',
-        期日: '2022-01-01T01:00:00.000Z',
+        status: '登録',
+        tags: ['tag1', 'tag2', 'tag3'],
+        taskName: 'name',
+        memo: 'memo',
+        user: 'user',
+        estimateValue: 10,
+        estimateUnit: '日',
+        dueDate: '2022-01-01T01:00:00.000Z',
       });
       expect(task.taskId.value).toBe('1234567890');
       expect(task.tags.collections[0].tagId.isSetId()).toBe(true);
@@ -137,14 +137,14 @@ describe('NotionTaskRepository', () => {
       await repository.save(task);
       expect(mockUpdate).toBeCalledWith('tasks', {
         id: 'id',
-        ステータス: '登録',
-        タグ: [],
-        タスク名: 'name',
-        メモ: null,
-        ユーザー: 'user',
-        作業見積値: null,
-        作業見積単位: null,
-        期日: null,
+        status: '登録',
+        tags: [],
+        taskName: 'name',
+        memo: null,
+        user: 'user',
+        estimateValue: null,
+        estimateUnit: null,
+        dueDate: null,
       });
     });
   });

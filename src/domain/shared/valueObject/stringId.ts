@@ -13,7 +13,7 @@ export default abstract class StringId extends Base<number | string | null, stri
 
   protected toOutput(): string {
     if (this.inner === null) {
-      throw new InvalidValueException(this.getName());
+      throw new InvalidValueException('id');
     }
 
     return super.toOutput();
@@ -27,14 +27,14 @@ export default abstract class StringId extends Base<number | string | null, stri
     this.reconstruct(id);
   }
 
-  public validate(): ValidationError[] | undefined {
+  public validate(name: string): ValidationError[] | undefined {
     const text = this.fromInput();
     if (text === null) {
       return undefined;
     }
 
     if (!text.length) {
-      return [{ name: this.getName(), error: '値を指定してください' }];
+      return [{ name, error: '値を指定してください' }];
     }
 
     return undefined;

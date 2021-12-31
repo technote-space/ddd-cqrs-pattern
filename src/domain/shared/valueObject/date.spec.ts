@@ -1,9 +1,6 @@
 import Date from './date';
 
 class TestDate extends Date {
-  public getName(): string {
-    return 'test';
-  }
 }
 
 describe('Date', () => {
@@ -26,9 +23,9 @@ describe('Date', () => {
   });
 
   it('should validate', () => {
-    expect(TestDate.create('2020-10-20').validate()).toBeUndefined();
-    expect(TestDate.create('2020-10-20T10:00:00+09:00').validate()).toBeUndefined();
-    expect(TestDate.create(undefined).validate()).toBeUndefined();
-    expect(TestDate.create('abc').validate()).toEqual([{ name: 'test', error: '日付の形式が正しくありません' }]);
+    expect(TestDate.create('2020-10-20').validate('test')).toBeUndefined();
+    expect(TestDate.create('2020-10-20T10:00:00+09:00').validate('test')).toBeUndefined();
+    expect(TestDate.create(undefined).validate('test')).toBeUndefined();
+    expect(TestDate.create('abc').validate('test')).toEqual([{ name: 'test', error: '日付の形式が正しくありません' }]);
   });
 });

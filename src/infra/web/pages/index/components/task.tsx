@@ -36,25 +36,25 @@ const Task: VFC<Props> = ({
     width="100%"
   >
     <Flex flexDirection="row" alignItems="center">
-      <Heading>{task.タスク名}</Heading>
-      <StatusBadge ml={2} status={task.ステータス} dueDate={task.期日} estimateValue={task.作業見積値} estimateUnit={task.作業見積単位}/>
-      <ButtonGroup alignSelf="right">
+      <Heading>{task.taskName}</Heading>
+      <StatusBadge ml={2} status={task.status} dueDate={task.dueDate} estimateValue={task.estimateValue} estimateUnit={task.estimateUnit}/>
+      <ButtonGroup ml="auto" mb={2}>
         <UpdateButton ml={4} size="sm" onPress={onUpdate}/>
         <DeleteButton ml={1} size="sm" onPress={onDelete}/>
       </ButtonGroup>
     </Flex>
     <Flex flexDirection="row">
       <Flex flex={1}>
-        {task.メモ && <LongText>{task.メモ}</LongText>}
-        {!!task.タグ.length && <HStack flexWrap="wrap">
-          {task.タグ.map((tag, index) => <TagBadge key={index} tag={tag}/>)}
+        {task.memo && <LongText>{task.memo}</LongText>}
+        {!!task.tags?.length && <HStack flexWrap="wrap">
+          {task.tags.map((tag, index) => <TagBadge key={index} tag={tag}/>)}
         </HStack>}
       </Flex>
       <DueDate
-        status={task.ステータス}
-        dueDate={task.期日}
-        estimateValue={task.作業見積値}
-        estimateUnit={task.作業見積単位}
+        status={task.status}
+        dueDate={task.dueDate}
+        estimateValue={task.estimateValue}
+        estimateUnit={task.estimateUnit}
         current={current}
       />
     </Flex>

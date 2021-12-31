@@ -87,7 +87,7 @@ export default class RelationProperty extends Base {
     /* istanbul ignore next */
     if (!column) {
       /* istanbul ignore next */
-      throw new InvalidUsage(`サポートされていません: ${table.name}`);
+      throw new InvalidUsage(`サポートされていません: ${table.table}`);
     }
 
     const searched = await this.database.search(table.table, {

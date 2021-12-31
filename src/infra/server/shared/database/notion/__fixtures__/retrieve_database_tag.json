@@ -9,7 +9,7 @@
     {
       "type": "text",
       "text": {
-        "content": "タグ",
+        "content": "tags",
         "link": null
       },
       "annotations": {
@@ -20,34 +20,34 @@
         "code": false,
         "color": "default"
       },
-      "plain_text": "タグ",
+      "plain_text": "tags",
       "href": null
     }
   ],
   "properties": {
-    "ユーザー": {
+    "user": {
       "id": "%3EzVJ",
-      "name": "ユーザー",
+      "name": "user",
       "type": "relation",
       "relation": {
         "database_id": "12345678-a74f-4552-bde9-54b92453e1b6",
-        "synced_property_name": "Related to タグ (ユーザー)",
+        "synced_property_name": "Related to tags (user)",
         "synced_property_id": "T~sP"
       }
     },
-    "Related to タスク (タグ)": {
+    "Related to tasks (tags)": {
       "id": "X%3CWw",
-      "name": "Related to タスク (タグ)",
+      "name": "Related to tasks (tags)",
       "type": "relation",
       "relation": {
         "database_id": "12345678-805e-4279-802d-749613f9f84e",
-        "synced_property_name": "タグ",
+        "synced_property_name": "tags",
         "synced_property_id": ":r:Y"
       }
     },
-    "タグ名": {
+    "tagName": {
       "id": "title",
-      "name": "タグ名",
+      "name": "tagName",
       "type": "title",
       "title": {}
     }

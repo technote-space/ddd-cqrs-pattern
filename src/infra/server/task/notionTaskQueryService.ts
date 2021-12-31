@@ -17,7 +17,7 @@ export default class NotionTaskQueryService implements ITaskQueryService {
     const response = await this.database.search<DatabaseType>('tasks', {
       filter: [
         {
-          property: 'ユーザー',
+          property: 'user',
           condition: {
             relation: {
               contains: userId.value,
@@ -25,12 +25,8 @@ export default class NotionTaskQueryService implements ITaskQueryService {
           },
         },
       ],
-      sort: {
-        column: '期日',
-        direction: 'descending',
-      },
     });
 
-    return response.results.map(result => Mapper.toEntity(result));
+    return response.results.map(result => Mapper.toEntity(result)).sort((a, b) => a.compare(b));
   }
 }

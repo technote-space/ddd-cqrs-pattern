@@ -10,7 +10,7 @@
       "archived": false,
       "type": "child_database",
       "child_database": {
-        "title": "ユーザー"
+        "title": "users"
       }
     },
     {
@@ -22,7 +22,7 @@
       "archived": false,
       "type": "child_database",
       "child_database": {
-        "title": "タグ"
+        "title": "tags"
       }
     },
     {
@@ -34,7 +34,7 @@
       "archived": false,
       "type": "child_database",
       "child_database": {
-        "title": "タスク"
+        "title": "tasks"
       }
     },
     {
