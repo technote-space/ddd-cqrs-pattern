@@ -11,12 +11,10 @@ import {
 import WithControl, { extractComponentProps } from '#/form/withControl';
 
 type Props = INumberInputProps & {
-  placeholder?: string;
   fieldProps?: INumberInputFieldProps;
 };
 
 const NumberInput = ({
-  placeholder,
   variant,
   label,
   isDisabled,
@@ -29,7 +27,6 @@ const NumberInput = ({
     {...extractComponentProps(props)}
   >
     <NumberInputField
-      placeholder={placeholder ?? label ? `${label}を入力してください` : undefined}
       variant={variant ?? 'outline'}
       onBlur={props.field.onBlur}
       value={props.field.value ?? ''}

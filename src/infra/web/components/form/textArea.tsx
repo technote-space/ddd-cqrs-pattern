@@ -16,7 +16,7 @@ const TextArea = ({
   ...props
 }: WithControlProps<Props>): ReactElement => {
   return <NBTextArea
-    placeholder={placeholder ?? label ? `${label}を入力してください` : undefined}
+    placeholder={placeholder ?? (label ? `${label}を入力してください` : undefined)}
     numberOfLines={numberOfLines ?? 5}
     isDisabled={isDisabled}
     onBlur={props.field.onBlur}

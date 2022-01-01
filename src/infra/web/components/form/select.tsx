@@ -19,7 +19,7 @@ const Select = ({
   ...props
 }: WithControlProps<Props>): ReactElement => {
   return <NBSelect
-    placeholder={placeholder ?? label ? `${label}を選択してください` : undefined}
+    placeholder={placeholder ?? (label ? `${label}を選択してください` : undefined)}
     variant={variant ?? 'outline'}
     isDisabled={isDisabled}
     onValueChange={props.field.onChange}
