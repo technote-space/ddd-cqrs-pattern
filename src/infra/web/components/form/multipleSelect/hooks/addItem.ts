@@ -2,9 +2,10 @@ import { useCallback, useState } from 'react';
 
 type Props = {
   handleAddItem: (item: string) => boolean;
+  isDisabled?: boolean;
 };
 
-export const useAddItem = ({ handleAddItem }: Props) => {
+export const useAddItem = ({ handleAddItem, isDisabled }: Props) => {
   const [addItemValue, setAddItemValue] = useState('');
   const handleChangeAddItemValue = useCallback((text: string) => {
     setAddItemValue(text);
@@ -27,7 +28,7 @@ export const useAddItem = ({ handleAddItem }: Props) => {
   return {
     addItemValue,
     handleChangeAddItemValue,
-    isOpenAddModal,
+    isOpenAddModal: isOpenAddModal && !isDisabled,
     handleOpenAddItem,
     handleCloseAddItem,
     handleSubmitAddItem,

@@ -25,7 +25,7 @@ export const useHooks = (props: WithControlProps<Props>) => {
     items,
     isDisabled: !!props.isDisabled,
     placeholder: props.placeholder ?? props.label ? `${props.label}を入力してください` : undefined,
-    ...useAddItem({ handleAddItem }),
+    ...useAddItem({ handleAddItem, isDisabled: props.isDisabled }),
     ...useDeleteItem({ items, handleDeleteItem }),
   };
 };

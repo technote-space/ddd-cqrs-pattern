@@ -129,7 +129,7 @@ exports[`Storyshots Common Components/Form/AddItem Disabled 1`] = `
           "borderBottomRightRadius": "9999px",
           "borderTopLeftRadius": "9999px",
           "borderTopRightRadius": "9999px",
-          "cursor": "pointer",
+          "cursor": "not-allowed",
           "height": "32px",
           "justifyContent": "center",
           "marginLeft": "4px",
@@ -1155,7 +1155,7 @@ exports[`Storyshots Common Components/Form/View Disabled 1`] = `
             "borderBottomRightRadius": "9999px",
             "borderTopLeftRadius": "9999px",
             "borderTopRightRadius": "9999px",
-            "cursor": "pointer",
+            "cursor": "not-allowed",
             "height": "32px",
             "justifyContent": "center",
             "marginLeft": "4px",
@@ -4120,6 +4120,4008 @@ exports[`Storyshots Domain Components/Index/Task Optional 1`] = `
 </div>
 `;
 
+exports[`Storyshots Domain Components/Index/TaskForm Default 1`] = `
+<div
+  className="css-view-1dbjc4n"
+  style={
+    Object {
+      "WebkitFlex": 1,
+      "flex": 1,
+      "msFlex": "1 1 0%",
+    }
+  }
+>
+  <div
+    className="css-view-1dbjc4n"
+    style={
+      Object {
+        "display": "flex",
+        "height": "100vh",
+        "overflowX": "auto",
+        "overflowY": "auto",
+      }
+    }
+  >
+    <div
+      className="css-view-1dbjc4n r-scrollbarWidth-2eszeu"
+      onScroll={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      onWheel={[Function]}
+      style={
+        Object {
+          "WebkitBoxDirection": "normal",
+          "WebkitBoxFlex": 1,
+          "WebkitBoxOrient": "vertical",
+          "WebkitFlex": 1,
+          "WebkitFlexDirection": "column",
+          "WebkitFlexGrow": 1,
+          "WebkitFlexShrink": 1,
+          "WebkitOverflowScrolling": "touch",
+          "WebkitTransform": "translateZ(0px)",
+          "flex": 1,
+          "flexDirection": "column",
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "msFlex": "1 1 0%",
+          "msFlexDirection": "column",
+          "msFlexNegative": 1,
+          "msFlexPositive": 1,
+          "overflowX": "hidden",
+          "overflowY": "auto",
+          "paddingBottom": "8px",
+          "paddingLeft": "8px",
+          "paddingRight": "8px",
+          "paddingTop": "8px",
+          "transform": "translateZ(0px)",
+          "width": "100%",
+        }
+      }
+    >
+      <div
+        className="css-view-1dbjc4n"
+      >
+        <div
+          className="css-view-1dbjc4n"
+          style={
+            Object {
+              "WebkitBoxDirection": "normal",
+              "WebkitBoxOrient": "vertical",
+              "WebkitFlexDirection": "column",
+              "display": "flex",
+              "flexDirection": "column",
+              "marginBottom": "8px",
+              "marginLeft": "8px",
+              "marginRight": "8px",
+              "marginTop": "8px",
+              "msFlexDirection": "column",
+            }
+          }
+        >
+          <div
+            className="css-view-1dbjc4n"
+            style={
+              Object {
+                "marginBottom": "0px",
+                "marginLeft": "0px",
+                "marginRight": "0px",
+                "marginTop": "16px",
+                "paddingLeft": "8px",
+                "paddingRight": "8px",
+                "width": "100%",
+              }
+            }
+          >
+            <label
+              className="css-view-1dbjc4n"
+              id="field-react-aria-1-label"
+              style={
+                Object {
+                  "WebkitBoxDirection": "normal",
+                  "WebkitBoxOrient": "horizontal",
+                  "WebkitBoxPack": "start",
+                  "WebkitFlexDirection": "row",
+                  "WebkitJustifyContent": "flex-start",
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "marginBottom": "8px",
+                  "marginRight": "12px",
+                  "msFlexDirection": "row",
+                  "msFlexPack": "start",
+                }
+              }
+            >
+              <div
+                className="css-text-901oao"
+                dir="auto"
+                style={
+                  Object {
+                    "color": "rgba(31,41,55,1.00)",
+                    "fontSize": "14px",
+                    "fontStyle": "normal",
+                    "fontWeight": "700",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
+                  }
+                }
+              >
+                タスク名
+              </div>
+              <div
+                className="css-view-1dbjc4n"
+                style={
+                  Object {
+                    "WebkitAlignItems": "center",
+                    "WebkitBoxAlign": "center",
+                    "alignItems": "center",
+                    "backgroundColor": "rgba(254,202,202,1.00)",
+                    "borderBottomColor": "rgba(0,0,0,0.00)",
+                    "borderBottomLeftRadius": "2px",
+                    "borderBottomRightRadius": "2px",
+                    "borderBottomWidth": "1px",
+                    "borderLeftColor": "rgba(0,0,0,0.00)",
+                    "borderLeftWidth": "1px",
+                    "borderRightColor": "rgba(0,0,0,0.00)",
+                    "borderRightWidth": "1px",
+                    "borderTopColor": "rgba(0,0,0,0.00)",
+                    "borderTopLeftRadius": "2px",
+                    "borderTopRightRadius": "2px",
+                    "borderTopWidth": "1px",
+                    "marginLeft": "4px",
+                    "msFlexAlign": "center",
+                    "paddingBottom": "2px",
+                    "paddingLeft": "8px",
+                    "paddingRight": "8px",
+                    "paddingTop": "2px",
+                  }
+                }
+              >
+                <div
+                  className="css-text-901oao"
+                  dir="auto"
+                  style={
+                    Object {
+                      "color": "rgba(220,38,38,1.00)",
+                      "fontSize": "12px",
+                      "fontStyle": "normal",
+                      "fontWeight": "500",
+                      "letterSpacing": "0px",
+                      "lineHeight": "1.5em",
+                    }
+                  }
+                >
+                  必須
+                </div>
+              </div>
+            </label>
+            <input
+              autoCapitalize="sentences"
+              autoComplete="on"
+              autoCorrect="on"
+              className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
+              dir="auto"
+              id="field-react-aria-1"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onSelect={[Function]}
+              placeholder="タスク名を入力してください"
+              readOnly={false}
+              spellCheck={true}
+              style={
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0.00)",
+                  "borderBottomColor": "rgba(229,229,229,1.00)",
+                  "borderBottomLeftRadius": "4px",
+                  "borderBottomRightRadius": "4px",
+                  "borderBottomWidth": "1px",
+                  "borderLeftColor": "rgba(229,229,229,1.00)",
+                  "borderLeftWidth": "1px",
+                  "borderRightColor": "rgba(229,229,229,1.00)",
+                  "borderRightWidth": "1px",
+                  "borderTopColor": "rgba(229,229,229,1.00)",
+                  "borderTopLeftRadius": "4px",
+                  "borderTopRightRadius": "4px",
+                  "borderTopWidth": "1px",
+                  "color": "rgba(31,41,55,1.00)",
+                  "cursor": "auto",
+                  "fontSize": "12px",
+                  "fontStyle": "normal",
+                  "fontWeight": "400",
+                  "lineHeight": "1.5em",
+                  "outlineWidth": "0px",
+                  "paddingBottom": "8px",
+                  "paddingLeft": "8px",
+                  "paddingRight": "8px",
+                  "paddingTop": "8px",
+                }
+              }
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            className="css-view-1dbjc4n"
+            style={
+              Object {
+                "marginBottom": "0px",
+                "marginLeft": "0px",
+                "marginRight": "0px",
+                "marginTop": "16px",
+                "paddingLeft": "8px",
+                "paddingRight": "8px",
+                "width": "100%",
+              }
+            }
+          >
+            <label
+              className="css-view-1dbjc4n"
+              id="field-react-aria-2-label"
+              style={
+                Object {
+                  "WebkitBoxDirection": "normal",
+                  "WebkitBoxOrient": "horizontal",
+                  "WebkitBoxPack": "start",
+                  "WebkitFlexDirection": "row",
+                  "WebkitJustifyContent": "flex-start",
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "marginBottom": "8px",
+                  "marginRight": "12px",
+                  "msFlexDirection": "row",
+                  "msFlexPack": "start",
+                }
+              }
+            >
+              <div
+                className="css-text-901oao"
+                dir="auto"
+                style={
+                  Object {
+                    "color": "rgba(31,41,55,1.00)",
+                    "fontSize": "14px",
+                    "fontStyle": "normal",
+                    "fontWeight": "700",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
+                  }
+                }
+              >
+                メモ
+              </div>
+            </label>
+            <textarea
+              autoCapitalize="sentences"
+              autoComplete="on"
+              autoCorrect="on"
+              className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
+              dir="auto"
+              disabled={false}
+              id="field-react-aria-2"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onSelect={[Function]}
+              placeholder="メモを入力してください"
+              readOnly={false}
+              rows={4}
+              spellCheck={true}
+              style={
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0.00)",
+                  "borderBottomColor": "rgba(229,229,229,1.00)",
+                  "borderBottomLeftRadius": "4px",
+                  "borderBottomRightRadius": "4px",
+                  "borderBottomWidth": "1px",
+                  "borderLeftColor": "rgba(229,229,229,1.00)",
+                  "borderLeftWidth": "1px",
+                  "borderRightColor": "rgba(229,229,229,1.00)",
+                  "borderRightWidth": "1px",
+                  "borderTopColor": "rgba(229,229,229,1.00)",
+                  "borderTopLeftRadius": "4px",
+                  "borderTopRightRadius": "4px",
+                  "borderTopWidth": "1px",
+                  "color": "rgba(31,41,55,1.00)",
+                  "cursor": "auto",
+                  "fontSize": "12px",
+                  "fontStyle": "normal",
+                  "fontWeight": "400",
+                  "lineHeight": "1.5em",
+                  "outlineWidth": "0px",
+                  "paddingBottom": "8px",
+                  "paddingLeft": "8px",
+                  "paddingRight": "8px",
+                  "paddingTop": "8px",
+                }
+              }
+              value=""
+            />
+          </div>
+          <div
+            className="css-view-1dbjc4n"
+            style={
+              Object {
+                "marginBottom": "0px",
+                "marginLeft": "0px",
+                "marginRight": "0px",
+                "marginTop": "16px",
+                "paddingLeft": "8px",
+                "paddingRight": "8px",
+                "width": "100%",
+              }
+            }
+          >
+            <label
+              className="css-view-1dbjc4n"
+              id="field-react-aria-3-label"
+              style={
+                Object {
+                  "WebkitBoxDirection": "normal",
+                  "WebkitBoxOrient": "horizontal",
+                  "WebkitBoxPack": "start",
+                  "WebkitFlexDirection": "row",
+                  "WebkitJustifyContent": "flex-start",
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "marginBottom": "8px",
+                  "marginRight": "12px",
+                  "msFlexDirection": "row",
+                  "msFlexPack": "start",
+                }
+              }
+            >
+              <div
+                className="css-text-901oao"
+                dir="auto"
+                style={
+                  Object {
+                    "color": "rgba(31,41,55,1.00)",
+                    "fontSize": "14px",
+                    "fontStyle": "normal",
+                    "fontWeight": "700",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
+                  }
+                }
+              >
+                ステータス
+              </div>
+              <div
+                className="css-view-1dbjc4n"
+                style={
+                  Object {
+                    "WebkitAlignItems": "center",
+                    "WebkitBoxAlign": "center",
+                    "alignItems": "center",
+                    "backgroundColor": "rgba(254,202,202,1.00)",
+                    "borderBottomColor": "rgba(0,0,0,0.00)",
+                    "borderBottomLeftRadius": "2px",
+                    "borderBottomRightRadius": "2px",
+                    "borderBottomWidth": "1px",
+                    "borderLeftColor": "rgba(0,0,0,0.00)",
+                    "borderLeftWidth": "1px",
+                    "borderRightColor": "rgba(0,0,0,0.00)",
+                    "borderRightWidth": "1px",
+                    "borderTopColor": "rgba(0,0,0,0.00)",
+                    "borderTopLeftRadius": "2px",
+                    "borderTopRightRadius": "2px",
+                    "borderTopWidth": "1px",
+                    "marginLeft": "4px",
+                    "msFlexAlign": "center",
+                    "paddingBottom": "2px",
+                    "paddingLeft": "8px",
+                    "paddingRight": "8px",
+                    "paddingTop": "2px",
+                  }
+                }
+              >
+                <div
+                  className="css-text-901oao"
+                  dir="auto"
+                  style={
+                    Object {
+                      "color": "rgba(220,38,38,1.00)",
+                      "fontSize": "12px",
+                      "fontStyle": "normal",
+                      "fontWeight": "500",
+                      "letterSpacing": "0px",
+                      "lineHeight": "1.5em",
+                    }
+                  }
+                >
+                  必須
+                </div>
+              </div>
+            </label>
+            <div
+              className="css-view-1dbjc4n"
+              style={
+                Object {
+                  "borderBottomColor": "rgba(0,0,0,0.00)",
+                  "borderBottomLeftRadius": "4px",
+                  "borderBottomRightRadius": "4px",
+                  "borderBottomWidth": "1px",
+                  "borderLeftColor": "rgba(0,0,0,0.00)",
+                  "borderLeftWidth": "1px",
+                  "borderRightColor": "rgba(0,0,0,0.00)",
+                  "borderRightWidth": "1px",
+                  "borderTopColor": "rgba(0,0,0,0.00)",
+                  "borderTopLeftRadius": "4px",
+                  "borderTopRightRadius": "4px",
+                  "borderTopWidth": "1px",
+                }
+              }
+            >
+              <div
+                className="css-view-1dbjc4n"
+                style={
+                  Object {
+                    "height": "100%",
+                    "opacity": 0,
+                    "position": "absolute",
+                    "width": "100%",
+                    "zIndex": 1,
+                  }
+                }
+              >
+                <select
+                  aria-label="ステータスを選択してください"
+                  aria-readonly={false}
+                  disabled={false}
+                  onChange={[Function]}
+                  required={false}
+                  style={
+                    Object {
+                      "MozAppearance": "none",
+                      "WebkitAppearance": "none",
+                      "appearance": "none",
+                      "height": "100%",
+                      "width": "100%",
+                    }
+                  }
+                  value="__NativebasePlaceholder__"
+                >
+                  <option
+                    disabled={true}
+                    value="__NativebasePlaceholder__"
+                  >
+                    ステータスを選択してください
+                  </option>
+                  <option
+                    value="登録"
+                  >
+                    登録
+                  </option>
+                  <option
+                    value="実行中"
+                  >
+                    実行中
+                  </option>
+                  <option
+                    value="完了"
+                  >
+                    完了
+                  </option>
+                  <option
+                    value="削除(登録)"
+                  >
+                    削除(登録)
+                  </option>
+                  <option
+                    value="削除(実行中)"
+                  >
+                    削除(実行中)
+                  </option>
+                  <option
+                    value="削除(完了)"
+                  >
+                    削除(完了)
+                  </option>
+                </select>
+              </div>
+              <div
+                className="css-view-1dbjc4n"
+                style={
+                  Object {
+                    "WebkitAlignItems": "center",
+                    "WebkitBoxAlign": "center",
+                    "WebkitBoxDirection": "normal",
+                    "WebkitBoxOrient": "horizontal",
+                    "WebkitBoxPack": "justify",
+                    "WebkitFlexDirection": "row",
+                    "WebkitJustifyContent": "space-between",
+                    "alignItems": "center",
+                    "borderBottomColor": "rgba(229,229,229,1.00)",
+                    "borderBottomLeftRadius": "4px",
+                    "borderBottomRightRadius": "4px",
+                    "borderBottomWidth": "1px",
+                    "borderLeftColor": "rgba(229,229,229,1.00)",
+                    "borderLeftWidth": "1px",
+                    "borderRightColor": "rgba(229,229,229,1.00)",
+                    "borderRightWidth": "1px",
+                    "borderTopColor": "rgba(229,229,229,1.00)",
+                    "borderTopLeftRadius": "4px",
+                    "borderTopRightRadius": "4px",
+                    "borderTopWidth": "1px",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "justifyContent": "space-between",
+                    "msFlexAlign": "center",
+                    "msFlexDirection": "row",
+                    "msFlexPack": "justify",
+                    "overflowX": "hidden",
+                    "overflowY": "hidden",
+                  }
+                }
+              >
+                <input
+                  aria-hidden={true}
+                  autoCapitalize="sentences"
+                  autoComplete="on"
+                  autoCorrect="on"
+                  className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
+                  dir="auto"
+                  disabled={false}
+                  id="field-react-aria-3"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onSelect={[Function]}
+                  placeholder="ステータスを選択してください"
+                  readOnly={true}
+                  spellCheck={true}
+                  style={
+                    Object {
+                      "WebkitFlex": 1,
+                      "backgroundColor": "rgba(0,0,0,0.00)",
+                      "borderBottomColor": "rgba(229,229,229,1.00)",
+                      "borderBottomLeftRadius": "4px",
+                      "borderBottomRightRadius": "4px",
+                      "borderBottomWidth": "0px",
+                      "borderLeftColor": "rgba(229,229,229,1.00)",
+                      "borderLeftWidth": "0px",
+                      "borderRightColor": "rgba(229,229,229,1.00)",
+                      "borderRightWidth": "0px",
+                      "borderTopColor": "rgba(229,229,229,1.00)",
+                      "borderTopLeftRadius": "4px",
+                      "borderTopRightRadius": "4px",
+                      "borderTopWidth": "0px",
+                      "color": "rgba(31,41,55,1.00)",
+                      "cursor": "auto",
+                      "flex": 1,
+                      "fontSize": "12px",
+                      "fontStyle": "normal",
+                      "fontWeight": "400",
+                      "lineHeight": "1.5em",
+                      "msFlex": "1 1 0%",
+                      "outlineWidth": "0px",
+                      "paddingBottom": "8px",
+                      "paddingLeft": "8px",
+                      "paddingRight": "8px",
+                      "paddingTop": "8px",
+                    }
+                  }
+                  tabIndex="-1"
+                  type="text"
+                />
+                <svg
+                  role="img"
+                  stroke=""
+                  style={
+                    Object {
+                      "color": "rgba(163,163,163,1.00)",
+                      "height": "24px",
+                      "paddingBottom": "4px",
+                      "paddingLeft": "0px",
+                      "paddingRight": "4px",
+                      "paddingTop": "4px",
+                      "width": "24px",
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                >
+                  <g>
+                    <g
+                      fill="currentColor"
+                      stroke=""
+                      transform="translate(24) rotate(90)"
+                    >
+                      <path
+                        d="M0,0H24V24H0Z"
+                        fill="none"
+                      />
+                      <path
+                        d="M10,6,8.59,7.41,13.17,12,8.59,16.59,10,18l6-6Z"
+                      />
+                    </g>
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div
+            className="css-view-1dbjc4n"
+            style={
+              Object {
+                "marginBottom": "0px",
+                "marginLeft": "0px",
+                "marginRight": "0px",
+                "marginTop": "16px",
+                "paddingLeft": "8px",
+                "paddingRight": "8px",
+                "width": "100%",
+              }
+            }
+          >
+            <label
+              className="css-view-1dbjc4n"
+              id="field-react-aria-4-label"
+              style={
+                Object {
+                  "WebkitBoxDirection": "normal",
+                  "WebkitBoxOrient": "horizontal",
+                  "WebkitBoxPack": "start",
+                  "WebkitFlexDirection": "row",
+                  "WebkitJustifyContent": "flex-start",
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "marginBottom": "8px",
+                  "marginRight": "12px",
+                  "msFlexDirection": "row",
+                  "msFlexPack": "start",
+                }
+              }
+            >
+              <div
+                className="css-text-901oao"
+                dir="auto"
+                style={
+                  Object {
+                    "color": "rgba(31,41,55,1.00)",
+                    "fontSize": "14px",
+                    "fontStyle": "normal",
+                    "fontWeight": "700",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
+                  }
+                }
+              >
+                期日
+              </div>
+            </label>
+            <div>
+              <div
+                className="react-datepicker__input-container"
+              >
+                <input
+                  autoCapitalize="sentences"
+                  autoComplete="on"
+                  autoCorrect="on"
+                  className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
+                  dir="auto"
+                  disabled={false}
+                  id="field-react-aria-4"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onSelect={[Function]}
+                  readOnly={false}
+                  spellCheck={true}
+                  style={
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0.00)",
+                      "borderBottomColor": "rgba(229,229,229,1.00)",
+                      "borderBottomLeftRadius": "4px",
+                      "borderBottomRightRadius": "4px",
+                      "borderBottomWidth": "1px",
+                      "borderLeftColor": "rgba(229,229,229,1.00)",
+                      "borderLeftWidth": "1px",
+                      "borderRightColor": "rgba(229,229,229,1.00)",
+                      "borderRightWidth": "1px",
+                      "borderTopColor": "rgba(229,229,229,1.00)",
+                      "borderTopLeftRadius": "4px",
+                      "borderTopRightRadius": "4px",
+                      "borderTopWidth": "1px",
+                      "color": "rgba(31,41,55,1.00)",
+                      "cursor": "auto",
+                      "fontSize": "12px",
+                      "fontStyle": "normal",
+                      "fontWeight": "400",
+                      "lineHeight": "1.5em",
+                      "outlineWidth": "0px",
+                      "paddingBottom": "8px",
+                      "paddingLeft": "8px",
+                      "paddingRight": "8px",
+                      "paddingTop": "8px",
+                      "width": "100%",
+                    }
+                  }
+                  type="text"
+                  value="2000/01/23 10:00"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            className="css-view-1dbjc4n"
+            style={
+              Object {
+                "marginBottom": "0px",
+                "marginLeft": "0px",
+                "marginRight": "0px",
+                "marginTop": "16px",
+                "paddingLeft": "8px",
+                "paddingRight": "8px",
+                "width": "100%",
+              }
+            }
+          >
+            <label
+              className="css-view-1dbjc4n"
+              id="field-react-aria-5-label"
+              style={
+                Object {
+                  "WebkitBoxDirection": "normal",
+                  "WebkitBoxOrient": "horizontal",
+                  "WebkitBoxPack": "start",
+                  "WebkitFlexDirection": "row",
+                  "WebkitJustifyContent": "flex-start",
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "marginBottom": "8px",
+                  "marginRight": "12px",
+                  "msFlexDirection": "row",
+                  "msFlexPack": "start",
+                }
+              }
+            >
+              <div
+                className="css-text-901oao"
+                dir="auto"
+                style={
+                  Object {
+                    "color": "rgba(31,41,55,1.00)",
+                    "fontSize": "14px",
+                    "fontStyle": "normal",
+                    "fontWeight": "700",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
+                  }
+                }
+              >
+                作業見積値
+              </div>
+            </label>
+            <div
+              className="css-view-1dbjc4n"
+            >
+              <input
+                autoCapitalize="sentences"
+                autoComplete="on"
+                autoCorrect="on"
+                className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
+                dir="auto"
+                disabled={false}
+                id="field-react-aria-5"
+                inputMode="numeric"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onSelect={[Function]}
+                placeholder="作業見積値を入力してください"
+                readOnly={false}
+                spellCheck={true}
+                style={
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0.00)",
+                    "borderBottomColor": "rgba(229,229,229,1.00)",
+                    "borderBottomLeftRadius": "4px",
+                    "borderBottomRightRadius": "4px",
+                    "borderBottomWidth": "1px",
+                    "borderLeftColor": "rgba(229,229,229,1.00)",
+                    "borderLeftWidth": "1px",
+                    "borderRightColor": "rgba(229,229,229,1.00)",
+                    "borderRightWidth": "1px",
+                    "borderTopColor": "rgba(229,229,229,1.00)",
+                    "borderTopLeftRadius": "4px",
+                    "borderTopRightRadius": "4px",
+                    "borderTopWidth": "1px",
+                    "color": "rgba(31,41,55,1.00)",
+                    "cursor": "auto",
+                    "fontSize": "12px",
+                    "fontStyle": "normal",
+                    "fontWeight": "400",
+                    "lineHeight": "1.5em",
+                    "outlineWidth": "0px",
+                    "paddingBottom": "0px",
+                    "paddingLeft": "8px",
+                    "paddingRight": "0px",
+                    "paddingTop": "0px",
+                  }
+                }
+                value="0"
+              />
+            </div>
+          </div>
+          <div
+            className="css-view-1dbjc4n"
+            style={
+              Object {
+                "marginBottom": "0px",
+                "marginLeft": "0px",
+                "marginRight": "0px",
+                "marginTop": "16px",
+                "paddingLeft": "8px",
+                "paddingRight": "8px",
+                "width": "100%",
+              }
+            }
+          >
+            <label
+              className="css-view-1dbjc4n"
+              id="field-react-aria-6-label"
+              style={
+                Object {
+                  "WebkitBoxDirection": "normal",
+                  "WebkitBoxOrient": "horizontal",
+                  "WebkitBoxPack": "start",
+                  "WebkitFlexDirection": "row",
+                  "WebkitJustifyContent": "flex-start",
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "marginBottom": "8px",
+                  "marginRight": "12px",
+                  "msFlexDirection": "row",
+                  "msFlexPack": "start",
+                }
+              }
+            >
+              <div
+                className="css-text-901oao"
+                dir="auto"
+                style={
+                  Object {
+                    "color": "rgba(31,41,55,1.00)",
+                    "fontSize": "14px",
+                    "fontStyle": "normal",
+                    "fontWeight": "700",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
+                  }
+                }
+              >
+                作業見積単位
+              </div>
+            </label>
+            <div
+              className="css-view-1dbjc4n"
+              style={
+                Object {
+                  "borderBottomColor": "rgba(0,0,0,0.00)",
+                  "borderBottomLeftRadius": "4px",
+                  "borderBottomRightRadius": "4px",
+                  "borderBottomWidth": "1px",
+                  "borderLeftColor": "rgba(0,0,0,0.00)",
+                  "borderLeftWidth": "1px",
+                  "borderRightColor": "rgba(0,0,0,0.00)",
+                  "borderRightWidth": "1px",
+                  "borderTopColor": "rgba(0,0,0,0.00)",
+                  "borderTopLeftRadius": "4px",
+                  "borderTopRightRadius": "4px",
+                  "borderTopWidth": "1px",
+                }
+              }
+            >
+              <div
+                className="css-view-1dbjc4n"
+                style={
+                  Object {
+                    "height": "100%",
+                    "opacity": 0,
+                    "position": "absolute",
+                    "width": "100%",
+                    "zIndex": 1,
+                  }
+                }
+              >
+                <select
+                  aria-label="作業見積単位を選択してください"
+                  aria-readonly={false}
+                  disabled={false}
+                  onChange={[Function]}
+                  required={false}
+                  style={
+                    Object {
+                      "MozAppearance": "none",
+                      "WebkitAppearance": "none",
+                      "appearance": "none",
+                      "height": "100%",
+                      "width": "100%",
+                    }
+                  }
+                  value="__NativebasePlaceholder__"
+                >
+                  <option
+                    disabled={true}
+                    value="__NativebasePlaceholder__"
+                  >
+                    作業見積単位を選択してください
+                  </option>
+                  <option
+                    value="日"
+                  >
+                    日
+                  </option>
+                  <option
+                    value="時間"
+                  >
+                    時間
+                  </option>
+                </select>
+              </div>
+              <div
+                className="css-view-1dbjc4n"
+                style={
+                  Object {
+                    "WebkitAlignItems": "center",
+                    "WebkitBoxAlign": "center",
+                    "WebkitBoxDirection": "normal",
+                    "WebkitBoxOrient": "horizontal",
+                    "WebkitBoxPack": "justify",
+                    "WebkitFlexDirection": "row",
+                    "WebkitJustifyContent": "space-between",
+                    "alignItems": "center",
+                    "borderBottomColor": "rgba(229,229,229,1.00)",
+                    "borderBottomLeftRadius": "4px",
+                    "borderBottomRightRadius": "4px",
+                    "borderBottomWidth": "1px",
+                    "borderLeftColor": "rgba(229,229,229,1.00)",
+                    "borderLeftWidth": "1px",
+                    "borderRightColor": "rgba(229,229,229,1.00)",
+                    "borderRightWidth": "1px",
+                    "borderTopColor": "rgba(229,229,229,1.00)",
+                    "borderTopLeftRadius": "4px",
+                    "borderTopRightRadius": "4px",
+                    "borderTopWidth": "1px",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "justifyContent": "space-between",
+                    "msFlexAlign": "center",
+                    "msFlexDirection": "row",
+                    "msFlexPack": "justify",
+                    "overflowX": "hidden",
+                    "overflowY": "hidden",
+                  }
+                }
+              >
+                <input
+                  aria-hidden={true}
+                  autoCapitalize="sentences"
+                  autoComplete="on"
+                  autoCorrect="on"
+                  className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
+                  dir="auto"
+                  disabled={false}
+                  id="field-react-aria-6"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onSelect={[Function]}
+                  placeholder="作業見積単位を選択してください"
+                  readOnly={true}
+                  spellCheck={true}
+                  style={
+                    Object {
+                      "WebkitFlex": 1,
+                      "backgroundColor": "rgba(0,0,0,0.00)",
+                      "borderBottomColor": "rgba(229,229,229,1.00)",
+                      "borderBottomLeftRadius": "4px",
+                      "borderBottomRightRadius": "4px",
+                      "borderBottomWidth": "0px",
+                      "borderLeftColor": "rgba(229,229,229,1.00)",
+                      "borderLeftWidth": "0px",
+                      "borderRightColor": "rgba(229,229,229,1.00)",
+                      "borderRightWidth": "0px",
+                      "borderTopColor": "rgba(229,229,229,1.00)",
+                      "borderTopLeftRadius": "4px",
+                      "borderTopRightRadius": "4px",
+                      "borderTopWidth": "0px",
+                      "color": "rgba(31,41,55,1.00)",
+                      "cursor": "auto",
+                      "flex": 1,
+                      "fontSize": "12px",
+                      "fontStyle": "normal",
+                      "fontWeight": "400",
+                      "lineHeight": "1.5em",
+                      "msFlex": "1 1 0%",
+                      "outlineWidth": "0px",
+                      "paddingBottom": "8px",
+                      "paddingLeft": "8px",
+                      "paddingRight": "8px",
+                      "paddingTop": "8px",
+                    }
+                  }
+                  tabIndex="-1"
+                  type="text"
+                />
+                <svg
+                  role="img"
+                  stroke=""
+                  style={
+                    Object {
+                      "color": "rgba(163,163,163,1.00)",
+                      "height": "24px",
+                      "paddingBottom": "4px",
+                      "paddingLeft": "0px",
+                      "paddingRight": "4px",
+                      "paddingTop": "4px",
+                      "width": "24px",
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                >
+                  <g>
+                    <g
+                      fill="currentColor"
+                      stroke=""
+                      transform="translate(24) rotate(90)"
+                    >
+                      <path
+                        d="M0,0H24V24H0Z"
+                        fill="none"
+                      />
+                      <path
+                        d="M10,6,8.59,7.41,13.17,12,8.59,16.59,10,18l6-6Z"
+                      />
+                    </g>
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div
+            className="css-view-1dbjc4n"
+            style={
+              Object {
+                "marginBottom": "0px",
+                "marginLeft": "0px",
+                "marginRight": "0px",
+                "marginTop": "16px",
+                "paddingLeft": "8px",
+                "paddingRight": "8px",
+                "width": "100%",
+              }
+            }
+          >
+            <label
+              className="css-view-1dbjc4n"
+              id="field-react-aria-7-label"
+              style={
+                Object {
+                  "WebkitBoxDirection": "normal",
+                  "WebkitBoxOrient": "horizontal",
+                  "WebkitBoxPack": "start",
+                  "WebkitFlexDirection": "row",
+                  "WebkitJustifyContent": "flex-start",
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "marginBottom": "8px",
+                  "marginRight": "12px",
+                  "msFlexDirection": "row",
+                  "msFlexPack": "start",
+                }
+              }
+            >
+              <div
+                className="css-text-901oao"
+                dir="auto"
+                style={
+                  Object {
+                    "color": "rgba(31,41,55,1.00)",
+                    "fontSize": "14px",
+                    "fontStyle": "normal",
+                    "fontWeight": "700",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
+                  }
+                }
+              >
+                タグ名
+              </div>
+            </label>
+            <div
+              className="css-view-1dbjc4n"
+              style={
+                Object {
+                  "WebkitBoxDirection": "normal",
+                  "WebkitBoxLines": "multiple",
+                  "WebkitBoxOrient": "horizontal",
+                  "WebkitFlexDirection": "row",
+                  "WebkitFlexWrap": "wrap",
+                  "display": "flex",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "msFlexDirection": "row",
+                  "msFlexWrap": "wrap",
+                }
+              }
+            >
+              <div
+                className="css-cursor-18t94o4 css-view-1dbjc4n"
+                onBlur={[Function]}
+                onClick={[Function]}
+                onContextMenu={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                role="button"
+                style={
+                  Object {
+                    "WebkitAlignItems": "center",
+                    "WebkitAlignSelf": "center",
+                    "WebkitBoxAlign": "center",
+                    "WebkitBoxPack": "center",
+                    "WebkitJustifyContent": "center",
+                    "alignItems": "center",
+                    "alignSelf": "center",
+                    "backgroundColor": "rgba(0,0,0,0.00)",
+                    "borderBottomLeftRadius": "9999px",
+                    "borderBottomRightRadius": "9999px",
+                    "borderTopLeftRadius": "9999px",
+                    "borderTopRightRadius": "9999px",
+                    "cursor": "pointer",
+                    "height": "32px",
+                    "justifyContent": "center",
+                    "marginLeft": "4px",
+                    "msFlexAlign": "center",
+                    "msFlexItemAlign": "center",
+                    "msFlexPack": "center",
+                    "msGridRowAlign": "center",
+                    "msTouchAction": "manipulation",
+                    "outlineWidth": "0px",
+                    "touchAction": "manipulation",
+                    "width": "32px",
+                  }
+                }
+                tabIndex="0"
+              >
+                <svg
+                  role="img"
+                  stroke=""
+                  style={
+                    Object {
+                      "color": "rgba(38,38,38,1.00)",
+                      "height": "32px",
+                      "width": "32px",
+                    }
+                  }
+                  viewBox="0 0 512 512"
+                >
+                  <g>
+                    <path
+                      d="M359.244,224.004h-59.988c-6.217,0-11.258-5.043-11.258-11.258v-59.992c0-6.215-5.039-11.254-11.256-11.254 h-41.486c-6.217,0-11.258,5.039-11.258,11.254v59.992c0,6.215-5.039,11.258-11.256,11.258h-59.988 c-6.219,0-11.258,5.039-11.258,11.258v41.484c0,6.215,5.039,11.258,11.258,11.258h59.988c6.217,0,11.256,5.039,11.256,11.258 v59.984c0,6.219,5.041,11.258,11.258,11.258h41.486c6.217,0,11.256-5.039,11.256-11.258v-59.984 c0-6.219,5.041-11.258,11.258-11.258h59.988c6.217,0,11.258-5.043,11.258-11.258v-41.484 C370.502,229.043,365.461,224.004,359.244,224.004z M256,0C114.613,0,0,114.617,0,256c0,141.387,114.613,256,256,256c141.383,0,256-114.613,256-256 C512,114.617,397.383,0,256,0z M256,448c-105.871,0-192-86.129-192-192c0-105.867,86.129-192,192-192c105.867,0,192,86.133,192,192 C448,361.871,361.867,448,256,448z"
+                      fill="currentColor"
+                      stroke=""
+                    />
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Domain Components/Index/TaskForm Disabled Task Form 1`] = `
+<div
+  className="css-view-1dbjc4n"
+  style={
+    Object {
+      "WebkitFlex": 1,
+      "flex": 1,
+      "msFlex": "1 1 0%",
+    }
+  }
+>
+  <div
+    className="css-view-1dbjc4n"
+    style={
+      Object {
+        "display": "flex",
+        "height": "100vh",
+        "overflowX": "auto",
+        "overflowY": "auto",
+      }
+    }
+  >
+    <div
+      className="css-view-1dbjc4n r-scrollbarWidth-2eszeu"
+      onScroll={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      onWheel={[Function]}
+      style={
+        Object {
+          "WebkitBoxDirection": "normal",
+          "WebkitBoxFlex": 1,
+          "WebkitBoxOrient": "vertical",
+          "WebkitFlex": 1,
+          "WebkitFlexDirection": "column",
+          "WebkitFlexGrow": 1,
+          "WebkitFlexShrink": 1,
+          "WebkitOverflowScrolling": "touch",
+          "WebkitTransform": "translateZ(0px)",
+          "flex": 1,
+          "flexDirection": "column",
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "msFlex": "1 1 0%",
+          "msFlexDirection": "column",
+          "msFlexNegative": 1,
+          "msFlexPositive": 1,
+          "overflowX": "hidden",
+          "overflowY": "auto",
+          "paddingBottom": "8px",
+          "paddingLeft": "8px",
+          "paddingRight": "8px",
+          "paddingTop": "8px",
+          "transform": "translateZ(0px)",
+          "width": "100%",
+        }
+      }
+    >
+      <div
+        className="css-view-1dbjc4n"
+      >
+        <div
+          className="css-view-1dbjc4n"
+          style={
+            Object {
+              "WebkitBoxDirection": "normal",
+              "WebkitBoxOrient": "vertical",
+              "WebkitFlexDirection": "column",
+              "display": "flex",
+              "flexDirection": "column",
+              "marginBottom": "8px",
+              "marginLeft": "8px",
+              "marginRight": "8px",
+              "marginTop": "8px",
+              "msFlexDirection": "column",
+            }
+          }
+        >
+          <div
+            className="css-view-1dbjc4n"
+            style={
+              Object {
+                "marginBottom": "0px",
+                "marginLeft": "0px",
+                "marginRight": "0px",
+                "marginTop": "16px",
+                "paddingLeft": "8px",
+                "paddingRight": "8px",
+                "width": "100%",
+              }
+            }
+          >
+            <label
+              className="css-view-1dbjc4n"
+              id="field-react-aria-1-label"
+              style={
+                Object {
+                  "WebkitBoxDirection": "normal",
+                  "WebkitBoxOrient": "horizontal",
+                  "WebkitBoxPack": "start",
+                  "WebkitFlexDirection": "row",
+                  "WebkitJustifyContent": "flex-start",
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "marginBottom": "8px",
+                  "marginRight": "12px",
+                  "msFlexDirection": "row",
+                  "msFlexPack": "start",
+                }
+              }
+            >
+              <div
+                className="css-text-901oao"
+                dir="auto"
+                style={
+                  Object {
+                    "color": "rgba(31,41,55,1.00)",
+                    "fontSize": "14px",
+                    "fontStyle": "normal",
+                    "fontWeight": "700",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
+                  }
+                }
+              >
+                タスク名
+              </div>
+              <div
+                className="css-view-1dbjc4n"
+                style={
+                  Object {
+                    "WebkitAlignItems": "center",
+                    "WebkitBoxAlign": "center",
+                    "alignItems": "center",
+                    "backgroundColor": "rgba(254,202,202,1.00)",
+                    "borderBottomColor": "rgba(0,0,0,0.00)",
+                    "borderBottomLeftRadius": "2px",
+                    "borderBottomRightRadius": "2px",
+                    "borderBottomWidth": "1px",
+                    "borderLeftColor": "rgba(0,0,0,0.00)",
+                    "borderLeftWidth": "1px",
+                    "borderRightColor": "rgba(0,0,0,0.00)",
+                    "borderRightWidth": "1px",
+                    "borderTopColor": "rgba(0,0,0,0.00)",
+                    "borderTopLeftRadius": "2px",
+                    "borderTopRightRadius": "2px",
+                    "borderTopWidth": "1px",
+                    "marginLeft": "4px",
+                    "msFlexAlign": "center",
+                    "paddingBottom": "2px",
+                    "paddingLeft": "8px",
+                    "paddingRight": "8px",
+                    "paddingTop": "2px",
+                  }
+                }
+              >
+                <div
+                  className="css-text-901oao"
+                  dir="auto"
+                  style={
+                    Object {
+                      "color": "rgba(220,38,38,1.00)",
+                      "fontSize": "12px",
+                      "fontStyle": "normal",
+                      "fontWeight": "500",
+                      "letterSpacing": "0px",
+                      "lineHeight": "1.5em",
+                    }
+                  }
+                >
+                  必須
+                </div>
+              </div>
+            </label>
+            <input
+              autoCapitalize="sentences"
+              autoComplete="on"
+              autoCorrect="on"
+              className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
+              dir="auto"
+              disabled={true}
+              id="field-react-aria-1"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onSelect={[Function]}
+              placeholder="タスク名を入力してください"
+              readOnly={true}
+              spellCheck={true}
+              style={
+                Object {
+                  "backgroundColor": "rgba(245,245,245,1.00)",
+                  "borderBottomColor": "rgba(229,229,229,1.00)",
+                  "borderBottomLeftRadius": "4px",
+                  "borderBottomRightRadius": "4px",
+                  "borderBottomWidth": "1px",
+                  "borderLeftColor": "rgba(229,229,229,1.00)",
+                  "borderLeftWidth": "1px",
+                  "borderRightColor": "rgba(229,229,229,1.00)",
+                  "borderRightWidth": "1px",
+                  "borderTopColor": "rgba(229,229,229,1.00)",
+                  "borderTopLeftRadius": "4px",
+                  "borderTopRightRadius": "4px",
+                  "borderTopWidth": "1px",
+                  "color": "rgba(31,41,55,1.00)",
+                  "cursor": "not-allowed",
+                  "fontSize": "12px",
+                  "fontStyle": "normal",
+                  "fontWeight": "400",
+                  "lineHeight": "1.5em",
+                  "opacity": 0.8,
+                  "outlineWidth": "0px",
+                  "paddingBottom": "8px",
+                  "paddingLeft": "8px",
+                  "paddingRight": "8px",
+                  "paddingTop": "8px",
+                }
+              }
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            className="css-view-1dbjc4n"
+            style={
+              Object {
+                "marginBottom": "0px",
+                "marginLeft": "0px",
+                "marginRight": "0px",
+                "marginTop": "16px",
+                "paddingLeft": "8px",
+                "paddingRight": "8px",
+                "width": "100%",
+              }
+            }
+          >
+            <label
+              className="css-view-1dbjc4n"
+              id="field-react-aria-2-label"
+              style={
+                Object {
+                  "WebkitBoxDirection": "normal",
+                  "WebkitBoxOrient": "horizontal",
+                  "WebkitBoxPack": "start",
+                  "WebkitFlexDirection": "row",
+                  "WebkitJustifyContent": "flex-start",
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "marginBottom": "8px",
+                  "marginRight": "12px",
+                  "msFlexDirection": "row",
+                  "msFlexPack": "start",
+                }
+              }
+            >
+              <div
+                className="css-text-901oao"
+                dir="auto"
+                style={
+                  Object {
+                    "color": "rgba(31,41,55,1.00)",
+                    "fontSize": "14px",
+                    "fontStyle": "normal",
+                    "fontWeight": "700",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
+                  }
+                }
+              >
+                メモ
+              </div>
+            </label>
+            <textarea
+              autoCapitalize="sentences"
+              autoComplete="on"
+              autoCorrect="on"
+              className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
+              dir="auto"
+              disabled={true}
+              id="field-react-aria-2"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onSelect={[Function]}
+              placeholder="メモを入力してください"
+              readOnly={true}
+              rows={4}
+              spellCheck={true}
+              style={
+                Object {
+                  "backgroundColor": "rgba(245,245,245,1.00)",
+                  "borderBottomColor": "rgba(229,229,229,1.00)",
+                  "borderBottomLeftRadius": "4px",
+                  "borderBottomRightRadius": "4px",
+                  "borderBottomWidth": "1px",
+                  "borderLeftColor": "rgba(229,229,229,1.00)",
+                  "borderLeftWidth": "1px",
+                  "borderRightColor": "rgba(229,229,229,1.00)",
+                  "borderRightWidth": "1px",
+                  "borderTopColor": "rgba(229,229,229,1.00)",
+                  "borderTopLeftRadius": "4px",
+                  "borderTopRightRadius": "4px",
+                  "borderTopWidth": "1px",
+                  "color": "rgba(31,41,55,1.00)",
+                  "cursor": "not-allowed",
+                  "fontSize": "12px",
+                  "fontStyle": "normal",
+                  "fontWeight": "400",
+                  "lineHeight": "1.5em",
+                  "opacity": 0.8,
+                  "outlineWidth": "0px",
+                  "paddingBottom": "8px",
+                  "paddingLeft": "8px",
+                  "paddingRight": "8px",
+                  "paddingTop": "8px",
+                }
+              }
+              value=""
+            />
+          </div>
+          <div
+            className="css-view-1dbjc4n"
+            style={
+              Object {
+                "marginBottom": "0px",
+                "marginLeft": "0px",
+                "marginRight": "0px",
+                "marginTop": "16px",
+                "paddingLeft": "8px",
+                "paddingRight": "8px",
+                "width": "100%",
+              }
+            }
+          >
+            <label
+              className="css-view-1dbjc4n"
+              id="field-react-aria-3-label"
+              style={
+                Object {
+                  "WebkitBoxDirection": "normal",
+                  "WebkitBoxOrient": "horizontal",
+                  "WebkitBoxPack": "start",
+                  "WebkitFlexDirection": "row",
+                  "WebkitJustifyContent": "flex-start",
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "marginBottom": "8px",
+                  "marginRight": "12px",
+                  "msFlexDirection": "row",
+                  "msFlexPack": "start",
+                }
+              }
+            >
+              <div
+                className="css-text-901oao"
+                dir="auto"
+                style={
+                  Object {
+                    "color": "rgba(31,41,55,1.00)",
+                    "fontSize": "14px",
+                    "fontStyle": "normal",
+                    "fontWeight": "700",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
+                  }
+                }
+              >
+                ステータス
+              </div>
+              <div
+                className="css-view-1dbjc4n"
+                style={
+                  Object {
+                    "WebkitAlignItems": "center",
+                    "WebkitBoxAlign": "center",
+                    "alignItems": "center",
+                    "backgroundColor": "rgba(254,202,202,1.00)",
+                    "borderBottomColor": "rgba(0,0,0,0.00)",
+                    "borderBottomLeftRadius": "2px",
+                    "borderBottomRightRadius": "2px",
+                    "borderBottomWidth": "1px",
+                    "borderLeftColor": "rgba(0,0,0,0.00)",
+                    "borderLeftWidth": "1px",
+                    "borderRightColor": "rgba(0,0,0,0.00)",
+                    "borderRightWidth": "1px",
+                    "borderTopColor": "rgba(0,0,0,0.00)",
+                    "borderTopLeftRadius": "2px",
+                    "borderTopRightRadius": "2px",
+                    "borderTopWidth": "1px",
+                    "marginLeft": "4px",
+                    "msFlexAlign": "center",
+                    "paddingBottom": "2px",
+                    "paddingLeft": "8px",
+                    "paddingRight": "8px",
+                    "paddingTop": "2px",
+                  }
+                }
+              >
+                <div
+                  className="css-text-901oao"
+                  dir="auto"
+                  style={
+                    Object {
+                      "color": "rgba(220,38,38,1.00)",
+                      "fontSize": "12px",
+                      "fontStyle": "normal",
+                      "fontWeight": "500",
+                      "letterSpacing": "0px",
+                      "lineHeight": "1.5em",
+                    }
+                  }
+                >
+                  必須
+                </div>
+              </div>
+            </label>
+            <div
+              className="css-view-1dbjc4n"
+              style={
+                Object {
+                  "borderBottomColor": "rgba(0,0,0,0.00)",
+                  "borderBottomLeftRadius": "4px",
+                  "borderBottomRightRadius": "4px",
+                  "borderBottomWidth": "1px",
+                  "borderLeftColor": "rgba(0,0,0,0.00)",
+                  "borderLeftWidth": "1px",
+                  "borderRightColor": "rgba(0,0,0,0.00)",
+                  "borderRightWidth": "1px",
+                  "borderTopColor": "rgba(0,0,0,0.00)",
+                  "borderTopLeftRadius": "4px",
+                  "borderTopRightRadius": "4px",
+                  "borderTopWidth": "1px",
+                }
+              }
+            >
+              <div
+                className="css-view-1dbjc4n"
+                style={
+                  Object {
+                    "height": "100%",
+                    "opacity": 0,
+                    "position": "absolute",
+                    "width": "100%",
+                    "zIndex": 1,
+                  }
+                }
+              >
+                <select
+                  aria-label="ステータスを選択してください"
+                  aria-readonly={false}
+                  disabled={true}
+                  onChange={[Function]}
+                  required={false}
+                  style={
+                    Object {
+                      "MozAppearance": "none",
+                      "WebkitAppearance": "none",
+                      "appearance": "none",
+                      "height": "100%",
+                      "width": "100%",
+                    }
+                  }
+                  value="__NativebasePlaceholder__"
+                >
+                  <option
+                    disabled={true}
+                    value="__NativebasePlaceholder__"
+                  >
+                    ステータスを選択してください
+                  </option>
+                  <option
+                    value="登録"
+                  >
+                    登録
+                  </option>
+                  <option
+                    value="実行中"
+                  >
+                    実行中
+                  </option>
+                  <option
+                    value="完了"
+                  >
+                    完了
+                  </option>
+                  <option
+                    value="削除(登録)"
+                  >
+                    削除(登録)
+                  </option>
+                  <option
+                    value="削除(実行中)"
+                  >
+                    削除(実行中)
+                  </option>
+                  <option
+                    value="削除(完了)"
+                  >
+                    削除(完了)
+                  </option>
+                </select>
+              </div>
+              <div
+                className="css-view-1dbjc4n"
+                style={
+                  Object {
+                    "WebkitAlignItems": "center",
+                    "WebkitBoxAlign": "center",
+                    "WebkitBoxDirection": "normal",
+                    "WebkitBoxOrient": "horizontal",
+                    "WebkitBoxPack": "justify",
+                    "WebkitFlexDirection": "row",
+                    "WebkitJustifyContent": "space-between",
+                    "alignItems": "center",
+                    "backgroundColor": "rgba(245,245,245,1.00)",
+                    "borderBottomColor": "rgba(229,229,229,1.00)",
+                    "borderBottomLeftRadius": "4px",
+                    "borderBottomRightRadius": "4px",
+                    "borderBottomWidth": "1px",
+                    "borderLeftColor": "rgba(229,229,229,1.00)",
+                    "borderLeftWidth": "1px",
+                    "borderRightColor": "rgba(229,229,229,1.00)",
+                    "borderRightWidth": "1px",
+                    "borderTopColor": "rgba(229,229,229,1.00)",
+                    "borderTopLeftRadius": "4px",
+                    "borderTopRightRadius": "4px",
+                    "borderTopWidth": "1px",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "justifyContent": "space-between",
+                    "msFlexAlign": "center",
+                    "msFlexDirection": "row",
+                    "msFlexPack": "justify",
+                    "opacity": 0.8,
+                    "overflowX": "hidden",
+                    "overflowY": "hidden",
+                  }
+                }
+              >
+                <input
+                  aria-hidden={true}
+                  autoCapitalize="sentences"
+                  autoComplete="on"
+                  autoCorrect="on"
+                  className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
+                  dir="auto"
+                  disabled={true}
+                  id="field-react-aria-3"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onSelect={[Function]}
+                  placeholder="ステータスを選択してください"
+                  readOnly={true}
+                  spellCheck={true}
+                  style={
+                    Object {
+                      "WebkitFlex": 1,
+                      "backgroundColor": "rgba(0,0,0,0.00)",
+                      "borderBottomColor": "rgba(229,229,229,1.00)",
+                      "borderBottomLeftRadius": "4px",
+                      "borderBottomRightRadius": "4px",
+                      "borderBottomWidth": "0px",
+                      "borderLeftColor": "rgba(229,229,229,1.00)",
+                      "borderLeftWidth": "0px",
+                      "borderRightColor": "rgba(229,229,229,1.00)",
+                      "borderRightWidth": "0px",
+                      "borderTopColor": "rgba(229,229,229,1.00)",
+                      "borderTopLeftRadius": "4px",
+                      "borderTopRightRadius": "4px",
+                      "borderTopWidth": "0px",
+                      "color": "rgba(31,41,55,1.00)",
+                      "cursor": "not-allowed",
+                      "flex": 1,
+                      "fontSize": "12px",
+                      "fontStyle": "normal",
+                      "fontWeight": "400",
+                      "lineHeight": "1.5em",
+                      "msFlex": "1 1 0%",
+                      "opacity": 0.8,
+                      "outlineWidth": "0px",
+                      "paddingBottom": "8px",
+                      "paddingLeft": "8px",
+                      "paddingRight": "8px",
+                      "paddingTop": "8px",
+                    }
+                  }
+                  tabIndex="-1"
+                  type="text"
+                />
+                <svg
+                  role="img"
+                  stroke=""
+                  style={
+                    Object {
+                      "color": "rgba(163,163,163,1.00)",
+                      "height": "24px",
+                      "paddingBottom": "4px",
+                      "paddingLeft": "0px",
+                      "paddingRight": "4px",
+                      "paddingTop": "4px",
+                      "width": "24px",
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                >
+                  <g>
+                    <g
+                      fill="currentColor"
+                      stroke=""
+                      transform="translate(24) rotate(90)"
+                    >
+                      <path
+                        d="M0,0H24V24H0Z"
+                        fill="none"
+                      />
+                      <path
+                        d="M10,6,8.59,7.41,13.17,12,8.59,16.59,10,18l6-6Z"
+                      />
+                    </g>
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div
+            className="css-view-1dbjc4n"
+            style={
+              Object {
+                "marginBottom": "0px",
+                "marginLeft": "0px",
+                "marginRight": "0px",
+                "marginTop": "16px",
+                "paddingLeft": "8px",
+                "paddingRight": "8px",
+                "width": "100%",
+              }
+            }
+          >
+            <label
+              className="css-view-1dbjc4n"
+              id="field-react-aria-4-label"
+              style={
+                Object {
+                  "WebkitBoxDirection": "normal",
+                  "WebkitBoxOrient": "horizontal",
+                  "WebkitBoxPack": "start",
+                  "WebkitFlexDirection": "row",
+                  "WebkitJustifyContent": "flex-start",
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "marginBottom": "8px",
+                  "marginRight": "12px",
+                  "msFlexDirection": "row",
+                  "msFlexPack": "start",
+                }
+              }
+            >
+              <div
+                className="css-text-901oao"
+                dir="auto"
+                style={
+                  Object {
+                    "color": "rgba(31,41,55,1.00)",
+                    "fontSize": "14px",
+                    "fontStyle": "normal",
+                    "fontWeight": "700",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
+                  }
+                }
+              >
+                期日
+              </div>
+            </label>
+            <div>
+              <div
+                className="react-datepicker__input-container"
+              >
+                <input
+                  autoCapitalize="sentences"
+                  autoComplete="on"
+                  autoCorrect="on"
+                  className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
+                  dir="auto"
+                  disabled={true}
+                  id="field-react-aria-4"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onSelect={[Function]}
+                  readOnly={true}
+                  spellCheck={true}
+                  style={
+                    Object {
+                      "backgroundColor": "rgba(245,245,245,1.00)",
+                      "borderBottomColor": "rgba(229,229,229,1.00)",
+                      "borderBottomLeftRadius": "4px",
+                      "borderBottomRightRadius": "4px",
+                      "borderBottomWidth": "1px",
+                      "borderLeftColor": "rgba(229,229,229,1.00)",
+                      "borderLeftWidth": "1px",
+                      "borderRightColor": "rgba(229,229,229,1.00)",
+                      "borderRightWidth": "1px",
+                      "borderTopColor": "rgba(229,229,229,1.00)",
+                      "borderTopLeftRadius": "4px",
+                      "borderTopRightRadius": "4px",
+                      "borderTopWidth": "1px",
+                      "color": "rgba(31,41,55,1.00)",
+                      "cursor": "not-allowed",
+                      "fontSize": "12px",
+                      "fontStyle": "normal",
+                      "fontWeight": "400",
+                      "lineHeight": "1.5em",
+                      "opacity": 0.8,
+                      "outlineWidth": "0px",
+                      "paddingBottom": "8px",
+                      "paddingLeft": "8px",
+                      "paddingRight": "8px",
+                      "paddingTop": "8px",
+                      "width": "100%",
+                    }
+                  }
+                  type="text"
+                  value="2000/01/23 10:00"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            className="css-view-1dbjc4n"
+            style={
+              Object {
+                "marginBottom": "0px",
+                "marginLeft": "0px",
+                "marginRight": "0px",
+                "marginTop": "16px",
+                "paddingLeft": "8px",
+                "paddingRight": "8px",
+                "width": "100%",
+              }
+            }
+          >
+            <label
+              className="css-view-1dbjc4n"
+              id="field-react-aria-5-label"
+              style={
+                Object {
+                  "WebkitBoxDirection": "normal",
+                  "WebkitBoxOrient": "horizontal",
+                  "WebkitBoxPack": "start",
+                  "WebkitFlexDirection": "row",
+                  "WebkitJustifyContent": "flex-start",
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "marginBottom": "8px",
+                  "marginRight": "12px",
+                  "msFlexDirection": "row",
+                  "msFlexPack": "start",
+                }
+              }
+            >
+              <div
+                className="css-text-901oao"
+                dir="auto"
+                style={
+                  Object {
+                    "color": "rgba(31,41,55,1.00)",
+                    "fontSize": "14px",
+                    "fontStyle": "normal",
+                    "fontWeight": "700",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
+                  }
+                }
+              >
+                作業見積値
+              </div>
+            </label>
+            <div
+              className="css-view-1dbjc4n"
+            >
+              <input
+                autoCapitalize="sentences"
+                autoComplete="on"
+                autoCorrect="on"
+                className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
+                dir="auto"
+                disabled={true}
+                id="field-react-aria-5"
+                inputMode="numeric"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onSelect={[Function]}
+                placeholder="作業見積値を入力してください"
+                readOnly={true}
+                spellCheck={true}
+                style={
+                  Object {
+                    "backgroundColor": "rgba(245,245,245,1.00)",
+                    "borderBottomColor": "rgba(229,229,229,1.00)",
+                    "borderBottomLeftRadius": "4px",
+                    "borderBottomRightRadius": "4px",
+                    "borderBottomWidth": "1px",
+                    "borderLeftColor": "rgba(229,229,229,1.00)",
+                    "borderLeftWidth": "1px",
+                    "borderRightColor": "rgba(229,229,229,1.00)",
+                    "borderRightWidth": "1px",
+                    "borderTopColor": "rgba(229,229,229,1.00)",
+                    "borderTopLeftRadius": "4px",
+                    "borderTopRightRadius": "4px",
+                    "borderTopWidth": "1px",
+                    "color": "rgba(31,41,55,1.00)",
+                    "cursor": "not-allowed",
+                    "fontSize": "12px",
+                    "fontStyle": "normal",
+                    "fontWeight": "400",
+                    "lineHeight": "1.5em",
+                    "opacity": 0.8,
+                    "outlineWidth": "0px",
+                    "paddingBottom": "0px",
+                    "paddingLeft": "8px",
+                    "paddingRight": "0px",
+                    "paddingTop": "0px",
+                  }
+                }
+                value="0"
+              />
+            </div>
+          </div>
+          <div
+            className="css-view-1dbjc4n"
+            style={
+              Object {
+                "marginBottom": "0px",
+                "marginLeft": "0px",
+                "marginRight": "0px",
+                "marginTop": "16px",
+                "paddingLeft": "8px",
+                "paddingRight": "8px",
+                "width": "100%",
+              }
+            }
+          >
+            <label
+              className="css-view-1dbjc4n"
+              id="field-react-aria-6-label"
+              style={
+                Object {
+                  "WebkitBoxDirection": "normal",
+                  "WebkitBoxOrient": "horizontal",
+                  "WebkitBoxPack": "start",
+                  "WebkitFlexDirection": "row",
+                  "WebkitJustifyContent": "flex-start",
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "marginBottom": "8px",
+                  "marginRight": "12px",
+                  "msFlexDirection": "row",
+                  "msFlexPack": "start",
+                }
+              }
+            >
+              <div
+                className="css-text-901oao"
+                dir="auto"
+                style={
+                  Object {
+                    "color": "rgba(31,41,55,1.00)",
+                    "fontSize": "14px",
+                    "fontStyle": "normal",
+                    "fontWeight": "700",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
+                  }
+                }
+              >
+                作業見積単位
+              </div>
+            </label>
+            <div
+              className="css-view-1dbjc4n"
+              style={
+                Object {
+                  "borderBottomColor": "rgba(0,0,0,0.00)",
+                  "borderBottomLeftRadius": "4px",
+                  "borderBottomRightRadius": "4px",
+                  "borderBottomWidth": "1px",
+                  "borderLeftColor": "rgba(0,0,0,0.00)",
+                  "borderLeftWidth": "1px",
+                  "borderRightColor": "rgba(0,0,0,0.00)",
+                  "borderRightWidth": "1px",
+                  "borderTopColor": "rgba(0,0,0,0.00)",
+                  "borderTopLeftRadius": "4px",
+                  "borderTopRightRadius": "4px",
+                  "borderTopWidth": "1px",
+                }
+              }
+            >
+              <div
+                className="css-view-1dbjc4n"
+                style={
+                  Object {
+                    "height": "100%",
+                    "opacity": 0,
+                    "position": "absolute",
+                    "width": "100%",
+                    "zIndex": 1,
+                  }
+                }
+              >
+                <select
+                  aria-label="作業見積単位を選択してください"
+                  aria-readonly={false}
+                  disabled={true}
+                  onChange={[Function]}
+                  required={false}
+                  style={
+                    Object {
+                      "MozAppearance": "none",
+                      "WebkitAppearance": "none",
+                      "appearance": "none",
+                      "height": "100%",
+                      "width": "100%",
+                    }
+                  }
+                  value="__NativebasePlaceholder__"
+                >
+                  <option
+                    disabled={true}
+                    value="__NativebasePlaceholder__"
+                  >
+                    作業見積単位を選択してください
+                  </option>
+                  <option
+                    value="日"
+                  >
+                    日
+                  </option>
+                  <option
+                    value="時間"
+                  >
+                    時間
+                  </option>
+                </select>
+              </div>
+              <div
+                className="css-view-1dbjc4n"
+                style={
+                  Object {
+                    "WebkitAlignItems": "center",
+                    "WebkitBoxAlign": "center",
+                    "WebkitBoxDirection": "normal",
+                    "WebkitBoxOrient": "horizontal",
+                    "WebkitBoxPack": "justify",
+                    "WebkitFlexDirection": "row",
+                    "WebkitJustifyContent": "space-between",
+                    "alignItems": "center",
+                    "backgroundColor": "rgba(245,245,245,1.00)",
+                    "borderBottomColor": "rgba(229,229,229,1.00)",
+                    "borderBottomLeftRadius": "4px",
+                    "borderBottomRightRadius": "4px",
+                    "borderBottomWidth": "1px",
+                    "borderLeftColor": "rgba(229,229,229,1.00)",
+                    "borderLeftWidth": "1px",
+                    "borderRightColor": "rgba(229,229,229,1.00)",
+                    "borderRightWidth": "1px",
+                    "borderTopColor": "rgba(229,229,229,1.00)",
+                    "borderTopLeftRadius": "4px",
+                    "borderTopRightRadius": "4px",
+                    "borderTopWidth": "1px",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "justifyContent": "space-between",
+                    "msFlexAlign": "center",
+                    "msFlexDirection": "row",
+                    "msFlexPack": "justify",
+                    "opacity": 0.8,
+                    "overflowX": "hidden",
+                    "overflowY": "hidden",
+                  }
+                }
+              >
+                <input
+                  aria-hidden={true}
+                  autoCapitalize="sentences"
+                  autoComplete="on"
+                  autoCorrect="on"
+                  className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
+                  dir="auto"
+                  disabled={true}
+                  id="field-react-aria-6"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onSelect={[Function]}
+                  placeholder="作業見積単位を選択してください"
+                  readOnly={true}
+                  spellCheck={true}
+                  style={
+                    Object {
+                      "WebkitFlex": 1,
+                      "backgroundColor": "rgba(0,0,0,0.00)",
+                      "borderBottomColor": "rgba(229,229,229,1.00)",
+                      "borderBottomLeftRadius": "4px",
+                      "borderBottomRightRadius": "4px",
+                      "borderBottomWidth": "0px",
+                      "borderLeftColor": "rgba(229,229,229,1.00)",
+                      "borderLeftWidth": "0px",
+                      "borderRightColor": "rgba(229,229,229,1.00)",
+                      "borderRightWidth": "0px",
+                      "borderTopColor": "rgba(229,229,229,1.00)",
+                      "borderTopLeftRadius": "4px",
+                      "borderTopRightRadius": "4px",
+                      "borderTopWidth": "0px",
+                      "color": "rgba(31,41,55,1.00)",
+                      "cursor": "not-allowed",
+                      "flex": 1,
+                      "fontSize": "12px",
+                      "fontStyle": "normal",
+                      "fontWeight": "400",
+                      "lineHeight": "1.5em",
+                      "msFlex": "1 1 0%",
+                      "opacity": 0.8,
+                      "outlineWidth": "0px",
+                      "paddingBottom": "8px",
+                      "paddingLeft": "8px",
+                      "paddingRight": "8px",
+                      "paddingTop": "8px",
+                    }
+                  }
+                  tabIndex="-1"
+                  type="text"
+                />
+                <svg
+                  role="img"
+                  stroke=""
+                  style={
+                    Object {
+                      "color": "rgba(163,163,163,1.00)",
+                      "height": "24px",
+                      "paddingBottom": "4px",
+                      "paddingLeft": "0px",
+                      "paddingRight": "4px",
+                      "paddingTop": "4px",
+                      "width": "24px",
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                >
+                  <g>
+                    <g
+                      fill="currentColor"
+                      stroke=""
+                      transform="translate(24) rotate(90)"
+                    >
+                      <path
+                        d="M0,0H24V24H0Z"
+                        fill="none"
+                      />
+                      <path
+                        d="M10,6,8.59,7.41,13.17,12,8.59,16.59,10,18l6-6Z"
+                      />
+                    </g>
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div
+            className="css-view-1dbjc4n"
+            style={
+              Object {
+                "marginBottom": "0px",
+                "marginLeft": "0px",
+                "marginRight": "0px",
+                "marginTop": "16px",
+                "paddingLeft": "8px",
+                "paddingRight": "8px",
+                "width": "100%",
+              }
+            }
+          >
+            <label
+              className="css-view-1dbjc4n"
+              id="field-react-aria-7-label"
+              style={
+                Object {
+                  "WebkitBoxDirection": "normal",
+                  "WebkitBoxOrient": "horizontal",
+                  "WebkitBoxPack": "start",
+                  "WebkitFlexDirection": "row",
+                  "WebkitJustifyContent": "flex-start",
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "marginBottom": "8px",
+                  "marginRight": "12px",
+                  "msFlexDirection": "row",
+                  "msFlexPack": "start",
+                }
+              }
+            >
+              <div
+                className="css-text-901oao"
+                dir="auto"
+                style={
+                  Object {
+                    "color": "rgba(31,41,55,1.00)",
+                    "fontSize": "14px",
+                    "fontStyle": "normal",
+                    "fontWeight": "700",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
+                  }
+                }
+              >
+                タグ名
+              </div>
+            </label>
+            <div
+              className="css-view-1dbjc4n"
+              style={
+                Object {
+                  "WebkitBoxDirection": "normal",
+                  "WebkitBoxLines": "multiple",
+                  "WebkitBoxOrient": "horizontal",
+                  "WebkitFlexDirection": "row",
+                  "WebkitFlexWrap": "wrap",
+                  "display": "flex",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "msFlexDirection": "row",
+                  "msFlexWrap": "wrap",
+                }
+              }
+            >
+              <div
+                className="css-cursor-18t94o4 css-view-1dbjc4n"
+                onBlur={[Function]}
+                onClick={[Function]}
+                onContextMenu={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                role="button"
+                style={
+                  Object {
+                    "WebkitAlignItems": "center",
+                    "WebkitAlignSelf": "center",
+                    "WebkitBoxAlign": "center",
+                    "WebkitBoxPack": "center",
+                    "WebkitJustifyContent": "center",
+                    "alignItems": "center",
+                    "alignSelf": "center",
+                    "backgroundColor": "rgba(0,0,0,0.00)",
+                    "borderBottomLeftRadius": "9999px",
+                    "borderBottomRightRadius": "9999px",
+                    "borderTopLeftRadius": "9999px",
+                    "borderTopRightRadius": "9999px",
+                    "cursor": "not-allowed",
+                    "height": "32px",
+                    "justifyContent": "center",
+                    "marginLeft": "4px",
+                    "msFlexAlign": "center",
+                    "msFlexItemAlign": "center",
+                    "msFlexPack": "center",
+                    "msGridRowAlign": "center",
+                    "msTouchAction": "manipulation",
+                    "outlineWidth": "0px",
+                    "touchAction": "manipulation",
+                    "width": "32px",
+                  }
+                }
+                tabIndex="0"
+              >
+                <svg
+                  role="img"
+                  stroke=""
+                  style={
+                    Object {
+                      "color": "rgba(38,38,38,1.00)",
+                      "height": "32px",
+                      "width": "32px",
+                    }
+                  }
+                  viewBox="0 0 512 512"
+                >
+                  <g>
+                    <path
+                      d="M359.244,224.004h-59.988c-6.217,0-11.258-5.043-11.258-11.258v-59.992c0-6.215-5.039-11.254-11.256-11.254 h-41.486c-6.217,0-11.258,5.039-11.258,11.254v59.992c0,6.215-5.039,11.258-11.256,11.258h-59.988 c-6.219,0-11.258,5.039-11.258,11.258v41.484c0,6.215,5.039,11.258,11.258,11.258h59.988c6.217,0,11.256,5.039,11.256,11.258 v59.984c0,6.219,5.041,11.258,11.258,11.258h41.486c6.217,0,11.256-5.039,11.256-11.258v-59.984 c0-6.219,5.041-11.258,11.258-11.258h59.988c6.217,0,11.258-5.043,11.258-11.258v-41.484 C370.502,229.043,365.461,224.004,359.244,224.004z M256,0C114.613,0,0,114.617,0,256c0,141.387,114.613,256,256,256c141.383,0,256-114.613,256-256 C512,114.617,397.383,0,256,0z M256,448c-105.871,0-192-86.129-192-192c0-105.867,86.129-192,192-192c105.867,0,192,86.133,192,192 C448,361.871,361.867,448,256,448z"
+                      fill="currentColor"
+                      stroke=""
+                    />
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Domain Components/Index/TaskForm Task Form With Errors 1`] = `
+<div
+  className="css-view-1dbjc4n"
+  style={
+    Object {
+      "WebkitFlex": 1,
+      "flex": 1,
+      "msFlex": "1 1 0%",
+    }
+  }
+>
+  <div
+    className="css-view-1dbjc4n"
+    style={
+      Object {
+        "display": "flex",
+        "height": "100vh",
+        "overflowX": "auto",
+        "overflowY": "auto",
+      }
+    }
+  >
+    <div
+      className="css-view-1dbjc4n r-scrollbarWidth-2eszeu"
+      onScroll={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      onWheel={[Function]}
+      style={
+        Object {
+          "WebkitBoxDirection": "normal",
+          "WebkitBoxFlex": 1,
+          "WebkitBoxOrient": "vertical",
+          "WebkitFlex": 1,
+          "WebkitFlexDirection": "column",
+          "WebkitFlexGrow": 1,
+          "WebkitFlexShrink": 1,
+          "WebkitOverflowScrolling": "touch",
+          "WebkitTransform": "translateZ(0px)",
+          "flex": 1,
+          "flexDirection": "column",
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "msFlex": "1 1 0%",
+          "msFlexDirection": "column",
+          "msFlexNegative": 1,
+          "msFlexPositive": 1,
+          "overflowX": "hidden",
+          "overflowY": "auto",
+          "paddingBottom": "8px",
+          "paddingLeft": "8px",
+          "paddingRight": "8px",
+          "paddingTop": "8px",
+          "transform": "translateZ(0px)",
+          "width": "100%",
+        }
+      }
+    >
+      <div
+        className="css-view-1dbjc4n"
+      >
+        <div
+          className="css-view-1dbjc4n"
+          style={
+            Object {
+              "WebkitBoxDirection": "normal",
+              "WebkitBoxOrient": "vertical",
+              "WebkitFlexDirection": "column",
+              "display": "flex",
+              "flexDirection": "column",
+              "marginBottom": "8px",
+              "marginLeft": "8px",
+              "marginRight": "8px",
+              "marginTop": "8px",
+              "msFlexDirection": "column",
+            }
+          }
+        >
+          <div
+            className="css-view-1dbjc4n"
+            style={
+              Object {
+                "marginBottom": "0px",
+                "marginLeft": "0px",
+                "marginRight": "0px",
+                "marginTop": "16px",
+                "paddingLeft": "8px",
+                "paddingRight": "8px",
+                "width": "100%",
+              }
+            }
+          >
+            <label
+              className="css-view-1dbjc4n"
+              id="field-react-aria-1-label"
+              style={
+                Object {
+                  "WebkitBoxDirection": "normal",
+                  "WebkitBoxOrient": "horizontal",
+                  "WebkitBoxPack": "start",
+                  "WebkitFlexDirection": "row",
+                  "WebkitJustifyContent": "flex-start",
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "marginBottom": "8px",
+                  "marginRight": "12px",
+                  "msFlexDirection": "row",
+                  "msFlexPack": "start",
+                }
+              }
+            >
+              <div
+                className="css-text-901oao"
+                dir="auto"
+                style={
+                  Object {
+                    "color": "rgba(31,41,55,1.00)",
+                    "fontSize": "14px",
+                    "fontStyle": "normal",
+                    "fontWeight": "700",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
+                  }
+                }
+              >
+                タスク名
+              </div>
+              <div
+                className="css-view-1dbjc4n"
+                style={
+                  Object {
+                    "WebkitAlignItems": "center",
+                    "WebkitBoxAlign": "center",
+                    "alignItems": "center",
+                    "backgroundColor": "rgba(254,202,202,1.00)",
+                    "borderBottomColor": "rgba(0,0,0,0.00)",
+                    "borderBottomLeftRadius": "2px",
+                    "borderBottomRightRadius": "2px",
+                    "borderBottomWidth": "1px",
+                    "borderLeftColor": "rgba(0,0,0,0.00)",
+                    "borderLeftWidth": "1px",
+                    "borderRightColor": "rgba(0,0,0,0.00)",
+                    "borderRightWidth": "1px",
+                    "borderTopColor": "rgba(0,0,0,0.00)",
+                    "borderTopLeftRadius": "2px",
+                    "borderTopRightRadius": "2px",
+                    "borderTopWidth": "1px",
+                    "marginLeft": "4px",
+                    "msFlexAlign": "center",
+                    "paddingBottom": "2px",
+                    "paddingLeft": "8px",
+                    "paddingRight": "8px",
+                    "paddingTop": "2px",
+                  }
+                }
+              >
+                <div
+                  className="css-text-901oao"
+                  dir="auto"
+                  style={
+                    Object {
+                      "color": "rgba(220,38,38,1.00)",
+                      "fontSize": "12px",
+                      "fontStyle": "normal",
+                      "fontWeight": "500",
+                      "letterSpacing": "0px",
+                      "lineHeight": "1.5em",
+                    }
+                  }
+                >
+                  必須
+                </div>
+              </div>
+            </label>
+            <input
+              aria-invalid={true}
+              autoCapitalize="sentences"
+              autoComplete="on"
+              autoCorrect="on"
+              className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
+              dir="auto"
+              id="field-react-aria-1"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onSelect={[Function]}
+              placeholder="タスク名を入力してください"
+              readOnly={false}
+              spellCheck={true}
+              style={
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0.00)",
+                  "borderBottomColor": "rgba(220,38,38,1.00)",
+                  "borderBottomLeftRadius": "4px",
+                  "borderBottomRightRadius": "4px",
+                  "borderBottomWidth": "1px",
+                  "borderLeftColor": "rgba(220,38,38,1.00)",
+                  "borderLeftWidth": "1px",
+                  "borderRightColor": "rgba(220,38,38,1.00)",
+                  "borderRightWidth": "1px",
+                  "borderTopColor": "rgba(220,38,38,1.00)",
+                  "borderTopLeftRadius": "4px",
+                  "borderTopRightRadius": "4px",
+                  "borderTopWidth": "1px",
+                  "color": "rgba(31,41,55,1.00)",
+                  "cursor": "auto",
+                  "fontSize": "12px",
+                  "fontStyle": "normal",
+                  "fontWeight": "400",
+                  "lineHeight": "1.5em",
+                  "outlineWidth": "0px",
+                  "paddingBottom": "8px",
+                  "paddingLeft": "8px",
+                  "paddingRight": "8px",
+                  "paddingTop": "8px",
+                }
+              }
+              type="text"
+              value=""
+            />
+            <div
+              className="css-view-1dbjc4n"
+              id="field-react-aria-1"
+              style={
+                Object {
+                  "marginTop": "8px",
+                }
+              }
+            >
+              <div
+                className="css-view-1dbjc4n"
+                style={
+                  Object {
+                    "WebkitAlignItems": "center",
+                    "WebkitBoxAlign": "center",
+                    "WebkitBoxDirection": "normal",
+                    "WebkitBoxOrient": "horizontal",
+                    "WebkitFlexDirection": "row",
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "msFlexAlign": "center",
+                    "msFlexDirection": "row",
+                  }
+                }
+              >
+                <div
+                  className="css-view-1dbjc4n"
+                >
+                  <div
+                    className="css-text-901oao"
+                    dir="auto"
+                    style={
+                      Object {
+                        "color": "rgba(220,38,38,1.00)",
+                        "fontSize": "12px",
+                        "fontStyle": "normal",
+                        "fontWeight": "400",
+                        "letterSpacing": "0px",
+                        "lineHeight": "1.5em",
+                      }
+                    }
+                  >
+                    error1, error2
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="css-view-1dbjc4n"
+            style={
+              Object {
+                "marginBottom": "0px",
+                "marginLeft": "0px",
+                "marginRight": "0px",
+                "marginTop": "16px",
+                "paddingLeft": "8px",
+                "paddingRight": "8px",
+                "width": "100%",
+              }
+            }
+          >
+            <label
+              className="css-view-1dbjc4n"
+              id="field-react-aria-2-label"
+              style={
+                Object {
+                  "WebkitBoxDirection": "normal",
+                  "WebkitBoxOrient": "horizontal",
+                  "WebkitBoxPack": "start",
+                  "WebkitFlexDirection": "row",
+                  "WebkitJustifyContent": "flex-start",
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "marginBottom": "8px",
+                  "marginRight": "12px",
+                  "msFlexDirection": "row",
+                  "msFlexPack": "start",
+                }
+              }
+            >
+              <div
+                className="css-text-901oao"
+                dir="auto"
+                style={
+                  Object {
+                    "color": "rgba(31,41,55,1.00)",
+                    "fontSize": "14px",
+                    "fontStyle": "normal",
+                    "fontWeight": "700",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
+                  }
+                }
+              >
+                メモ
+              </div>
+            </label>
+            <textarea
+              aria-invalid={true}
+              autoCapitalize="sentences"
+              autoComplete="on"
+              autoCorrect="on"
+              className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
+              dir="auto"
+              disabled={false}
+              id="field-react-aria-2"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onSelect={[Function]}
+              placeholder="メモを入力してください"
+              readOnly={false}
+              rows={4}
+              spellCheck={true}
+              style={
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0.00)",
+                  "borderBottomColor": "rgba(220,38,38,1.00)",
+                  "borderBottomLeftRadius": "4px",
+                  "borderBottomRightRadius": "4px",
+                  "borderBottomWidth": "1px",
+                  "borderLeftColor": "rgba(220,38,38,1.00)",
+                  "borderLeftWidth": "1px",
+                  "borderRightColor": "rgba(220,38,38,1.00)",
+                  "borderRightWidth": "1px",
+                  "borderTopColor": "rgba(220,38,38,1.00)",
+                  "borderTopLeftRadius": "4px",
+                  "borderTopRightRadius": "4px",
+                  "borderTopWidth": "1px",
+                  "color": "rgba(31,41,55,1.00)",
+                  "cursor": "auto",
+                  "fontSize": "12px",
+                  "fontStyle": "normal",
+                  "fontWeight": "400",
+                  "lineHeight": "1.5em",
+                  "outlineWidth": "0px",
+                  "paddingBottom": "8px",
+                  "paddingLeft": "8px",
+                  "paddingRight": "8px",
+                  "paddingTop": "8px",
+                }
+              }
+              value=""
+            />
+            <div
+              className="css-view-1dbjc4n"
+              id="field-react-aria-2"
+              style={
+                Object {
+                  "marginTop": "8px",
+                }
+              }
+            >
+              <div
+                className="css-view-1dbjc4n"
+                style={
+                  Object {
+                    "WebkitAlignItems": "center",
+                    "WebkitBoxAlign": "center",
+                    "WebkitBoxDirection": "normal",
+                    "WebkitBoxOrient": "horizontal",
+                    "WebkitFlexDirection": "row",
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "msFlexAlign": "center",
+                    "msFlexDirection": "row",
+                  }
+                }
+              >
+                <div
+                  className="css-view-1dbjc4n"
+                >
+                  <div
+                    className="css-text-901oao"
+                    dir="auto"
+                    style={
+                      Object {
+                        "color": "rgba(220,38,38,1.00)",
+                        "fontSize": "12px",
+                        "fontStyle": "normal",
+                        "fontWeight": "400",
+                        "letterSpacing": "0px",
+                        "lineHeight": "1.5em",
+                      }
+                    }
+                  >
+                    error1, error2
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="css-view-1dbjc4n"
+            style={
+              Object {
+                "marginBottom": "0px",
+                "marginLeft": "0px",
+                "marginRight": "0px",
+                "marginTop": "16px",
+                "paddingLeft": "8px",
+                "paddingRight": "8px",
+                "width": "100%",
+              }
+            }
+          >
+            <label
+              className="css-view-1dbjc4n"
+              id="field-react-aria-3-label"
+              style={
+                Object {
+                  "WebkitBoxDirection": "normal",
+                  "WebkitBoxOrient": "horizontal",
+                  "WebkitBoxPack": "start",
+                  "WebkitFlexDirection": "row",
+                  "WebkitJustifyContent": "flex-start",
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "marginBottom": "8px",
+                  "marginRight": "12px",
+                  "msFlexDirection": "row",
+                  "msFlexPack": "start",
+                }
+              }
+            >
+              <div
+                className="css-text-901oao"
+                dir="auto"
+                style={
+                  Object {
+                    "color": "rgba(31,41,55,1.00)",
+                    "fontSize": "14px",
+                    "fontStyle": "normal",
+                    "fontWeight": "700",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
+                  }
+                }
+              >
+                ステータス
+              </div>
+              <div
+                className="css-view-1dbjc4n"
+                style={
+                  Object {
+                    "WebkitAlignItems": "center",
+                    "WebkitBoxAlign": "center",
+                    "alignItems": "center",
+                    "backgroundColor": "rgba(254,202,202,1.00)",
+                    "borderBottomColor": "rgba(0,0,0,0.00)",
+                    "borderBottomLeftRadius": "2px",
+                    "borderBottomRightRadius": "2px",
+                    "borderBottomWidth": "1px",
+                    "borderLeftColor": "rgba(0,0,0,0.00)",
+                    "borderLeftWidth": "1px",
+                    "borderRightColor": "rgba(0,0,0,0.00)",
+                    "borderRightWidth": "1px",
+                    "borderTopColor": "rgba(0,0,0,0.00)",
+                    "borderTopLeftRadius": "2px",
+                    "borderTopRightRadius": "2px",
+                    "borderTopWidth": "1px",
+                    "marginLeft": "4px",
+                    "msFlexAlign": "center",
+                    "paddingBottom": "2px",
+                    "paddingLeft": "8px",
+                    "paddingRight": "8px",
+                    "paddingTop": "2px",
+                  }
+                }
+              >
+                <div
+                  className="css-text-901oao"
+                  dir="auto"
+                  style={
+                    Object {
+                      "color": "rgba(220,38,38,1.00)",
+                      "fontSize": "12px",
+                      "fontStyle": "normal",
+                      "fontWeight": "500",
+                      "letterSpacing": "0px",
+                      "lineHeight": "1.5em",
+                    }
+                  }
+                >
+                  必須
+                </div>
+              </div>
+            </label>
+            <div
+              className="css-view-1dbjc4n"
+              style={
+                Object {
+                  "borderBottomColor": "rgba(0,0,0,0.00)",
+                  "borderBottomLeftRadius": "4px",
+                  "borderBottomRightRadius": "4px",
+                  "borderBottomWidth": "1px",
+                  "borderLeftColor": "rgba(0,0,0,0.00)",
+                  "borderLeftWidth": "1px",
+                  "borderRightColor": "rgba(0,0,0,0.00)",
+                  "borderRightWidth": "1px",
+                  "borderTopColor": "rgba(0,0,0,0.00)",
+                  "borderTopLeftRadius": "4px",
+                  "borderTopRightRadius": "4px",
+                  "borderTopWidth": "1px",
+                }
+              }
+            >
+              <div
+                className="css-view-1dbjc4n"
+                style={
+                  Object {
+                    "height": "100%",
+                    "opacity": 0,
+                    "position": "absolute",
+                    "width": "100%",
+                    "zIndex": 1,
+                  }
+                }
+              >
+                <select
+                  aria-label="ステータスを選択してください"
+                  aria-readonly={false}
+                  disabled={false}
+                  onChange={[Function]}
+                  required={false}
+                  style={
+                    Object {
+                      "MozAppearance": "none",
+                      "WebkitAppearance": "none",
+                      "appearance": "none",
+                      "height": "100%",
+                      "width": "100%",
+                    }
+                  }
+                  value="__NativebasePlaceholder__"
+                >
+                  <option
+                    disabled={true}
+                    value="__NativebasePlaceholder__"
+                  >
+                    ステータスを選択してください
+                  </option>
+                  <option
+                    value="登録"
+                  >
+                    登録
+                  </option>
+                  <option
+                    value="実行中"
+                  >
+                    実行中
+                  </option>
+                  <option
+                    value="完了"
+                  >
+                    完了
+                  </option>
+                  <option
+                    value="削除(登録)"
+                  >
+                    削除(登録)
+                  </option>
+                  <option
+                    value="削除(実行中)"
+                  >
+                    削除(実行中)
+                  </option>
+                  <option
+                    value="削除(完了)"
+                  >
+                    削除(完了)
+                  </option>
+                </select>
+              </div>
+              <div
+                className="css-view-1dbjc4n"
+                style={
+                  Object {
+                    "WebkitAlignItems": "center",
+                    "WebkitBoxAlign": "center",
+                    "WebkitBoxDirection": "normal",
+                    "WebkitBoxOrient": "horizontal",
+                    "WebkitBoxPack": "justify",
+                    "WebkitFlexDirection": "row",
+                    "WebkitJustifyContent": "space-between",
+                    "alignItems": "center",
+                    "borderBottomColor": "rgba(220,38,38,1.00)",
+                    "borderBottomLeftRadius": "4px",
+                    "borderBottomRightRadius": "4px",
+                    "borderBottomWidth": "1px",
+                    "borderLeftColor": "rgba(220,38,38,1.00)",
+                    "borderLeftWidth": "1px",
+                    "borderRightColor": "rgba(220,38,38,1.00)",
+                    "borderRightWidth": "1px",
+                    "borderTopColor": "rgba(220,38,38,1.00)",
+                    "borderTopLeftRadius": "4px",
+                    "borderTopRightRadius": "4px",
+                    "borderTopWidth": "1px",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "justifyContent": "space-between",
+                    "msFlexAlign": "center",
+                    "msFlexDirection": "row",
+                    "msFlexPack": "justify",
+                    "overflowX": "hidden",
+                    "overflowY": "hidden",
+                  }
+                }
+              >
+                <input
+                  aria-hidden={true}
+                  aria-invalid={true}
+                  autoCapitalize="sentences"
+                  autoComplete="on"
+                  autoCorrect="on"
+                  className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
+                  dir="auto"
+                  disabled={false}
+                  id="field-react-aria-3"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onSelect={[Function]}
+                  placeholder="ステータスを選択してください"
+                  readOnly={true}
+                  spellCheck={true}
+                  style={
+                    Object {
+                      "WebkitFlex": 1,
+                      "backgroundColor": "rgba(0,0,0,0.00)",
+                      "borderBottomColor": "rgba(220,38,38,1.00)",
+                      "borderBottomLeftRadius": "4px",
+                      "borderBottomRightRadius": "4px",
+                      "borderBottomWidth": "0px",
+                      "borderLeftColor": "rgba(220,38,38,1.00)",
+                      "borderLeftWidth": "0px",
+                      "borderRightColor": "rgba(220,38,38,1.00)",
+                      "borderRightWidth": "0px",
+                      "borderTopColor": "rgba(220,38,38,1.00)",
+                      "borderTopLeftRadius": "4px",
+                      "borderTopRightRadius": "4px",
+                      "borderTopWidth": "0px",
+                      "color": "rgba(31,41,55,1.00)",
+                      "cursor": "auto",
+                      "flex": 1,
+                      "fontSize": "12px",
+                      "fontStyle": "normal",
+                      "fontWeight": "400",
+                      "lineHeight": "1.5em",
+                      "msFlex": "1 1 0%",
+                      "outlineWidth": "0px",
+                      "paddingBottom": "8px",
+                      "paddingLeft": "8px",
+                      "paddingRight": "8px",
+                      "paddingTop": "8px",
+                    }
+                  }
+                  tabIndex="-1"
+                  type="text"
+                />
+                <svg
+                  role="img"
+                  stroke=""
+                  style={
+                    Object {
+                      "color": "rgba(163,163,163,1.00)",
+                      "height": "24px",
+                      "paddingBottom": "4px",
+                      "paddingLeft": "0px",
+                      "paddingRight": "4px",
+                      "paddingTop": "4px",
+                      "width": "24px",
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                >
+                  <g>
+                    <g
+                      fill="currentColor"
+                      stroke=""
+                      transform="translate(24) rotate(90)"
+                    >
+                      <path
+                        d="M0,0H24V24H0Z"
+                        fill="none"
+                      />
+                      <path
+                        d="M10,6,8.59,7.41,13.17,12,8.59,16.59,10,18l6-6Z"
+                      />
+                    </g>
+                  </g>
+                </svg>
+              </div>
+            </div>
+            <div
+              className="css-view-1dbjc4n"
+              id="field-react-aria-3"
+              style={
+                Object {
+                  "marginTop": "8px",
+                }
+              }
+            >
+              <div
+                className="css-view-1dbjc4n"
+                style={
+                  Object {
+                    "WebkitAlignItems": "center",
+                    "WebkitBoxAlign": "center",
+                    "WebkitBoxDirection": "normal",
+                    "WebkitBoxOrient": "horizontal",
+                    "WebkitFlexDirection": "row",
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "msFlexAlign": "center",
+                    "msFlexDirection": "row",
+                  }
+                }
+              >
+                <div
+                  className="css-view-1dbjc4n"
+                >
+                  <div
+                    className="css-text-901oao"
+                    dir="auto"
+                    style={
+                      Object {
+                        "color": "rgba(220,38,38,1.00)",
+                        "fontSize": "12px",
+                        "fontStyle": "normal",
+                        "fontWeight": "400",
+                        "letterSpacing": "0px",
+                        "lineHeight": "1.5em",
+                      }
+                    }
+                  >
+                    error1, error2
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="css-view-1dbjc4n"
+            style={
+              Object {
+                "marginBottom": "0px",
+                "marginLeft": "0px",
+                "marginRight": "0px",
+                "marginTop": "16px",
+                "paddingLeft": "8px",
+                "paddingRight": "8px",
+                "width": "100%",
+              }
+            }
+          >
+            <label
+              className="css-view-1dbjc4n"
+              id="field-react-aria-4-label"
+              style={
+                Object {
+                  "WebkitBoxDirection": "normal",
+                  "WebkitBoxOrient": "horizontal",
+                  "WebkitBoxPack": "start",
+                  "WebkitFlexDirection": "row",
+                  "WebkitJustifyContent": "flex-start",
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "marginBottom": "8px",
+                  "marginRight": "12px",
+                  "msFlexDirection": "row",
+                  "msFlexPack": "start",
+                }
+              }
+            >
+              <div
+                className="css-text-901oao"
+                dir="auto"
+                style={
+                  Object {
+                    "color": "rgba(31,41,55,1.00)",
+                    "fontSize": "14px",
+                    "fontStyle": "normal",
+                    "fontWeight": "700",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
+                  }
+                }
+              >
+                期日
+              </div>
+            </label>
+            <div>
+              <div
+                className="react-datepicker__input-container"
+              >
+                <input
+                  aria-invalid={true}
+                  autoCapitalize="sentences"
+                  autoComplete="on"
+                  autoCorrect="on"
+                  className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
+                  dir="auto"
+                  disabled={false}
+                  id="field-react-aria-4"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onSelect={[Function]}
+                  readOnly={false}
+                  spellCheck={true}
+                  style={
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0.00)",
+                      "borderBottomColor": "rgba(220,38,38,1.00)",
+                      "borderBottomLeftRadius": "4px",
+                      "borderBottomRightRadius": "4px",
+                      "borderBottomWidth": "1px",
+                      "borderLeftColor": "rgba(220,38,38,1.00)",
+                      "borderLeftWidth": "1px",
+                      "borderRightColor": "rgba(220,38,38,1.00)",
+                      "borderRightWidth": "1px",
+                      "borderTopColor": "rgba(220,38,38,1.00)",
+                      "borderTopLeftRadius": "4px",
+                      "borderTopRightRadius": "4px",
+                      "borderTopWidth": "1px",
+                      "color": "rgba(31,41,55,1.00)",
+                      "cursor": "auto",
+                      "fontSize": "12px",
+                      "fontStyle": "normal",
+                      "fontWeight": "400",
+                      "lineHeight": "1.5em",
+                      "outlineWidth": "0px",
+                      "paddingBottom": "8px",
+                      "paddingLeft": "8px",
+                      "paddingRight": "8px",
+                      "paddingTop": "8px",
+                      "width": "100%",
+                    }
+                  }
+                  type="text"
+                  value="2000/01/23 10:00"
+                />
+              </div>
+            </div>
+            <div
+              className="css-view-1dbjc4n"
+              id="field-react-aria-4"
+              style={
+                Object {
+                  "marginTop": "8px",
+                }
+              }
+            >
+              <div
+                className="css-view-1dbjc4n"
+                style={
+                  Object {
+                    "WebkitAlignItems": "center",
+                    "WebkitBoxAlign": "center",
+                    "WebkitBoxDirection": "normal",
+                    "WebkitBoxOrient": "horizontal",
+                    "WebkitFlexDirection": "row",
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "msFlexAlign": "center",
+                    "msFlexDirection": "row",
+                  }
+                }
+              >
+                <div
+                  className="css-view-1dbjc4n"
+                >
+                  <div
+                    className="css-text-901oao"
+                    dir="auto"
+                    style={
+                      Object {
+                        "color": "rgba(220,38,38,1.00)",
+                        "fontSize": "12px",
+                        "fontStyle": "normal",
+                        "fontWeight": "400",
+                        "letterSpacing": "0px",
+                        "lineHeight": "1.5em",
+                      }
+                    }
+                  >
+                    error1, error2
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="css-view-1dbjc4n"
+            style={
+              Object {
+                "marginBottom": "0px",
+                "marginLeft": "0px",
+                "marginRight": "0px",
+                "marginTop": "16px",
+                "paddingLeft": "8px",
+                "paddingRight": "8px",
+                "width": "100%",
+              }
+            }
+          >
+            <label
+              className="css-view-1dbjc4n"
+              id="field-react-aria-5-label"
+              style={
+                Object {
+                  "WebkitBoxDirection": "normal",
+                  "WebkitBoxOrient": "horizontal",
+                  "WebkitBoxPack": "start",
+                  "WebkitFlexDirection": "row",
+                  "WebkitJustifyContent": "flex-start",
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "marginBottom": "8px",
+                  "marginRight": "12px",
+                  "msFlexDirection": "row",
+                  "msFlexPack": "start",
+                }
+              }
+            >
+              <div
+                className="css-text-901oao"
+                dir="auto"
+                style={
+                  Object {
+                    "color": "rgba(31,41,55,1.00)",
+                    "fontSize": "14px",
+                    "fontStyle": "normal",
+                    "fontWeight": "700",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
+                  }
+                }
+              >
+                作業見積値
+              </div>
+            </label>
+            <div
+              className="css-view-1dbjc4n"
+            >
+              <input
+                aria-invalid={true}
+                autoCapitalize="sentences"
+                autoComplete="on"
+                autoCorrect="on"
+                className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
+                dir="auto"
+                disabled={false}
+                id="field-react-aria-5"
+                inputMode="numeric"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onSelect={[Function]}
+                placeholder="作業見積値を入力してください"
+                readOnly={false}
+                spellCheck={true}
+                style={
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0.00)",
+                    "borderBottomColor": "rgba(220,38,38,1.00)",
+                    "borderBottomLeftRadius": "4px",
+                    "borderBottomRightRadius": "4px",
+                    "borderBottomWidth": "1px",
+                    "borderLeftColor": "rgba(220,38,38,1.00)",
+                    "borderLeftWidth": "1px",
+                    "borderRightColor": "rgba(220,38,38,1.00)",
+                    "borderRightWidth": "1px",
+                    "borderTopColor": "rgba(220,38,38,1.00)",
+                    "borderTopLeftRadius": "4px",
+                    "borderTopRightRadius": "4px",
+                    "borderTopWidth": "1px",
+                    "color": "rgba(31,41,55,1.00)",
+                    "cursor": "auto",
+                    "fontSize": "12px",
+                    "fontStyle": "normal",
+                    "fontWeight": "400",
+                    "lineHeight": "1.5em",
+                    "outlineWidth": "0px",
+                    "paddingBottom": "0px",
+                    "paddingLeft": "8px",
+                    "paddingRight": "0px",
+                    "paddingTop": "0px",
+                  }
+                }
+                value="0"
+              />
+            </div>
+            <div
+              className="css-view-1dbjc4n"
+              id="field-react-aria-5"
+              style={
+                Object {
+                  "marginTop": "8px",
+                }
+              }
+            >
+              <div
+                className="css-view-1dbjc4n"
+                style={
+                  Object {
+                    "WebkitAlignItems": "center",
+                    "WebkitBoxAlign": "center",
+                    "WebkitBoxDirection": "normal",
+                    "WebkitBoxOrient": "horizontal",
+                    "WebkitFlexDirection": "row",
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "msFlexAlign": "center",
+                    "msFlexDirection": "row",
+                  }
+                }
+              >
+                <div
+                  className="css-view-1dbjc4n"
+                >
+                  <div
+                    className="css-text-901oao"
+                    dir="auto"
+                    style={
+                      Object {
+                        "color": "rgba(220,38,38,1.00)",
+                        "fontSize": "12px",
+                        "fontStyle": "normal",
+                        "fontWeight": "400",
+                        "letterSpacing": "0px",
+                        "lineHeight": "1.5em",
+                      }
+                    }
+                  >
+                    error1, error2
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="css-view-1dbjc4n"
+            style={
+              Object {
+                "marginBottom": "0px",
+                "marginLeft": "0px",
+                "marginRight": "0px",
+                "marginTop": "16px",
+                "paddingLeft": "8px",
+                "paddingRight": "8px",
+                "width": "100%",
+              }
+            }
+          >
+            <label
+              className="css-view-1dbjc4n"
+              id="field-react-aria-6-label"
+              style={
+                Object {
+                  "WebkitBoxDirection": "normal",
+                  "WebkitBoxOrient": "horizontal",
+                  "WebkitBoxPack": "start",
+                  "WebkitFlexDirection": "row",
+                  "WebkitJustifyContent": "flex-start",
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "marginBottom": "8px",
+                  "marginRight": "12px",
+                  "msFlexDirection": "row",
+                  "msFlexPack": "start",
+                }
+              }
+            >
+              <div
+                className="css-text-901oao"
+                dir="auto"
+                style={
+                  Object {
+                    "color": "rgba(31,41,55,1.00)",
+                    "fontSize": "14px",
+                    "fontStyle": "normal",
+                    "fontWeight": "700",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
+                  }
+                }
+              >
+                作業見積単位
+              </div>
+            </label>
+            <div
+              className="css-view-1dbjc4n"
+              style={
+                Object {
+                  "borderBottomColor": "rgba(0,0,0,0.00)",
+                  "borderBottomLeftRadius": "4px",
+                  "borderBottomRightRadius": "4px",
+                  "borderBottomWidth": "1px",
+                  "borderLeftColor": "rgba(0,0,0,0.00)",
+                  "borderLeftWidth": "1px",
+                  "borderRightColor": "rgba(0,0,0,0.00)",
+                  "borderRightWidth": "1px",
+                  "borderTopColor": "rgba(0,0,0,0.00)",
+                  "borderTopLeftRadius": "4px",
+                  "borderTopRightRadius": "4px",
+                  "borderTopWidth": "1px",
+                }
+              }
+            >
+              <div
+                className="css-view-1dbjc4n"
+                style={
+                  Object {
+                    "height": "100%",
+                    "opacity": 0,
+                    "position": "absolute",
+                    "width": "100%",
+                    "zIndex": 1,
+                  }
+                }
+              >
+                <select
+                  aria-label="作業見積単位を選択してください"
+                  aria-readonly={false}
+                  disabled={false}
+                  onChange={[Function]}
+                  required={false}
+                  style={
+                    Object {
+                      "MozAppearance": "none",
+                      "WebkitAppearance": "none",
+                      "appearance": "none",
+                      "height": "100%",
+                      "width": "100%",
+                    }
+                  }
+                  value="__NativebasePlaceholder__"
+                >
+                  <option
+                    disabled={true}
+                    value="__NativebasePlaceholder__"
+                  >
+                    作業見積単位を選択してください
+                  </option>
+                  <option
+                    value="日"
+                  >
+                    日
+                  </option>
+                  <option
+                    value="時間"
+                  >
+                    時間
+                  </option>
+                </select>
+              </div>
+              <div
+                className="css-view-1dbjc4n"
+                style={
+                  Object {
+                    "WebkitAlignItems": "center",
+                    "WebkitBoxAlign": "center",
+                    "WebkitBoxDirection": "normal",
+                    "WebkitBoxOrient": "horizontal",
+                    "WebkitBoxPack": "justify",
+                    "WebkitFlexDirection": "row",
+                    "WebkitJustifyContent": "space-between",
+                    "alignItems": "center",
+                    "borderBottomColor": "rgba(220,38,38,1.00)",
+                    "borderBottomLeftRadius": "4px",
+                    "borderBottomRightRadius": "4px",
+                    "borderBottomWidth": "1px",
+                    "borderLeftColor": "rgba(220,38,38,1.00)",
+                    "borderLeftWidth": "1px",
+                    "borderRightColor": "rgba(220,38,38,1.00)",
+                    "borderRightWidth": "1px",
+                    "borderTopColor": "rgba(220,38,38,1.00)",
+                    "borderTopLeftRadius": "4px",
+                    "borderTopRightRadius": "4px",
+                    "borderTopWidth": "1px",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "justifyContent": "space-between",
+                    "msFlexAlign": "center",
+                    "msFlexDirection": "row",
+                    "msFlexPack": "justify",
+                    "overflowX": "hidden",
+                    "overflowY": "hidden",
+                  }
+                }
+              >
+                <input
+                  aria-hidden={true}
+                  aria-invalid={true}
+                  autoCapitalize="sentences"
+                  autoComplete="on"
+                  autoCorrect="on"
+                  className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
+                  dir="auto"
+                  disabled={false}
+                  id="field-react-aria-6"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onSelect={[Function]}
+                  placeholder="作業見積単位を選択してください"
+                  readOnly={true}
+                  spellCheck={true}
+                  style={
+                    Object {
+                      "WebkitFlex": 1,
+                      "backgroundColor": "rgba(0,0,0,0.00)",
+                      "borderBottomColor": "rgba(220,38,38,1.00)",
+                      "borderBottomLeftRadius": "4px",
+                      "borderBottomRightRadius": "4px",
+                      "borderBottomWidth": "0px",
+                      "borderLeftColor": "rgba(220,38,38,1.00)",
+                      "borderLeftWidth": "0px",
+                      "borderRightColor": "rgba(220,38,38,1.00)",
+                      "borderRightWidth": "0px",
+                      "borderTopColor": "rgba(220,38,38,1.00)",
+                      "borderTopLeftRadius": "4px",
+                      "borderTopRightRadius": "4px",
+                      "borderTopWidth": "0px",
+                      "color": "rgba(31,41,55,1.00)",
+                      "cursor": "auto",
+                      "flex": 1,
+                      "fontSize": "12px",
+                      "fontStyle": "normal",
+                      "fontWeight": "400",
+                      "lineHeight": "1.5em",
+                      "msFlex": "1 1 0%",
+                      "outlineWidth": "0px",
+                      "paddingBottom": "8px",
+                      "paddingLeft": "8px",
+                      "paddingRight": "8px",
+                      "paddingTop": "8px",
+                    }
+                  }
+                  tabIndex="-1"
+                  type="text"
+                />
+                <svg
+                  role="img"
+                  stroke=""
+                  style={
+                    Object {
+                      "color": "rgba(163,163,163,1.00)",
+                      "height": "24px",
+                      "paddingBottom": "4px",
+                      "paddingLeft": "0px",
+                      "paddingRight": "4px",
+                      "paddingTop": "4px",
+                      "width": "24px",
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                >
+                  <g>
+                    <g
+                      fill="currentColor"
+                      stroke=""
+                      transform="translate(24) rotate(90)"
+                    >
+                      <path
+                        d="M0,0H24V24H0Z"
+                        fill="none"
+                      />
+                      <path
+                        d="M10,6,8.59,7.41,13.17,12,8.59,16.59,10,18l6-6Z"
+                      />
+                    </g>
+                  </g>
+                </svg>
+              </div>
+            </div>
+            <div
+              className="css-view-1dbjc4n"
+              id="field-react-aria-6"
+              style={
+                Object {
+                  "marginTop": "8px",
+                }
+              }
+            >
+              <div
+                className="css-view-1dbjc4n"
+                style={
+                  Object {
+                    "WebkitAlignItems": "center",
+                    "WebkitBoxAlign": "center",
+                    "WebkitBoxDirection": "normal",
+                    "WebkitBoxOrient": "horizontal",
+                    "WebkitFlexDirection": "row",
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "msFlexAlign": "center",
+                    "msFlexDirection": "row",
+                  }
+                }
+              >
+                <div
+                  className="css-view-1dbjc4n"
+                >
+                  <div
+                    className="css-text-901oao"
+                    dir="auto"
+                    style={
+                      Object {
+                        "color": "rgba(220,38,38,1.00)",
+                        "fontSize": "12px",
+                        "fontStyle": "normal",
+                        "fontWeight": "400",
+                        "letterSpacing": "0px",
+                        "lineHeight": "1.5em",
+                      }
+                    }
+                  >
+                    error1, error2
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="css-view-1dbjc4n"
+            style={
+              Object {
+                "marginBottom": "0px",
+                "marginLeft": "0px",
+                "marginRight": "0px",
+                "marginTop": "16px",
+                "paddingLeft": "8px",
+                "paddingRight": "8px",
+                "width": "100%",
+              }
+            }
+          >
+            <label
+              className="css-view-1dbjc4n"
+              id="field-react-aria-7-label"
+              style={
+                Object {
+                  "WebkitBoxDirection": "normal",
+                  "WebkitBoxOrient": "horizontal",
+                  "WebkitBoxPack": "start",
+                  "WebkitFlexDirection": "row",
+                  "WebkitJustifyContent": "flex-start",
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "marginBottom": "8px",
+                  "marginRight": "12px",
+                  "msFlexDirection": "row",
+                  "msFlexPack": "start",
+                }
+              }
+            >
+              <div
+                className="css-text-901oao"
+                dir="auto"
+                style={
+                  Object {
+                    "color": "rgba(31,41,55,1.00)",
+                    "fontSize": "14px",
+                    "fontStyle": "normal",
+                    "fontWeight": "700",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
+                  }
+                }
+              >
+                タグ名
+              </div>
+            </label>
+            <div
+              className="css-view-1dbjc4n"
+              style={
+                Object {
+                  "WebkitBoxDirection": "normal",
+                  "WebkitBoxLines": "multiple",
+                  "WebkitBoxOrient": "horizontal",
+                  "WebkitFlexDirection": "row",
+                  "WebkitFlexWrap": "wrap",
+                  "display": "flex",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "msFlexDirection": "row",
+                  "msFlexWrap": "wrap",
+                }
+              }
+            >
+              <div
+                className="css-cursor-18t94o4 css-view-1dbjc4n"
+                onBlur={[Function]}
+                onClick={[Function]}
+                onContextMenu={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                role="button"
+                style={
+                  Object {
+                    "WebkitAlignItems": "center",
+                    "WebkitAlignSelf": "center",
+                    "WebkitBoxAlign": "center",
+                    "WebkitBoxPack": "center",
+                    "WebkitJustifyContent": "center",
+                    "alignItems": "center",
+                    "alignSelf": "center",
+                    "backgroundColor": "rgba(0,0,0,0.00)",
+                    "borderBottomLeftRadius": "9999px",
+                    "borderBottomRightRadius": "9999px",
+                    "borderTopLeftRadius": "9999px",
+                    "borderTopRightRadius": "9999px",
+                    "cursor": "pointer",
+                    "height": "32px",
+                    "justifyContent": "center",
+                    "marginLeft": "4px",
+                    "msFlexAlign": "center",
+                    "msFlexItemAlign": "center",
+                    "msFlexPack": "center",
+                    "msGridRowAlign": "center",
+                    "msTouchAction": "manipulation",
+                    "outlineWidth": "0px",
+                    "touchAction": "manipulation",
+                    "width": "32px",
+                  }
+                }
+                tabIndex="0"
+              >
+                <svg
+                  role="img"
+                  stroke=""
+                  style={
+                    Object {
+                      "color": "rgba(38,38,38,1.00)",
+                      "height": "32px",
+                      "width": "32px",
+                    }
+                  }
+                  viewBox="0 0 512 512"
+                >
+                  <g>
+                    <path
+                      d="M359.244,224.004h-59.988c-6.217,0-11.258-5.043-11.258-11.258v-59.992c0-6.215-5.039-11.254-11.256-11.254 h-41.486c-6.217,0-11.258,5.039-11.258,11.254v59.992c0,6.215-5.039,11.258-11.256,11.258h-59.988 c-6.219,0-11.258,5.039-11.258,11.258v41.484c0,6.215,5.039,11.258,11.258,11.258h59.988c6.217,0,11.256,5.039,11.256,11.258 v59.984c0,6.219,5.041,11.258,11.258,11.258h41.486c6.217,0,11.256-5.039,11.256-11.258v-59.984 c0-6.219,5.041-11.258,11.258-11.258h59.988c6.217,0,11.258-5.043,11.258-11.258v-41.484 C370.502,229.043,365.461,224.004,359.244,224.004z M256,0C114.613,0,0,114.617,0,256c0,141.387,114.613,256,256,256c141.383,0,256-114.613,256-256 C512,114.617,397.383,0,256,0z M256,448c-105.871,0-192-86.129-192-192c0-105.867,86.129-192,192-192c105.867,0,192,86.133,192,192 C448,361.871,361.867,448,256,448z"
+                      fill="currentColor"
+                      stroke=""
+                    />
+                  </g>
+                </svg>
+              </div>
+            </div>
+            <div
+              className="css-view-1dbjc4n"
+              id="field-react-aria-7"
+              style={
+                Object {
+                  "marginTop": "8px",
+                }
+              }
+            >
+              <div
+                className="css-view-1dbjc4n"
+                style={
+                  Object {
+                    "WebkitAlignItems": "center",
+                    "WebkitBoxAlign": "center",
+                    "WebkitBoxDirection": "normal",
+                    "WebkitBoxOrient": "horizontal",
+                    "WebkitFlexDirection": "row",
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "msFlexAlign": "center",
+                    "msFlexDirection": "row",
+                  }
+                }
+              >
+                <div
+                  className="css-view-1dbjc4n"
+                >
+                  <div
+                    className="css-text-901oao"
+                    dir="auto"
+                    style={
+                      Object {
+                        "color": "rgba(220,38,38,1.00)",
+                        "fontSize": "12px",
+                        "fontStyle": "normal",
+                        "fontWeight": "400",
+                        "letterSpacing": "0px",
+                        "lineHeight": "1.5em",
+                      }
+                    }
+                  >
+                    error1, error2
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Domain Components/Index/TaskFormModal Default 1`] = `
+<div
+  className="css-view-1dbjc4n"
+  style={
+    Object {
+      "WebkitFlex": 1,
+      "flex": 1,
+      "msFlex": "1 1 0%",
+    }
+  }
+>
+  <div
+    className="css-view-1dbjc4n"
+    style={
+      Object {
+        "display": "flex",
+        "height": "100vh",
+        "overflowX": "auto",
+        "overflowY": "auto",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Storyshots Domain Components/Index/TaskFormModal Task Edit Form 1`] = `
+<div
+  className="css-view-1dbjc4n"
+  style={
+    Object {
+      "WebkitFlex": 1,
+      "flex": 1,
+      "msFlex": "1 1 0%",
+    }
+  }
+>
+  <div
+    className="css-view-1dbjc4n"
+    style={
+      Object {
+        "display": "flex",
+        "height": "100vh",
+        "overflowX": "auto",
+        "overflowY": "auto",
+      }
+    }
+  />
+</div>
+`;
+
 exports[`Storyshots Domain Components/LayoutView Default 1`] = `
 <div
   className="css-view-1dbjc4n"
@@ -5439,123 +9441,6 @@ exports[`Storyshots Page Components/Index Delete Dialog 1`] = `
 </div>
 `;
 
-exports[`Storyshots Page Components/Index Disabled Task Form 1`] = `
-<div
-  className="css-view-1dbjc4n"
-  style={
-    Object {
-      "WebkitFlex": 1,
-      "flex": 1,
-      "msFlex": "1 1 0%",
-    }
-  }
->
-  <div
-    className="css-view-1dbjc4n"
-    style={
-      Object {
-        "display": "flex",
-        "height": "100vh",
-        "overflowX": "auto",
-        "overflowY": "auto",
-      }
-    }
-  >
-    <div
-      className="css-view-1dbjc4n"
-      style={
-        Object {
-          "WebkitAlignItems": "center",
-          "WebkitBoxAlign": "center",
-          "WebkitBoxDirection": "normal",
-          "WebkitBoxOrient": "vertical",
-          "WebkitFlexDirection": "column",
-          "alignItems": "center",
-          "display": "flex",
-          "flexDirection": "column",
-          "msFlexAlign": "center",
-          "msFlexDirection": "column",
-        }
-      }
-    >
-      <div
-        className="css-view-1dbjc4n"
-        style={
-          Object {
-            "WebkitBoxDirection": "normal",
-            "WebkitBoxOrient": "horizontal",
-            "WebkitFlexDirection": "row",
-            "flexDirection": "row",
-            "msFlexDirection": "row",
-          }
-        }
-      >
-        <div
-          className="css-cursor-18t94o4 css-view-1dbjc4n"
-          onBlur={[Function]}
-          onClick={[Function]}
-          onContextMenu={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          role="button"
-          style={
-            Object {
-              "WebkitAlignItems": "center",
-              "WebkitAlignSelf": "center",
-              "WebkitBoxAlign": "center",
-              "WebkitBoxPack": "center",
-              "WebkitJustifyContent": "center",
-              "alignItems": "center",
-              "alignSelf": "center",
-              "backgroundColor": "rgba(0,0,0,0.00)",
-              "borderBottomLeftRadius": "9999px",
-              "borderBottomRightRadius": "9999px",
-              "borderTopLeftRadius": "9999px",
-              "borderTopRightRadius": "9999px",
-              "cursor": "pointer",
-              "justifyContent": "center",
-              "msFlexAlign": "center",
-              "msFlexItemAlign": "center",
-              "msFlexPack": "center",
-              "msGridRowAlign": "center",
-              "msTouchAction": "manipulation",
-              "outlineWidth": "0px",
-              "paddingBottom": "8px",
-              "paddingLeft": "8px",
-              "paddingRight": "8px",
-              "paddingTop": "8px",
-              "touchAction": "manipulation",
-            }
-          }
-          tabIndex="0"
-        >
-          <svg
-            role="img"
-            stroke=""
-            style={
-              Object {
-                "color": "rgba(38,38,38,1.00)",
-                "height": "32px",
-                "width": "32px",
-              }
-            }
-            viewBox="0 0 512 512"
-          >
-            <g>
-              <path
-                d="M359.244,224.004h-59.988c-6.217,0-11.258-5.043-11.258-11.258v-59.992c0-6.215-5.039-11.254-11.256-11.254 h-41.486c-6.217,0-11.258,5.039-11.258,11.254v59.992c0,6.215-5.039,11.258-11.256,11.258h-59.988 c-6.219,0-11.258,5.039-11.258,11.258v41.484c0,6.215,5.039,11.258,11.258,11.258h59.988c6.217,0,11.256,5.039,11.256,11.258 v59.984c0,6.219,5.041,11.258,11.258,11.258h41.486c6.217,0,11.256-5.039,11.256-11.258v-59.984 c0-6.219,5.041-11.258,11.258-11.258h59.988c6.217,0,11.258-5.043,11.258-11.258v-41.484 C370.502,229.043,365.461,224.004,359.244,224.004z M256,0C114.613,0,0,114.617,0,256c0,141.387,114.613,256,256,256c141.383,0,256-114.613,256-256 C512,114.617,397.383,0,256,0z M256,448c-105.871,0-192-86.129-192-192c0-105.867,86.129-192,192-192c105.867,0,192,86.133,192,192 C448,361.871,361.867,448,256,448z"
-                fill="currentColor"
-                stroke=""
-              />
-            </g>
-          </svg>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`Storyshots Page Components/Index Not Loaded 1`] = `
 <div
   className="css-view-1dbjc4n"
@@ -5813,241 +9698,7 @@ exports[`Storyshots Page Components/Index Not Logged In 1`] = `
 </div>
 `;
 
-exports[`Storyshots Page Components/Index Task Edit Form 1`] = `
-<div
-  className="css-view-1dbjc4n"
-  style={
-    Object {
-      "WebkitFlex": 1,
-      "flex": 1,
-      "msFlex": "1 1 0%",
-    }
-  }
->
-  <div
-    className="css-view-1dbjc4n"
-    style={
-      Object {
-        "display": "flex",
-        "height": "100vh",
-        "overflowX": "auto",
-        "overflowY": "auto",
-      }
-    }
-  >
-    <div
-      className="css-view-1dbjc4n"
-      style={
-        Object {
-          "WebkitAlignItems": "center",
-          "WebkitBoxAlign": "center",
-          "WebkitBoxDirection": "normal",
-          "WebkitBoxOrient": "vertical",
-          "WebkitFlexDirection": "column",
-          "alignItems": "center",
-          "display": "flex",
-          "flexDirection": "column",
-          "msFlexAlign": "center",
-          "msFlexDirection": "column",
-        }
-      }
-    >
-      <div
-        className="css-view-1dbjc4n"
-        style={
-          Object {
-            "WebkitBoxDirection": "normal",
-            "WebkitBoxOrient": "horizontal",
-            "WebkitFlexDirection": "row",
-            "flexDirection": "row",
-            "msFlexDirection": "row",
-          }
-        }
-      >
-        <div
-          className="css-cursor-18t94o4 css-view-1dbjc4n"
-          onBlur={[Function]}
-          onClick={[Function]}
-          onContextMenu={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          role="button"
-          style={
-            Object {
-              "WebkitAlignItems": "center",
-              "WebkitAlignSelf": "center",
-              "WebkitBoxAlign": "center",
-              "WebkitBoxPack": "center",
-              "WebkitJustifyContent": "center",
-              "alignItems": "center",
-              "alignSelf": "center",
-              "backgroundColor": "rgba(0,0,0,0.00)",
-              "borderBottomLeftRadius": "9999px",
-              "borderBottomRightRadius": "9999px",
-              "borderTopLeftRadius": "9999px",
-              "borderTopRightRadius": "9999px",
-              "cursor": "pointer",
-              "justifyContent": "center",
-              "msFlexAlign": "center",
-              "msFlexItemAlign": "center",
-              "msFlexPack": "center",
-              "msGridRowAlign": "center",
-              "msTouchAction": "manipulation",
-              "outlineWidth": "0px",
-              "paddingBottom": "8px",
-              "paddingLeft": "8px",
-              "paddingRight": "8px",
-              "paddingTop": "8px",
-              "touchAction": "manipulation",
-            }
-          }
-          tabIndex="0"
-        >
-          <svg
-            role="img"
-            stroke=""
-            style={
-              Object {
-                "color": "rgba(38,38,38,1.00)",
-                "height": "32px",
-                "width": "32px",
-              }
-            }
-            viewBox="0 0 512 512"
-          >
-            <g>
-              <path
-                d="M359.244,224.004h-59.988c-6.217,0-11.258-5.043-11.258-11.258v-59.992c0-6.215-5.039-11.254-11.256-11.254 h-41.486c-6.217,0-11.258,5.039-11.258,11.254v59.992c0,6.215-5.039,11.258-11.256,11.258h-59.988 c-6.219,0-11.258,5.039-11.258,11.258v41.484c0,6.215,5.039,11.258,11.258,11.258h59.988c6.217,0,11.256,5.039,11.256,11.258 v59.984c0,6.219,5.041,11.258,11.258,11.258h41.486c6.217,0,11.256-5.039,11.256-11.258v-59.984 c0-6.219,5.041-11.258,11.258-11.258h59.988c6.217,0,11.258-5.043,11.258-11.258v-41.484 C370.502,229.043,365.461,224.004,359.244,224.004z M256,0C114.613,0,0,114.617,0,256c0,141.387,114.613,256,256,256c141.383,0,256-114.613,256-256 C512,114.617,397.383,0,256,0z M256,448c-105.871,0-192-86.129-192-192c0-105.867,86.129-192,192-192c105.867,0,192,86.133,192,192 C448,361.871,361.867,448,256,448z"
-                fill="currentColor"
-                stroke=""
-              />
-            </g>
-          </svg>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`Storyshots Page Components/Index Task Form 1`] = `
-<div
-  className="css-view-1dbjc4n"
-  style={
-    Object {
-      "WebkitFlex": 1,
-      "flex": 1,
-      "msFlex": "1 1 0%",
-    }
-  }
->
-  <div
-    className="css-view-1dbjc4n"
-    style={
-      Object {
-        "display": "flex",
-        "height": "100vh",
-        "overflowX": "auto",
-        "overflowY": "auto",
-      }
-    }
-  >
-    <div
-      className="css-view-1dbjc4n"
-      style={
-        Object {
-          "WebkitAlignItems": "center",
-          "WebkitBoxAlign": "center",
-          "WebkitBoxDirection": "normal",
-          "WebkitBoxOrient": "vertical",
-          "WebkitFlexDirection": "column",
-          "alignItems": "center",
-          "display": "flex",
-          "flexDirection": "column",
-          "msFlexAlign": "center",
-          "msFlexDirection": "column",
-        }
-      }
-    >
-      <div
-        className="css-view-1dbjc4n"
-        style={
-          Object {
-            "WebkitBoxDirection": "normal",
-            "WebkitBoxOrient": "horizontal",
-            "WebkitFlexDirection": "row",
-            "flexDirection": "row",
-            "msFlexDirection": "row",
-          }
-        }
-      >
-        <div
-          className="css-cursor-18t94o4 css-view-1dbjc4n"
-          onBlur={[Function]}
-          onClick={[Function]}
-          onContextMenu={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          role="button"
-          style={
-            Object {
-              "WebkitAlignItems": "center",
-              "WebkitAlignSelf": "center",
-              "WebkitBoxAlign": "center",
-              "WebkitBoxPack": "center",
-              "WebkitJustifyContent": "center",
-              "alignItems": "center",
-              "alignSelf": "center",
-              "backgroundColor": "rgba(0,0,0,0.00)",
-              "borderBottomLeftRadius": "9999px",
-              "borderBottomRightRadius": "9999px",
-              "borderTopLeftRadius": "9999px",
-              "borderTopRightRadius": "9999px",
-              "cursor": "pointer",
-              "justifyContent": "center",
-              "msFlexAlign": "center",
-              "msFlexItemAlign": "center",
-              "msFlexPack": "center",
-              "msGridRowAlign": "center",
-              "msTouchAction": "manipulation",
-              "outlineWidth": "0px",
-              "paddingBottom": "8px",
-              "paddingLeft": "8px",
-              "paddingRight": "8px",
-              "paddingTop": "8px",
-              "touchAction": "manipulation",
-            }
-          }
-          tabIndex="0"
-        >
-          <svg
-            role="img"
-            stroke=""
-            style={
-              Object {
-                "color": "rgba(38,38,38,1.00)",
-                "height": "32px",
-                "width": "32px",
-              }
-            }
-            viewBox="0 0 512 512"
-          >
-            <g>
-              <path
-                d="M359.244,224.004h-59.988c-6.217,0-11.258-5.043-11.258-11.258v-59.992c0-6.215-5.039-11.254-11.256-11.254 h-41.486c-6.217,0-11.258,5.039-11.258,11.254v59.992c0,6.215-5.039,11.258-11.256,11.258h-59.988 c-6.219,0-11.258,5.039-11.258,11.258v41.484c0,6.215,5.039,11.258,11.258,11.258h59.988c6.217,0,11.256,5.039,11.256,11.258 v59.984c0,6.219,5.041,11.258,11.258,11.258h41.486c6.217,0,11.256-5.039,11.256-11.258v-59.984 c0-6.219,5.041-11.258,11.258-11.258h59.988c6.217,0,11.258-5.043,11.258-11.258v-41.484 C370.502,229.043,365.461,224.004,359.244,224.004z M256,0C114.613,0,0,114.617,0,256c0,141.387,114.613,256,256,256c141.383,0,256-114.613,256-256 C512,114.617,397.383,0,256,0z M256,448c-105.871,0-192-86.129-192-192c0-105.867,86.129-192,192-192c105.867,0,192,86.133,192,192 C448,361.871,361.867,448,256,448z"
-                fill="currentColor"
-                stroke=""
-              />
-            </g>
-          </svg>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Page Components/Index Task Form With Errors 1`] = `
 <div
   className="css-view-1dbjc4n"
   style={
