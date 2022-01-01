@@ -22,6 +22,7 @@ type Props = {
   onSubmitForm: () => void;
   control: Control<FormValues>;
   isDisabled: boolean;
+  isSubmitting: boolean;
   formFields: FormFields;
 };
 
@@ -44,6 +45,7 @@ const TaskFormModal: VFC<Props> = ({
   onSubmitForm,
   control,
   isDisabled,
+  isSubmitting,
   formFields,
 }) => {
   const cancelRef = useRef();
@@ -58,7 +60,7 @@ const TaskFormModal: VFC<Props> = ({
         <TaskForm
           formFields={formFields}
           control={control}
-          isDisabled={isDisabled}
+          isDisabled={isSubmitting}
           validationErrors={validationErrors}
         />
       </Modal.Body>

@@ -24,6 +24,7 @@ export const useTaskForm = () => {
     handleSubmit,
     reset,
     isDisabled: !isValid || isSubmitting,
+    isSubmitting,
   };
 };
 
