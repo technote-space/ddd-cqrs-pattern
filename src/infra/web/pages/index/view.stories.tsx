@@ -1,6 +1,6 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import { useForm } from 'react-hook-form';
-import  { formFields } from '^/usecase/task/taskDto';
+import  { getFormFields } from '^/usecase/task/taskDto';
 import View from './view';
 
 export default {
@@ -81,7 +81,7 @@ TaskForm.args = {
   tasks: undefined,
   isValidatingTasks: false,
   isOpenTaskFormDialog: true,
-  formFields,
+  formFields: getFormFields(),
   validationErrors: {},
 };
 
@@ -91,7 +91,7 @@ DeleteDialog.args = {
   tasks: undefined,
   isValidatingTasks: false,
   isOpenDeleteTaskDialog: true,
-  formFields,
+  formFields: getFormFields(),
   validationErrors: {},
   deleteTargetTask: { taskName: 'test' } as never,
 };

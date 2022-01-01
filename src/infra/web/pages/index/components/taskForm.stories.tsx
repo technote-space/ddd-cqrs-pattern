@@ -1,6 +1,6 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import { useForm } from 'react-hook-form';
-import { formFields } from '^/usecase/task/taskDto';
+import { getFormFields } from '^/usecase/task/taskDto';
 import TaskForm from './taskForm';
 
 export default {
@@ -23,12 +23,12 @@ const Template: ComponentStory<typeof TaskForm> = (args) => {
 
 export const Default = Template.bind({});
 Default.args = {
-  formFields,
+  formFields: getFormFields(),
 };
 
 export const TaskFormWithErrors = Template.bind({});
 TaskFormWithErrors.args = {
-  formFields,
+  formFields: getFormFields(),
   validationErrors: {
     taskName: ['error1', 'error2'],
     memo: ['error1', 'error2'],
@@ -43,6 +43,6 @@ TaskFormWithErrors.args = {
 export const DisabledTaskForm = Template.bind({});
 DisabledTaskForm.args = {
   isDisabled: true,
-  formFields,
+  formFields: getFormFields(),
   validationErrors: {},
 };

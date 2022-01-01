@@ -1,13 +1,15 @@
 import type { HooksParams } from './hooks';
 import type { VFC } from 'react';
+import dynamic from 'next/dynamic';
 import { memo, useMemo } from 'react';
-import DeleteAlertDialog from './components/deleteAlertDialog';
-import Task from './components/task';
-import TaskFormModal from './components/taskFormModal';
 import AddButton from '#/button/addButton';
 import ButtonGroup from '#/button/group';
 import Flex from '#/layout/flex';
 import Loading from '#/loading';
+
+const Task = dynamic(() => import('./components/task'));
+const TaskFormModal = dynamic(() => import('./components/taskFormModal'));
+const DeleteAlertDialog = dynamic(() => import('./components/deleteAlertDialog'));
 
 const View: VFC<HooksParams> = ({
   user,

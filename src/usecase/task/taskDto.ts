@@ -80,15 +80,14 @@ const getFormField = <C extends FormComponentKey>(label: string, component: C, i
 export type FormFields = {
   [key in keyof FormValues]: FormFieldProps<FormComponentKey>;
 };
-export const formFields: FormFields = {
-  taskName: getFormField(TaskName.getLabel(), 'textInput', true, {}),
-  memo: getFormField(Memo.getLabel(), 'textArea', false, {}),
-  status: getFormField(Status.getLabel(), 'select', true, { items: Status.create('').flagTypes }),
-  dueDate: getFormField(DueDate.getLabel(), 'dateTimePicker', false, {}),
-  estimateValue: getFormField(EstimateValue.getLabel(), 'numberInput', false, { min: 0 }),
-  estimateUnit: getFormField(EstimateUnit.getLabel(), 'select', false, { items: EstimateUnit.create('').flagTypes }),
-  tags: getFormField(TagName.getLabel(), 'multipleSelect', false, {}),
-};
-export const useFormFields = (): { formFields: FormFields } => {
-  return { formFields };
+export const getFormFields = (): FormFields => {
+  return {
+    taskName: getFormField(TaskName.getLabel(), 'textInput', true, {}),
+    memo: getFormField(Memo.getLabel(), 'textArea', false, {}),
+    status: getFormField(Status.getLabel(), 'select', true, { items: Status.create('').flagTypes }),
+    dueDate: getFormField(DueDate.getLabel(), 'dateTimePicker', false, {}),
+    estimateValue: getFormField(EstimateValue.getLabel(), 'numberInput', false, { min: 0 }),
+    estimateUnit: getFormField(EstimateUnit.getLabel(), 'select', false, { items: EstimateUnit.create('').flagTypes }),
+    tags: getFormField(TagName.getLabel(), 'multipleSelect', false, {}),
+  };
 };

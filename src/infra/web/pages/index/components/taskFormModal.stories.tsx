@@ -1,6 +1,6 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import { useForm } from 'react-hook-form';
-import { formFields } from '^/usecase/task/taskDto';
+import { getFormFields } from '^/usecase/task/taskDto';
 import TaskFormModal from './taskFormModal';
 
 export default {
@@ -26,14 +26,14 @@ const Template: ComponentStory<typeof TaskFormModal> = (args) => {
 export const Default = Template.bind({});
 Default.args = {
   isOpenTaskFormDialog: true,
-  formFields,
+  formFields: getFormFields(),
   validationErrors: {},
 };
 
 export const TaskEditForm = Template.bind({});
 TaskEditForm.args = {
   isOpenTaskFormDialog: true,
-  formFields,
+  formFields: getFormFields(),
   validationErrors: {},
   selectedTask: {} as never,
 };
