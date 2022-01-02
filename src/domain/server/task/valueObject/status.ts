@@ -60,7 +60,7 @@ export default class Status extends Flags<StatusTypes>() {
       return Status.create('完了');
     }
 
-    throw new InvalidControl('削除されていません');
+    throw new InvalidControl('復元できないステータスです');
   }
 
   public compare(value: this): number {

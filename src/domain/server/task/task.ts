@@ -6,7 +6,6 @@ import type Memo from './valueObject/memo';
 import type Status from './valueObject/status';
 import type TaskName from './valueObject/taskName';
 import Base from '$/shared/entity/base';
-import InvalidControl from '$/shared/exceptions/domain/invalidControl';
 import TaskId from './valueObject/taskId';
 
 export default class Task extends Base {
@@ -142,10 +141,6 @@ export default class Task extends Base {
   }
 
   public restore(): Task {
-    if (!this.status.canRestore()) {
-      throw new InvalidControl('復元できないステータスです');
-    }
-
     return this.update(
       this.taskName,
       this.memo,
