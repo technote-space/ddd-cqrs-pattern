@@ -7,7 +7,6 @@ import type Status from './valueObject/status';
 import type TaskName from './valueObject/taskName';
 import Base from '$/shared/entity/base';
 import InvalidControl from '$/shared/exceptions/domain/invalidControl';
-import Forbidden from '$/shared/exceptions/http/forbidden';
 import TaskId from './valueObject/taskId';
 
 export default class Task extends Base {
@@ -140,14 +139,6 @@ export default class Task extends Base {
     task.validate();
 
     return task;
-  }
-
-  public updateByEntity(task: Task): Task {
-    if (!this.userId.equals(task.userId)) {
-      throw new Forbidden();
-    }
-
-    return this.update(task.taskName, task.memo, task.status, task.dueDate, task.estimate, task.tags);
   }
 
   public restore(): Task {

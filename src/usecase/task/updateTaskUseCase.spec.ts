@@ -42,4 +42,24 @@ describe('UpdateTaskUseCase', () => {
     expect(result.estimateUnit).toBeNull();
     expect(result.tags).toEqual([]);
   });
+
+  it('異なるユーザーのタスクを更新しようとするとエラー', async () => {
+    const mockFindById = jest.fn(() => Promise.resolve(Task.reconstruct(
+      TaskId.create('taskId'),
+      TaskName.create('task'),
+      null,
+      Status.create('登録'),
+      null,
+      null,
+      UserId.create('test'),
+      Tags.create([]),
+    )));
+    const mockRestore = jest.fn(() => Promise.resolve());
+    const useCase = new UpdateTaskUseCase({ findById: mockFindById, restore: mockRestore } as never);
+
+    await expect(useCase.invoke({ userId: UserId.create('test2') }, TaskId.create('taskId'), {} as never)).rejects.toThrow('Forbidden');
+
+    expect(mockFindById).toBeCalledTimes(1);
+    expect(mockRestore).not.toBeCalled();
+  });
 });
