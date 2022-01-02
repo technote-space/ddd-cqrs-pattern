@@ -19,7 +19,7 @@ export default class DeleteTaskUseCase {
       throw new Forbidden();
     }
 
-    if (!task.canDelete()) {
+    if (!task.status.canDeleteCompletely()) {
       throw new InvalidControl('削除できないステータスです');
     }
 

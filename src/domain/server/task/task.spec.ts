@@ -26,7 +26,7 @@ describe('Task', () => {
         Tags.create([Tag.create(TagName.create('tag'))]),
       );
 
-      task.update(
+      const updated = task.update(
         TaskName.create('task2'),
         Memo.create('memo2'),
         Status.create('実行中'),
@@ -35,17 +35,17 @@ describe('Task', () => {
         Tags.create([Tag.create(TagName.create('tag1')), Tag.create(TagName.create('tag2'))]),
       );
 
-      expect(task.taskId.value).toBe('id');
-      expect(task.taskName.value).toBe('task2');
-      expect(task.memo?.value).toBe('memo2');
-      expect(task.status.value).toBe('実行中');
-      expect(task.dueDate?.value.toISOString()).toBe('2021-12-31T15:00:00.000Z');
-      expect(task.estimate?.value.value.value).toBe(10);
-      expect(task.estimate?.value.unit.value).toBe('時間');
-      expect(task.userId.value).toBe('user');
-      expect(task.tags.collections).toHaveLength(2);
-      expect(task.tags.collections[0].tagName.value).toBe('tag1');
-      expect(task.tags.collections[1].tagName.value).toBe('tag2');
+      expect(updated.taskId.value).toBe('id');
+      expect(updated.taskName.value).toBe('task2');
+      expect(updated.memo?.value).toBe('memo2');
+      expect(updated.status.value).toBe('実行中');
+      expect(updated.dueDate?.value.toISOString()).toBe('2021-12-31T15:00:00.000Z');
+      expect(updated.estimate?.value.value.value).toBe(10);
+      expect(updated.estimate?.value.unit.value).toBe('時間');
+      expect(updated.userId.value).toBe('user');
+      expect(updated.tags.collections).toHaveLength(2);
+      expect(updated.tags.collections[0].tagName.value).toBe('tag1');
+      expect(updated.tags.collections[1].tagName.value).toBe('tag2');
     });
   });
 
@@ -73,19 +73,19 @@ describe('Task', () => {
         Tags.create([Tag.create(TagName.create('tag1')), Tag.create(TagName.create('tag2'))]),
       );
 
-      task.updateByEntity(other);
+      const updated = task.updateByEntity(other);
 
-      expect(task.taskId.value).toBe('id');
-      expect(task.taskName.value).toBe('task2');
-      expect(task.memo?.value).toBe('memo2');
-      expect(task.status.value).toBe('実行中');
-      expect(task.dueDate?.value.toISOString()).toBe('2021-12-31T15:00:00.000Z');
-      expect(task.estimate?.value.value.value).toBe(10);
-      expect(task.estimate?.value.unit.value).toBe('時間');
-      expect(task.userId.value).toBe('user');
-      expect(task.tags.collections).toHaveLength(2);
-      expect(task.tags.collections[0].tagName.value).toBe('tag1');
-      expect(task.tags.collections[1].tagName.value).toBe('tag2');
+      expect(updated.taskId.value).toBe('id');
+      expect(updated.taskName.value).toBe('task2');
+      expect(updated.memo?.value).toBe('memo2');
+      expect(updated.status.value).toBe('実行中');
+      expect(updated.dueDate?.value.toISOString()).toBe('2021-12-31T15:00:00.000Z');
+      expect(updated.estimate?.value.value.value).toBe(10);
+      expect(updated.estimate?.value.unit.value).toBe('時間');
+      expect(updated.userId.value).toBe('user');
+      expect(updated.tags.collections).toHaveLength(2);
+      expect(updated.tags.collections[0].tagName.value).toBe('tag1');
+      expect(updated.tags.collections[1].tagName.value).toBe('tag2');
     });
 
     it('異なるユーザーのEntityの場合はエラー', () => {

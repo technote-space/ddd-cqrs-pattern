@@ -16,9 +16,9 @@ export default class UpdateTaskUseCase {
 
   public async invoke(userSession: UserSession, taskId: TaskId, data: UpdateData) {
     const task = await this.repository.findById(taskId);
-    task.updateByEntity(toEntity(userSession.userId, data));
-    await this.repository.save(task);
+    const updated = task.updateByEntity(toEntity(userSession.userId, data));
+    await this.repository.save(updated);
 
-    return fromEntity(task);
+    return fromEntity(updated);
   }
 }

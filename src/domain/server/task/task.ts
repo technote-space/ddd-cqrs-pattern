@@ -89,34 +89,6 @@ export default class Task extends Base {
     return instance;
   }
 
-  public update(
-    taskName: TaskName,
-    memo: Memo | null,
-    status: Status,
-    dueDate: DueDate | null,
-    estimate: Estimate | null,
-    tags: Tags,
-  ): void {
-    this._taskName = taskName;
-    this._memo = memo;
-    this._status = status;
-    this._dueDate = dueDate;
-    this._estimate = estimate;
-    this._tags = tags;
-  }
-
-  public updateByEntity(task: Task): void {
-    if (!this.userId.equals(task.userId)) {
-      throw new Forbidden();
-    }
-
-    this.update(task.taskName, task.memo, task.status, task.dueDate, task.estimate, task.tags);
-  }
-
-  public canDelete(): boolean {
-    return this.status.canDeleteCompletely();
-  }
-
   private compareDate(otherTask: this): number {
     if (!this.dueDate) {
       return -1;
@@ -144,5 +116,36 @@ export default class Task extends Base {
     }
 
     return statusCompare;
+  }
+
+  public update(
+    taskName: TaskName,
+    memo: Memo | null,
+    status: Status,
+    dueDate: DueDate | null,
+    estimate: Estimate | null,
+    tags: Tags,
+  ): Task {
+    const task = Task.reconstruct(
+      this.taskId,
+      taskName,
+      memo,
+      status,
+      dueDate,
+      estimate,
+      this.userId,
+      tags,
+    );
+    task.validate();
+
+    return task;
+  }
+
+  public updateByEntity(task: Task): Task {
+    if (!this.userId.equals(task.userId)) {
+      throw new Forbidden();
+    }
+
+    return this.update(task.taskName, task.memo, task.status, task.dueDate, task.estimate, task.tags);
   }
 }
