@@ -29,7 +29,7 @@ export const fromEntity = (entity: Task): TaskDto => ({
   id: entity.taskId.value,
   taskName: entity.taskName.value,
   memo: entity.memo?.value ?? null,
-  status: entity.status.value,
+  status: entity.status.displayValue,
   dueDate: entity.dueDate?.value.toISOString() ?? null,
   estimateValue: entity.estimate?.value.value.value ?? null,
   estimateUnit: entity.estimate?.value.unit.value ?? null,

@@ -23,6 +23,10 @@ export default class Status extends Flags<StatusTypes>() {
     return !this.canDelete();
   }
 
+  public get displayValue(): string {
+    return this.canRestore() ? '削除' : this.value;
+  }
+
   public canDeleteCompletely(): boolean {
     return this.canRestore();
   }
