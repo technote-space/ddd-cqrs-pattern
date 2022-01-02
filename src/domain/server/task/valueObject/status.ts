@@ -15,8 +15,12 @@ export default class Status extends Flags<StatusTypes>() {
     return 'ステータス';
   }
 
+  public static getActiveStatuses() {
+    return ['登録', '実行中', '完了'];
+  }
+
   public canDelete(): boolean {
-    return ['登録', '実行中', '完了'].includes(this.value);
+    return Status.getActiveStatuses().includes(this.value);
   }
 
   public canRestore(): boolean {

@@ -4605,21 +4605,6 @@ exports[`Storyshots Domain Components/Index/TaskForm Default 1`] = `
                   >
                     完了
                   </option>
-                  <option
-                    value="削除(登録)"
-                  >
-                    削除(登録)
-                  </option>
-                  <option
-                    value="削除(実行中)"
-                  >
-                    削除(実行中)
-                  </option>
-                  <option
-                    value="削除(完了)"
-                  >
-                    削除(完了)
-                  </option>
                 </select>
               </div>
               <div
@@ -5808,21 +5793,6 @@ exports[`Storyshots Domain Components/Index/TaskForm Disabled Task Form 1`] = `
                     value="完了"
                   >
                     完了
-                  </option>
-                  <option
-                    value="削除(登録)"
-                  >
-                    削除(登録)
-                  </option>
-                  <option
-                    value="削除(実行中)"
-                  >
-                    削除(実行中)
-                  </option>
-                  <option
-                    value="削除(完了)"
-                  >
-                    削除(完了)
                   </option>
                 </select>
               </div>
@@ -7113,21 +7083,6 @@ exports[`Storyshots Domain Components/Index/TaskForm Task Form With Errors 1`] =
                     value="完了"
                   >
                     完了
-                  </option>
-                  <option
-                    value="削除(登録)"
-                  >
-                    削除(登録)
-                  </option>
-                  <option
-                    value="削除(実行中)"
-                  >
-                    削除(実行中)
-                  </option>
-                  <option
-                    value="削除(完了)"
-                  >
-                    削除(完了)
                   </option>
                 </select>
               </div>
