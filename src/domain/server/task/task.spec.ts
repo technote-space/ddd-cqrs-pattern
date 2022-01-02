@@ -131,14 +131,13 @@ describe('Task', () => {
       expect(createTask('実行中').compare(createTask('登録'))).toBe(-1);
       expect(createTask('実行中').compare(createTask('完了'))).toBe(-1);
       expect(createTask('登録').compare(createTask('完了'))).toBe(-1);
-      expect(createTask('削除(実行中)').compare(createTask('削除(登録)'))).toBe(-1);
+      expect(createTask('削除(実行中)').compare(createTask('削除(登録)'))).toBe(0);
       expect(createTask('登録').compare(createTask('削除(登録)'))).toBe(-1);
       expect(createTask('登録').compare(createTask('削除(完了)'))).toBe(-1);
 
       expect(createTask('登録').compare(createTask('実行中'))).toBe(1);
       expect(createTask('完了').compare(createTask('実行中'))).toBe(1);
       expect(createTask('完了').compare(createTask('登録'))).toBe(1);
-      expect(createTask('削除(登録)').compare(createTask('削除(実行中)'))).toBe(1);
       expect(createTask('削除(登録)').compare(createTask('登録'))).toBe(1);
       expect(createTask('削除(完了)').compare(createTask('登録'))).toBe(1);
     });
