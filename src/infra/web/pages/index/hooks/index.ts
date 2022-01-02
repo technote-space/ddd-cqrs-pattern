@@ -30,9 +30,9 @@ export const useHooks = (props: Props, auth: IAuth, api: IApi) => {
   const { onSubmit, validationErrors, resetValidationErrors } = useOnSubmit(useCallback((body: FormValues) => {
     const headers = { authorization: getAuthorization(user) };
     if (selectedTask) {
-      return [client => client.tasks._taskId(selectedTask.id).put({ body, headers }), '更新中...'];
+      return [client => client.tasks._taskId(selectedTask.id).put({ body, headers }), undefined, '更新中...'];
     } else {
-      return [client => client.tasks.post({ body, headers }), '追加中...'];
+      return [client => client.tasks.post({ body, headers }), undefined, '追加中...'];
     }
   }, [user, selectedTask]), api, afterSubmit);
   const onSubmitForm = useMemo(() => handleSubmit(onSubmit), [handleSubmit, onSubmit]);

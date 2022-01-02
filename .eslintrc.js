@@ -66,7 +66,7 @@ module.exports = {
       [
         {
           "module": "native-base",
-          "allowReferenceFrom": ["src/infra/web/components/**", "src/infra/web/theme/nativeBase/index.tsx", "src/infra/web/helpers/nativeBase.ts"]
+          "allowReferenceFrom": ["src/infra/web/components/**", "src/infra/web/**/nativeBase/**", "src/infra/web/**/nativeBase*.ts"]
         },
         {
           "module": "src/domain",
