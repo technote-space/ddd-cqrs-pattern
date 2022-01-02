@@ -1,11 +1,13 @@
 import type { IApi, ApiType, ApiSelector, Caller, ResponseData, SWRResponse } from '$/web/shared/api';
 import type { IAuthContext } from '$/web/shared/auth';
+import type { IToast } from '$/web/shared/toast';
 import type { ApiInstance } from '^/pages/api/$api';
 import type { AxiosError } from 'axios';
 import useAspidaSWR from '@aspida/swr';
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { inject, singleton } from 'tsyringe';
+import { PromiseGenerator } from '$/web/shared/api';
 import { useLoading } from '@/web/shared/loading';
 
 @singleton()
@@ -13,6 +15,7 @@ export default class Api implements IApi {
   public constructor(
     @inject('client') private client: ApiInstance,
     @inject('IAuthContext') private authContext: IAuthContext,
+    @inject('IToast') private toast: IToast,
   ) {
   }
 
@@ -42,17 +45,21 @@ export default class Api implements IApi {
   public useCaller(): Caller {
     const dispatch = useDispatch();
     const withLoading = useLoading();
+    const { show } = this.toast.useToast();
 
-    return useCallback(async (generatePromise, message) => {
+    return useCallback(async <DataType, F extends DataType | undefined>(generatePromise: PromiseGenerator<DataType, F>, fallback: F, message?: string) => {
       try {
-        return await withLoading(() => generatePromise(this.client), message);
-      } catch (e) {
+        return await withLoading(() => generatePromise(this.client, fallback), message);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      } catch (e: any) {
         if (Api.isAuthError(e)) {
           this.authContext.setUser(dispatch, { isLoggedIn: false });
+        } else if (e && typeof e === 'object') {
+          show({ status: 'error', title: e.response?.data?.context?.reason ?? e.response?.data?.message ?? e.message });
         }
 
-        throw e;
+        return fallback;
       }
-    }, [dispatch, withLoading]);
+    }, [dispatch, withLoading, show]);
   }
 }

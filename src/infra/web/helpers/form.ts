@@ -17,8 +17,8 @@ export type AfterSubmit = () => void;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type HandleError = (error: any) => void;
 
-export const useOnSubmit = <FormValues, DataType>(
-  getCallerParams: (params: FormValues) => [PromiseGenerator<DataType>, string | undefined],
+export const useOnSubmit = <FormValues, DataType, F extends DataType | undefined>(
+  getCallerParams: (params: FormValues) => [PromiseGenerator<DataType, F>, F, string | undefined],
   api: IApi,
   afterSubmit?: AfterSubmit,
   handleError?: HandleError,

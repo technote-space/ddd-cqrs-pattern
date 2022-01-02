@@ -36,7 +36,7 @@ export const useDeleteTask = (auth: IAuth, api: IApi, deleteTargetTask: TaskDto 
       return;
     }
 
-    caller(client => client.tasks._taskId(deleteTargetTask.id).delete({ headers: { authorization: getAuthorization(user) } }), '削除中...').then(mutateTasks);
+    caller(client => client.tasks._taskId(deleteTargetTask.id).delete({ headers: { authorization: getAuthorization(user) } }), undefined, '削除中...').then(mutateTasks);
   }, [user, caller, deleteTargetTask, mutateTasks]);
 
   return {

@@ -8,6 +8,7 @@ import { Auth0Auth, Auth0ContextProvider, AuthContext } from '@/web/shared/auth/
 import LayoutComponent from '@/web/shared/layout';
 import { LoadingComponent, LoadingContext } from '@/web/shared/loading/redux';
 import { ReduxContextProvider } from '@/web/shared/store/reduxStore';
+import { NativeBaseToast } from '@/web/shared/toast/nativeBaseToast';
 import { NativeBaseThemeProvider } from '@/web/theme/nativeBase';
 import { ColorModeContext } from '@/web/theme/nativeBase/colorModeManager';
 import api from '^/pages/api/$api';
@@ -21,6 +22,7 @@ container.registerSingleton('Auth0ContextProvider', Auth0ContextProvider);
 container.registerSingleton('ILayoutComponent', LayoutComponent);
 container.registerSingleton('ILoadingContext', LoadingContext);
 container.registerSingleton('ILoadingComponent', LoadingComponent);
+container.registerSingleton('IToast', NativeBaseToast);
 container.registerSingleton('ReduxContextProvider', ReduxContextProvider);
 container.registerSingleton('NativeBaseThemeProvider', NativeBaseThemeProvider);
 container.registerSingleton('IColorModeManagerContext', ColorModeContext);
