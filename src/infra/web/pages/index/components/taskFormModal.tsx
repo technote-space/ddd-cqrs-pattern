@@ -1,6 +1,6 @@
 import type { ValidationErrors } from '$/shared/exceptions/domain/validation';
+import type { FormFields } from '@/web/helpers/form';
 import type { FormValues, TaskDto } from '^/usecase/task/taskDto';
-import type { FormFields } from '^/usecase/task/taskDto';
 import type { VFC } from 'react';
 import type { Control } from 'react-hook-form';
 import { memo, useRef } from 'react';

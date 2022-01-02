@@ -1,10 +1,20 @@
+import type { WithControlComponentCommonProps } from '#/form/withControl';
 import type { ValidationErrors } from '$/shared/exceptions/domain/validation';
 import type { PromiseGenerator } from '$/web/shared/api';
 import type { IApi } from '$/web/shared/api';
+import type { FormComponentsType, FormComponentKey } from '@/web/pages/index/components/taskFormModal';
+import type { FormValues } from '^/usecase/task/taskDto';
 import type { ObjectShape } from 'yup/lib/object';
 import { useCallback, useMemo, useState } from 'react';
 import * as yup from 'yup';
 import * as ja from 'yup-locale-ja';
+import TagName from '$/server/tag/valueObject/tagName';
+import DueDate from '$/server/task/valueObject/dueDate';
+import EstimateUnit from '$/server/task/valueObject/estimateUnit';
+import EstimateValue from '$/server/task/valueObject/estimateValue';
+import Memo from '$/server/task/valueObject/memo';
+import Status from '$/server/task/valueObject/status';
+import TaskName from '$/server/task/valueObject/taskName';
 import Api from '@/web/shared/api';
 
 yup.setLocale(ja.descriptive);
@@ -52,4 +62,34 @@ export const useOnSubmit = <FormValues, DataType, F extends DataType | undefined
   }, [caller, getCallerParams, setValidationErrors, afterSubmit, handleError]);
 
   return { validationErrors, resetValidationErrors, onSubmit };
+};
+
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type PropsType<C extends FormComponentKey> = Omit<Parameters<FormComponentsType[C]>[0], keyof WithControlComponentCommonProps<any>>;
+type FormFieldProps<C extends FormComponentKey> = {
+  label: string;
+  isRequired?: boolean;
+  component: C;
+  props: PropsType<C>;
+};
+const getFormField = <C extends FormComponentKey>(label: string, component: C, isRequired: boolean, props: PropsType<C>): FormFieldProps<C> => ({
+  label,
+  component,
+  isRequired,
+  props,
+});
+export type FormFields = {
+  [key in keyof FormValues]: FormFieldProps<FormComponentKey>;
+};
+export const getFormFields = (): FormFields => {
+  return {
+    taskName: getFormField(TaskName.getLabel(), 'textInput', true, {}),
+    memo: getFormField(Memo.getLabel(), 'textArea', false, {}),
+    status: getFormField(Status.getLabel(), 'select', true, { items: Status.create('').flagTypes }),
+    dueDate: getFormField(DueDate.getLabel(), 'dateTimePicker', false, {}),
+    estimateValue: getFormField(EstimateValue.getLabel(), 'numberInput', false, { min: 0 }),
+    estimateUnit: getFormField(EstimateUnit.getLabel(), 'select', false, { items: EstimateUnit.create('').flagTypes }),
+    tags: getFormField(TagName.getLabel(), 'multipleSelect', false, {}),
+  };
 };

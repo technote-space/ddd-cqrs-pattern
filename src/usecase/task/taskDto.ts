@@ -1,6 +1,4 @@
-import type { WithControlComponentCommonProps } from '#/form/withControl';
 import type { CreateSchema } from '@/web/helpers/form';
-import type { FormComponentsType, FormComponentKey } from '@/web/pages/index/components/taskFormModal';
 import Tag from '$/server/tag/tag';
 import Tags from '$/server/tag/tags';
 import TagName from '$/server/tag/valueObject/tagName';
@@ -62,32 +60,3 @@ export const createSchema: CreateSchema = schemaBuilder => ({
   estimateUnit: schemaBuilder.string().nullable().label(EstimateUnit.getLabel()).transform(transformNullable),
   tags: schemaBuilder.array().label(TagName.getLabel()),
 });
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type PropsType<C extends FormComponentKey> = Omit<Parameters<FormComponentsType[C]>[0], keyof WithControlComponentCommonProps<any>>;
-type FormFieldProps<C extends FormComponentKey> = {
-  label: string;
-  isRequired?: boolean;
-  component: C;
-  props: PropsType<C>;
-};
-const getFormField = <C extends FormComponentKey>(label: string, component: C, isRequired: boolean, props: PropsType<C>): FormFieldProps<C> => ({
-  label,
-  component,
-  isRequired,
-  props,
-});
-export type FormFields = {
-  [key in keyof FormValues]: FormFieldProps<FormComponentKey>;
-};
-export const getFormFields = (): FormFields => {
-  return {
-    taskName: getFormField(TaskName.getLabel(), 'textInput', true, {}),
-    memo: getFormField(Memo.getLabel(), 'textArea', false, {}),
-    status: getFormField(Status.getLabel(), 'select', true, { items: Status.create('').flagTypes }),
-    dueDate: getFormField(DueDate.getLabel(), 'dateTimePicker', false, {}),
-    estimateValue: getFormField(EstimateValue.getLabel(), 'numberInput', false, { min: 0 }),
-    estimateUnit: getFormField(EstimateUnit.getLabel(), 'select', false, { items: EstimateUnit.create('').flagTypes }),
-    tags: getFormField(TagName.getLabel(), 'multipleSelect', false, {}),
-  };
-};

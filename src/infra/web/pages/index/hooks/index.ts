@@ -3,11 +3,10 @@ import type { IApi } from '$/web/shared/api';
 import type { IAuth } from '$/web/shared/auth';
 import type { FormValues } from '^/usecase/task/taskDto';
 import { useCallback, useMemo, useEffect } from 'react';
-import { useOnSubmit } from '@/web/helpers/form';
+import { useOnSubmit, getFormFields } from '@/web/helpers/form';
 import { getAuthorization } from '@/web/pages/index/helpers/auth';
 import { useDeleteTaskDialog, useTaskFormDialog } from '@/web/pages/index/hooks/dialog';
 import { useDeleteTask, useTaskForm } from '@/web/pages/index/hooks/form';
-import { getFormFields } from '^/usecase/task/taskDto';
 import { useTasks } from './data';
 
 // eslint-disable-next-line unused-imports/no-unused-vars
