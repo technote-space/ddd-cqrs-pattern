@@ -36,7 +36,17 @@ export const useDeleteTask = (auth: IAuth, api: IApi, deleteTargetTask: TaskDto 
       return;
     }
 
-    caller(client => client.tasks._taskId(deleteTargetTask.id).delete({ headers: { authorization: getAuthorization(user) } }), undefined, '削除中...').then(mutateTasks);
+    if (deleteTargetTask.status === '削除') {
+      caller(client => client.tasks._taskId(deleteTargetTask.id).delete({ headers: { authorization: getAuthorization(user) } }), undefined, '削除中...').then(mutateTasks);
+    } else {
+      caller(client => client.tasks._taskId(deleteTargetTask.id).put({
+        body: {
+          ...deleteTargetTask,
+          status: `削除(${deleteTargetTask.status})`,
+        },
+        headers: { authorization: getAuthorization(user) },
+      }), undefined, '削除中...').then(mutateTasks);
+    }
   }, [user, caller, deleteTargetTask, mutateTasks]);
 
   return {
