@@ -6,6 +6,7 @@ import type Memo from './valueObject/memo';
 import type Status from './valueObject/status';
 import type TaskName from './valueObject/taskName';
 import Base from '$/shared/entity/base';
+import InvalidControl from '$/shared/exceptions/domain/invalidControl';
 import Forbidden from '$/shared/exceptions/http/forbidden';
 import TaskId from './valueObject/taskId';
 
@@ -147,5 +148,20 @@ export default class Task extends Base {
     }
 
     return this.update(task.taskName, task.memo, task.status, task.dueDate, task.estimate, task.tags);
+  }
+
+  public restore(): Task {
+    if (!this.status.canRestore()) {
+      throw new InvalidControl('復元できないステータスです');
+    }
+
+    return this.update(
+      this.taskName,
+      this.memo,
+      this.status.onRestore(),
+      this.dueDate,
+      this.estimate,
+      this.tags,
+    );
   }
 }
