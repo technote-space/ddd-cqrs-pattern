@@ -28,7 +28,7 @@ describe('DeleteTaskUseCase', () => {
     expect(result.id).toBe('taskId');
     expect(result.taskName).toBe('task');
     expect(result.memo).toBeNull();
-    expect(result.status).toBe('削除');
+    expect(result.status).toBe('削除(登録)');
     expect(result.dueDate).toBeNull();
     expect(result.estimateValue).toBeNull();
     expect(result.estimateUnit).toBeNull();

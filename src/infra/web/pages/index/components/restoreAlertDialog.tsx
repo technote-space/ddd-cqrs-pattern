@@ -7,42 +7,42 @@ import Heading from '#/text/heading';
 import Text from '#/text/text';
 
 type Props = {
-  isOpenDeleteTaskDialog: boolean;
-  handleCloseDeleteTaskDialog: () => void;
-  deleteTargetTask?: Task;
-  onDelete: () => void;
+  isOpenRestoreTaskDialog: boolean;
+  handleCloseRestoreTaskDialog: () => void;
+  restoreTargetTask?: Task;
+  onRestore: () => void;
 };
-const DeleteAlertDialog: VFC<Props> = ({
-  isOpenDeleteTaskDialog,
-  handleCloseDeleteTaskDialog,
-  deleteTargetTask,
-  onDelete,
+const RestoreAlertDialog: VFC<Props> = ({
+  isOpenRestoreTaskDialog,
+  handleCloseRestoreTaskDialog,
+  restoreTargetTask,
+  onRestore,
 }) => {
   const cancelRef = useRef();
   return <AlertDialog
     leastDestructiveRef={cancelRef}
-    isOpen={isOpenDeleteTaskDialog}
-    onClose={handleCloseDeleteTaskDialog}
+    isOpen={isOpenRestoreTaskDialog}
+    onClose={handleCloseRestoreTaskDialog}
   >
     <AlertDialog.Content>
       <AlertDialog.CloseButton/>
-      <AlertDialog.Header>タスク削除</AlertDialog.Header>
+      <AlertDialog.Header>タスク復元</AlertDialog.Header>
       <AlertDialog.Body>
-        <Heading>{deleteTargetTask?.taskName.value}</Heading>
-        <Text>このタスクを削除してもよろしいですか？</Text>
+        <Heading>{restoreTargetTask?.taskName.value}</Heading>
+        <Text>このタスクを復元しますか？</Text>
       </AlertDialog.Body>
       <AlertDialog.Footer>
         <Button.Group space={2}>
           <Button
             variant="unstyled"
             colorScheme="coolGray"
-            onPress={handleCloseDeleteTaskDialog}
+            onPress={handleCloseRestoreTaskDialog}
             ref={cancelRef}
           >
             キャンセル
           </Button>
-          <Button colorScheme="danger" onPress={onDelete}>
-            削除
+          <Button colorScheme="primary" onPress={onRestore}>
+            復元
           </Button>
         </Button.Group>
       </AlertDialog.Footer>
@@ -50,5 +50,5 @@ const DeleteAlertDialog: VFC<Props> = ({
   </AlertDialog>;
 };
 
-DeleteAlertDialog.displayName = 'DeleteAlertDialog';
-export default memo(DeleteAlertDialog);
+RestoreAlertDialog.displayName = 'RestoreAlertDialog';
+export default memo(RestoreAlertDialog);

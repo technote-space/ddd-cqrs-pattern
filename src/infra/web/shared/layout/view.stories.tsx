@@ -9,7 +9,12 @@ export default {
   },
 } as ComponentMeta<typeof View>;
 
-const Template: ComponentStory<typeof View> = (args) => <View {...args} />;
+const Template: ComponentStory<typeof View> = (args) => <View
+  {...args}
+  onLogout={() => Promise.resolve()}
+  toggleColorMode={() => {
+  }}
+/>;
 
 export const Default = Template.bind({});
 Default.args = {

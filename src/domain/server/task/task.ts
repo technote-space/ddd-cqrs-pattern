@@ -140,14 +140,25 @@ export default class Task extends Base {
     return task;
   }
 
-  public restore(): Task {
+  public copy(override?: {
+    taskName?: TaskName,
+    memo?: Memo | null,
+    status?: Status,
+    dueDate?: DueDate | null,
+    estimate?: Estimate | null,
+    tags?: Tags,
+  }): Task {
     return this.update(
-      this.taskName,
-      this.memo,
-      this.status.onRestore(),
-      this.dueDate,
-      this.estimate,
-      this.tags,
+      override?.taskName !== undefined ? override.taskName : this.taskName,
+      override?.memo !== undefined ? override.memo : this.memo,
+      override?.status !== undefined ? override.status : this.status,
+      override?.dueDate !== undefined ? override.dueDate : this.dueDate,
+      override?.estimate !== undefined ? override.estimate : this.estimate,
+      override?.tags !== undefined ? override.tags : this.tags,
     );
+  }
+
+  public restore(): Task {
+    return this.copy({ status: this.status.onRestore() });
   }
 }

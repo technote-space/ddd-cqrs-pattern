@@ -20,6 +20,10 @@ const Template: ComponentStory<typeof TaskFormModal> = (args) => {
   return <TaskFormModal
     {...args}
     control={control as never}
+    handleCloseTaskFormDialog={() => {
+    }}
+    onSubmitForm={() => {
+    }}
   />;
 };
 

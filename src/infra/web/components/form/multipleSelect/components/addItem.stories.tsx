@@ -11,7 +11,12 @@ export default {
   },
 } as ComponentMeta<typeof AddItem>;
 
-const Template: ComponentStory<typeof AddItem> = (args) => <AddItem {...args} />;
+const Template: ComponentStory<typeof AddItem> = (args) => <AddItem
+  {...args}
+  handleOpen={() => {}}
+  handleClose={() => {}}
+  handleSubmit={() => {}}
+/>;
 
 export const Default = Template.bind({});
 Default.args = {

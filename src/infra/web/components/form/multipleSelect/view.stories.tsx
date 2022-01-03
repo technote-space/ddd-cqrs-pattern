@@ -13,7 +13,18 @@ export default {
   },
 } as ComponentMeta<typeof View>;
 
-const Template: ComponentStory<typeof View> = (args) => <View {...args} deleteItemHandlers={{}}/>;
+const Template: ComponentStory<typeof View> = (args) => <View
+  {...args}
+  deleteItemHandlers={{}}
+  handleChangeAddItemValue={() => {
+  }}
+  handleOpenAddItem={() => {
+  }}
+  handleCloseAddItem={() => {
+  }}
+  handleSubmitAddItem={() => {
+  }}
+/>;
 
 export const Default = Template.bind({});
 Default.args = {

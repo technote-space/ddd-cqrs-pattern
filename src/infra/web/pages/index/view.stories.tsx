@@ -1,6 +1,7 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import { useForm } from 'react-hook-form';
-import  { getFormFields } from '@/web/helpers/form';
+import { getFormFields } from '@/web/helpers/form';
+import { reconstructEntity } from '^/usecase/task/taskDto';
 import View from './view';
 
 export default {
@@ -24,7 +25,10 @@ const Template: ComponentStory<typeof View> = (args) => {
   const { control } = useForm({ defaultValues: { dueDate: '2000-01-23 10:00' } });
   return <View
     {...args}
+    handleOpenAddTaskFormDialog={() => {
+    }}
     updateTaskHandlers={{}}
+    restoreTaskHandlers={{}}
     deleteTaskHandlers={{}}
     control={control as never}
   />;
@@ -34,7 +38,7 @@ export const Default = Template.bind({});
 Default.args = {
   user: { isLoggedIn: true, user: { authorization: '' } },
   tasks: [
-    {
+    reconstructEntity({
       id: '1',
       taskName: 'タスク1',
       memo: null,
@@ -43,8 +47,8 @@ Default.args = {
       estimateValue: null,
       estimateUnit: null,
       tags: [],
-    },
-    {
+    }),
+    reconstructEntity({
       id: '2',
       taskName: 'タスク2',
       memo: 'メモ2',
@@ -53,7 +57,7 @@ Default.args = {
       estimateValue: 10,
       estimateUnit: '日',
       tags: ['テスト1', 'テスト2'],
-    },
+    }),
   ],
   isValidatingTasks: false,
   formFields: {} as never,

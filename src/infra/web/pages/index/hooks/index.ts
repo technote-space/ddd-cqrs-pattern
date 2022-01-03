@@ -5,8 +5,8 @@ import type { FormValues } from '^/usecase/task/taskDto';
 import { useCallback, useMemo, useEffect } from 'react';
 import { useOnSubmit, getFormFields } from '@/web/helpers/form';
 import { getAuthorization } from '@/web/pages/index/helpers/auth';
-import { useDeleteTaskDialog, useTaskFormDialog } from '@/web/pages/index/hooks/dialog';
-import { useDeleteTask, useTaskForm } from '@/web/pages/index/hooks/form';
+import { useDeleteTaskDialog, useRestoreTaskDialog, useTaskFormDialog } from '@/web/pages/index/hooks/dialog';
+import { useDeleteTask, useRestoreTask, useTaskForm } from '@/web/pages/index/hooks/form';
 import { useTasks } from './data';
 
 // eslint-disable-next-line unused-imports/no-unused-vars
@@ -20,16 +20,18 @@ export const useHooks = (props: Props, auth: IAuth, api: IApi) => {
     isOpenTaskFormDialog,
     ...taskFormDialogProps
   } = useTaskFormDialog(reset, tasks);
-  const { handleCloseDeleteTaskDialog, isOpenDeleteTaskDialog, ...deleteTaskDialogProps } = useDeleteTaskDialog(tasks);
+  const { handleCloseDeleteTaskDialog, ...deleteTaskDialogProps } = useDeleteTaskDialog(tasks);
+  const { handleCloseRestoreTaskDialog, ...restoreTaskDialogProps } = useRestoreTaskDialog(tasks);
   const afterSubmit = useCallback(() => {
     handleCloseTaskFormDialog();
+    handleCloseRestoreTaskDialog();
     handleCloseDeleteTaskDialog();
     mutateTasks().then();
-  }, [handleCloseTaskFormDialog, handleCloseDeleteTaskDialog, mutateTasks]);
+  }, [handleCloseTaskFormDialog, handleCloseRestoreTaskDialog, handleCloseDeleteTaskDialog, mutateTasks]);
   const { onSubmit, validationErrors, resetValidationErrors } = useOnSubmit(useCallback((body: FormValues) => {
     const headers = { authorization: getAuthorization(user) };
     if (selectedTask) {
-      return [client => client.tasks._taskId(selectedTask.id).put({ body, headers }), undefined, '更新中...'];
+      return [client => client.tasks._taskId(selectedTask.taskId.value).put({ body, headers }), undefined, '更新中...'];
     } else {
       return [client => client.tasks.post({ body, headers }), undefined, '追加中...'];
     }
@@ -38,22 +40,24 @@ export const useHooks = (props: Props, auth: IAuth, api: IApi) => {
   const formFields = useMemo(() => getFormFields(), []);
 
   useEffect(() => {
-    if (isOpenTaskFormDialog || isOpenDeleteTaskDialog) {
+    if (isOpenTaskFormDialog) {
       resetValidationErrors();
     }
-  }, [isOpenTaskFormDialog, isOpenDeleteTaskDialog, resetValidationErrors]);
+  }, [isOpenTaskFormDialog, resetValidationErrors]);
 
   return {
     user,
     tasks,
     ...tasksProps,
     ...taskFormDialogProps,
+    ...restoreTaskDialogProps,
     ...deleteTaskDialogProps,
     ...useDeleteTask(auth, api, deleteTaskDialogProps.deleteTargetTask, afterSubmit),
+    ...useRestoreTask(auth, api, restoreTaskDialogProps.restoreTargetTask, afterSubmit),
     ...taskFormProps,
     isOpenTaskFormDialog,
-    isOpenDeleteTaskDialog,
     handleCloseTaskFormDialog,
+    handleCloseRestoreTaskDialog,
     handleCloseDeleteTaskDialog,
     onSubmitForm,
     selectedTask,

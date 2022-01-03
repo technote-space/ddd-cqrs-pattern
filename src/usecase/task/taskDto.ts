@@ -9,6 +9,7 @@ import EstimateUnit from '$/server/task/valueObject/estimateUnit';
 import EstimateValue from '$/server/task/valueObject/estimateValue';
 import Memo from '$/server/task/valueObject/memo';
 import Status from '$/server/task/valueObject/status';
+import TaskId from '$/server/task/valueObject/taskId';
 import TaskName from '$/server/task/valueObject/taskName';
 import UserId from '$/server/user/valueObject/userId';
 
@@ -27,7 +28,7 @@ export const fromEntity = (entity: Task): TaskDto => ({
   id: entity.taskId.value,
   taskName: entity.taskName.value,
   memo: entity.memo?.value ?? null,
-  status: entity.status.displayValue,
+  status: entity.status.value,
   dueDate: entity.dueDate?.value.toISOString() ?? null,
   estimateValue: entity.estimate?.value.value.value ?? null,
   estimateUnit: entity.estimate?.value.unit.value ?? null,
@@ -44,6 +45,20 @@ export const toEntity = (userId: UserId, data: Omit<TaskDto, 'id'>): Task => Tas
     unit: EstimateUnit.create(data.estimateUnit),
   }) : null,
   userId,
+  Tags.create((data.tags ?? []).map(tag => Tag.create(TagName.create(tag)))),
+);
+
+export const reconstructEntity = (data: TaskDto): Task => Task.reconstruct(
+  TaskId.create(data.id),
+  TaskName.create(data.taskName),
+  data.memo ? Memo.create(data.memo) : null,
+  Status.create(data.status),
+  data.dueDate ? DueDate.create(data.dueDate) : null,
+  data.estimateValue && data.estimateUnit ? Estimate.create({
+    value: EstimateValue.create(data.estimateValue),
+    unit: EstimateUnit.create(data.estimateUnit),
+  }) : null,
+  UserId.create(null),
   Tags.create((data.tags ?? []).map(tag => Tag.create(TagName.create(tag)))),
 );
 

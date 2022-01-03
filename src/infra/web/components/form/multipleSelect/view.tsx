@@ -22,7 +22,7 @@ const View: VFC<HooksParams> = ({
       key={index}
       item={item}
       isDisabled={isDisabled}
-      handleClose={deleteItemHandlers[item]}
+      handleDelete={deleteItemHandlers[item]}
     />), [items, isDisabled, deleteItemHandlers])}
     <AddItem
       value={addItemValue}

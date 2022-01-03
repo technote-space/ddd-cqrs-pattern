@@ -2064,7 +2064,7 @@ exports[`Storyshots Domain Components/Index/DueDate No Estimate 1`] = `
           "WebkitJustifyContent": "center",
           "alignItems": "center",
           "alignSelf": "center",
-          "backgroundColor": "rgba(186,230,253,1.00)",
+          "backgroundColor": "rgba(167,243,208,1.00)",
           "borderBottomColor": "rgba(0,0,0,0.00)",
           "borderBottomLeftRadius": "10px",
           "borderBottomRightRadius": "10px",
@@ -2100,6 +2100,33 @@ exports[`Storyshots Domain Components/Index/DueDate No Estimate 1`] = `
             "fontWeight": "700",
             "letterSpacing": "0px",
             "lineHeight": "1.5em",
+          }
+        }
+      >
+        残り期限：
+        <span
+          className="css-text-901oao css-textHasAncestor-16my406"
+          style={
+            Object {
+              "fontSize": "1.5em",
+            }
+          }
+        >
+          5日
+        </span>
+      </div>
+      <div
+        className="css-text-901oao"
+        dir="auto"
+        style={
+          Object {
+            "color": "rgba(31,41,55,1.00)",
+            "fontSize": "14px",
+            "fontStyle": "normal",
+            "fontWeight": "400",
+            "letterSpacing": "0px",
+            "lineHeight": "1.5em",
+            "marginTop": "4px",
           }
         }
       >
@@ -2352,7 +2379,7 @@ exports[`Storyshots Domain Components/Index/StatusBadge Deleted 1`] = `
           }
         }
       >
-        削除(登録)
+        削除
       </div>
     </div>
   </div>
@@ -2810,6 +2837,75 @@ exports[`Storyshots Domain Components/Index/Task Default 1`] = `
                 "WebkitJustifyContent": "center",
                 "alignItems": "center",
                 "alignSelf": "center",
+                "backgroundColor": "rgba(239,68,68,1.00)",
+                "borderBottomLeftRadius": "9999px",
+                "borderBottomRightRadius": "9999px",
+                "borderTopLeftRadius": "9999px",
+                "borderTopRightRadius": "9999px",
+                "cursor": "pointer",
+                "justifyContent": "center",
+                "marginLeft": "4px",
+                "msFlexAlign": "center",
+                "msFlexItemAlign": "center",
+                "msFlexPack": "center",
+                "msGridRowAlign": "center",
+                "msTouchAction": "manipulation",
+                "outlineWidth": "0px",
+                "paddingBottom": "4px",
+                "paddingLeft": "4px",
+                "paddingRight": "4px",
+                "paddingTop": "4px",
+                "touchAction": "manipulation",
+              }
+            }
+            tabIndex="0"
+          >
+            <svg
+              role="img"
+              stroke=""
+              style={
+                Object {
+                  "color": "rgba(250,250,250,1.00)",
+                  "height": "32px",
+                  "width": "32px",
+                }
+              }
+              viewBox="0 0 512 512"
+            >
+              <g>
+                <path
+                  d="M292.497,168.968c-21.134,0-40.287,0-57.542,0V65.394L0,255.995l234.955,190.61V334.395 c7.132,0,14.331,0,21.578,0c95.305,0,227.772-2.396,237.359,100.701C541.847,322.408,501.086,168.968,292.497,168.968z"
+                  fill="currentColor"
+                  stroke=""
+                />
+              </g>
+            </svg>
+          </div>
+          <div
+            className="css-view-1dbjc4n"
+            style={
+              Object {
+                "width": "8px",
+              }
+            }
+          />
+          <div
+            className="css-cursor-18t94o4 css-view-1dbjc4n"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+            style={
+              Object {
+                "WebkitAlignItems": "center",
+                "WebkitAlignSelf": "center",
+                "WebkitBoxAlign": "center",
+                "WebkitBoxPack": "center",
+                "WebkitJustifyContent": "center",
+                "alignItems": "center",
+                "alignSelf": "center",
                 "backgroundColor": "rgba(6,182,212,1.00)",
                 "borderBottomLeftRadius": "9999px",
                 "borderBottomRightRadius": "9999px",
@@ -2817,7 +2913,7 @@ exports[`Storyshots Domain Components/Index/Task Default 1`] = `
                 "borderTopRightRadius": "9999px",
                 "cursor": "pointer",
                 "justifyContent": "center",
-                "marginLeft": "16px",
+                "marginLeft": "4px",
                 "msFlexAlign": "center",
                 "msFlexItemAlign": "center",
                 "msFlexPack": "center",
@@ -3362,6 +3458,75 @@ exports[`Storyshots Domain Components/Index/Task Long Text 1`] = `
                 "WebkitJustifyContent": "center",
                 "alignItems": "center",
                 "alignSelf": "center",
+                "backgroundColor": "rgba(239,68,68,1.00)",
+                "borderBottomLeftRadius": "9999px",
+                "borderBottomRightRadius": "9999px",
+                "borderTopLeftRadius": "9999px",
+                "borderTopRightRadius": "9999px",
+                "cursor": "pointer",
+                "justifyContent": "center",
+                "marginLeft": "4px",
+                "msFlexAlign": "center",
+                "msFlexItemAlign": "center",
+                "msFlexPack": "center",
+                "msGridRowAlign": "center",
+                "msTouchAction": "manipulation",
+                "outlineWidth": "0px",
+                "paddingBottom": "4px",
+                "paddingLeft": "4px",
+                "paddingRight": "4px",
+                "paddingTop": "4px",
+                "touchAction": "manipulation",
+              }
+            }
+            tabIndex="0"
+          >
+            <svg
+              role="img"
+              stroke=""
+              style={
+                Object {
+                  "color": "rgba(250,250,250,1.00)",
+                  "height": "32px",
+                  "width": "32px",
+                }
+              }
+              viewBox="0 0 512 512"
+            >
+              <g>
+                <path
+                  d="M292.497,168.968c-21.134,0-40.287,0-57.542,0V65.394L0,255.995l234.955,190.61V334.395 c7.132,0,14.331,0,21.578,0c95.305,0,227.772-2.396,237.359,100.701C541.847,322.408,501.086,168.968,292.497,168.968z"
+                  fill="currentColor"
+                  stroke=""
+                />
+              </g>
+            </svg>
+          </div>
+          <div
+            className="css-view-1dbjc4n"
+            style={
+              Object {
+                "width": "8px",
+              }
+            }
+          />
+          <div
+            className="css-cursor-18t94o4 css-view-1dbjc4n"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+            style={
+              Object {
+                "WebkitAlignItems": "center",
+                "WebkitAlignSelf": "center",
+                "WebkitBoxAlign": "center",
+                "WebkitBoxPack": "center",
+                "WebkitJustifyContent": "center",
+                "alignItems": "center",
+                "alignSelf": "center",
                 "backgroundColor": "rgba(6,182,212,1.00)",
                 "borderBottomLeftRadius": "9999px",
                 "borderBottomRightRadius": "9999px",
@@ -3369,7 +3534,7 @@ exports[`Storyshots Domain Components/Index/Task Long Text 1`] = `
                 "borderTopRightRadius": "9999px",
                 "cursor": "pointer",
                 "justifyContent": "center",
-                "marginLeft": "16px",
+                "marginLeft": "4px",
                 "msFlexAlign": "center",
                 "msFlexItemAlign": "center",
                 "msFlexPack": "center",
@@ -3970,6 +4135,75 @@ exports[`Storyshots Domain Components/Index/Task Optional 1`] = `
                 "WebkitJustifyContent": "center",
                 "alignItems": "center",
                 "alignSelf": "center",
+                "backgroundColor": "rgba(239,68,68,1.00)",
+                "borderBottomLeftRadius": "9999px",
+                "borderBottomRightRadius": "9999px",
+                "borderTopLeftRadius": "9999px",
+                "borderTopRightRadius": "9999px",
+                "cursor": "pointer",
+                "justifyContent": "center",
+                "marginLeft": "4px",
+                "msFlexAlign": "center",
+                "msFlexItemAlign": "center",
+                "msFlexPack": "center",
+                "msGridRowAlign": "center",
+                "msTouchAction": "manipulation",
+                "outlineWidth": "0px",
+                "paddingBottom": "4px",
+                "paddingLeft": "4px",
+                "paddingRight": "4px",
+                "paddingTop": "4px",
+                "touchAction": "manipulation",
+              }
+            }
+            tabIndex="0"
+          >
+            <svg
+              role="img"
+              stroke=""
+              style={
+                Object {
+                  "color": "rgba(250,250,250,1.00)",
+                  "height": "32px",
+                  "width": "32px",
+                }
+              }
+              viewBox="0 0 512 512"
+            >
+              <g>
+                <path
+                  d="M292.497,168.968c-21.134,0-40.287,0-57.542,0V65.394L0,255.995l234.955,190.61V334.395 c7.132,0,14.331,0,21.578,0c95.305,0,227.772-2.396,237.359,100.701C541.847,322.408,501.086,168.968,292.497,168.968z"
+                  fill="currentColor"
+                  stroke=""
+                />
+              </g>
+            </svg>
+          </div>
+          <div
+            className="css-view-1dbjc4n"
+            style={
+              Object {
+                "width": "8px",
+              }
+            }
+          />
+          <div
+            className="css-cursor-18t94o4 css-view-1dbjc4n"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+            style={
+              Object {
+                "WebkitAlignItems": "center",
+                "WebkitAlignSelf": "center",
+                "WebkitBoxAlign": "center",
+                "WebkitBoxPack": "center",
+                "WebkitJustifyContent": "center",
+                "alignItems": "center",
+                "alignSelf": "center",
                 "backgroundColor": "rgba(6,182,212,1.00)",
                 "borderBottomLeftRadius": "9999px",
                 "borderBottomRightRadius": "9999px",
@@ -3977,7 +4211,7 @@ exports[`Storyshots Domain Components/Index/Task Optional 1`] = `
                 "borderTopRightRadius": "9999px",
                 "cursor": "pointer",
                 "justifyContent": "center",
-                "marginLeft": "16px",
+                "marginLeft": "4px",
                 "msFlexAlign": "center",
                 "msFlexItemAlign": "center",
                 "msFlexPack": "center",
@@ -8743,7 +8977,7 @@ exports[`Storyshots Form Components/Select Default 1`] = `
                 "width": "100%",
               }
             }
-            value="__NativebasePlaceholder__"
+            value="item1"
           >
             <option
               disabled={true}
@@ -8853,6 +9087,7 @@ exports[`Storyshots Form Components/Select Default 1`] = `
             }
             tabIndex="-1"
             type="text"
+            value="item1"
           />
           <svg
             role="img"
@@ -9011,7 +9246,7 @@ exports[`Storyshots Form Components/Select Disabled 1`] = `
                 "width": "100%",
               }
             }
-            value="__NativebasePlaceholder__"
+            value="item1"
           >
             <option
               disabled={true}
@@ -9124,6 +9359,269 @@ exports[`Storyshots Form Components/Select Disabled 1`] = `
             }
             tabIndex="-1"
             type="text"
+            value="item1"
+          />
+          <svg
+            role="img"
+            stroke=""
+            style={
+              Object {
+                "color": "rgba(163,163,163,1.00)",
+                "height": "24px",
+                "paddingBottom": "4px",
+                "paddingLeft": "0px",
+                "paddingRight": "4px",
+                "paddingTop": "4px",
+                "width": "24px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <g>
+              <g
+                fill="currentColor"
+                stroke=""
+                transform="translate(24) rotate(90)"
+              >
+                <path
+                  d="M0,0H24V24H0Z"
+                  fill="none"
+                />
+                <path
+                  d="M10,6,8.59,7.41,13.17,12,8.59,16.59,10,18l6-6Z"
+                />
+              </g>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Form Components/Select Invalid Select 1`] = `
+<div
+  className="css-view-1dbjc4n"
+  style={
+    Object {
+      "WebkitFlex": 1,
+      "flex": 1,
+      "msFlex": "1 1 0%",
+    }
+  }
+>
+  <div
+    className="css-view-1dbjc4n"
+    style={
+      Object {
+        "display": "flex",
+        "height": "100vh",
+        "overflowX": "auto",
+        "overflowY": "auto",
+      }
+    }
+  >
+    <div
+      className="css-view-1dbjc4n"
+      style={
+        Object {
+          "marginBottom": "0px",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "marginTop": "16px",
+          "paddingLeft": "8px",
+          "paddingRight": "8px",
+          "width": "100%",
+        }
+      }
+    >
+      <label
+        className="css-view-1dbjc4n"
+        id="field-react-aria-1-label"
+        style={
+          Object {
+            "WebkitBoxDirection": "normal",
+            "WebkitBoxOrient": "horizontal",
+            "WebkitBoxPack": "start",
+            "WebkitFlexDirection": "row",
+            "WebkitJustifyContent": "flex-start",
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+            "marginBottom": "8px",
+            "marginRight": "12px",
+            "msFlexDirection": "row",
+            "msFlexPack": "start",
+          }
+        }
+      >
+        <div
+          className="css-text-901oao"
+          dir="auto"
+          style={
+            Object {
+              "color": "rgba(31,41,55,1.00)",
+              "fontSize": "14px",
+              "fontStyle": "normal",
+              "fontWeight": "700",
+              "letterSpacing": "0px",
+              "lineHeight": "1.5em",
+            }
+          }
+        >
+          select
+        </div>
+      </label>
+      <div
+        className="css-view-1dbjc4n"
+        style={
+          Object {
+            "borderBottomColor": "rgba(0,0,0,0.00)",
+            "borderBottomLeftRadius": "4px",
+            "borderBottomRightRadius": "4px",
+            "borderBottomWidth": "1px",
+            "borderLeftColor": "rgba(0,0,0,0.00)",
+            "borderLeftWidth": "1px",
+            "borderRightColor": "rgba(0,0,0,0.00)",
+            "borderRightWidth": "1px",
+            "borderTopColor": "rgba(0,0,0,0.00)",
+            "borderTopLeftRadius": "4px",
+            "borderTopRightRadius": "4px",
+            "borderTopWidth": "1px",
+          }
+        }
+      >
+        <div
+          className="css-view-1dbjc4n"
+          style={
+            Object {
+              "height": "100%",
+              "opacity": 0,
+              "position": "absolute",
+              "width": "100%",
+              "zIndex": 1,
+            }
+          }
+        >
+          <select
+            aria-label="selectを選択してください"
+            aria-readonly={false}
+            disabled={true}
+            onChange={[Function]}
+            required={false}
+            style={
+              Object {
+                "MozAppearance": "none",
+                "WebkitAppearance": "none",
+                "appearance": "none",
+                "height": "100%",
+                "width": "100%",
+              }
+            }
+            value="item1"
+          >
+            <option
+              disabled={true}
+              value="__NativebasePlaceholder__"
+            >
+              selectを選択してください
+            </option>
+            <option
+              value="item1"
+            >
+              item1
+            </option>
+          </select>
+        </div>
+        <div
+          className="css-view-1dbjc4n"
+          style={
+            Object {
+              "WebkitAlignItems": "center",
+              "WebkitBoxAlign": "center",
+              "WebkitBoxDirection": "normal",
+              "WebkitBoxOrient": "horizontal",
+              "WebkitBoxPack": "justify",
+              "WebkitFlexDirection": "row",
+              "WebkitJustifyContent": "space-between",
+              "alignItems": "center",
+              "backgroundColor": "rgba(245,245,245,1.00)",
+              "borderBottomColor": "rgba(229,229,229,1.00)",
+              "borderBottomLeftRadius": "4px",
+              "borderBottomRightRadius": "4px",
+              "borderBottomWidth": "1px",
+              "borderLeftColor": "rgba(229,229,229,1.00)",
+              "borderLeftWidth": "1px",
+              "borderRightColor": "rgba(229,229,229,1.00)",
+              "borderRightWidth": "1px",
+              "borderTopColor": "rgba(229,229,229,1.00)",
+              "borderTopLeftRadius": "4px",
+              "borderTopRightRadius": "4px",
+              "borderTopWidth": "1px",
+              "display": "flex",
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "msFlexAlign": "center",
+              "msFlexDirection": "row",
+              "msFlexPack": "justify",
+              "opacity": 0.8,
+              "overflowX": "hidden",
+              "overflowY": "hidden",
+            }
+          }
+        >
+          <input
+            aria-hidden={true}
+            autoCapitalize="sentences"
+            autoComplete="on"
+            autoCorrect="on"
+            className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
+            dir="auto"
+            disabled={true}
+            id="field-react-aria-1"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onSelect={[Function]}
+            placeholder="selectを選択してください"
+            readOnly={true}
+            spellCheck={true}
+            style={
+              Object {
+                "WebkitFlex": 1,
+                "backgroundColor": "rgba(0,0,0,0.00)",
+                "borderBottomColor": "rgba(229,229,229,1.00)",
+                "borderBottomLeftRadius": "4px",
+                "borderBottomRightRadius": "4px",
+                "borderBottomWidth": "0px",
+                "borderLeftColor": "rgba(229,229,229,1.00)",
+                "borderLeftWidth": "0px",
+                "borderRightColor": "rgba(229,229,229,1.00)",
+                "borderRightWidth": "0px",
+                "borderTopColor": "rgba(229,229,229,1.00)",
+                "borderTopLeftRadius": "4px",
+                "borderTopRightRadius": "4px",
+                "borderTopWidth": "0px",
+                "color": "rgba(31,41,55,1.00)",
+                "cursor": "not-allowed",
+                "flex": 1,
+                "fontSize": "12px",
+                "fontStyle": "normal",
+                "fontWeight": "400",
+                "lineHeight": "1.5em",
+                "msFlex": "1 1 0%",
+                "opacity": 0.8,
+                "outlineWidth": "0px",
+                "paddingBottom": "8px",
+                "paddingLeft": "8px",
+                "paddingRight": "8px",
+                "paddingTop": "8px",
+              }
+            }
+            tabIndex="-1"
+            type="text"
+            value="item1"
           />
           <svg
             role="img"
@@ -9282,7 +9780,7 @@ exports[`Storyshots Form Components/Select Placeholder 1`] = `
                 "width": "100%",
               }
             }
-            value="__NativebasePlaceholder__"
+            value="item1"
           >
             <option
               disabled={true}
@@ -9392,6 +9890,7 @@ exports[`Storyshots Form Components/Select Placeholder 1`] = `
             }
             tabIndex="-1"
             type="text"
+            value="item1"
           />
           <svg
             role="img"

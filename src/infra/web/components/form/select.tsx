@@ -17,16 +17,20 @@ const Select = ({
   label,
   isDisabled,
   ...props
-}: WithControlProps<Props>): ReactElement => {
+}: WithControlProps<Props>): ReactElement | null => {
+  const isLocalDisabled = props.field.value && !items.includes(props.field.value);
+
   return <NBSelect
     placeholder={placeholder ?? (label ? `${label}を選択してください` : undefined)}
     variant={variant ?? 'outline'}
-    isDisabled={isDisabled}
+    isDisabled={isDisabled || isLocalDisabled}
     onValueChange={props.field.onChange}
     selectedValue={props.field.value ?? ''}
     {...extractComponentProps(props)}
   >
-    {useMemo(() => items.map((item, index) => <NBSelect.Item key={index} label={item} value={item}/>), [items])}
+    {useMemo(() => (isLocalDisabled ? [props.field.value] : items).map(
+      (item, index) => <NBSelect.Item key={index} label={item} value={item}/>,
+    ), [items, isLocalDisabled, props.field.value])}
   </NBSelect>;
 };
 

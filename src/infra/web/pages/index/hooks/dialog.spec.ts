@@ -1,4 +1,5 @@
 import { renderHook, act } from '@testing-library/react-hooks';
+import { fromEntity, reconstructEntity } from '^/usecase/task/taskDto';
 import { useTaskFormDialog, useDeleteTaskDialog } from './dialog';
 
 describe('useTaskFormDialog', () => {
@@ -19,7 +20,7 @@ describe('useTaskFormDialog', () => {
 
   it('更新ダイアログ', () => {
     const mockRest = jest.fn();
-    const task = {
+    const task = reconstructEntity({
       id: 'id',
       taskName: 'タスク名',
       memo: null,
@@ -28,7 +29,7 @@ describe('useTaskFormDialog', () => {
       estimateValue: null,
       estimateUnit: null,
       tags: [],
-    };
+    });
     const { result } = renderHook(() => useTaskFormDialog(mockRest, [task]));
 
     expect(result.current.isOpenTaskFormDialog).toBe(false);
@@ -38,7 +39,7 @@ describe('useTaskFormDialog', () => {
     act(() => result.current.updateTaskHandlers['id']());
     expect(result.current.isOpenTaskFormDialog).toBe(true);
     expect(result.current.selectedTask).toEqual(task);
-    expect(mockRest).toBeCalledWith(task);
+    expect(mockRest).toBeCalledWith(fromEntity(task));
 
     act(() => result.current.handleCloseTaskFormDialog());
     expect(result.current.isOpenTaskFormDialog).toBe(false);
@@ -47,7 +48,7 @@ describe('useTaskFormDialog', () => {
 
 describe('useDeleteTaskDialog', () => {
   it('削除ダイアログ', () => {
-    const task = {
+    const task = reconstructEntity({
       id: 'id',
       taskName: 'タスク名',
       memo: null,
@@ -56,7 +57,7 @@ describe('useDeleteTaskDialog', () => {
       estimateValue: null,
       estimateUnit: null,
       tags: [],
-    };
+    });
     const { result } = renderHook(() => useDeleteTaskDialog([task]));
 
     expect(result.current.isOpenDeleteTaskDialog).toBe(false);

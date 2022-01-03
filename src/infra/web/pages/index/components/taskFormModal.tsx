@@ -1,6 +1,7 @@
+import type Task from '$/server/task/task';
 import type { ValidationErrors } from '$/shared/exceptions/domain/validation';
 import type { FormFields } from '@/web/helpers/form';
-import type { FormValues, TaskDto } from '^/usecase/task/taskDto';
+import type { FormValues } from '^/usecase/task/taskDto';
 import type { VFC } from 'react';
 import type { Control } from 'react-hook-form';
 import { memo, useRef } from 'react';
@@ -17,7 +18,7 @@ import TaskForm from '@/web/pages/index/components/taskForm';
 type Props = {
   isOpenTaskFormDialog: boolean;
   handleCloseTaskFormDialog: () => void;
-  selectedTask?: TaskDto,
+  selectedTask?: Task,
   validationErrors: ValidationErrors;
   onSubmitForm: () => void;
   control: Control<FormValues>;

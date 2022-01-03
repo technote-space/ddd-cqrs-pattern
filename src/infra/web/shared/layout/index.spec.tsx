@@ -12,7 +12,7 @@ describe('LayoutComponent', () => {
       text: { dark: '#fff' },
     });
     const mockRender = jest.fn(() => 'LoadingComponent');
-    const mockUseLogout = jest.fn();
+    const mockUseLogout = jest.fn(() => jest.fn());
     const component = new LayoutComponent({ render: mockRender } as never, { useLogout: mockUseLogout } as never);
     const theme = new NativeBaseThemeProvider();
     const Provider = theme.getProvider();
