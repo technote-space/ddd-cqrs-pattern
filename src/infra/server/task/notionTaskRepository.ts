@@ -1,7 +1,7 @@
 import type IDatabase from '$/server/shared/database';
 import type { CreateData } from '$/server/shared/database';
+import type ITaskRepository from '$/server/task/taskRepository';
 import type Task from '$/shared/task/task';
-import type ITaskRepository from '$/shared/task/taskRepository';
 import type TaskId from '$/shared/task/valueObject/taskId';
 import type { DatabaseType } from './mapper';
 import { inject, singleton } from 'tsyringe';

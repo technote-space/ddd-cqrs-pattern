@@ -1,4 +1,4 @@
-import type ITaskRepository from '$/shared/task/taskRepository';
+import type ITaskRepository from '$/server/task/taskRepository';
 import type TaskId from '$/shared/task/valueObject/taskId';
 import type { TaskDto } from './taskDto';
 import type { UserSession } from '^/usecase/shared/userSession';
