@@ -5,6 +5,7 @@ import type { IApi } from '$/web/shared/api';
 import type { FormComponentsType, FormComponentKey } from '@/web/pages/index/components/taskFormModal';
 import type { TaskDto } from '^/usecase/task/taskDto';
 import type { ObjectShape } from 'yup/lib/object';
+import dayjs from 'dayjs';
 import { useCallback, useMemo, useState } from 'react';
 import * as yup from 'yup';
 import * as ja from 'yup-locale-ja';
@@ -97,6 +98,9 @@ export const getFormFields = (): FormFields => {
   };
 };
 
+export const getFormDefaultValues = () => ({
+  dueDate: dayjs().add(1, 'day').toISOString(),
+});
 
 export type FormValues = Omit<TaskDto, 'id'>;
 const transformNullable = <T>(value: T, originalValue: string): T | null => {

@@ -2,6 +2,7 @@ import type Task from '$/server/task/task';
 import type { FormValues } from '@/web/helpers/form';
 import type { UseFormReset } from 'react-hook-form/dist/types/form';
 import { useState, useCallback, useMemo } from 'react';
+import { getFormDefaultValues } from '@/web/helpers/form';
 import { fromEntity } from '^/usecase/task/taskDto';
 
 export const useTaskFormDialog = (reset: UseFormReset<FormValues>, tasks?: Task[]) => {
@@ -10,7 +11,7 @@ export const useTaskFormDialog = (reset: UseFormReset<FormValues>, tasks?: Task[
 
   const handleOpenAddTaskFormDialog = useCallback(() => {
     setSelectedTask(undefined);
-    reset({});
+    reset(getFormDefaultValues());
     setIsOpenTaskFormDialog(true);
   }, [reset]);
   const handleCloseTaskFormDialog = useCallback(() => {

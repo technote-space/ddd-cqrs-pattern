@@ -12,7 +12,7 @@ describe('useTaskFormDialog', () => {
 
     act(() => result.current.handleOpenAddTaskFormDialog());
     expect(result.current.isOpenTaskFormDialog).toBe(true);
-    expect(mockRest).toBeCalledWith({});
+    expect(mockRest.mock.calls[0][0]).toHaveProperty('dueDate');
 
     act(() => result.current.handleCloseTaskFormDialog());
     expect(result.current.isOpenTaskFormDialog).toBe(false);
