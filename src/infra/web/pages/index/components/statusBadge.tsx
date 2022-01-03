@@ -2,8 +2,8 @@ import type { IBadgeProps } from '#/data/badge';
 import type { VFC } from 'react';
 import dayjs from 'dayjs';
 import { memo, useMemo } from 'react';
-import { getStartDate } from '@/web/pages/index/helpers/dueDate';
 import Badge from '#/data/badge';
+import { getStartDate } from '@/web/pages/index/helpers/dueDate';
 
 type Props = {
   status: string;
