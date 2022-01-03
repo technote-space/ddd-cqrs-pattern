@@ -5,7 +5,6 @@ import type { FormValues } from '@/web/helpers/form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
-import Status from '$/server/task/valueObject/status';
 import { useFormSchema } from '@/web/helpers/form';
 import { createSchema } from '@/web/helpers/form';
 import { getAuthorization } from '@/web/pages/index/helpers/auth';
@@ -55,7 +54,7 @@ export const useDeleteTask = (auth: IAuth, api: IApi, deleteTargetTask: Task | u
       return;
     }
 
-    if (deleteTargetTask.status.equals(Status.create('削除'))) {
+    if (deleteTargetTask.status.isDeleted()) {
       caller(client => client.tasks._taskId(deleteTargetTask.taskId.value).delete({ headers: { authorization: getAuthorization(user) } }), undefined, '削除中...').then(mutateTasks);
     } else {
       const deleted = deleteTargetTask.copy({ status: deleteTargetTask.status.onDelete() });
