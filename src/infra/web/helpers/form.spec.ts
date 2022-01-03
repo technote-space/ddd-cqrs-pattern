@@ -12,7 +12,7 @@ describe('useOnSubmit', () => {
 
     expect(result.current.validationErrors).toEqual({});
 
-    await act(async () => await result.current.onSubmit({}));
+    await act(async () => result.current.onSubmit({}));
     await waitFor(() => expect(mockCaller).toBeCalled());
     expect(mockGetCallerParams).toBeCalledWith({});
   });
@@ -29,7 +29,7 @@ describe('useOnSubmit', () => {
 
     expect(result.current.validationErrors).toEqual({});
 
-    await act(async () => await result.current.onSubmit({}));
+    await act(async () => result.current.onSubmit({}));
     await waitFor(() => expect(mockCaller).toBeCalled());
     expect(mockGetCallerParams).toBeCalledWith({});
     expect(mockAfterSubmit).toBeCalledTimes(1);
@@ -50,7 +50,7 @@ describe('useOnSubmit', () => {
 
     expect(result.current.validationErrors).toEqual({});
 
-    await act(async () => await result.current.onSubmit({}));
+    await act(async () => result.current.onSubmit({}));
     await waitFor(() => expect(mockCaller).toBeCalled());
     expect(mockGetCallerParams).toBeCalledWith({});
     expect(mockAfterSubmit).not.toBeCalled();
@@ -75,7 +75,7 @@ describe('useOnSubmit', () => {
 
     expect(result.current.validationErrors).toEqual({});
 
-    await act(async () => await result.current.onSubmit({}));
+    await act(async () => result.current.onSubmit({}));
     await waitFor(() => expect(mockCaller).toBeCalled());
     expect(mockGetCallerParams).toBeCalledWith({});
     expect(mockHandleError).toBeCalledTimes(1);
