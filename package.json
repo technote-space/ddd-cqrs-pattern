@@ -2,6 +2,26 @@
   "name": "todo-list",
   "version": "0.3.0",
   "private": true,
+  "description": "Todo List with DDD+CQRS",
+  "keywords": [
+    "ddd",
+    "cqrs",
+    "notion"
+  ],
+  "homepage": "https://github.com/technote-space/ddd-cqrs-pattern",
+  "bugs": {
+    "url": "https://github.com/technote-space/ddd-cqrs-pattern/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/technote-space/ddd-cqrs-pattern.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Technote",
+    "email": "technote.space@gmail.com",
+    "url": "https://technote.space"
+  },
   "scripts": {
     "dev": "run-p dev:*",
     "dev:next": "next dev",
