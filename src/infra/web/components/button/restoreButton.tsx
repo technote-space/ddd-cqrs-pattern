@@ -25,7 +25,6 @@ const RestoreButton: FC<IIconButtonProps> = ({
     justifyContent={justifyContent ?? 'center'}
     alignSelf={alignSelf ?? 'center'}
     icon={<RestoreIcon/>}
-    colorScheme={colorScheme ?? 'red'}
     {...props}
   />;
 };
