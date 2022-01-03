@@ -8,6 +8,15 @@
 <summary>Details</summary>
 
 - [動作要件](#%E5%8B%95%E4%BD%9C%E8%A6%81%E4%BB%B6)
+- [これはなに？](#%E3%81%93%E3%82%8C%E3%81%AF%E3%81%AA%E3%81%AB)
+- [残タスク](#%E6%AE%8B%E3%82%BF%E3%82%B9%E3%82%AF)
+- [開発](#%E9%96%8B%E7%99%BA)
+  - [セットアップ](#%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97)
+  - [起動](#%E8%B5%B7%E5%8B%95)
+  - [Linter](#linter)
+  - [Type check](#type-check)
+  - [Jest](#jest)
+  - [Storybook](#storybook)
 - [Author](#author)
 
 *generated with [TOC Generator](https://github.com/technote-space/toc-generator)*
