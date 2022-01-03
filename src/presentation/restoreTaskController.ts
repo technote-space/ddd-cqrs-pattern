@@ -3,7 +3,7 @@ import type { Result } from './shared/baseController';
 import type IUserSessionProvider from './shared/userSessionProvider';
 import type { TaskDto } from '^/usecase/task/taskDto';
 import { inject, singleton } from 'tsyringe';
-import TaskId from '$/server/task/valueObject/taskId';
+import TaskId from '$/shared/task/valueObject/taskId';
 import RestoreTaskUseCase from '^/usecase/task/restoreTaskUseCase';
 import BaseController from './shared/baseController';
 

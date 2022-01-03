@@ -1,4 +1,4 @@
-import type ITaskRepository from '$/server/task/taskRepository';
+import type ITaskRepository from '$/shared/task/taskRepository';
 import type { TaskDto } from './taskDto';
 import type { UserSession } from '^/usecase/shared/userSession';
 import { inject, singleton } from 'tsyringe';

@@ -1,10 +1,10 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import dayjs from 'dayjs';
-import DueDateValueObject from '$/server/task/valueObject/dueDate';
-import Estimate from '$/server/task/valueObject/estimate';
-import EstimateUnit from '$/server/task/valueObject/estimateUnit';
-import EstimateValue from '$/server/task/valueObject/estimateValue';
-import Status from '$/server/task/valueObject/status';
+import DueDateValueObject from '$/shared/task/valueObject/dueDate';
+import Estimate from '$/shared/task/valueObject/estimate';
+import EstimateUnit from '$/shared/task/valueObject/estimateUnit';
+import EstimateValue from '$/shared/task/valueObject/estimateValue';
+import Status from '$/shared/task/valueObject/status';
 import DueDate from './dueDate';
 
 export default {

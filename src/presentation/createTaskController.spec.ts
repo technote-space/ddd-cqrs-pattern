@@ -1,5 +1,5 @@
 import type { TaskDto } from '^/usecase/task/taskDto';
-import UserId from '$/server/user/valueObject/userId';
+import UserId from '$/shared/user/valueObject/userId';
 import { createRequest } from '^/__mocks__/request';
 import CreateTaskController from './createTaskController';
 

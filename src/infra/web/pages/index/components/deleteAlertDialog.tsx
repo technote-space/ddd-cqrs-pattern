@@ -1,4 +1,4 @@
-import type Task from '$/server/task/task';
+import type Task from '$/shared/task/task';
 import type { VFC } from 'react';
 import { memo, useRef } from 'react';
 import Button from '#/button/button';

@@ -1,8 +1,8 @@
 import type IDatabase from '$/server/shared/database';
-import type User from '$/server/user/user';
-import type IUserRepository from '$/server/user/userRepository';
-import type Token from '$/server/user/valueObject/token';
-import type UserId from '$/server/user/valueObject/userId';
+import type User from '$/shared/user/user';
+import type IUserRepository from '$/shared/user/userRepository';
+import type Token from '$/shared/user/valueObject/token';
+import type UserId from '$/shared/user/valueObject/userId';
 import type { DatabaseType } from './mapper';
 import { singleton, inject } from 'tsyringe';
 import NotFound from '$/shared/exceptions/domain/notFound';

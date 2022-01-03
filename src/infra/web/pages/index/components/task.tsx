@@ -1,4 +1,4 @@
-import type TaskEntity from '$/server/task/task';
+import type TaskEntity from '$/shared/task/task';
 import type { VFC } from 'react';
 import dayjs from 'dayjs';
 import { memo } from 'react';

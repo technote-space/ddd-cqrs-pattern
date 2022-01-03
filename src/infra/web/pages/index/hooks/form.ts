@@ -1,4 +1,4 @@
-import type Task from '$/server/task/task';
+import type Task from '$/shared/task/task';
 import type { IApi } from '$/web/shared/api';
 import type { IAuth } from '$/web/shared/auth';
 import type { FormValues } from '@/web/helpers/form';

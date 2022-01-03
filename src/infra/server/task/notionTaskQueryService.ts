@@ -1,6 +1,6 @@
 import type IDatabase from '$/server/shared/database';
-import type Task from '$/server/task/task';
-import type UserId from '$/server/user/valueObject/userId';
+import type Task from '$/shared/task/task';
+import type UserId from '$/shared/user/valueObject/userId';
 import type { DatabaseType } from './mapper';
 import type { ITaskQueryService } from '^/usecase/task/fetchTasksUseCase';
 import { inject, singleton } from 'tsyringe';

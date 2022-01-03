@@ -1,5 +1,5 @@
-import type Task from '$/server/task/task';
 import type { ValidationErrors } from '$/shared/exceptions/domain/validation';
+import type Task from '$/shared/task/task';
 import type { FormFields, FormValues } from '@/web/helpers/form';
 import type { VFC } from 'react';
 import type { Control } from 'react-hook-form';

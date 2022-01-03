@@ -1,12 +1,12 @@
 import type { IBadgeProps } from '#/data/badge';
-import type DueDateValueObject from '$/server/task/valueObject/dueDate';
-import type Estimate from '$/server/task/valueObject/estimate';
+import type DueDateValueObject from '$/shared/task/valueObject/dueDate';
+import type Estimate from '$/shared/task/valueObject/estimate';
 import type { VFC } from 'react';
 import dayjs from 'dayjs';
 import { memo } from 'react';
 import Badge from '#/data/badge';
 import Text from '#/text/text';
-import Status from '$/server/task/valueObject/status';
+import Status from '$/shared/task/valueObject/status';
 import { getStartDate } from '@/web/pages/index/helpers/dueDate';
 
 type Props = {

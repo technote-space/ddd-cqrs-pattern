@@ -1,5 +1,5 @@
-import type Tags from '$/server/tag/tags';
-import type UserId from '$/server/user/valueObject/userId';
+import type Tags from '$/shared/tag/tags';
+import type UserId from '$/shared/user/valueObject/userId';
 import type DueDate from './valueObject/dueDate';
 import type Estimate from './valueObject/estimate';
 import type Memo from './valueObject/memo';

@@ -1,5 +1,5 @@
 import type { IBadgeProps } from '#/data/badge';
-import type Tag from '$/server/tag/tag';
+import type Tag from '$/shared/tag/tag';
 import type { VFC } from 'react';
 import { memo } from 'react';
 import Badge from '#/data/badge';

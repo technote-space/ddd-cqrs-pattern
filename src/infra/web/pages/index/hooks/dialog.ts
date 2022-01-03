@@ -1,4 +1,4 @@
-import type Task from '$/server/task/task';
+import type Task from '$/shared/task/task';
 import type { FormValues } from '@/web/helpers/form';
 import type { UseFormReset } from 'react-hook-form/dist/types/form';
 import { useState, useCallback, useMemo } from 'react';

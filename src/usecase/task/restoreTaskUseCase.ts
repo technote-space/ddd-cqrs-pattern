@@ -1,5 +1,5 @@
-import type ITaskRepository from '$/server/task/taskRepository';
-import type TaskId from '$/server/task/valueObject/taskId';
+import type ITaskRepository from '$/shared/task/taskRepository';
+import type TaskId from '$/shared/task/valueObject/taskId';
 import type { UserSession } from '^/usecase/shared/userSession';
 import { inject, singleton } from 'tsyringe';
 import Forbidden from '$/shared/exceptions/http/forbidden';
