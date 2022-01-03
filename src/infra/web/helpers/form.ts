@@ -41,7 +41,7 @@ export const useOnSubmit = <FormValues, DataType, F extends DataType | undefined
   const onSubmit = useCallback(async (params: FormValues) => {
     setValidationErrors({});
     try {
-      await caller(...getCallerParams(params));
+      await caller(...getCallerParams(params), true);
     } catch (e) {
       if (Api.isAxiosError(e) && e.response?.status === 422) {
         const validationError = e.response.data as { context: ValidationErrors };
