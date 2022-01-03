@@ -8,11 +8,13 @@ import WithControl, { extractComponentProps } from '#/form/withControl';
 type Props = ISelectProps & {
   placeholder?: string;
   items: string[];
+  fallback?: string;
 };
 
 const Select = ({
   placeholder,
   items,
+  fallback,
   variant,
   label,
   isDisabled,
@@ -25,12 +27,12 @@ const Select = ({
     variant={variant ?? 'outline'}
     isDisabled={isDisabled || isLocalDisabled}
     onValueChange={props.field.onChange}
-    selectedValue={props.field.value ?? ''}
+    selectedValue={isLocalDisabled ? (fallback ?? props.field.value) : (props.field.value ?? '')}
     {...extractComponentProps(props)}
   >
-    {useMemo(() => (isLocalDisabled ? [props.field.value] : items).map(
+    {useMemo(() => (isLocalDisabled ? [fallback ?? props.field.value] : items).map(
       (item, index) => <NBSelect.Item key={index} label={item} value={item}/>,
-    ), [items, isLocalDisabled, props.field.value])}
+    ), [items, isLocalDisabled, fallback, props.field.value])}
   </NBSelect>;
 };
 

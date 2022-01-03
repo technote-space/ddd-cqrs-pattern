@@ -1,8 +1,7 @@
 import type Task from '$/server/task/task';
-import type { FormValues } from '^/usecase/task/taskDto';
+import type { FormValues } from '@/web/helpers/form';
 import type { UseFormReset } from 'react-hook-form/dist/types/form';
 import { useState, useCallback, useMemo } from 'react';
-import Status from '$/server/task/valueObject/status';
 import { fromEntity } from '^/usecase/task/taskDto';
 
 export const useTaskFormDialog = (reset: UseFormReset<FormValues>, tasks?: Task[]) => {
@@ -40,7 +39,7 @@ export const useRestoreTaskDialog = (tasks?: Task[]) => {
   const handleCloseRestoreTaskDialog = useCallback(() => {
     setIsOpenRestoreTaskDialog(false);
   }, []);
-  const restoreTaskHandlers: Record<string, () => void> = useMemo(() => Object.assign({}, ...(tasks ?? []).filter(task => task.status.equals(Status.create('削除'))).map(task => ({
+  const restoreTaskHandlers: Record<string, () => void> = useMemo(() => Object.assign({}, ...(tasks ?? []).filter(task => task.status.isDeleted()).map(task => ({
     [task.taskId.value]: () => {
       setRestoreTargetTask(task);
       setIsOpenRestoreTaskDialog(true);

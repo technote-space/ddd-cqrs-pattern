@@ -31,8 +31,12 @@ export default class Status extends Flags<StatusTypes>() {
     return this.canRestore();
   }
 
+  public static deleteLabel(): string {
+    return '削除';
+  }
+
   public get displayValue(): string {
-    return this.canRestore() ? '削除' : this.value;
+    return this.canRestore() ? Status.deleteLabel() : this.value;
   }
 
   public canDeleteCompletely(): boolean {

@@ -1,14 +1,15 @@
 import type Task from '$/server/task/task';
 import type { IApi } from '$/web/shared/api';
 import type { IAuth } from '$/web/shared/auth';
-import type { FormValues } from '^/usecase/task/taskDto';
+import type { FormValues } from '@/web/helpers/form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import Status from '$/server/task/valueObject/status';
 import { useFormSchema } from '@/web/helpers/form';
+import { createSchema } from '@/web/helpers/form';
 import { getAuthorization } from '@/web/pages/index/helpers/auth';
-import { createSchema, fromEntity } from '^/usecase/task/taskDto';
+import { fromEntity } from '^/usecase/task/taskDto';
 
 export const useTaskForm = () => {
   const {

@@ -1,4 +1,3 @@
-import type { CreateSchema } from '@/web/helpers/form';
 import Tag from '$/server/tag/tag';
 import Tags from '$/server/tag/tags';
 import TagName from '$/server/tag/valueObject/tagName';
@@ -61,17 +60,3 @@ export const reconstructEntity = (data: TaskDto): Task => Task.reconstruct(
   UserId.create(null),
   Tags.create((data.tags ?? []).map(tag => Tag.create(TagName.create(tag)))),
 );
-
-export type FormValues = Omit<TaskDto, 'id'>;
-const transformNullable = <T>(value: T, originalValue: string): T | null => {
-  return originalValue === '' ? null : value;
-};
-export const createSchema: CreateSchema = schemaBuilder => ({
-  taskName: schemaBuilder.string().required().label(TaskName.getLabel()),
-  memo: schemaBuilder.string().nullable().label(Memo.getLabel()).transform(transformNullable),
-  status: schemaBuilder.string().required().label(Status.getLabel()),
-  dueDate: schemaBuilder.date().nullable().label(DueDate.getLabel()).transform(transformNullable),
-  estimateValue: schemaBuilder.number().nullable().label(EstimateValue.getLabel()).transform(transformNullable),
-  estimateUnit: schemaBuilder.string().nullable().label(EstimateUnit.getLabel()).transform(transformNullable),
-  tags: schemaBuilder.array().label(TagName.getLabel()),
-});

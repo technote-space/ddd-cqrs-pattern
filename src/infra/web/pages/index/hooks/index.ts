@@ -1,7 +1,7 @@
 import type { Props } from '$/web/pages';
 import type { IApi } from '$/web/shared/api';
 import type { IAuth } from '$/web/shared/auth';
-import type { FormValues } from '^/usecase/task/taskDto';
+import type { FormValues } from '@/web/helpers/form';
 import { useCallback, useMemo, useEffect } from 'react';
 import { useOnSubmit, getFormFields } from '@/web/helpers/form';
 import { getAuthorization } from '@/web/pages/index/helpers/auth';
