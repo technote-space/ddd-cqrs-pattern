@@ -61,6 +61,7 @@ module.exports = {
     "@typescript-eslint/no-unused-vars": ["error", {"ignoreRestSiblings": true}],
     "import/no-anonymous-default-export": "off",
     "react-hooks/rules-of-hooks": "off",
+    "@typescript-eslint/no-empty-function": "off",
     "@technote-space/strict-dependencies/strict-dependencies": [
       "error",
       [

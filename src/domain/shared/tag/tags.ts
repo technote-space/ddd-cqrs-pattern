@@ -1,5 +1,5 @@
-import TagName from '$/server/tag/valueObject/tagName';
 import CollectionBase from '$/shared/entity/collectionBase';
+import TagName from '$/shared/tag/valueObject/tagName';
 import Tag from './tag';
 
 export default class Tags extends CollectionBase<Tag>() {

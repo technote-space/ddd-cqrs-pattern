@@ -15,16 +15,28 @@ export default class Status extends Flags<StatusTypes>() {
     return 'ステータス';
   }
 
+  public static getActiveStatuses() {
+    return ['登録', '実行中', '完了'];
+  }
+
   public canDelete(): boolean {
-    return ['登録', '実行中', '完了'].includes(this.value);
+    return Status.getActiveStatuses().includes(this.value);
   }
 
   public canRestore(): boolean {
     return !this.canDelete();
   }
 
+  public isDeleted(): boolean {
+    return this.canRestore();
+  }
+
+  public static deleteLabel(): string {
+    return '削除';
+  }
+
   public get displayValue(): string {
-    return this.canRestore() ? '削除' : this.value;
+    return this.canRestore() ? Status.deleteLabel() : this.value;
   }
 
   public canDeleteCompletely(): boolean {
@@ -60,7 +72,7 @@ export default class Status extends Flags<StatusTypes>() {
       return Status.create('完了');
     }
 
-    throw new InvalidControl('削除されていません');
+    throw new InvalidControl('復元できないステータスです');
   }
 
   public compare(value: this): number {

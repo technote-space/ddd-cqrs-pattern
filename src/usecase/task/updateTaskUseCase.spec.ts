@@ -1,9 +1,9 @@
-import Tags from '$/server/tag/tags';
-import Task from '$/server/task/task';
-import Status from '$/server/task/valueObject/status';
-import TaskId from '$/server/task/valueObject/taskId';
-import TaskName from '$/server/task/valueObject/taskName';
-import UserId from '$/server/user/valueObject/userId';
+import Tags from '$/shared/tag/tags';
+import Task from '$/shared/task/task';
+import Status from '$/shared/task/valueObject/status';
+import TaskId from '$/shared/task/valueObject/taskId';
+import TaskName from '$/shared/task/valueObject/taskName';
+import UserId from '$/shared/user/valueObject/userId';
 import UpdateTaskUseCase from './updateTaskUseCase';
 
 describe('UpdateTaskUseCase', () => {
@@ -41,5 +41,25 @@ describe('UpdateTaskUseCase', () => {
     expect(result.estimateValue).toBeNull();
     expect(result.estimateUnit).toBeNull();
     expect(result.tags).toEqual([]);
+  });
+
+  it('異なるユーザーのタスクを更新しようとするとエラー', async () => {
+    const mockFindById = jest.fn(() => Promise.resolve(Task.reconstruct(
+      TaskId.create('taskId'),
+      TaskName.create('task'),
+      null,
+      Status.create('登録'),
+      null,
+      null,
+      UserId.create('test'),
+      Tags.create([]),
+    )));
+    const mockRestore = jest.fn(() => Promise.resolve());
+    const useCase = new UpdateTaskUseCase({ findById: mockFindById, restore: mockRestore } as never);
+
+    await expect(useCase.invoke({ userId: UserId.create('test2') }, TaskId.create('taskId'), {} as never)).rejects.toThrow('Forbidden');
+
+    expect(mockFindById).toBeCalledTimes(1);
+    expect(mockRestore).not.toBeCalled();
   });
 });

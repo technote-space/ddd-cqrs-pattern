@@ -71,7 +71,7 @@ describe('Api', () => {
       expect(mockShow).toBeCalled();
     });
 
-    it('fallback が設定されている場合はエラーではなく fallback が返る', async () => {
+    it('throwError が falsy の場合はエラーではなく fallback が返る', async () => {
       const mockSetUser = jest.fn();
       const mockGeneratePromise = jest.fn(() => {
         throw new Error();
@@ -82,6 +82,22 @@ describe('Api', () => {
       const caller = renderHook(() => api.useCaller()).result.current;
 
       expect(await caller(mockGeneratePromise, { test: 123 })).toEqual({ test: 123 });
+      expect(mockGeneratePromise).toBeCalled();
+      expect(mockSetUser).not.toBeCalled();
+      expect(mockShow).toBeCalled();
+    });
+
+    it('throwError が true の場合はエラーが投げられる', async () => {
+      const mockSetUser = jest.fn();
+      const mockGeneratePromise = jest.fn(() => {
+        throw new Error();
+      });
+      const mockShow = jest.fn();
+
+      const api = new Api({} as never, { setUser: mockSetUser } as never, { useToast: () => ({ show: mockShow }) } as never);
+      const caller = renderHook(() => api.useCaller()).result.current;
+
+      await expect(caller(mockGeneratePromise, { test: 123 }, undefined, true)).rejects.toThrow();
       expect(mockGeneratePromise).toBeCalled();
       expect(mockSetUser).not.toBeCalled();
       expect(mockShow).toBeCalled();

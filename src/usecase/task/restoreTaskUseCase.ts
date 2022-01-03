@@ -1,0 +1,25 @@
+import type ITaskRepository from '$/server/task/taskRepository';
+import type TaskId from '$/shared/task/valueObject/taskId';
+import type { UserSession } from '^/usecase/shared/userSession';
+import { inject, singleton } from 'tsyringe';
+import Forbidden from '$/shared/exceptions/http/forbidden';
+import { fromEntity } from '^/usecase/task/taskDto';
+
+@singleton()
+export default class DeleteTaskUseCase {
+  public constructor(
+    @inject('ITaskRepository') private repository: ITaskRepository,
+  ) {
+  }
+
+  public async invoke(userSession: UserSession, taskId: TaskId) {
+    const task = await this.repository.findById(taskId);
+    if (!task.userId.equals(userSession.userId)) {
+      throw new Forbidden();
+    }
+
+    const restored = task.restore();
+    await this.repository.save(restored);
+    return fromEntity(restored);
+  }
+}

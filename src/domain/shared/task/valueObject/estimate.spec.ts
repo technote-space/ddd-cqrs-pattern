@@ -1,5 +1,5 @@
-import EstimateUnit from '$/server/task/valueObject/estimateUnit';
-import EstimateValue from '$/server/task/valueObject/estimateValue';
+import EstimateUnit from '$/shared/task/valueObject/estimateUnit';
+import EstimateValue from '$/shared/task/valueObject/estimateValue';
 import Estimate from './estimate';
 
 describe('Estimate', () => {

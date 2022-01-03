@@ -1,12 +1,11 @@
-import type Tags from '$/server/tag/tags';
-import type UserId from '$/server/user/valueObject/userId';
+import type Tags from '$/shared/tag/tags';
+import type UserId from '$/shared/user/valueObject/userId';
 import type DueDate from './valueObject/dueDate';
 import type Estimate from './valueObject/estimate';
 import type Memo from './valueObject/memo';
 import type Status from './valueObject/status';
 import type TaskName from './valueObject/taskName';
 import Base from '$/shared/entity/base';
-import Forbidden from '$/shared/exceptions/http/forbidden';
 import TaskId from './valueObject/taskId';
 
 export default class Task extends Base {
@@ -141,11 +140,25 @@ export default class Task extends Base {
     return task;
   }
 
-  public updateByEntity(task: Task): Task {
-    if (!this.userId.equals(task.userId)) {
-      throw new Forbidden();
-    }
+  public copy(override?: {
+    taskName?: TaskName,
+    memo?: Memo | null,
+    status?: Status,
+    dueDate?: DueDate | null,
+    estimate?: Estimate | null,
+    tags?: Tags,
+  }): Task {
+    return this.update(
+      override?.taskName !== undefined ? override.taskName : this.taskName,
+      override?.memo !== undefined ? override.memo : this.memo,
+      override?.status !== undefined ? override.status : this.status,
+      override?.dueDate !== undefined ? override.dueDate : this.dueDate,
+      override?.estimate !== undefined ? override.estimate : this.estimate,
+      override?.tags !== undefined ? override.tags : this.tags,
+    );
+  }
 
-    return this.update(task.taskName, task.memo, task.status, task.dueDate, task.estimate, task.tags);
+  public restore(): Task {
+    return this.copy({ status: this.status.onRestore() });
   }
 }

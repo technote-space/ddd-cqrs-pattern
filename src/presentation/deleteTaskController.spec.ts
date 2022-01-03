@@ -1,6 +1,6 @@
 import type { TaskDto } from '^/usecase/task/taskDto';
-import TaskId from '$/server/task/valueObject/taskId';
-import UserId from '$/server/user/valueObject/userId';
+import TaskId from '$/shared/task/valueObject/taskId';
+import UserId from '$/shared/user/valueObject/userId';
 import { createRequest } from '^/__mocks__/request';
 import DeleteTaskController from './deleteTaskController';
 

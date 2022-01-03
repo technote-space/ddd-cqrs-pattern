@@ -1,4 +1,4 @@
-import type { TaskDto } from '^/usecase/task/taskDto';
+import type Task from '$/shared/task/task';
 import type { VFC } from 'react';
 import { memo, useRef } from 'react';
 import Button from '#/button/button';
@@ -9,7 +9,7 @@ import Text from '#/text/text';
 type Props = {
   isOpenDeleteTaskDialog: boolean;
   handleCloseDeleteTaskDialog: () => void;
-  deleteTargetTask?: TaskDto;
+  deleteTargetTask?: Task;
   onDelete: () => void;
 };
 const DeleteAlertDialog: VFC<Props> = ({
@@ -28,8 +28,8 @@ const DeleteAlertDialog: VFC<Props> = ({
       <AlertDialog.CloseButton/>
       <AlertDialog.Header>タスク削除</AlertDialog.Header>
       <AlertDialog.Body>
-        <Heading>{deleteTargetTask?.taskName}</Heading>
-        <Text>このタスクを削除してもよろしいですか？</Text>
+        <Heading>{deleteTargetTask?.taskName.value}</Heading>
+        <Text>{deleteTargetTask?.status?.isDeleted() ? 'このタスクを完全に削除してもよろしいですか？' : 'このタスクを削除してもよろしいですか？'}</Text>
       </AlertDialog.Body>
       <AlertDialog.Footer>
         <Button.Group space={2}>

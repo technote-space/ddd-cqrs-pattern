@@ -1,5 +1,5 @@
-import type Task from './task';
-import type TaskId from './valueObject/taskId';
+import type Task from '$/shared/task/task';
+import type TaskId from '$/shared/task/valueObject/taskId';
 
 export default interface ITaskRepository {
   findById(taskId: TaskId): Promise<Task>;

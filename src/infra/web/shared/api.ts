@@ -47,15 +47,19 @@ export default class Api implements IApi {
     const withLoading = useLoading();
     const { show } = this.toast.useToast();
 
-    return useCallback(async <DataType, F extends DataType | undefined>(generatePromise: PromiseGenerator<DataType, F>, fallback: F, message?: string) => {
+    return useCallback(async <DataType, F extends DataType | undefined>(generatePromise: PromiseGenerator<DataType, F>, fallback: F, message?: string, throwError?: boolean) => {
       try {
         return await withLoading(() => generatePromise(this.client, fallback), message);
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (e: any) {
         if (Api.isAuthError(e)) {
           this.authContext.setUser(dispatch, { isLoggedIn: false });
-        } else if (e && typeof e === 'object') {
+        } else {
           show({ status: 'error', title: e.response?.data?.context?.reason ?? e.response?.data?.message ?? e.message });
+        }
+
+        if (throwError) {
+          throw e;
         }
 
         return fallback;

@@ -10,7 +10,11 @@ export default {
   },
 } as ComponentMeta<typeof ItemBadge>;
 
-const Template: ComponentStory<typeof ItemBadge> = (args) => <ItemBadge {...args} />;
+const Template: ComponentStory<typeof ItemBadge> = (args) => <ItemBadge
+  {...args}
+  handleDelete={() => {
+  }}
+/>;
 
 export const Default = Template.bind({});
 Default.args = {

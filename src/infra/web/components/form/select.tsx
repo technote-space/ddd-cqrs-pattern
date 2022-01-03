@@ -8,25 +8,31 @@ import WithControl, { extractComponentProps } from '#/form/withControl';
 type Props = ISelectProps & {
   placeholder?: string;
   items: string[];
+  fallback?: string;
 };
 
 const Select = ({
   placeholder,
   items,
+  fallback,
   variant,
   label,
   isDisabled,
   ...props
-}: WithControlProps<Props>): ReactElement => {
+}: WithControlProps<Props>): ReactElement | null => {
+  const isLocalDisabled = props.field.value && !items.includes(props.field.value);
+
   return <NBSelect
     placeholder={placeholder ?? (label ? `${label}を選択してください` : undefined)}
     variant={variant ?? 'outline'}
-    isDisabled={isDisabled}
+    isDisabled={isDisabled || isLocalDisabled}
     onValueChange={props.field.onChange}
-    selectedValue={props.field.value ?? ''}
+    selectedValue={isLocalDisabled ? (fallback ?? props.field.value) : (props.field.value ?? '')}
     {...extractComponentProps(props)}
   >
-    {useMemo(() => items.map((item, index) => <NBSelect.Item key={index} label={item} value={item}/>), [items])}
+    {useMemo(() => (isLocalDisabled ? [fallback ?? props.field.value] : items).map(
+      (item, index) => <NBSelect.Item key={index} label={item} value={item}/>,
+    ), [items, isLocalDisabled, fallback, props.field.value])}
   </NBSelect>;
 };
 

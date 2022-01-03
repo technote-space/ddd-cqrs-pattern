@@ -15,7 +15,7 @@ export type Options<T extends (option: any) => Promise<any>> = Parameters<Parame
 export type { SWRResponse, SWRConfiguration };
 export type ApiSelector<T extends ApiType> = (client: ApiInstance) => [T, ...Options<T['$get']>];
 export type PromiseGenerator<DataType, F extends DataType | undefined> = (client: ApiInstance, fallback: F) => Promise<DataType | F>;
-export type Caller = <DataType, F extends DataType | undefined>(generatePromise: PromiseGenerator<DataType, F>, fallback: F, message?: string) => ReturnType<PromiseGenerator<DataType, F>>;
+export type Caller = <DataType, F extends DataType | undefined>(generatePromise: PromiseGenerator<DataType, F>, fallback: F, message?: string, throwError?: boolean) => ReturnType<PromiseGenerator<DataType, F>>;
 
 export interface IApi {
   useSWR<T extends ApiType>(selector: ApiSelector<T>): SWRResponse<ResponseData<T['$get']>>;

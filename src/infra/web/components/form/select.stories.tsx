@@ -16,7 +16,7 @@ export default {
 } as ComponentMeta<typeof Select>;
 
 const Template: ComponentStory<typeof Select> = (args) => {
-  const { control } = useForm({ defaultValues: { select: 'test' } });
+  const { control } = useForm({ defaultValues: { select: 'item1' } });
   return <Select
     {...args}
     control={control as never}
@@ -49,4 +49,13 @@ Disabled.args = {
   variant: 'outline',
   items: ['item1', 'item2', 'item3'],
   isDisabled: true,
+};
+
+export const InvalidSelect = Template.bind({});
+InvalidSelect.args = {
+  name: 'select',
+  label: 'select',
+  variant: 'outline',
+  items: ['item2', 'item3'],
+  isDisabled: false,
 };

@@ -1,6 +1,6 @@
 import type { IButtonProps } from 'native-base';
 import type { FC } from 'react';
-import { Button } from 'native-base';
+import Button from './button';
 
 const LogoutButton: FC<IButtonProps> = (props) => {
   return <Button {...props}>ログアウト</Button>;

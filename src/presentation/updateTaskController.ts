@@ -4,7 +4,7 @@ import type IUserSessionProvider from './shared/userSessionProvider';
 import type { TaskDto } from '^/usecase/task/taskDto';
 import type { UpdateData } from '^/usecase/task/updateTaskUseCase';
 import { inject, singleton } from 'tsyringe';
-import TaskId from '$/server/task/valueObject/taskId';
+import TaskId from '$/shared/task/valueObject/taskId';
 import UpdateTaskUseCase from '^/usecase/task/updateTaskUseCase';
 import BaseController from './shared/baseController';
 

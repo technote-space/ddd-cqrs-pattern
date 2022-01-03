@@ -1,6 +1,7 @@
 import type { FC } from 'react';
-import { IconButton, SunIcon, MoonIcon } from 'native-base';
+import { SunIcon, MoonIcon } from 'native-base';
 import { memo } from 'react';
+import IconButton from './iconButton';
 
 type Props = {
   isDarkMode: boolean;

@@ -25,6 +25,10 @@ export default function CollectionBase<T extends Base>() {
       return this._collections;
     }
 
+    public isEmpty(): boolean {
+      return !this.collections.length;
+    }
+
     public validate(): ValidationErrors | undefined {
       const errors = this.collections.reduce((acc, item, index) => ({
         ...acc,

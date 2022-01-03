@@ -24,12 +24,13 @@ const NumberInput = ({
   return <NBNumberInput
     isDisabled={isDisabled}
     onChange={props.field.onChange}
+    defaultValue={props.field.value ?? '0'}
     {...extractComponentProps(props)}
   >
     <NumberInputField
       variant={variant ?? 'outline'}
       onBlur={props.field.onBlur}
-      value={props.field.value ?? ''}
+      value={props.field.value ?? '0'}
       {...fieldProps}
     />
     <NumberInputStepper>

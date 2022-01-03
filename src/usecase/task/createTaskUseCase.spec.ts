@@ -1,5 +1,5 @@
-import type Task from '$/server/task/task';
-import UserId from '$/server/user/valueObject/userId';
+import type Task from '$/shared/task/task';
+import UserId from '$/shared/user/valueObject/userId';
 import CreateTaskUseCase from './createTaskUseCase';
 
 describe('CreateTaskUseCase', () => {

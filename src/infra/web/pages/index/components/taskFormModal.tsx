@@ -1,10 +1,9 @@
 import type { ValidationErrors } from '$/shared/exceptions/domain/validation';
-import type { FormValues, TaskDto } from '^/usecase/task/taskDto';
-import type { FormFields } from '^/usecase/task/taskDto';
+import type Task from '$/shared/task/task';
+import type { FormFields, FormValues } from '@/web/helpers/form';
 import type { VFC } from 'react';
 import type { Control } from 'react-hook-form';
 import { memo, useRef } from 'react';
-import TaskForm from '@/web/pages/index/components/taskForm';
 import Button from '#/button/button';
 import Modal from '#/dialog/modal';
 import DateTimePicker from '#/form/dateTimePicker';
@@ -13,11 +12,12 @@ import NumberInput from '#/form/numberInput';
 import Select from '#/form/select';
 import TextArea from '#/form/textArea';
 import TextInput from '#/form/textInput';
+import TaskForm from '@/web/pages/index/components/taskForm';
 
 type Props = {
   isOpenTaskFormDialog: boolean;
   handleCloseTaskFormDialog: () => void;
-  selectedTask?: TaskDto,
+  selectedTask?: Task,
   validationErrors: ValidationErrors;
   onSubmitForm: () => void;
   control: Control<FormValues>;

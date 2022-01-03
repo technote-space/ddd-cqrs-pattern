@@ -1,5 +1,5 @@
-import type EstimateUnit from '$/server/task/valueObject/estimateUnit';
-import type EstimateValue from '$/server/task/valueObject/estimateValue';
+import type EstimateUnit from '$/shared/task/valueObject/estimateUnit';
+import type EstimateValue from '$/shared/task/valueObject/estimateValue';
 import type { ValidationError } from '$/shared/valueObject/base';
 import Base from '$/shared/valueObject/base';
 

@@ -1,9 +1,9 @@
 import type { HooksParams } from './hooks';
 import type { VFC } from 'react';
 import { memo, useMemo } from 'react';
+import Flex from '#/layout/flex';
 import AddItem from './components/addItem';
 import ItemBadge from './components/itemBadge';
-import Flex from '#/layout/flex';
 
 const View: VFC<HooksParams> = ({
   items,
@@ -22,7 +22,7 @@ const View: VFC<HooksParams> = ({
       key={index}
       item={item}
       isDisabled={isDisabled}
-      handleClose={deleteItemHandlers[item]}
+      handleDelete={deleteItemHandlers[item]}
     />), [items, isDisabled, deleteItemHandlers])}
     <AddItem
       value={addItemValue}

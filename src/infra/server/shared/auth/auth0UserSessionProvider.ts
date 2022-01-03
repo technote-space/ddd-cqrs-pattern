@@ -4,8 +4,8 @@ import type IUserSessionProvider from '^/presentation/shared/userSessionProvider
 import type { UserSession } from '^/usecase/shared/userSession';
 import type { UserJwtPayload } from '^/usecase/shared/userSession';
 import { inject, singleton } from 'tsyringe';
-import UserId from '$/server/user/valueObject/userId';
 import Unauthorized from '$/shared/exceptions/http/unauthorized';
+import UserId from '$/shared/user/valueObject/userId';
 
 @singleton()
 export default class Auth0UserSessionProvider implements IUserSessionProvider {

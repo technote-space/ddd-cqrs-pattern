@@ -1,7 +1,8 @@
 import type { IIconButtonProps } from 'native-base';
 import type { FC } from 'react';
-import { IconButton, createIcon } from 'native-base';
+import { createIcon } from 'native-base';
 import { memo } from 'react';
+import IconButton from './iconButton';
 
 const AddIcon = createIcon({
   viewBox: '0 0 512 512',

@@ -46,7 +46,7 @@ export const extractComponentProps = <P extends ComponentProps = {}>({
 };
 
 const WithControl = <P extends ComponentProps, T extends FieldValues>(
-  Component: (props: WithControlProps<P>) => ReactElement,
+  Component: (props: WithControlProps<P>) => ReactElement | null,
 ) =>
   // eslint-disable-next-line react/display-name
   ({

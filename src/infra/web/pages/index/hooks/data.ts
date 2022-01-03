@@ -1,8 +1,9 @@
 import type { IApi } from '$/web/shared/api';
 import type { IAuth } from '$/web/shared/auth';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { getAuthorization } from '@/web/pages/index/helpers/auth';
 import { useAddProcess, useDeleteProcess } from '@/web/shared/loading';
+import { reconstructEntity } from '^/usecase/task/taskDto';
 
 export const useTasks = (auth: IAuth, api: IApi) => {
   const user = auth.useUser();
@@ -22,7 +23,7 @@ export const useTasks = (auth: IAuth, api: IApi) => {
   }, [data, addProcess, deleteProcess]);
 
   return {
-    tasks: data,
+    tasks: useMemo(() => data?.map(reconstructEntity), [data]),
     isValidatingTasks: isValidating,
     mutateTasks: mutate,
   };

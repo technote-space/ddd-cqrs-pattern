@@ -1,6 +1,6 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import { useForm } from 'react-hook-form';
-import { getFormFields } from '^/usecase/task/taskDto';
+import { getFormFields } from '@/web/helpers/form';
 import TaskFormModal from './taskFormModal';
 
 export default {
@@ -20,6 +20,10 @@ const Template: ComponentStory<typeof TaskFormModal> = (args) => {
   return <TaskFormModal
     {...args}
     control={control as never}
+    handleCloseTaskFormDialog={() => {
+    }}
+    onSubmitForm={() => {
+    }}
   />;
 };
 
