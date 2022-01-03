@@ -16,7 +16,7 @@ const TextInput = ({
   ...props
 }: WithControlProps<Props>): ReactElement => {
   return <Input
-    placeholder={placeholder ?? label ? `${label}を入力してください` : undefined}
+    placeholder={placeholder ?? (label ? `${label}を入力してください` : undefined)}
     variant={variant ?? 'outline'}
     isDisabled={isDisabled}
     onBlur={props.field.onBlur}

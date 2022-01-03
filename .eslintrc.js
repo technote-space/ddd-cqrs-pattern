@@ -61,12 +61,13 @@ module.exports = {
     "@typescript-eslint/no-unused-vars": ["error", {"ignoreRestSiblings": true}],
     "import/no-anonymous-default-export": "off",
     "react-hooks/rules-of-hooks": "off",
+    "@typescript-eslint/no-empty-function": "off",
     "@technote-space/strict-dependencies/strict-dependencies": [
       "error",
       [
         {
           "module": "native-base",
-          "allowReferenceFrom": ["src/infra/web/components/**", "src/infra/web/theme/nativeBase/index.tsx", "src/infra/web/helpers/nativeBase.ts"]
+          "allowReferenceFrom": ["src/infra/web/components/**", "src/infra/web/**/nativeBase/**", "src/infra/web/**/nativeBase*.ts"]
         },
         {
           "module": "src/domain",

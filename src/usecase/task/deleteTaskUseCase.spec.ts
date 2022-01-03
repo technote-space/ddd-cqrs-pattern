@@ -1,9 +1,9 @@
-import Tags from '$/server/tag/tags';
-import Task from '$/server/task/task';
-import Status from '$/server/task/valueObject/status';
-import TaskId from '$/server/task/valueObject/taskId';
-import TaskName from '$/server/task/valueObject/taskName';
-import UserId from '$/server/user/valueObject/userId';
+import Tags from '$/shared/tag/tags';
+import Task from '$/shared/task/task';
+import Status from '$/shared/task/valueObject/status';
+import TaskId from '$/shared/task/valueObject/taskId';
+import TaskName from '$/shared/task/valueObject/taskName';
+import UserId from '$/shared/user/valueObject/userId';
 import DeleteTaskUseCase from './deleteTaskUseCase';
 
 describe('DeleteTaskUseCase', () => {

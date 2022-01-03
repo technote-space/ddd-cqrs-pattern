@@ -6,8 +6,8 @@ const withTheme = (Story: Story) => {
   return <NativeBaseProvider>
     <ViewComponent
       display="flex"
-      height="100%"
-      overflow="hidden"
+      height="100vh"
+      overflow="auto"
     >
       <Story/>
     </ViewComponent>

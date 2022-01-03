@@ -1,27 +1,28 @@
 import type { ValidationErrors } from '$/shared/exceptions/domain/validation';
-import type { FormValues, TaskDto } from '^/usecase/task/taskDto';
-import type { FormFields } from '^/usecase/task/taskDto';
+import type Task from '$/shared/task/task';
+import type { FormFields, FormValues } from '@/web/helpers/form';
 import type { VFC } from 'react';
 import type { Control } from 'react-hook-form';
-import { memo, useMemo, useRef } from 'react';
+import { memo, useRef } from 'react';
 import Button from '#/button/button';
 import Modal from '#/dialog/modal';
 import DateTimePicker from '#/form/dateTimePicker';
-import FormLayout from '#/form/layout';
 import MultiSelect from '#/form/multipleSelect';
 import NumberInput from '#/form/numberInput';
 import Select from '#/form/select';
 import TextArea from '#/form/textArea';
 import TextInput from '#/form/textInput';
+import TaskForm from '@/web/pages/index/components/taskForm';
 
 type Props = {
   isOpenTaskFormDialog: boolean;
   handleCloseTaskFormDialog: () => void;
-  selectedTask?: TaskDto,
+  selectedTask?: Task,
   validationErrors: ValidationErrors;
   onSubmitForm: () => void;
   control: Control<FormValues>;
   isDisabled: boolean;
+  isSubmitting: boolean;
   formFields: FormFields;
 };
 
@@ -44,6 +45,7 @@ const TaskFormModal: VFC<Props> = ({
   onSubmitForm,
   control,
   isDisabled,
+  isSubmitting,
   formFields,
 }) => {
   const cancelRef = useRef();
@@ -55,20 +57,12 @@ const TaskFormModal: VFC<Props> = ({
       <Modal.CloseButton/>
       <Modal.Header>{selectedTask ? 'タスク編集' : 'タスク追加'}</Modal.Header>
       <Modal.Body>
-        <FormLayout>
-          {useMemo(() => Object.entries(formFields).map(([name, { label, isRequired, component, props }], index) => {
-            const Component = FormComponents[component];
-            return <Component
-              key={index}
-              name={name as keyof FormValues}
-              control={control}
-              validationErrors={validationErrors}
-              label={label}
-              isRequired={isRequired}
-              {...props as any /* eslint-disable-line @typescript-eslint/no-explicit-any */}
-            />;
-          }), [formFields, control, validationErrors])}
-        </FormLayout>
+        <TaskForm
+          formFields={formFields}
+          control={control}
+          isDisabled={isSubmitting}
+          validationErrors={validationErrors}
+        />
       </Modal.Body>
       <Modal.Footer>
         <Button.Group space={2}>

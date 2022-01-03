@@ -1,5 +1,5 @@
-import TagId from '$/server/tag/valueObject/tagId';
-import TagName from '$/server/tag/valueObject/tagName';
+import TagId from '$/shared/tag/valueObject/tagId';
+import TagName from '$/shared/tag/valueObject/tagName';
 import Tag from './tag';
 import Tags from './tags';
 

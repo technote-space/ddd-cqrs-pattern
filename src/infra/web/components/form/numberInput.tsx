@@ -11,12 +11,10 @@ import {
 import WithControl, { extractComponentProps } from '#/form/withControl';
 
 type Props = INumberInputProps & {
-  placeholder?: string;
   fieldProps?: INumberInputFieldProps;
 };
 
 const NumberInput = ({
-  placeholder,
   variant,
   label,
   isDisabled,
@@ -26,13 +24,13 @@ const NumberInput = ({
   return <NBNumberInput
     isDisabled={isDisabled}
     onChange={props.field.onChange}
+    defaultValue={props.field.value ?? '0'}
     {...extractComponentProps(props)}
   >
     <NumberInputField
-      placeholder={placeholder ?? label ? `${label}を入力してください` : undefined}
       variant={variant ?? 'outline'}
       onBlur={props.field.onBlur}
-      value={props.field.value ?? ''}
+      value={props.field.value ?? '0'}
       {...fieldProps}
     />
     <NumberInputStepper>

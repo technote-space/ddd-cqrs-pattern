@@ -1,6 +1,6 @@
-import User from '$/server/user/user';
-import Token from '$/server/user/valueObject/token';
-import UserId from '$/server/user/valueObject/userId';
+import User from '$/shared/user/user';
+import Token from '$/shared/user/valueObject/token';
+import UserId from '$/shared/user/valueObject/userId';
 import TestEnv from '^/__mocks__/env';
 import LoginOrRegisterUseCase from './loginOrRegisterUseCase';
 

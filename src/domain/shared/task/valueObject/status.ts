@@ -3,6 +3,10 @@ import Flags from '$/shared/valueObject/flags';
 
 type StatusTypes = '登録' | '実行中' | '完了' | '削除(登録)' | '削除(実行中)' | '削除(完了)';
 export default class Status extends Flags<StatusTypes>() {
+  private static orders = Object.assign({}, ...[
+    '実行中', '登録', '完了', '削除(実行中)', '削除(登録)', '削除(完了)',
+  ].map((status, index) => ({ [status]: status.startsWith('削除') ? 10 : index })));
+
   public get flagTypes(): StatusTypes[] {
     return ['登録', '実行中', '完了', '削除(登録)', '削除(実行中)', '削除(完了)'];
   }
@@ -11,12 +15,28 @@ export default class Status extends Flags<StatusTypes>() {
     return 'ステータス';
   }
 
+  public static getActiveStatuses() {
+    return ['登録', '実行中', '完了'];
+  }
+
   public canDelete(): boolean {
-    return ['登録', '実行中', '完了'].includes(this.value);
+    return Status.getActiveStatuses().includes(this.value);
   }
 
   public canRestore(): boolean {
     return !this.canDelete();
+  }
+
+  public isDeleted(): boolean {
+    return this.canRestore();
+  }
+
+  public static deleteLabel(): string {
+    return '削除';
+  }
+
+  public get displayValue(): string {
+    return this.canRestore() ? Status.deleteLabel() : this.value;
   }
 
   public canDeleteCompletely(): boolean {
@@ -52,7 +72,7 @@ export default class Status extends Flags<StatusTypes>() {
       return Status.create('完了');
     }
 
-    throw new InvalidControl('削除されていません');
+    throw new InvalidControl('復元できないステータスです');
   }
 
   public compare(value: this): number {
@@ -60,10 +80,7 @@ export default class Status extends Flags<StatusTypes>() {
       return 0;
     }
 
-    const orders = Object.assign({}, ...[
-      '実行中', '登録', '完了', '削除(実行中)', '削除(登録)', '削除(完了)',
-    ].map((status, index) => ({ [status]: index })));
-    return Math.max(-1, Math.min(1, orders[this.value] - orders[value.value]));
+    return Math.max(-1, Math.min(1, Status.orders[this.value] - Status.orders[value.value]));
   }
 
   public isAscendStatus(): boolean {

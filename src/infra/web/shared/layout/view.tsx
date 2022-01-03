@@ -1,5 +1,5 @@
+import type { HooksParams } from './hooks';
 import type { FC } from 'react';
-import { HooksParams } from './hooks';
 import ButtonGroup from '#/button/group';
 import LogoutButton from '#/button/logoutButton';
 import ToggleDarkModeButton from '#/button/toggleDarkModeButton';

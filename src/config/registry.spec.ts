@@ -33,6 +33,7 @@ describe('tsyringe', () => {
     expect(() => container.resolve('ILayoutComponent')).not.toThrow();
     expect(() => container.resolve('ILoadingContext')).not.toThrow();
     expect(() => container.resolve('ILoadingComponent')).not.toThrow();
+    expect(() => container.resolve('IToast')).not.toThrow();
     expect(() => container.resolve('Auth0ContextProvider')).not.toThrow();
     expect(() => container.resolve('ReduxContextProvider')).not.toThrow();
     expect(() => container.resolve('contexts')).not.toThrow();

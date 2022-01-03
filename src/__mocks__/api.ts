@@ -8,6 +8,6 @@ export class TestApi extends Api {
       setUser: setUser ?? (() => {
         //
       }),
-    } as never);
+    } as never, { useToast: () => ({ show: jest.fn() }) } as never);
   }
 }

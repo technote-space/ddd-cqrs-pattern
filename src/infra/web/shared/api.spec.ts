@@ -16,7 +16,7 @@ describe('Api', () => {
         mutate: mockMutate,
       } as never);
 
-      const api = new Api({} as never, { setUser: mockSetUser } as never);
+      const api = new Api({} as never, { setUser: mockSetUser } as never, {} as never);
       const { result, waitFor } = renderHook(() => api.useSWR(mockSelector));
 
       await waitFor(expect(mockSetUser).toBeCalled);
@@ -47,10 +47,10 @@ describe('Api', () => {
       const mockWithLoading = jest.fn(callback => callback());
       jest.spyOn(loadingHooks, 'useLoading').mockReturnValue(mockWithLoading);
 
-      const api = new Api({} as never, { setUser: mockSetUser } as never);
+      const api = new Api({} as never, { setUser: mockSetUser } as never, { useToast: () => ({ show: jest.fn() }) } as never);
       const caller = renderHook(() => api.useCaller()).result.current;
 
-      await expect(caller(mockGeneratePromise)).rejects.toThrow();
+      expect(await caller(mockGeneratePromise, undefined)).toBeUndefined();
       expect(mockGeneratePromise).toBeCalled();
       expect(mockSetUser).toBeCalled();
     });
@@ -60,13 +60,47 @@ describe('Api', () => {
       const mockGeneratePromise = jest.fn(() => {
         throw new Error();
       });
+      const mockShow = jest.fn();
 
-      const api = new Api({} as never, { setUser: mockSetUser } as never);
+      const api = new Api({} as never, { setUser: mockSetUser } as never, { useToast: () => ({ show: mockShow }) } as never);
       const caller = renderHook(() => api.useCaller()).result.current;
 
-      await expect(caller(mockGeneratePromise)).rejects.toThrow();
+      expect(await caller(mockGeneratePromise, undefined)).toBeUndefined();
       expect(mockGeneratePromise).toBeCalled();
       expect(mockSetUser).not.toBeCalled();
+      expect(mockShow).toBeCalled();
+    });
+
+    it('throwError が falsy の場合はエラーではなく fallback が返る', async () => {
+      const mockSetUser = jest.fn();
+      const mockGeneratePromise = jest.fn(() => {
+        throw new Error();
+      });
+      const mockShow = jest.fn();
+
+      const api = new Api({} as never, { setUser: mockSetUser } as never, { useToast: () => ({ show: mockShow }) } as never);
+      const caller = renderHook(() => api.useCaller()).result.current;
+
+      expect(await caller(mockGeneratePromise, { test: 123 })).toEqual({ test: 123 });
+      expect(mockGeneratePromise).toBeCalled();
+      expect(mockSetUser).not.toBeCalled();
+      expect(mockShow).toBeCalled();
+    });
+
+    it('throwError が true の場合はエラーが投げられる', async () => {
+      const mockSetUser = jest.fn();
+      const mockGeneratePromise = jest.fn(() => {
+        throw new Error();
+      });
+      const mockShow = jest.fn();
+
+      const api = new Api({} as never, { setUser: mockSetUser } as never, { useToast: () => ({ show: mockShow }) } as never);
+      const caller = renderHook(() => api.useCaller()).result.current;
+
+      await expect(caller(mockGeneratePromise, { test: 123 }, undefined, true)).rejects.toThrow();
+      expect(mockGeneratePromise).toBeCalled();
+      expect(mockSetUser).not.toBeCalled();
+      expect(mockShow).toBeCalled();
     });
   });
 });

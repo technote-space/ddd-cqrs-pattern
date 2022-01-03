@@ -1,5 +1,6 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import dayjs from 'dayjs';
+import { reconstructEntity } from '^/usecase/task/taskDto';
 import Task from './task';
 
 export default {
@@ -11,11 +12,20 @@ export default {
 } as ComponentMeta<typeof Task>;
 
 const current = dayjs('2000-01-23');
-const Template: ComponentStory<typeof Task> = (args) => <Task current={current} {...args} />;
+const Template: ComponentStory<typeof Task> = (args) => <Task
+  current={current}
+  {...args}
+  onUpdate={() => {
+  }}
+  onRestore={() => {
+  }}
+  onDelete={() => {
+  }}
+/>;
 
 export const Default = Template.bind({});
 Default.args = {
-  task: {
+  task: reconstructEntity({
     id: 'id',
     taskName: 'タスク名',
     memo: 'メモ',
@@ -24,12 +34,12 @@ Default.args = {
     estimateValue: 10,
     estimateUnit: '日',
     tags: ['テスト1', 'テスト2'],
-  },
+  }),
 };
 
 export const LongText = Template.bind({});
 LongText.args = {
-  task: {
+  task: reconstructEntity({
     id: 'id',
     taskName: 'タスクタスクタスクタスクタスクタスクタスクタスクタスクタスクタスク',
     memo: 'メモメモメモメモメモメモメモメモメモ\nメモメモメモメモメモメモメモメモメモメモメモメモメモメモメモメモメモメモメモ',
@@ -38,12 +48,12 @@ LongText.args = {
     estimateValue: 10,
     estimateUnit: '時間',
     tags: ['テストテストテストテストテストテストテストテストテストテストテストテストテストテスト', 'テスト1', 'テスト2'],
-  },
+  }),
 };
 
 export const Optional = Template.bind({});
 Optional.args = {
-  task: {
+  task: reconstructEntity({
     id: 'id',
     taskName: 'タスク',
     memo: null,
@@ -52,5 +62,5 @@ Optional.args = {
     estimateValue: null,
     estimateUnit: null,
     tags: [],
-  },
+  }),
 };

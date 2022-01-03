@@ -1,17 +1,22 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import AddTag from './addTag';
+import AddItem from './addItem';
 
 export default {
-  title: 'Common Components/Form/AddTag',
-  component: AddTag,
+  title: 'Common Components/Form/AddItem',
+  component: AddItem,
   argTypes: {
     value: { control: { type: 'text' } },
     isOpen: { control: { type: 'boolean' } },
     isDisabled: { control: { type: 'boolean' } },
   },
-} as ComponentMeta<typeof AddTag>;
+} as ComponentMeta<typeof AddItem>;
 
-const Template: ComponentStory<typeof AddTag> = (args) => <AddTag {...args} />;
+const Template: ComponentStory<typeof AddItem> = (args) => <AddItem
+  {...args}
+  handleOpen={() => {}}
+  handleClose={() => {}}
+  handleSubmit={() => {}}
+/>;
 
 export const Default = Template.bind({});
 Default.args = {

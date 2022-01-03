@@ -14,10 +14,19 @@ type Props = {
   isDisabled: boolean;
 }
 
-const AddTag: VFC<Props> = ({ value, handleChanged, isOpen, handleOpen, handleClose, handleSubmit, placeholder, isDisabled }) => {
+const AddItem: VFC<Props> = ({
+  value,
+  handleChanged,
+  isOpen,
+  handleOpen,
+  handleClose,
+  handleSubmit,
+  placeholder,
+  isDisabled,
+}) => {
   const cancelRef = useRef();
   return <>
-    <AddButton size="8" ml={1} onPress={handleOpen}/>
+    <AddButton size="8" ml={1} onPress={handleOpen} isDisabled={isDisabled}/>
     <Modal isOpen={isOpen} onClose={handleClose}>
       <Modal.Content>
         <Modal.CloseButton/>
@@ -51,5 +60,5 @@ const AddTag: VFC<Props> = ({ value, handleChanged, isOpen, handleOpen, handleCl
   </>;
 };
 
-AddTag.displayName = 'AddTag';
-export default memo(AddTag);
+AddItem.displayName = 'AddTag';
+export default memo(AddItem);

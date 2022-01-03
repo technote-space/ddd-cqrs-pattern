@@ -95,11 +95,13 @@ export class Auth0Auth implements IAuth {
         this._syncLoading = true;
         (async () => {
           await withLoading(async () => {
-            const { authorization } = await caller(async client => client.login.$post({ body: { token: await getAccessTokenSilently() } }));
-            this.authContext.setUser(dispatch, {
-              user: { authorization },
-              isLoggedIn: true,
-            });
+            const { authorization } = await caller(async client => client.login.$post({ body: { token: await getAccessTokenSilently() } }), { authorization: '' });
+            if (authorization) {
+              this.authContext.setUser(dispatch, {
+                user: { authorization },
+                isLoggedIn: true,
+              });
+            }
           }, 'ログイン中...', 'login');
           this._syncLoading = false;
         })();

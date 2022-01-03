@@ -9,6 +9,7 @@ import Loading from '#/loading';
 
 const Task = dynamic(() => import('./components/task'));
 const TaskFormModal = dynamic(() => import('./components/taskFormModal'));
+const RestoreAlertDialog = dynamic(() => import('./components/restoreAlertDialog'));
 const DeleteAlertDialog = dynamic(() => import('./components/deleteAlertDialog'));
 
 const View: VFC<HooksParams> = ({
@@ -17,6 +18,7 @@ const View: VFC<HooksParams> = ({
   tasks,
   isValidatingTasks,
   updateTaskHandlers,
+  restoreTaskHandlers,
   deleteTaskHandlers,
 
   isOpenTaskFormDialog,
@@ -27,7 +29,13 @@ const View: VFC<HooksParams> = ({
   onSubmitForm,
   control,
   isDisabled,
+  isSubmitting,
   formFields,
+
+  isOpenRestoreTaskDialog,
+  handleCloseRestoreTaskDialog,
+  restoreTargetTask,
+  onRestore,
 
   isOpenDeleteTaskDialog,
   handleCloseDeleteTaskDialog,
@@ -45,11 +53,12 @@ const View: VFC<HooksParams> = ({
       </ButtonGroup>
       {isValidatingTasks && <Loading position="fixed" top={4}/>}
       {useMemo(() => tasks?.map(task => <Task
-        key={task.id}
+        key={task.taskId.value}
         task={task}
-        onUpdate={updateTaskHandlers[task.id]}
-        onDelete={deleteTaskHandlers[task.id]}
-      />), [tasks, updateTaskHandlers, deleteTaskHandlers])}
+        onUpdate={updateTaskHandlers[task.taskId.value]}
+        onRestore={restoreTaskHandlers[task.taskId.value]}
+        onDelete={deleteTaskHandlers[task.taskId.value]}
+      />), [tasks, updateTaskHandlers, restoreTaskHandlers, deleteTaskHandlers])}
     </Flex>
     <TaskFormModal
       isOpenTaskFormDialog={isOpenTaskFormDialog}
@@ -59,7 +68,14 @@ const View: VFC<HooksParams> = ({
       onSubmitForm={onSubmitForm}
       control={control}
       isDisabled={isDisabled}
+      isSubmitting={isSubmitting}
       formFields={formFields}
+    />
+    <RestoreAlertDialog
+      isOpenRestoreTaskDialog={isOpenRestoreTaskDialog}
+      handleCloseRestoreTaskDialog={handleCloseRestoreTaskDialog}
+      restoreTargetTask={restoreTargetTask}
+      onRestore={onRestore}
     />
     <DeleteAlertDialog
       isOpenDeleteTaskDialog={isOpenDeleteTaskDialog}

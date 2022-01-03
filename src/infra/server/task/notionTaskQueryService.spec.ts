@@ -1,4 +1,4 @@
-import UserId from '$/server/user/valueObject/userId';
+import UserId from '$/shared/user/valueObject/userId';
 import NotionTaskQueryService from './notionTaskQueryService';
 
 describe('NotionTaskQueryService', () => {

@@ -1,36 +1,36 @@
 import type { HooksParams } from './hooks';
 import type { VFC } from 'react';
 import { memo, useMemo } from 'react';
-import AddTag from './components/addTag';
-import TagBadge from './components/tagBadge';
 import Flex from '#/layout/flex';
+import AddItem from './components/addItem';
+import ItemBadge from './components/itemBadge';
 
 const View: VFC<HooksParams> = ({
-  tags,
+  items,
   isDisabled,
   placeholder,
-  addTagValue,
-  handleChangeAddTagValue,
+  addItemValue,
+  handleChangeAddItemValue,
   isOpenAddModal,
-  handleOpenAddTag,
-  handleCloseAddTag,
-  handleSubmitAddTag,
-  deleteTagHandlers,
+  handleOpenAddItem,
+  handleCloseAddItem,
+  handleSubmitAddItem,
+  deleteItemHandlers,
 }) => {
   return <Flex flexDirection="row" flexWrap="wrap">
-    {useMemo(() => tags.map((tag, index) => <TagBadge
+    {useMemo(() => items.map((item, index) => <ItemBadge
       key={index}
-      tag={tag}
+      item={item}
       isDisabled={isDisabled}
-      handleClose={deleteTagHandlers[tag]}
-    />), [tags, isDisabled, deleteTagHandlers])}
-    <AddTag
-      value={addTagValue}
-      handleChanged={handleChangeAddTagValue}
+      handleDelete={deleteItemHandlers[item]}
+    />), [items, isDisabled, deleteItemHandlers])}
+    <AddItem
+      value={addItemValue}
+      handleChanged={handleChangeAddItemValue}
       isOpen={isOpenAddModal}
-      handleOpen={handleOpenAddTag}
-      handleClose={handleCloseAddTag}
-      handleSubmit={handleSubmitAddTag}
+      handleOpen={handleOpenAddItem}
+      handleClose={handleCloseAddItem}
+      handleSubmit={handleSubmitAddItem}
       placeholder={placeholder}
       isDisabled={isDisabled}
     />
