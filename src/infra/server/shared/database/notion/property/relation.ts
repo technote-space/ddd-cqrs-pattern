@@ -37,7 +37,6 @@ export default class RelationProperty extends Base {
     }
 
     return {
-      id: property.id,
       name: property.name,
       type: 'relation',
       relation_id: property.relation.database_id,
