@@ -35,11 +35,13 @@
     "cover:update": "jest -u",
     "test": "yarn lint && yarn typecheck && yarn cover",
     "update": "npm_config_yes=true npx npm-check-updates -u --timeout 100000 && yarn install && yarn upgrade && yarn audit",
-    "prepare": "if [ ! -f .env ]; then cp .env.example .env; fi && husky install && aspida",
+    "prepare": "if [ ! -f .env ]; then cp .env.example .env; fi && if [ ! -f infra/.env ]; then cp infra/.env.example infra/.env; fi  && husky install && aspida",
     "sb": "start-storybook -p 6006 -s ./public",
     "build-sb": "build-storybook -s public",
     "analyze": "aspida && ANALYZE=true next build",
-    "migrate": "ts-node -r tsconfig-paths/register src/bin/migrate.ts"
+    "migrate": "ts-node -r tsconfig-paths/register src/bin/migrate.ts",
+    "mysql:up": "docker-compose -f infra/docker-compose.yml --env-file infra/.env up -d",
+    "mysql:down": "docker-compose -f infra/docker-compose.yml down --remove-orphans"
   },
   "dependencies": {
     "@aspida/axios": "^1.7.1",
