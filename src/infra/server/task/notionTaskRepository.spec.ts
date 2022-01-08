@@ -103,7 +103,7 @@ describe('NotionTaskRepository', () => {
         UserId.create('user'),
         Tags.create([Tag.create(TagName.create('tag1')), Tag.create(TagName.create('tag2')), Tag.reconstruct(TagId.create('tag3'), TagName.create('tag3'))]),
       );
-      const updated = await repository.save(task);
+      const saved = await repository.save(task);
       expect(mockCreate).toBeCalledWith('tasks', {
         status: '登録',
         tags: ['tag1', 'tag2', 'tag3'],
@@ -114,11 +114,11 @@ describe('NotionTaskRepository', () => {
         estimateUnit: '日',
         dueDate: '2022-01-01T01:00:00.000Z',
       });
-      expect(updated.taskId.value).toBe('1234567890');
-      expect(updated.userId.value).toBe('user');
-      expect(updated.tags.collections[0].tagName.value).toBe('tag1');
-      expect(updated.tags.collections[1].tagName.value).toBe('tag2');
-      expect(updated.tags.collections[2].tagName.value).toBe('tag3');
+      expect(saved.taskId.value).toBe('1234567890');
+      expect(saved.userId.value).toBe('user');
+      expect(saved.tags.collections[0].tagName.value).toBe('tag1');
+      expect(saved.tags.collections[1].tagName.value).toBe('tag2');
+      expect(saved.tags.collections[2].tagName.value).toBe('tag3');
     });
 
     it('タスクIDがある場合は更新', async () => {
@@ -139,7 +139,7 @@ describe('NotionTaskRepository', () => {
         UserId.create('user'),
         Tags.create([]),
       );
-      const updated = await repository.save(task);
+      const saved = await repository.save(task);
       expect(mockUpdate).toBeCalledWith('tasks', {
         id: 'id',
         status: '登録',
@@ -151,9 +151,9 @@ describe('NotionTaskRepository', () => {
         estimateUnit: null,
         dueDate: null,
       });
-      expect(updated.taskId.value).toBe('id');
-      expect(updated.userId.value).toBe('user');
-      expect(updated.tags.collections).toHaveLength(0);
+      expect(saved.taskId.value).toBe('id');
+      expect(saved.userId.value).toBe('user');
+      expect(saved.tags.collections).toHaveLength(0);
     });
   });
 

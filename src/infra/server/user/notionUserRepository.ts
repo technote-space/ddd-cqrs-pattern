@@ -46,19 +46,18 @@ export default class NotionUserRepository implements IUserRepository {
     return NotionMapper.toEntity(user);
   }
 
-  public async save(user: User): Promise<void> {
+  public async save(user: User): Promise<User> {
     const data = {
       token: user.token.value,
     };
 
     if (user.userId.isSetId()) {
-      await this.database.update<DatabaseType>('users', {
+      return NotionMapper.toEntity(await this.database.update<DatabaseType>('users', {
         id: user.userId.value,
         ...data,
-      });
+      }));
     } else {
-      const result = await this.database.create<DatabaseType>('users', data);
-      user.userId.setGeneratedId(result.id);
+      return NotionMapper.toEntity(await this.database.create<DatabaseType>('users', data));
     }
   }
 }

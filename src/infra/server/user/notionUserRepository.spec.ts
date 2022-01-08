@@ -65,17 +65,18 @@ describe('NotionUserRepository', () => {
       const repository = new NotionUserRepository({ create: mockCreate } as never);
 
       const user = User.create(Token.create('token'));
-      await repository.save(user);
+      const saved = await repository.save(user);
       expect(mockCreate).toBeCalledWith('users', { token: 'token' });
-      expect(user.userId.value).toBe('1234567890');
+      expect(saved.userId.value).toBe('1234567890');
     });
 
     it('ユーザーIDがある場合は更新', async () => {
-      const mockUpdate = jest.fn(() => Promise.resolve(null));
+      const mockUpdate = jest.fn(() => Promise.resolve({ id: 'id' }));
       const repository = new NotionUserRepository({ update: mockUpdate } as never);
 
-      await repository.save(User.reconstruct(UserId.create('id'), Token.create('token')));
+      const saved = await repository.save(User.reconstruct(UserId.create('id'), Token.create('token')));
       expect(mockUpdate).toBeCalledWith('users', { id: 'id', token: 'token' });
+      expect(saved.userId.value).toBe('id');
     });
   });
 });
