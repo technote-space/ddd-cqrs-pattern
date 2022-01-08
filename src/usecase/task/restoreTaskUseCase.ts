@@ -18,8 +18,6 @@ export default class DeleteTaskUseCase {
       throw new Forbidden();
     }
 
-    const restored = task.restore();
-    await this.repository.save(restored);
-    return fromEntity(restored);
+    return fromEntity(await this.repository.save(task.restore()));
   }
 }

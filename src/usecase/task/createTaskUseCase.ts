@@ -14,9 +14,6 @@ export default class CreateTaskUseCase {
   }
 
   public async invoke(userSession: UserSession, data: CreateData) {
-    const task = toEntity(userSession.userId, data);
-    await this.repository.save(task);
-
-    return fromEntity(task);
+    return fromEntity(await this.repository.save(toEntity(userSession.userId, data)));
   }
 }
