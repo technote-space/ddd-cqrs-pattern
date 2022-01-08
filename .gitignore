@@ -33,7 +33,7 @@ yarn-error.log*
 **/$api.ts
 
 # prisma
-src/infra/server/shared/database/mysql/client
+src/infra/server/shared/database/mysql/prisma/client
 schema/migrations
 
 # misc

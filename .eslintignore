@@ -1,1 +1,1 @@
-src/infra/server/shared/database/mysql/client
+src/infra/server/shared/database/mysql/prisma/client

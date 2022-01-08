@@ -5,7 +5,7 @@ datasource db {
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../src/infra/server/shared/database/mysql/client"
+  output   = "../src/infra/server/shared/database/mysql/prisma/client"
   binaryTargets = ["native"]
 }
 
