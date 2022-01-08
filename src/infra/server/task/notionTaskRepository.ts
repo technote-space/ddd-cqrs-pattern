@@ -1,5 +1,4 @@
 import type IDatabase from '$/server/shared/database';
-import type { CreateData } from '$/server/shared/database';
 import type ITaskRepository from '$/server/task/taskRepository';
 import type Task from '$/shared/task/task';
 import type TaskId from '$/shared/task/valueObject/taskId';
@@ -24,18 +23,7 @@ export default class NotionTaskRepository implements ITaskRepository {
     return NotionMapper.toEntity(response);
   }
 
-  private async store(task: Task, data: CreateData): Promise<DatabaseType> {
-    if (task.taskId.isSetId()) {
-      return this.database.update<DatabaseType>('tasks', {
-        id: task.taskId.value,
-        ...data,
-      });
-    } else {
-      return this.database.create<DatabaseType>('tasks', data);
-    }
-  }
-
-  public async save(task: Task): Promise<Task> {
+  private async store(task: Task): Promise<DatabaseType> {
     const data = {
       taskName: task.taskName.value,
       status: task.status.value,
@@ -47,7 +35,18 @@ export default class NotionTaskRepository implements ITaskRepository {
       dueDate: task.dueDate?.value.toISOString() ?? null,
     };
 
-    return NotionMapper.toEntity(await this.store(task, data));
+    if (task.taskId.isSetId()) {
+      return this.database.update<DatabaseType>('tasks', {
+        id: task.taskId.value,
+        ...data,
+      });
+    } else {
+      return this.database.create<DatabaseType>('tasks', data);
+    }
+  }
+
+  public async save(task: Task): Promise<Task> {
+    return NotionMapper.toEntity(await this.store(task));
   }
 
   public async delete(taskId: TaskId): Promise<void> {
