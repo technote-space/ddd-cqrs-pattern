@@ -32,6 +32,10 @@ yarn-error.log*
 # aspida
 **/$api.ts
 
+# prisma
+src/infra/server/shared/database/mysql/client
+schema/migrations
+
 # misc
 .DS_Store
 .env*

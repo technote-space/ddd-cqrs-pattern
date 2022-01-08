@@ -1,0 +1,38 @@
+datasource db {
+  url      = env("DATABASE_URL")
+  provider = "mysql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/infra/server/shared/database/mysql/client"
+  binaryTargets = ["native"]
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  token     String   @db.VarChar(64) @unique
+  tasks     Task[]
+}
+
+model Tag {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  tagName   String   @db.VarChar(16) @unique
+  tasks     Task[]
+}
+
+model Task {
+  id            Int       @id @default(autoincrement())
+  createdAt     DateTime  @default(now())
+  taskName      String    @db.VarChar(64)
+  memo          String?   @db.Text
+  status        String    @db.VarChar(16)
+  dueDate       DateTime?
+  estimateValue Int?
+  estimateUnit  String?   @db.VarChar(8)
+  user          User      @relation(fields: [userId], references: [id])
+  userId        Int
+  tags          Tag[]     @relation(references: [id])
+}
