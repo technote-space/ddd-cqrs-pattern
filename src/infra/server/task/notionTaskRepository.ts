@@ -31,13 +31,11 @@ export default class NotionTaskRepository implements ITaskRepository {
         ...data,
       });
     } else {
-      const result = await this.database.create<DatabaseType>('tasks', data);
-      task.taskId.setGeneratedId(result.id);
-      return result;
+      return this.database.create<DatabaseType>('tasks', data);
     }
   }
 
-  public async save(task: Task): Promise<void> {
+  public async save(task: Task): Promise<Task> {
     const data = {
       taskName: task.taskName.value,
       status: task.status.value,
@@ -49,15 +47,7 @@ export default class NotionTaskRepository implements ITaskRepository {
       dueDate: task.dueDate?.value.toISOString() ?? null,
     };
 
-    const result = await this.store(task, data);
-    task.tags.collections.forEach(tag => {
-      if (!tag.tagId.isSetId()) {
-        const found = result.tags.find(t => t.value === tag.tagName.value);
-        if (found) {
-          tag.tagId.setGeneratedId(found.id);
-        }
-      }
-    });
+    return NotionMapper.toEntity(await this.store(task, data));
   }
 
   public async delete(taskId: TaskId): Promise<void> {
