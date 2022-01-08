@@ -5,11 +5,6 @@
       "name": "tagName",
       "type": "title",
       "length": 16
-    },
-    {
-      "name": "user",
-      "type": "relation",
-      "relation": "users"
     }
   ]
 }
