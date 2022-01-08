@@ -3,10 +3,10 @@ import type { CreateData } from '$/server/shared/database';
 import type ITaskRepository from '$/server/task/taskRepository';
 import type Task from '$/shared/task/task';
 import type TaskId from '$/shared/task/valueObject/taskId';
-import type { DatabaseType } from './mapper';
+import type { DatabaseType } from './notionMapper';
 import { inject, singleton } from 'tsyringe';
 import NotFound from '$/shared/exceptions/domain/notFound';
-import Mapper from './mapper';
+import NotionMapper from './notionMapper';
 
 @singleton()
 export default class NotionTaskRepository implements ITaskRepository {
@@ -21,7 +21,7 @@ export default class NotionTaskRepository implements ITaskRepository {
       throw new NotFound('タスク', 'tasks', taskId.value);
     }
 
-    return Mapper.toEntity(response);
+    return NotionMapper.toEntity(response);
   }
 
   private async store(task: Task, data: CreateData): Promise<DatabaseType> {

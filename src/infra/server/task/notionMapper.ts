@@ -26,7 +26,7 @@ export type DatabaseType = {
   dueDate: string | null;
 };
 
-export default class Mapper {
+export default class NotionMapper {
   public static toEntity(data: DatabaseType): Task {
     return Task.reconstruct(
       TaskId.create(data.id),
