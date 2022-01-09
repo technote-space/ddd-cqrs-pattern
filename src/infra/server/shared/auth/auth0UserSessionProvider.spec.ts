@@ -34,4 +34,20 @@ describe('Auth0UserSessionProvider', () => {
     await expect(sessionProvider.getUserSession()).rejects.toThrow('Unauthorized');
     expect(mockVerify).not.toBeCalled();
   });
+
+  it('DB が異なる場合にエラー', async () => {
+    const mockVerify = jest.fn(() => ({
+      userId: 'user-id',
+      dbType: 'notion',
+    }));
+    const sessionProvider = new Auth0UserSessionProvider(new TestEnv({
+      JWT_SECRET: 'secret',
+      DATABASE_TYPE: 'mysql',
+    }), {
+      verify: mockVerify,
+    } as never);
+
+    await expect(sessionProvider.getUserSession('Bearer token')).rejects.toThrow('Unauthorized');
+    expect(mockVerify).toBeCalledWith('token', 'secret');
+  });
 });
