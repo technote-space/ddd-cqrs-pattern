@@ -5,8 +5,9 @@ import CreateTaskUseCase from './createTaskUseCase';
 describe('CreateTaskUseCase', () => {
   it('新しくタスクを追加する', async () => {
     const mockSave = jest.fn((task: Task) => {
-      task.taskId.setGeneratedId('taskId');
-      return Promise.resolve();
+      const saved = task.copy();
+      saved.taskId.setGeneratedId('taskId');
+      return Promise.resolve(saved);
     });
     const useCase = new CreateTaskUseCase({ save: mockSave } as never);
 

@@ -18,7 +18,9 @@ describe('UpdateTaskUseCase', () => {
       UserId.create('test'),
       Tags.create([]),
     )));
-    const mockSave = jest.fn(() => Promise.resolve());
+    const mockSave = jest.fn((task: Task) => {
+      return Promise.resolve(task.copy());
+    });
     const useCase = new UpdateTaskUseCase({ findById: mockFindById, save: mockSave } as never);
 
     const result = await useCase.invoke({ userId: UserId.create('test') }, TaskId.create('taskId'), {
