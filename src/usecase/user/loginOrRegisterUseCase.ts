@@ -34,9 +34,7 @@ export default class LoginOrRegisterUseCase {
   private async findOrCreateUser(token: Token): Promise<User> {
     const user = await this.userRepository.findByToken(token);
     if (!user) {
-      const user = User.create(token);
-      await this.userRepository.save(user);
-      return user;
+      return await this.userRepository.save(User.create(token));
     }
 
     return user;
