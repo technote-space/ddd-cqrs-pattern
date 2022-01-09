@@ -8,6 +8,14 @@ import type TaskName from './valueObject/taskName';
 import Base from '$/shared/entity/base';
 import TaskId from './valueObject/taskId';
 
+type OverrideType = {
+  taskName?: TaskName,
+  memo?: Memo | null,
+  status?: Status,
+  dueDate?: DueDate | null,
+  estimate?: Estimate | null,
+  tags?: Tags,
+};
 export default class Task extends Base {
   private _taskId!: TaskId;
   private _taskName!: TaskName;
@@ -140,21 +148,18 @@ export default class Task extends Base {
     return task;
   }
 
-  public copy(override?: {
-    taskName?: TaskName,
-    memo?: Memo | null,
-    status?: Status,
-    dueDate?: DueDate | null,
-    estimate?: Estimate | null,
-    tags?: Tags,
-  }): Task {
+  private getUpdateValue<T extends OverrideType, K extends keyof T>(override: T | undefined, key: K) {
+    return override && override[key] !== undefined ? override[key] : (this as any)[key]; // eslint-disable-line @typescript-eslint/no-explicit-any
+  }
+
+  public copy(override?: OverrideType): Task {
     return this.update(
-      override?.taskName !== undefined ? override.taskName : this.taskName,
-      override?.memo !== undefined ? override.memo : this.memo,
-      override?.status !== undefined ? override.status : this.status,
-      override?.dueDate !== undefined ? override.dueDate : this.dueDate,
-      override?.estimate !== undefined ? override.estimate : this.estimate,
-      override?.tags !== undefined ? override.tags : this.tags,
+      this.getUpdateValue(override, 'taskName'),
+      this.getUpdateValue(override, 'memo'),
+      this.getUpdateValue(override, 'status'),
+      this.getUpdateValue(override, 'dueDate'),
+      this.getUpdateValue(override, 'estimate'),
+      this.getUpdateValue(override, 'tags'),
     );
   }
 
