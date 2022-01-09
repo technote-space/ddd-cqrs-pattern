@@ -1,3 +1,4 @@
+import type { AuthHeader } from '^/presentation/shared/userSessionProvider';
 import type { CreateData } from '^/usecase/task/createTaskUseCase';
 import type { TaskDto } from '^/usecase/task/taskDto';
 import type { NextApiRequest, NextApiResponse } from 'next';
@@ -16,11 +17,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
 export type Methods = {
   get: {
-    reqHeaders: { authorization: string };
+    reqHeaders: AuthHeader;
     resBody: TaskDto[];
   };
   post: {
-    reqHeaders: { authorization: string };
+    reqHeaders: AuthHeader;
     reqBody: CreateData;
     resBody: TaskDto;
   };
