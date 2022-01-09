@@ -6,5 +6,5 @@ export default interface IUserRepository {
 
   findById(userId: UserId): Promise<User>;
 
-  save(user: User): Promise<void>;
+  save(user: User): Promise<User>;
 }

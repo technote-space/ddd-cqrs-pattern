@@ -86,7 +86,7 @@ module.exports = {
         },
         {
           "module": "src/usecase",
-          "allowReferenceFrom": ["src/presentation/**", "src/infra/web/**", "src/bin/**"],
+          "allowReferenceFrom": ["src/presentation/**", "src/infra/web/**", "src/config/registry.migration.ts"],
           "allowSameModule": true
         },
         {

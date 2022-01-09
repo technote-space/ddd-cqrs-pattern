@@ -86,7 +86,8 @@ describe('NotionTaskRepository', () => {
     it('タスクIDがない場合は新しく作成', async () => {
       const mockCreate = jest.fn(() => Promise.resolve({
         id: '1234567890',
-        tags: [{ value: 'tag1', id: 'tag-id1' }],
+        user: { id: 'user' },
+        tags: [{ value: 'tag1', id: 'tag-id1' }, { value: 'tag2', id: 'tag-id2' }, { value: 'tag3', id: 'tag-id3' }],
       }));
       const repository = new NotionTaskRepository({ create: mockCreate } as never);
 
@@ -102,7 +103,7 @@ describe('NotionTaskRepository', () => {
         UserId.create('user'),
         Tags.create([Tag.create(TagName.create('tag1')), Tag.create(TagName.create('tag2')), Tag.reconstruct(TagId.create('tag3'), TagName.create('tag3'))]),
       );
-      await repository.save(task);
+      const saved = await repository.save(task);
       expect(mockCreate).toBeCalledWith('tasks', {
         status: '登録',
         tags: ['tag1', 'tag2', 'tag3'],
@@ -113,15 +114,19 @@ describe('NotionTaskRepository', () => {
         estimateUnit: '日',
         dueDate: '2022-01-01T01:00:00.000Z',
       });
-      expect(task.taskId.value).toBe('1234567890');
-      expect(task.tags.collections[0].tagId.isSetId()).toBe(true);
-      expect(task.tags.collections[0].tagId.value).toBe('tag-id1');
-      expect(task.tags.collections[1].tagId.isSetId()).toBe(false);
-      expect(task.tags.collections[2].tagId.isSetId()).toBe(true);
+      expect(saved.taskId.value).toBe('1234567890');
+      expect(saved.userId.value).toBe('user');
+      expect(saved.tags.collections[0].tagName.value).toBe('tag1');
+      expect(saved.tags.collections[1].tagName.value).toBe('tag2');
+      expect(saved.tags.collections[2].tagName.value).toBe('tag3');
     });
 
     it('タスクIDがある場合は更新', async () => {
-      const mockUpdate = jest.fn(() => Promise.resolve(null));
+      const mockUpdate = jest.fn(() => Promise.resolve({
+        id: 'id',
+        user: { id: 'user' },
+        tags: [],
+      }));
       const repository = new NotionTaskRepository({ update: mockUpdate } as never);
 
       const task = Task.reconstruct(
@@ -134,7 +139,7 @@ describe('NotionTaskRepository', () => {
         UserId.create('user'),
         Tags.create([]),
       );
-      await repository.save(task);
+      const saved = await repository.save(task);
       expect(mockUpdate).toBeCalledWith('tasks', {
         id: 'id',
         status: '登録',
@@ -146,6 +151,9 @@ describe('NotionTaskRepository', () => {
         estimateUnit: null,
         dueDate: null,
       });
+      expect(saved.taskId.value).toBe('id');
+      expect(saved.userId.value).toBe('user');
+      expect(saved.tags.collections).toHaveLength(0);
     });
   });
 

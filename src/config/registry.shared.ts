@@ -1,5 +1,6 @@
 import aspida from '@aspida/axios';
 import { container } from 'tsyringe';
+import Env from '@/server/shared/env';
 import App from '@/web/app';
 import ExpoDocument from '@/web/document/expo';
 import IndexPage from '@/web/pages/index';
@@ -13,6 +14,7 @@ import { NativeBaseThemeProvider } from '@/web/theme/nativeBase';
 import { ColorModeContext } from '@/web/theme/nativeBase/colorModeManager';
 import api from '^/pages/api/$api';
 
+container.registerSingleton('IEnv', Env);
 container.registerSingleton('IDocument', ExpoDocument);
 container.registerSingleton('IApp', App);
 container.registerSingleton('IAuthContext', AuthContext);

@@ -3,12 +3,8 @@
   "columns": [
     {
       "name": "tagName",
-      "type": "title"
-    },
-    {
-      "name": "user",
-      "type": "relation",
-      "relation": "users"
+      "type": "title",
+      "length": 16
     }
   ]
 }

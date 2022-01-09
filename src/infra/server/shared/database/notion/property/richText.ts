@@ -14,7 +14,6 @@ export default class RichTextProperty extends Base {
 
   public propertyToColumn(property: GetDatabaseResponse['properties'][string]): TableColumn {
     return {
-      id: property.id,
       name: property.name,
       type: 'text',
     };

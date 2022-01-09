@@ -3,7 +3,8 @@
   "columns": [
     {
       "name": "token",
-      "type": "title"
+      "type": "title",
+      "length": 64
     }
   ]
 }

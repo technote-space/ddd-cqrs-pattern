@@ -1,11 +1,12 @@
 import type { CreateTableParam } from '$/server/shared/database';
 import type IDatabase from '$/server/shared/database';
+import type IMigrationUseCase  from '^/usecase/migration/index';
 import { singleton, inject } from 'tsyringe';
 
 export type MigrationSchemas = CreateTableParam[];
 
 @singleton()
-export default class MigrationUseCase {
+export default class DatabaseMigrationUseCase implements IMigrationUseCase {
   public constructor(
     @inject('MigrationSchemas') private schemas: MigrationSchemas,
     @inject('IDatabase') private database: IDatabase,

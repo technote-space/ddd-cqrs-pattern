@@ -14,7 +14,6 @@ export default class NumberProperty extends Base {
 
   public propertyToColumn(property: GetDatabaseResponse['properties'][string]): TableColumn {
     return {
-      id: property.id,
       name: property.name,
       type: 'int',
     };

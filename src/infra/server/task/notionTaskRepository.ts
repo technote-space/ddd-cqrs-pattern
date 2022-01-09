@@ -1,12 +1,11 @@
 import type IDatabase from '$/server/shared/database';
-import type { CreateData } from '$/server/shared/database';
 import type ITaskRepository from '$/server/task/taskRepository';
 import type Task from '$/shared/task/task';
 import type TaskId from '$/shared/task/valueObject/taskId';
-import type { DatabaseType } from './mapper';
+import type { DatabaseType } from './notionMapper';
 import { inject, singleton } from 'tsyringe';
 import NotFound from '$/shared/exceptions/domain/notFound';
-import Mapper from './mapper';
+import NotionMapper from './notionMapper';
 
 @singleton()
 export default class NotionTaskRepository implements ITaskRepository {
@@ -21,23 +20,10 @@ export default class NotionTaskRepository implements ITaskRepository {
       throw new NotFound('タスク', 'tasks', taskId.value);
     }
 
-    return Mapper.toEntity(response);
+    return NotionMapper.toEntity(response);
   }
 
-  private async store(task: Task, data: CreateData): Promise<DatabaseType> {
-    if (task.taskId.isSetId()) {
-      return this.database.update<DatabaseType>('tasks', {
-        id: task.taskId.value,
-        ...data,
-      });
-    } else {
-      const result = await this.database.create<DatabaseType>('tasks', data);
-      task.taskId.setGeneratedId(result.id);
-      return result;
-    }
-  }
-
-  public async save(task: Task): Promise<void> {
+  private async store(task: Task): Promise<DatabaseType> {
     const data = {
       taskName: task.taskName.value,
       status: task.status.value,
@@ -49,15 +35,18 @@ export default class NotionTaskRepository implements ITaskRepository {
       dueDate: task.dueDate?.value.toISOString() ?? null,
     };
 
-    const result = await this.store(task, data);
-    task.tags.collections.forEach(tag => {
-      if (!tag.tagId.isSetId()) {
-        const found = result.tags.find(t => t.value === tag.tagName.value);
-        if (found) {
-          tag.tagId.setGeneratedId(found.id);
-        }
-      }
-    });
+    if (task.taskId.isSetId()) {
+      return this.database.update<DatabaseType>('tasks', {
+        id: task.taskId.value,
+        ...data,
+      });
+    } else {
+      return this.database.create<DatabaseType>('tasks', data);
+    }
+  }
+
+  public async save(task: Task): Promise<Task> {
+    return NotionMapper.toEntity(await this.store(task));
   }
 
   public async delete(taskId: TaskId): Promise<void> {
