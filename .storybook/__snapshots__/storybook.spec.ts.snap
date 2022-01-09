@@ -108,7 +108,8 @@ exports[`Storyshots Common Components/Form/AddItem Disabled 1`] = `
     }
   >
     <div
-      className="css-cursor-18t94o4 css-view-1dbjc4n"
+      aria-disabled={true}
+      className="css-view-1dbjc4n"
       onBlur={[Function]}
       onClick={[Function]}
       onContextMenu={[Function]}
@@ -137,13 +138,11 @@ exports[`Storyshots Common Components/Form/AddItem Disabled 1`] = `
           "msFlexItemAlign": "center",
           "msFlexPack": "center",
           "msGridRowAlign": "center",
-          "msTouchAction": "manipulation",
           "outlineWidth": "0px",
-          "touchAction": "manipulation",
           "width": "32px",
         }
       }
-      tabIndex="0"
+      tabIndex="-1"
     >
       <svg
         role="img"
@@ -476,7 +475,8 @@ exports[`Storyshots Common Components/Form/ItemBadge Disabled 1`] = `
         タグ
       </div>
       <div
-        className="css-cursor-18t94o4 css-view-1dbjc4n"
+        aria-disabled={true}
+        className="css-view-1dbjc4n"
         onBlur={[Function]}
         onClick={[Function]}
         onContextMenu={[Function]}
@@ -501,13 +501,11 @@ exports[`Storyshots Common Components/Form/ItemBadge Disabled 1`] = `
             "marginLeft": "4px",
             "msFlexAlign": "center",
             "msFlexPack": "center",
-            "msTouchAction": "manipulation",
             "outlineWidth": "0px",
-            "touchAction": "manipulation",
             "width": "24px",
           }
         }
-        tabIndex="0"
+        tabIndex="-1"
       >
         <svg
           role="img"
@@ -964,7 +962,8 @@ exports[`Storyshots Common Components/Form/View Disabled 1`] = `
           タグ１
         </div>
         <div
-          className="css-cursor-18t94o4 css-view-1dbjc4n"
+          aria-disabled={true}
+          className="css-view-1dbjc4n"
           onBlur={[Function]}
           onClick={[Function]}
           onContextMenu={[Function]}
@@ -989,13 +988,11 @@ exports[`Storyshots Common Components/Form/View Disabled 1`] = `
               "marginLeft": "4px",
               "msFlexAlign": "center",
               "msFlexPack": "center",
-              "msTouchAction": "manipulation",
               "outlineWidth": "0px",
-              "touchAction": "manipulation",
               "width": "24px",
             }
           }
-          tabIndex="0"
+          tabIndex="-1"
         >
           <svg
             role="img"
@@ -1078,7 +1075,8 @@ exports[`Storyshots Common Components/Form/View Disabled 1`] = `
           タグ２
         </div>
         <div
-          className="css-cursor-18t94o4 css-view-1dbjc4n"
+          aria-disabled={true}
+          className="css-view-1dbjc4n"
           onBlur={[Function]}
           onClick={[Function]}
           onContextMenu={[Function]}
@@ -1103,13 +1101,11 @@ exports[`Storyshots Common Components/Form/View Disabled 1`] = `
               "marginLeft": "4px",
               "msFlexAlign": "center",
               "msFlexPack": "center",
-              "msTouchAction": "manipulation",
               "outlineWidth": "0px",
-              "touchAction": "manipulation",
               "width": "24px",
             }
           }
-          tabIndex="0"
+          tabIndex="-1"
         >
           <svg
             role="img"
@@ -1134,7 +1130,8 @@ exports[`Storyshots Common Components/Form/View Disabled 1`] = `
         </div>
       </div>
       <div
-        className="css-cursor-18t94o4 css-view-1dbjc4n"
+        aria-disabled={true}
+        className="css-view-1dbjc4n"
         onBlur={[Function]}
         onClick={[Function]}
         onContextMenu={[Function]}
@@ -1163,13 +1160,11 @@ exports[`Storyshots Common Components/Form/View Disabled 1`] = `
             "msFlexItemAlign": "center",
             "msFlexPack": "center",
             "msGridRowAlign": "center",
-            "msTouchAction": "manipulation",
             "outlineWidth": "0px",
-            "touchAction": "manipulation",
             "width": "32px",
           }
         }
-        tabIndex="0"
+        tabIndex="-1"
       >
         <svg
           role="img"
@@ -4535,6 +4530,7 @@ exports[`Storyshots Domain Components/Index/TaskForm Default 1`] = `
               autoCorrect="on"
               className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
               dir="auto"
+              disabled={false}
               id="field-react-aria-1"
               onBlur={[Function]}
               onChange={[Function]}
@@ -4546,7 +4542,6 @@ exports[`Storyshots Domain Components/Index/TaskForm Default 1`] = `
               spellCheck={true}
               style={
                 Object {
-                  "backgroundColor": "rgba(0,0,0,0.00)",
                   "borderBottomColor": "rgba(229,229,229,1.00)",
                   "borderBottomLeftRadius": "4px",
                   "borderBottomRightRadius": "4px",
@@ -4566,6 +4561,8 @@ exports[`Storyshots Domain Components/Index/TaskForm Default 1`] = `
                   "fontWeight": "400",
                   "lineHeight": "1.5em",
                   "outlineWidth": "0px",
+                  "overflowX": "auto",
+                  "overflowY": "auto",
                   "paddingBottom": "8px",
                   "paddingLeft": "8px",
                   "paddingRight": "8px",
@@ -4645,7 +4642,6 @@ exports[`Storyshots Domain Components/Index/TaskForm Default 1`] = `
               spellCheck={true}
               style={
                 Object {
-                  "backgroundColor": "rgba(0,0,0,0.00)",
                   "borderBottomColor": "rgba(229,229,229,1.00)",
                   "borderBottomLeftRadius": "4px",
                   "borderBottomRightRadius": "4px",
@@ -4665,6 +4661,8 @@ exports[`Storyshots Domain Components/Index/TaskForm Default 1`] = `
                   "fontWeight": "400",
                   "lineHeight": "1.5em",
                   "outlineWidth": "0px",
+                  "overflowX": "auto",
+                  "overflowY": "auto",
                   "paddingBottom": "8px",
                   "paddingLeft": "8px",
                   "paddingRight": "8px",
@@ -4772,27 +4770,20 @@ exports[`Storyshots Domain Components/Index/TaskForm Default 1`] = `
             </label>
             <div
               className="css-view-1dbjc4n"
-              style={
-                Object {
-                  "borderBottomColor": "rgba(0,0,0,0.00)",
-                  "borderBottomLeftRadius": "4px",
-                  "borderBottomRightRadius": "4px",
-                  "borderBottomWidth": "1px",
-                  "borderLeftColor": "rgba(0,0,0,0.00)",
-                  "borderLeftWidth": "1px",
-                  "borderRightColor": "rgba(0,0,0,0.00)",
-                  "borderRightWidth": "1px",
-                  "borderTopColor": "rgba(0,0,0,0.00)",
-                  "borderTopLeftRadius": "4px",
-                  "borderTopRightRadius": "4px",
-                  "borderTopWidth": "1px",
-                }
-              }
             >
-              <div
-                className="css-view-1dbjc4n"
+              <select
+                aria-label="ステータスを選択してください"
+                aria-readonly={false}
+                disabled={false}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                required={false}
                 style={
                   Object {
+                    "MozAppearance": "none",
+                    "WebkitAppearance": "none",
+                    "appearance": "none",
                     "height": "100%",
                     "opacity": 0,
                     "position": "absolute",
@@ -4800,47 +4791,30 @@ exports[`Storyshots Domain Components/Index/TaskForm Default 1`] = `
                     "zIndex": 1,
                   }
                 }
+                value="__NativebasePlaceholder__"
               >
-                <select
-                  aria-label="ステータスを選択してください"
-                  aria-readonly={false}
-                  disabled={false}
-                  onChange={[Function]}
-                  required={false}
-                  style={
-                    Object {
-                      "MozAppearance": "none",
-                      "WebkitAppearance": "none",
-                      "appearance": "none",
-                      "height": "100%",
-                      "width": "100%",
-                    }
-                  }
+                <option
+                  disabled={true}
                   value="__NativebasePlaceholder__"
                 >
-                  <option
-                    disabled={true}
-                    value="__NativebasePlaceholder__"
-                  >
-                    ステータスを選択してください
-                  </option>
-                  <option
-                    value="登録"
-                  >
-                    登録
-                  </option>
-                  <option
-                    value="実行中"
-                  >
-                    実行中
-                  </option>
-                  <option
-                    value="完了"
-                  >
-                    完了
-                  </option>
-                </select>
-              </div>
+                  ステータスを選択してください
+                </option>
+                <option
+                  value="登録"
+                >
+                  登録
+                </option>
+                <option
+                  value="実行中"
+                >
+                  実行中
+                </option>
+                <option
+                  value="完了"
+                >
+                  完了
+                </option>
+              </select>
               <div
                 className="css-view-1dbjc4n"
                 style={
@@ -4871,8 +4845,8 @@ exports[`Storyshots Domain Components/Index/TaskForm Default 1`] = `
                     "msFlexAlign": "center",
                     "msFlexDirection": "row",
                     "msFlexPack": "justify",
-                    "overflowX": "hidden",
-                    "overflowY": "hidden",
+                    "overflowX": "auto",
+                    "overflowY": "auto",
                   }
                 }
               >
@@ -4881,7 +4855,7 @@ exports[`Storyshots Domain Components/Index/TaskForm Default 1`] = `
                   autoCapitalize="sentences"
                   autoComplete="on"
                   autoCorrect="on"
-                  className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
+                  className="css-textinput-11aywtz r-placeholderTextColor-uek9y r-pointerEvents-633pao"
                   dir="auto"
                   disabled={false}
                   id="field-react-aria-3"
@@ -4918,6 +4892,8 @@ exports[`Storyshots Domain Components/Index/TaskForm Default 1`] = `
                       "lineHeight": "1.5em",
                       "msFlex": "1 1 0%",
                       "outlineWidth": "0px",
+                      "overflowX": "auto",
+                      "overflowY": "auto",
                       "paddingBottom": "8px",
                       "paddingLeft": "8px",
                       "paddingRight": "8px",
@@ -5034,7 +5010,6 @@ exports[`Storyshots Domain Components/Index/TaskForm Default 1`] = `
                   spellCheck={true}
                   style={
                     Object {
-                      "backgroundColor": "rgba(0,0,0,0.00)",
                       "borderBottomColor": "rgba(229,229,229,1.00)",
                       "borderBottomLeftRadius": "4px",
                       "borderBottomRightRadius": "4px",
@@ -5054,6 +5029,8 @@ exports[`Storyshots Domain Components/Index/TaskForm Default 1`] = `
                       "fontWeight": "400",
                       "lineHeight": "1.5em",
                       "outlineWidth": "0px",
+                      "overflowX": "auto",
+                      "overflowY": "auto",
                       "paddingBottom": "8px",
                       "paddingLeft": "8px",
                       "paddingRight": "8px",
@@ -5138,7 +5115,6 @@ exports[`Storyshots Domain Components/Index/TaskForm Default 1`] = `
                 spellCheck={true}
                 style={
                   Object {
-                    "backgroundColor": "rgba(0,0,0,0.00)",
                     "borderBottomColor": "rgba(229,229,229,1.00)",
                     "borderBottomLeftRadius": "4px",
                     "borderBottomRightRadius": "4px",
@@ -5158,10 +5134,12 @@ exports[`Storyshots Domain Components/Index/TaskForm Default 1`] = `
                     "fontWeight": "400",
                     "lineHeight": "1.5em",
                     "outlineWidth": "0px",
-                    "paddingBottom": "0px",
+                    "overflowX": "auto",
+                    "overflowY": "auto",
+                    "paddingBottom": "8px",
                     "paddingLeft": "8px",
-                    "paddingRight": "0px",
-                    "paddingTop": "0px",
+                    "paddingRight": "8px",
+                    "paddingTop": "8px",
                   }
                 }
                 value="0"
@@ -5220,27 +5198,20 @@ exports[`Storyshots Domain Components/Index/TaskForm Default 1`] = `
             </label>
             <div
               className="css-view-1dbjc4n"
-              style={
-                Object {
-                  "borderBottomColor": "rgba(0,0,0,0.00)",
-                  "borderBottomLeftRadius": "4px",
-                  "borderBottomRightRadius": "4px",
-                  "borderBottomWidth": "1px",
-                  "borderLeftColor": "rgba(0,0,0,0.00)",
-                  "borderLeftWidth": "1px",
-                  "borderRightColor": "rgba(0,0,0,0.00)",
-                  "borderRightWidth": "1px",
-                  "borderTopColor": "rgba(0,0,0,0.00)",
-                  "borderTopLeftRadius": "4px",
-                  "borderTopRightRadius": "4px",
-                  "borderTopWidth": "1px",
-                }
-              }
             >
-              <div
-                className="css-view-1dbjc4n"
+              <select
+                aria-label="作業見積単位を選択してください"
+                aria-readonly={false}
+                disabled={false}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                required={false}
                 style={
                   Object {
+                    "MozAppearance": "none",
+                    "WebkitAppearance": "none",
+                    "appearance": "none",
                     "height": "100%",
                     "opacity": 0,
                     "position": "absolute",
@@ -5248,42 +5219,25 @@ exports[`Storyshots Domain Components/Index/TaskForm Default 1`] = `
                     "zIndex": 1,
                   }
                 }
+                value="__NativebasePlaceholder__"
               >
-                <select
-                  aria-label="作業見積単位を選択してください"
-                  aria-readonly={false}
-                  disabled={false}
-                  onChange={[Function]}
-                  required={false}
-                  style={
-                    Object {
-                      "MozAppearance": "none",
-                      "WebkitAppearance": "none",
-                      "appearance": "none",
-                      "height": "100%",
-                      "width": "100%",
-                    }
-                  }
+                <option
+                  disabled={true}
                   value="__NativebasePlaceholder__"
                 >
-                  <option
-                    disabled={true}
-                    value="__NativebasePlaceholder__"
-                  >
-                    作業見積単位を選択してください
-                  </option>
-                  <option
-                    value="日"
-                  >
-                    日
-                  </option>
-                  <option
-                    value="時間"
-                  >
-                    時間
-                  </option>
-                </select>
-              </div>
+                  作業見積単位を選択してください
+                </option>
+                <option
+                  value="日"
+                >
+                  日
+                </option>
+                <option
+                  value="時間"
+                >
+                  時間
+                </option>
+              </select>
               <div
                 className="css-view-1dbjc4n"
                 style={
@@ -5314,8 +5268,8 @@ exports[`Storyshots Domain Components/Index/TaskForm Default 1`] = `
                     "msFlexAlign": "center",
                     "msFlexDirection": "row",
                     "msFlexPack": "justify",
-                    "overflowX": "hidden",
-                    "overflowY": "hidden",
+                    "overflowX": "auto",
+                    "overflowY": "auto",
                   }
                 }
               >
@@ -5324,7 +5278,7 @@ exports[`Storyshots Domain Components/Index/TaskForm Default 1`] = `
                   autoCapitalize="sentences"
                   autoComplete="on"
                   autoCorrect="on"
-                  className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
+                  className="css-textinput-11aywtz r-placeholderTextColor-uek9y r-pointerEvents-633pao"
                   dir="auto"
                   disabled={false}
                   id="field-react-aria-6"
@@ -5361,6 +5315,8 @@ exports[`Storyshots Domain Components/Index/TaskForm Default 1`] = `
                       "lineHeight": "1.5em",
                       "msFlex": "1 1 0%",
                       "outlineWidth": "0px",
+                      "overflowX": "auto",
+                      "overflowY": "auto",
                       "paddingBottom": "8px",
                       "paddingLeft": "8px",
                       "paddingRight": "8px",
@@ -5754,6 +5710,8 @@ exports[`Storyshots Domain Components/Index/TaskForm Disabled Task Form 1`] = `
                   "lineHeight": "1.5em",
                   "opacity": 0.8,
                   "outlineWidth": "0px",
+                  "overflowX": "auto",
+                  "overflowY": "auto",
                   "paddingBottom": "8px",
                   "paddingLeft": "8px",
                   "paddingRight": "8px",
@@ -5854,6 +5812,8 @@ exports[`Storyshots Domain Components/Index/TaskForm Disabled Task Form 1`] = `
                   "lineHeight": "1.5em",
                   "opacity": 0.8,
                   "outlineWidth": "0px",
+                  "overflowX": "auto",
+                  "overflowY": "auto",
                   "paddingBottom": "8px",
                   "paddingLeft": "8px",
                   "paddingRight": "8px",
@@ -5961,27 +5921,20 @@ exports[`Storyshots Domain Components/Index/TaskForm Disabled Task Form 1`] = `
             </label>
             <div
               className="css-view-1dbjc4n"
-              style={
-                Object {
-                  "borderBottomColor": "rgba(0,0,0,0.00)",
-                  "borderBottomLeftRadius": "4px",
-                  "borderBottomRightRadius": "4px",
-                  "borderBottomWidth": "1px",
-                  "borderLeftColor": "rgba(0,0,0,0.00)",
-                  "borderLeftWidth": "1px",
-                  "borderRightColor": "rgba(0,0,0,0.00)",
-                  "borderRightWidth": "1px",
-                  "borderTopColor": "rgba(0,0,0,0.00)",
-                  "borderTopLeftRadius": "4px",
-                  "borderTopRightRadius": "4px",
-                  "borderTopWidth": "1px",
-                }
-              }
             >
-              <div
-                className="css-view-1dbjc4n"
+              <select
+                aria-label="ステータスを選択してください"
+                aria-readonly={false}
+                disabled={true}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                required={false}
                 style={
                   Object {
+                    "MozAppearance": "none",
+                    "WebkitAppearance": "none",
+                    "appearance": "none",
                     "height": "100%",
                     "opacity": 0,
                     "position": "absolute",
@@ -5989,47 +5942,30 @@ exports[`Storyshots Domain Components/Index/TaskForm Disabled Task Form 1`] = `
                     "zIndex": 1,
                   }
                 }
+                value="__NativebasePlaceholder__"
               >
-                <select
-                  aria-label="ステータスを選択してください"
-                  aria-readonly={false}
+                <option
                   disabled={true}
-                  onChange={[Function]}
-                  required={false}
-                  style={
-                    Object {
-                      "MozAppearance": "none",
-                      "WebkitAppearance": "none",
-                      "appearance": "none",
-                      "height": "100%",
-                      "width": "100%",
-                    }
-                  }
                   value="__NativebasePlaceholder__"
                 >
-                  <option
-                    disabled={true}
-                    value="__NativebasePlaceholder__"
-                  >
-                    ステータスを選択してください
-                  </option>
-                  <option
-                    value="登録"
-                  >
-                    登録
-                  </option>
-                  <option
-                    value="実行中"
-                  >
-                    実行中
-                  </option>
-                  <option
-                    value="完了"
-                  >
-                    完了
-                  </option>
-                </select>
-              </div>
+                  ステータスを選択してください
+                </option>
+                <option
+                  value="登録"
+                >
+                  登録
+                </option>
+                <option
+                  value="実行中"
+                >
+                  実行中
+                </option>
+                <option
+                  value="完了"
+                >
+                  完了
+                </option>
+              </select>
               <div
                 className="css-view-1dbjc4n"
                 style={
@@ -6062,8 +5998,8 @@ exports[`Storyshots Domain Components/Index/TaskForm Disabled Task Form 1`] = `
                     "msFlexDirection": "row",
                     "msFlexPack": "justify",
                     "opacity": 0.8,
-                    "overflowX": "hidden",
-                    "overflowY": "hidden",
+                    "overflowX": "auto",
+                    "overflowY": "auto",
                   }
                 }
               >
@@ -6072,7 +6008,7 @@ exports[`Storyshots Domain Components/Index/TaskForm Disabled Task Form 1`] = `
                   autoCapitalize="sentences"
                   autoComplete="on"
                   autoCorrect="on"
-                  className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
+                  className="css-textinput-11aywtz r-placeholderTextColor-uek9y r-pointerEvents-633pao"
                   dir="auto"
                   disabled={true}
                   id="field-react-aria-3"
@@ -6087,7 +6023,7 @@ exports[`Storyshots Domain Components/Index/TaskForm Disabled Task Form 1`] = `
                   style={
                     Object {
                       "WebkitFlex": 1,
-                      "backgroundColor": "rgba(0,0,0,0.00)",
+                      "backgroundColor": "rgba(245,245,245,1.00)",
                       "borderBottomColor": "rgba(229,229,229,1.00)",
                       "borderBottomLeftRadius": "4px",
                       "borderBottomRightRadius": "4px",
@@ -6110,6 +6046,8 @@ exports[`Storyshots Domain Components/Index/TaskForm Disabled Task Form 1`] = `
                       "msFlex": "1 1 0%",
                       "opacity": 0.8,
                       "outlineWidth": "0px",
+                      "overflowX": "auto",
+                      "overflowY": "auto",
                       "paddingBottom": "8px",
                       "paddingLeft": "8px",
                       "paddingRight": "8px",
@@ -6247,6 +6185,8 @@ exports[`Storyshots Domain Components/Index/TaskForm Disabled Task Form 1`] = `
                       "lineHeight": "1.5em",
                       "opacity": 0.8,
                       "outlineWidth": "0px",
+                      "overflowX": "auto",
+                      "overflowY": "auto",
                       "paddingBottom": "8px",
                       "paddingLeft": "8px",
                       "paddingRight": "8px",
@@ -6352,10 +6292,12 @@ exports[`Storyshots Domain Components/Index/TaskForm Disabled Task Form 1`] = `
                     "lineHeight": "1.5em",
                     "opacity": 0.8,
                     "outlineWidth": "0px",
-                    "paddingBottom": "0px",
+                    "overflowX": "auto",
+                    "overflowY": "auto",
+                    "paddingBottom": "8px",
                     "paddingLeft": "8px",
-                    "paddingRight": "0px",
-                    "paddingTop": "0px",
+                    "paddingRight": "8px",
+                    "paddingTop": "8px",
                   }
                 }
                 value="0"
@@ -6414,27 +6356,20 @@ exports[`Storyshots Domain Components/Index/TaskForm Disabled Task Form 1`] = `
             </label>
             <div
               className="css-view-1dbjc4n"
-              style={
-                Object {
-                  "borderBottomColor": "rgba(0,0,0,0.00)",
-                  "borderBottomLeftRadius": "4px",
-                  "borderBottomRightRadius": "4px",
-                  "borderBottomWidth": "1px",
-                  "borderLeftColor": "rgba(0,0,0,0.00)",
-                  "borderLeftWidth": "1px",
-                  "borderRightColor": "rgba(0,0,0,0.00)",
-                  "borderRightWidth": "1px",
-                  "borderTopColor": "rgba(0,0,0,0.00)",
-                  "borderTopLeftRadius": "4px",
-                  "borderTopRightRadius": "4px",
-                  "borderTopWidth": "1px",
-                }
-              }
             >
-              <div
-                className="css-view-1dbjc4n"
+              <select
+                aria-label="作業見積単位を選択してください"
+                aria-readonly={false}
+                disabled={true}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                required={false}
                 style={
                   Object {
+                    "MozAppearance": "none",
+                    "WebkitAppearance": "none",
+                    "appearance": "none",
                     "height": "100%",
                     "opacity": 0,
                     "position": "absolute",
@@ -6442,42 +6377,25 @@ exports[`Storyshots Domain Components/Index/TaskForm Disabled Task Form 1`] = `
                     "zIndex": 1,
                   }
                 }
+                value="__NativebasePlaceholder__"
               >
-                <select
-                  aria-label="作業見積単位を選択してください"
-                  aria-readonly={false}
+                <option
                   disabled={true}
-                  onChange={[Function]}
-                  required={false}
-                  style={
-                    Object {
-                      "MozAppearance": "none",
-                      "WebkitAppearance": "none",
-                      "appearance": "none",
-                      "height": "100%",
-                      "width": "100%",
-                    }
-                  }
                   value="__NativebasePlaceholder__"
                 >
-                  <option
-                    disabled={true}
-                    value="__NativebasePlaceholder__"
-                  >
-                    作業見積単位を選択してください
-                  </option>
-                  <option
-                    value="日"
-                  >
-                    日
-                  </option>
-                  <option
-                    value="時間"
-                  >
-                    時間
-                  </option>
-                </select>
-              </div>
+                  作業見積単位を選択してください
+                </option>
+                <option
+                  value="日"
+                >
+                  日
+                </option>
+                <option
+                  value="時間"
+                >
+                  時間
+                </option>
+              </select>
               <div
                 className="css-view-1dbjc4n"
                 style={
@@ -6510,8 +6428,8 @@ exports[`Storyshots Domain Components/Index/TaskForm Disabled Task Form 1`] = `
                     "msFlexDirection": "row",
                     "msFlexPack": "justify",
                     "opacity": 0.8,
-                    "overflowX": "hidden",
-                    "overflowY": "hidden",
+                    "overflowX": "auto",
+                    "overflowY": "auto",
                   }
                 }
               >
@@ -6520,7 +6438,7 @@ exports[`Storyshots Domain Components/Index/TaskForm Disabled Task Form 1`] = `
                   autoCapitalize="sentences"
                   autoComplete="on"
                   autoCorrect="on"
-                  className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
+                  className="css-textinput-11aywtz r-placeholderTextColor-uek9y r-pointerEvents-633pao"
                   dir="auto"
                   disabled={true}
                   id="field-react-aria-6"
@@ -6535,7 +6453,7 @@ exports[`Storyshots Domain Components/Index/TaskForm Disabled Task Form 1`] = `
                   style={
                     Object {
                       "WebkitFlex": 1,
-                      "backgroundColor": "rgba(0,0,0,0.00)",
+                      "backgroundColor": "rgba(245,245,245,1.00)",
                       "borderBottomColor": "rgba(229,229,229,1.00)",
                       "borderBottomLeftRadius": "4px",
                       "borderBottomRightRadius": "4px",
@@ -6558,6 +6476,8 @@ exports[`Storyshots Domain Components/Index/TaskForm Disabled Task Form 1`] = `
                       "msFlex": "1 1 0%",
                       "opacity": 0.8,
                       "outlineWidth": "0px",
+                      "overflowX": "auto",
+                      "overflowY": "auto",
                       "paddingBottom": "8px",
                       "paddingLeft": "8px",
                       "paddingRight": "8px",
@@ -6670,7 +6590,8 @@ exports[`Storyshots Domain Components/Index/TaskForm Disabled Task Form 1`] = `
               }
             >
               <div
-                className="css-cursor-18t94o4 css-view-1dbjc4n"
+                aria-disabled={true}
+                className="css-view-1dbjc4n"
                 onBlur={[Function]}
                 onClick={[Function]}
                 onContextMenu={[Function]}
@@ -6699,13 +6620,11 @@ exports[`Storyshots Domain Components/Index/TaskForm Disabled Task Form 1`] = `
                     "msFlexItemAlign": "center",
                     "msFlexPack": "center",
                     "msGridRowAlign": "center",
-                    "msTouchAction": "manipulation",
                     "outlineWidth": "0px",
-                    "touchAction": "manipulation",
                     "width": "32px",
                   }
                 }
-                tabIndex="0"
+                tabIndex="-1"
               >
                 <svg
                   role="img"
@@ -6919,6 +6838,7 @@ exports[`Storyshots Domain Components/Index/TaskForm Task Form With Errors 1`] =
               autoCorrect="on"
               className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
               dir="auto"
+              disabled={false}
               id="field-react-aria-1"
               onBlur={[Function]}
               onChange={[Function]}
@@ -6930,7 +6850,6 @@ exports[`Storyshots Domain Components/Index/TaskForm Task Form With Errors 1`] =
               spellCheck={true}
               style={
                 Object {
-                  "backgroundColor": "rgba(0,0,0,0.00)",
                   "borderBottomColor": "rgba(220,38,38,1.00)",
                   "borderBottomLeftRadius": "4px",
                   "borderBottomRightRadius": "4px",
@@ -6950,6 +6869,8 @@ exports[`Storyshots Domain Components/Index/TaskForm Task Form With Errors 1`] =
                   "fontWeight": "400",
                   "lineHeight": "1.5em",
                   "outlineWidth": "0px",
+                  "overflowX": "auto",
+                  "overflowY": "auto",
                   "paddingBottom": "8px",
                   "paddingLeft": "8px",
                   "paddingRight": "8px",
@@ -7077,7 +6998,6 @@ exports[`Storyshots Domain Components/Index/TaskForm Task Form With Errors 1`] =
               spellCheck={true}
               style={
                 Object {
-                  "backgroundColor": "rgba(0,0,0,0.00)",
                   "borderBottomColor": "rgba(220,38,38,1.00)",
                   "borderBottomLeftRadius": "4px",
                   "borderBottomRightRadius": "4px",
@@ -7097,6 +7017,8 @@ exports[`Storyshots Domain Components/Index/TaskForm Task Form With Errors 1`] =
                   "fontWeight": "400",
                   "lineHeight": "1.5em",
                   "outlineWidth": "0px",
+                  "overflowX": "auto",
+                  "overflowY": "auto",
                   "paddingBottom": "8px",
                   "paddingLeft": "8px",
                   "paddingRight": "8px",
@@ -7251,27 +7173,20 @@ exports[`Storyshots Domain Components/Index/TaskForm Task Form With Errors 1`] =
             </label>
             <div
               className="css-view-1dbjc4n"
-              style={
-                Object {
-                  "borderBottomColor": "rgba(0,0,0,0.00)",
-                  "borderBottomLeftRadius": "4px",
-                  "borderBottomRightRadius": "4px",
-                  "borderBottomWidth": "1px",
-                  "borderLeftColor": "rgba(0,0,0,0.00)",
-                  "borderLeftWidth": "1px",
-                  "borderRightColor": "rgba(0,0,0,0.00)",
-                  "borderRightWidth": "1px",
-                  "borderTopColor": "rgba(0,0,0,0.00)",
-                  "borderTopLeftRadius": "4px",
-                  "borderTopRightRadius": "4px",
-                  "borderTopWidth": "1px",
-                }
-              }
             >
-              <div
-                className="css-view-1dbjc4n"
+              <select
+                aria-label="ステータスを選択してください"
+                aria-readonly={false}
+                disabled={false}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                required={false}
                 style={
                   Object {
+                    "MozAppearance": "none",
+                    "WebkitAppearance": "none",
+                    "appearance": "none",
                     "height": "100%",
                     "opacity": 0,
                     "position": "absolute",
@@ -7279,47 +7194,30 @@ exports[`Storyshots Domain Components/Index/TaskForm Task Form With Errors 1`] =
                     "zIndex": 1,
                   }
                 }
+                value="__NativebasePlaceholder__"
               >
-                <select
-                  aria-label="ステータスを選択してください"
-                  aria-readonly={false}
-                  disabled={false}
-                  onChange={[Function]}
-                  required={false}
-                  style={
-                    Object {
-                      "MozAppearance": "none",
-                      "WebkitAppearance": "none",
-                      "appearance": "none",
-                      "height": "100%",
-                      "width": "100%",
-                    }
-                  }
+                <option
+                  disabled={true}
                   value="__NativebasePlaceholder__"
                 >
-                  <option
-                    disabled={true}
-                    value="__NativebasePlaceholder__"
-                  >
-                    ステータスを選択してください
-                  </option>
-                  <option
-                    value="登録"
-                  >
-                    登録
-                  </option>
-                  <option
-                    value="実行中"
-                  >
-                    実行中
-                  </option>
-                  <option
-                    value="完了"
-                  >
-                    完了
-                  </option>
-                </select>
-              </div>
+                  ステータスを選択してください
+                </option>
+                <option
+                  value="登録"
+                >
+                  登録
+                </option>
+                <option
+                  value="実行中"
+                >
+                  実行中
+                </option>
+                <option
+                  value="完了"
+                >
+                  完了
+                </option>
+              </select>
               <div
                 className="css-view-1dbjc4n"
                 style={
@@ -7350,8 +7248,8 @@ exports[`Storyshots Domain Components/Index/TaskForm Task Form With Errors 1`] =
                     "msFlexAlign": "center",
                     "msFlexDirection": "row",
                     "msFlexPack": "justify",
-                    "overflowX": "hidden",
-                    "overflowY": "hidden",
+                    "overflowX": "auto",
+                    "overflowY": "auto",
                   }
                 }
               >
@@ -7361,7 +7259,7 @@ exports[`Storyshots Domain Components/Index/TaskForm Task Form With Errors 1`] =
                   autoCapitalize="sentences"
                   autoComplete="on"
                   autoCorrect="on"
-                  className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
+                  className="css-textinput-11aywtz r-placeholderTextColor-uek9y r-pointerEvents-633pao"
                   dir="auto"
                   disabled={false}
                   id="field-react-aria-3"
@@ -7398,6 +7296,8 @@ exports[`Storyshots Domain Components/Index/TaskForm Task Form With Errors 1`] =
                       "lineHeight": "1.5em",
                       "msFlex": "1 1 0%",
                       "outlineWidth": "0px",
+                      "overflowX": "auto",
+                      "overflowY": "auto",
                       "paddingBottom": "8px",
                       "paddingLeft": "8px",
                       "paddingRight": "8px",
@@ -7562,7 +7462,6 @@ exports[`Storyshots Domain Components/Index/TaskForm Task Form With Errors 1`] =
                   spellCheck={true}
                   style={
                     Object {
-                      "backgroundColor": "rgba(0,0,0,0.00)",
                       "borderBottomColor": "rgba(220,38,38,1.00)",
                       "borderBottomLeftRadius": "4px",
                       "borderBottomRightRadius": "4px",
@@ -7582,6 +7481,8 @@ exports[`Storyshots Domain Components/Index/TaskForm Task Form With Errors 1`] =
                       "fontWeight": "400",
                       "lineHeight": "1.5em",
                       "outlineWidth": "0px",
+                      "overflowX": "auto",
+                      "overflowY": "auto",
                       "paddingBottom": "8px",
                       "paddingLeft": "8px",
                       "paddingRight": "8px",
@@ -7714,7 +7615,6 @@ exports[`Storyshots Domain Components/Index/TaskForm Task Form With Errors 1`] =
                 spellCheck={true}
                 style={
                   Object {
-                    "backgroundColor": "rgba(0,0,0,0.00)",
                     "borderBottomColor": "rgba(220,38,38,1.00)",
                     "borderBottomLeftRadius": "4px",
                     "borderBottomRightRadius": "4px",
@@ -7734,10 +7634,12 @@ exports[`Storyshots Domain Components/Index/TaskForm Task Form With Errors 1`] =
                     "fontWeight": "400",
                     "lineHeight": "1.5em",
                     "outlineWidth": "0px",
-                    "paddingBottom": "0px",
+                    "overflowX": "auto",
+                    "overflowY": "auto",
+                    "paddingBottom": "8px",
                     "paddingLeft": "8px",
-                    "paddingRight": "0px",
-                    "paddingTop": "0px",
+                    "paddingRight": "8px",
+                    "paddingTop": "8px",
                   }
                 }
                 value="0"
@@ -7843,27 +7745,20 @@ exports[`Storyshots Domain Components/Index/TaskForm Task Form With Errors 1`] =
             </label>
             <div
               className="css-view-1dbjc4n"
-              style={
-                Object {
-                  "borderBottomColor": "rgba(0,0,0,0.00)",
-                  "borderBottomLeftRadius": "4px",
-                  "borderBottomRightRadius": "4px",
-                  "borderBottomWidth": "1px",
-                  "borderLeftColor": "rgba(0,0,0,0.00)",
-                  "borderLeftWidth": "1px",
-                  "borderRightColor": "rgba(0,0,0,0.00)",
-                  "borderRightWidth": "1px",
-                  "borderTopColor": "rgba(0,0,0,0.00)",
-                  "borderTopLeftRadius": "4px",
-                  "borderTopRightRadius": "4px",
-                  "borderTopWidth": "1px",
-                }
-              }
             >
-              <div
-                className="css-view-1dbjc4n"
+              <select
+                aria-label="作業見積単位を選択してください"
+                aria-readonly={false}
+                disabled={false}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                required={false}
                 style={
                   Object {
+                    "MozAppearance": "none",
+                    "WebkitAppearance": "none",
+                    "appearance": "none",
                     "height": "100%",
                     "opacity": 0,
                     "position": "absolute",
@@ -7871,42 +7766,25 @@ exports[`Storyshots Domain Components/Index/TaskForm Task Form With Errors 1`] =
                     "zIndex": 1,
                   }
                 }
+                value="__NativebasePlaceholder__"
               >
-                <select
-                  aria-label="作業見積単位を選択してください"
-                  aria-readonly={false}
-                  disabled={false}
-                  onChange={[Function]}
-                  required={false}
-                  style={
-                    Object {
-                      "MozAppearance": "none",
-                      "WebkitAppearance": "none",
-                      "appearance": "none",
-                      "height": "100%",
-                      "width": "100%",
-                    }
-                  }
+                <option
+                  disabled={true}
                   value="__NativebasePlaceholder__"
                 >
-                  <option
-                    disabled={true}
-                    value="__NativebasePlaceholder__"
-                  >
-                    作業見積単位を選択してください
-                  </option>
-                  <option
-                    value="日"
-                  >
-                    日
-                  </option>
-                  <option
-                    value="時間"
-                  >
-                    時間
-                  </option>
-                </select>
-              </div>
+                  作業見積単位を選択してください
+                </option>
+                <option
+                  value="日"
+                >
+                  日
+                </option>
+                <option
+                  value="時間"
+                >
+                  時間
+                </option>
+              </select>
               <div
                 className="css-view-1dbjc4n"
                 style={
@@ -7937,8 +7815,8 @@ exports[`Storyshots Domain Components/Index/TaskForm Task Form With Errors 1`] =
                     "msFlexAlign": "center",
                     "msFlexDirection": "row",
                     "msFlexPack": "justify",
-                    "overflowX": "hidden",
-                    "overflowY": "hidden",
+                    "overflowX": "auto",
+                    "overflowY": "auto",
                   }
                 }
               >
@@ -7948,7 +7826,7 @@ exports[`Storyshots Domain Components/Index/TaskForm Task Form With Errors 1`] =
                   autoCapitalize="sentences"
                   autoComplete="on"
                   autoCorrect="on"
-                  className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
+                  className="css-textinput-11aywtz r-placeholderTextColor-uek9y r-pointerEvents-633pao"
                   dir="auto"
                   disabled={false}
                   id="field-react-aria-6"
@@ -7985,6 +7863,8 @@ exports[`Storyshots Domain Components/Index/TaskForm Task Form With Errors 1`] =
                       "lineHeight": "1.5em",
                       "msFlex": "1 1 0%",
                       "outlineWidth": "0px",
+                      "overflowX": "auto",
+                      "overflowY": "auto",
                       "paddingBottom": "8px",
                       "paddingLeft": "8px",
                       "paddingRight": "8px",
@@ -8697,7 +8577,6 @@ exports[`Storyshots Form Components/NumberInput Default 1`] = `
           spellCheck={true}
           style={
             Object {
-              "backgroundColor": "rgba(0,0,0,0.00)",
               "borderBottomColor": "rgba(229,229,229,1.00)",
               "borderBottomLeftRadius": "4px",
               "borderBottomRightRadius": "4px",
@@ -8717,10 +8596,12 @@ exports[`Storyshots Form Components/NumberInput Default 1`] = `
               "fontWeight": "400",
               "lineHeight": "1.5em",
               "outlineWidth": "0px",
-              "paddingBottom": "0px",
+              "overflowX": "auto",
+              "overflowY": "auto",
+              "paddingBottom": "8px",
               "paddingLeft": "8px",
-              "paddingRight": "0px",
-              "paddingTop": "0px",
+              "paddingRight": "8px",
+              "paddingTop": "8px",
             }
           }
           value="0"
@@ -8845,10 +8726,12 @@ exports[`Storyshots Form Components/NumberInput Disabled 1`] = `
               "lineHeight": "1.5em",
               "opacity": 0.8,
               "outlineWidth": "0px",
-              "paddingBottom": "0px",
+              "overflowX": "auto",
+              "overflowY": "auto",
+              "paddingBottom": "8px",
               "paddingLeft": "8px",
-              "paddingRight": "0px",
-              "paddingTop": "0px",
+              "paddingRight": "8px",
+              "paddingTop": "8px",
             }
           }
           value="0"
@@ -8933,27 +8816,20 @@ exports[`Storyshots Form Components/Select Default 1`] = `
       </label>
       <div
         className="css-view-1dbjc4n"
-        style={
-          Object {
-            "borderBottomColor": "rgba(0,0,0,0.00)",
-            "borderBottomLeftRadius": "4px",
-            "borderBottomRightRadius": "4px",
-            "borderBottomWidth": "1px",
-            "borderLeftColor": "rgba(0,0,0,0.00)",
-            "borderLeftWidth": "1px",
-            "borderRightColor": "rgba(0,0,0,0.00)",
-            "borderRightWidth": "1px",
-            "borderTopColor": "rgba(0,0,0,0.00)",
-            "borderTopLeftRadius": "4px",
-            "borderTopRightRadius": "4px",
-            "borderTopWidth": "1px",
-          }
-        }
       >
-        <div
-          className="css-view-1dbjc4n"
+        <select
+          aria-label="selectを選択してください"
+          aria-readonly={false}
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          required={false}
           style={
             Object {
+              "MozAppearance": "none",
+              "WebkitAppearance": "none",
+              "appearance": "none",
               "height": "100%",
               "opacity": 0,
               "position": "absolute",
@@ -8961,47 +8837,30 @@ exports[`Storyshots Form Components/Select Default 1`] = `
               "zIndex": 1,
             }
           }
+          value="item1"
         >
-          <select
-            aria-label="selectを選択してください"
-            aria-readonly={false}
-            disabled={false}
-            onChange={[Function]}
-            required={false}
-            style={
-              Object {
-                "MozAppearance": "none",
-                "WebkitAppearance": "none",
-                "appearance": "none",
-                "height": "100%",
-                "width": "100%",
-              }
-            }
+          <option
+            disabled={true}
+            value="__NativebasePlaceholder__"
+          >
+            selectを選択してください
+          </option>
+          <option
             value="item1"
           >
-            <option
-              disabled={true}
-              value="__NativebasePlaceholder__"
-            >
-              selectを選択してください
-            </option>
-            <option
-              value="item1"
-            >
-              item1
-            </option>
-            <option
-              value="item2"
-            >
-              item2
-            </option>
-            <option
-              value="item3"
-            >
-              item3
-            </option>
-          </select>
-        </div>
+            item1
+          </option>
+          <option
+            value="item2"
+          >
+            item2
+          </option>
+          <option
+            value="item3"
+          >
+            item3
+          </option>
+        </select>
         <div
           className="css-view-1dbjc4n"
           style={
@@ -9032,8 +8891,8 @@ exports[`Storyshots Form Components/Select Default 1`] = `
               "msFlexAlign": "center",
               "msFlexDirection": "row",
               "msFlexPack": "justify",
-              "overflowX": "hidden",
-              "overflowY": "hidden",
+              "overflowX": "auto",
+              "overflowY": "auto",
             }
           }
         >
@@ -9042,7 +8901,7 @@ exports[`Storyshots Form Components/Select Default 1`] = `
             autoCapitalize="sentences"
             autoComplete="on"
             autoCorrect="on"
-            className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
+            className="css-textinput-11aywtz r-placeholderTextColor-uek9y r-pointerEvents-633pao"
             dir="auto"
             disabled={false}
             id="field-react-aria-1"
@@ -9079,6 +8938,8 @@ exports[`Storyshots Form Components/Select Default 1`] = `
                 "lineHeight": "1.5em",
                 "msFlex": "1 1 0%",
                 "outlineWidth": "0px",
+                "overflowX": "auto",
+                "overflowY": "auto",
                 "paddingBottom": "8px",
                 "paddingLeft": "8px",
                 "paddingRight": "8px",
@@ -9202,27 +9063,20 @@ exports[`Storyshots Form Components/Select Disabled 1`] = `
       </label>
       <div
         className="css-view-1dbjc4n"
-        style={
-          Object {
-            "borderBottomColor": "rgba(0,0,0,0.00)",
-            "borderBottomLeftRadius": "4px",
-            "borderBottomRightRadius": "4px",
-            "borderBottomWidth": "1px",
-            "borderLeftColor": "rgba(0,0,0,0.00)",
-            "borderLeftWidth": "1px",
-            "borderRightColor": "rgba(0,0,0,0.00)",
-            "borderRightWidth": "1px",
-            "borderTopColor": "rgba(0,0,0,0.00)",
-            "borderTopLeftRadius": "4px",
-            "borderTopRightRadius": "4px",
-            "borderTopWidth": "1px",
-          }
-        }
       >
-        <div
-          className="css-view-1dbjc4n"
+        <select
+          aria-label="selectを選択してください"
+          aria-readonly={false}
+          disabled={true}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          required={false}
           style={
             Object {
+              "MozAppearance": "none",
+              "WebkitAppearance": "none",
+              "appearance": "none",
               "height": "100%",
               "opacity": 0,
               "position": "absolute",
@@ -9230,47 +9084,30 @@ exports[`Storyshots Form Components/Select Disabled 1`] = `
               "zIndex": 1,
             }
           }
+          value="item1"
         >
-          <select
-            aria-label="selectを選択してください"
-            aria-readonly={false}
+          <option
             disabled={true}
-            onChange={[Function]}
-            required={false}
-            style={
-              Object {
-                "MozAppearance": "none",
-                "WebkitAppearance": "none",
-                "appearance": "none",
-                "height": "100%",
-                "width": "100%",
-              }
-            }
+            value="__NativebasePlaceholder__"
+          >
+            selectを選択してください
+          </option>
+          <option
             value="item1"
           >
-            <option
-              disabled={true}
-              value="__NativebasePlaceholder__"
-            >
-              selectを選択してください
-            </option>
-            <option
-              value="item1"
-            >
-              item1
-            </option>
-            <option
-              value="item2"
-            >
-              item2
-            </option>
-            <option
-              value="item3"
-            >
-              item3
-            </option>
-          </select>
-        </div>
+            item1
+          </option>
+          <option
+            value="item2"
+          >
+            item2
+          </option>
+          <option
+            value="item3"
+          >
+            item3
+          </option>
+        </select>
         <div
           className="css-view-1dbjc4n"
           style={
@@ -9303,8 +9140,8 @@ exports[`Storyshots Form Components/Select Disabled 1`] = `
               "msFlexDirection": "row",
               "msFlexPack": "justify",
               "opacity": 0.8,
-              "overflowX": "hidden",
-              "overflowY": "hidden",
+              "overflowX": "auto",
+              "overflowY": "auto",
             }
           }
         >
@@ -9313,7 +9150,7 @@ exports[`Storyshots Form Components/Select Disabled 1`] = `
             autoCapitalize="sentences"
             autoComplete="on"
             autoCorrect="on"
-            className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
+            className="css-textinput-11aywtz r-placeholderTextColor-uek9y r-pointerEvents-633pao"
             dir="auto"
             disabled={true}
             id="field-react-aria-1"
@@ -9328,7 +9165,7 @@ exports[`Storyshots Form Components/Select Disabled 1`] = `
             style={
               Object {
                 "WebkitFlex": 1,
-                "backgroundColor": "rgba(0,0,0,0.00)",
+                "backgroundColor": "rgba(245,245,245,1.00)",
                 "borderBottomColor": "rgba(229,229,229,1.00)",
                 "borderBottomLeftRadius": "4px",
                 "borderBottomRightRadius": "4px",
@@ -9351,6 +9188,8 @@ exports[`Storyshots Form Components/Select Disabled 1`] = `
                 "msFlex": "1 1 0%",
                 "opacity": 0.8,
                 "outlineWidth": "0px",
+                "overflowX": "auto",
+                "overflowY": "auto",
                 "paddingBottom": "8px",
                 "paddingLeft": "8px",
                 "paddingRight": "8px",
@@ -9474,27 +9313,20 @@ exports[`Storyshots Form Components/Select Invalid Select 1`] = `
       </label>
       <div
         className="css-view-1dbjc4n"
-        style={
-          Object {
-            "borderBottomColor": "rgba(0,0,0,0.00)",
-            "borderBottomLeftRadius": "4px",
-            "borderBottomRightRadius": "4px",
-            "borderBottomWidth": "1px",
-            "borderLeftColor": "rgba(0,0,0,0.00)",
-            "borderLeftWidth": "1px",
-            "borderRightColor": "rgba(0,0,0,0.00)",
-            "borderRightWidth": "1px",
-            "borderTopColor": "rgba(0,0,0,0.00)",
-            "borderTopLeftRadius": "4px",
-            "borderTopRightRadius": "4px",
-            "borderTopWidth": "1px",
-          }
-        }
       >
-        <div
-          className="css-view-1dbjc4n"
+        <select
+          aria-label="selectを選択してください"
+          aria-readonly={false}
+          disabled={true}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          required={false}
           style={
             Object {
+              "MozAppearance": "none",
+              "WebkitAppearance": "none",
+              "appearance": "none",
               "height": "100%",
               "opacity": 0,
               "position": "absolute",
@@ -9502,37 +9334,20 @@ exports[`Storyshots Form Components/Select Invalid Select 1`] = `
               "zIndex": 1,
             }
           }
+          value="item1"
         >
-          <select
-            aria-label="selectを選択してください"
-            aria-readonly={false}
+          <option
             disabled={true}
-            onChange={[Function]}
-            required={false}
-            style={
-              Object {
-                "MozAppearance": "none",
-                "WebkitAppearance": "none",
-                "appearance": "none",
-                "height": "100%",
-                "width": "100%",
-              }
-            }
+            value="__NativebasePlaceholder__"
+          >
+            selectを選択してください
+          </option>
+          <option
             value="item1"
           >
-            <option
-              disabled={true}
-              value="__NativebasePlaceholder__"
-            >
-              selectを選択してください
-            </option>
-            <option
-              value="item1"
-            >
-              item1
-            </option>
-          </select>
-        </div>
+            item1
+          </option>
+        </select>
         <div
           className="css-view-1dbjc4n"
           style={
@@ -9565,8 +9380,8 @@ exports[`Storyshots Form Components/Select Invalid Select 1`] = `
               "msFlexDirection": "row",
               "msFlexPack": "justify",
               "opacity": 0.8,
-              "overflowX": "hidden",
-              "overflowY": "hidden",
+              "overflowX": "auto",
+              "overflowY": "auto",
             }
           }
         >
@@ -9575,7 +9390,7 @@ exports[`Storyshots Form Components/Select Invalid Select 1`] = `
             autoCapitalize="sentences"
             autoComplete="on"
             autoCorrect="on"
-            className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
+            className="css-textinput-11aywtz r-placeholderTextColor-uek9y r-pointerEvents-633pao"
             dir="auto"
             disabled={true}
             id="field-react-aria-1"
@@ -9590,7 +9405,7 @@ exports[`Storyshots Form Components/Select Invalid Select 1`] = `
             style={
               Object {
                 "WebkitFlex": 1,
-                "backgroundColor": "rgba(0,0,0,0.00)",
+                "backgroundColor": "rgba(245,245,245,1.00)",
                 "borderBottomColor": "rgba(229,229,229,1.00)",
                 "borderBottomLeftRadius": "4px",
                 "borderBottomRightRadius": "4px",
@@ -9613,6 +9428,8 @@ exports[`Storyshots Form Components/Select Invalid Select 1`] = `
                 "msFlex": "1 1 0%",
                 "opacity": 0.8,
                 "outlineWidth": "0px",
+                "overflowX": "auto",
+                "overflowY": "auto",
                 "paddingBottom": "8px",
                 "paddingLeft": "8px",
                 "paddingRight": "8px",
@@ -9736,27 +9553,20 @@ exports[`Storyshots Form Components/Select Placeholder 1`] = `
       </label>
       <div
         className="css-view-1dbjc4n"
-        style={
-          Object {
-            "borderBottomColor": "rgba(0,0,0,0.00)",
-            "borderBottomLeftRadius": "4px",
-            "borderBottomRightRadius": "4px",
-            "borderBottomWidth": "1px",
-            "borderLeftColor": "rgba(0,0,0,0.00)",
-            "borderLeftWidth": "1px",
-            "borderRightColor": "rgba(0,0,0,0.00)",
-            "borderRightWidth": "1px",
-            "borderTopColor": "rgba(0,0,0,0.00)",
-            "borderTopLeftRadius": "4px",
-            "borderTopRightRadius": "4px",
-            "borderTopWidth": "1px",
-          }
-        }
       >
-        <div
-          className="css-view-1dbjc4n"
+        <select
+          aria-label="placeholder"
+          aria-readonly={false}
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          required={false}
           style={
             Object {
+              "MozAppearance": "none",
+              "WebkitAppearance": "none",
+              "appearance": "none",
               "height": "100%",
               "opacity": 0,
               "position": "absolute",
@@ -9764,47 +9574,30 @@ exports[`Storyshots Form Components/Select Placeholder 1`] = `
               "zIndex": 1,
             }
           }
+          value="item1"
         >
-          <select
-            aria-label="placeholder"
-            aria-readonly={false}
-            disabled={false}
-            onChange={[Function]}
-            required={false}
-            style={
-              Object {
-                "MozAppearance": "none",
-                "WebkitAppearance": "none",
-                "appearance": "none",
-                "height": "100%",
-                "width": "100%",
-              }
-            }
+          <option
+            disabled={true}
+            value="__NativebasePlaceholder__"
+          >
+            placeholder
+          </option>
+          <option
             value="item1"
           >
-            <option
-              disabled={true}
-              value="__NativebasePlaceholder__"
-            >
-              placeholder
-            </option>
-            <option
-              value="item1"
-            >
-              item1
-            </option>
-            <option
-              value="item2"
-            >
-              item2
-            </option>
-            <option
-              value="item3"
-            >
-              item3
-            </option>
-          </select>
-        </div>
+            item1
+          </option>
+          <option
+            value="item2"
+          >
+            item2
+          </option>
+          <option
+            value="item3"
+          >
+            item3
+          </option>
+        </select>
         <div
           className="css-view-1dbjc4n"
           style={
@@ -9835,8 +9628,8 @@ exports[`Storyshots Form Components/Select Placeholder 1`] = `
               "msFlexAlign": "center",
               "msFlexDirection": "row",
               "msFlexPack": "justify",
-              "overflowX": "hidden",
-              "overflowY": "hidden",
+              "overflowX": "auto",
+              "overflowY": "auto",
             }
           }
         >
@@ -9845,7 +9638,7 @@ exports[`Storyshots Form Components/Select Placeholder 1`] = `
             autoCapitalize="sentences"
             autoComplete="on"
             autoCorrect="on"
-            className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
+            className="css-textinput-11aywtz r-placeholderTextColor-uek9y r-pointerEvents-633pao"
             dir="auto"
             disabled={false}
             id="field-react-aria-1"
@@ -9882,6 +9675,8 @@ exports[`Storyshots Form Components/Select Placeholder 1`] = `
                 "lineHeight": "1.5em",
                 "msFlex": "1 1 0%",
                 "outlineWidth": "0px",
+                "overflowX": "auto",
+                "overflowY": "auto",
                 "paddingBottom": "8px",
                 "paddingLeft": "8px",
                 "paddingRight": "8px",
@@ -10022,7 +9817,6 @@ exports[`Storyshots Form Components/TextArea Default 1`] = `
         spellCheck={true}
         style={
           Object {
-            "backgroundColor": "rgba(0,0,0,0.00)",
             "borderBottomColor": "rgba(229,229,229,1.00)",
             "borderBottomLeftRadius": "4px",
             "borderBottomRightRadius": "4px",
@@ -10042,6 +9836,8 @@ exports[`Storyshots Form Components/TextArea Default 1`] = `
             "fontWeight": "400",
             "lineHeight": "1.5em",
             "outlineWidth": "0px",
+            "overflowX": "auto",
+            "overflowY": "auto",
             "paddingBottom": "8px",
             "paddingLeft": "8px",
             "paddingRight": "8px",
@@ -10167,6 +9963,8 @@ exports[`Storyshots Form Components/TextArea Disabled 1`] = `
             "lineHeight": "1.5em",
             "opacity": 0.8,
             "outlineWidth": "0px",
+            "overflowX": "auto",
+            "overflowY": "auto",
             "paddingBottom": "8px",
             "paddingLeft": "8px",
             "paddingRight": "8px",
@@ -10271,7 +10069,6 @@ exports[`Storyshots Form Components/TextArea Placeholder 1`] = `
         spellCheck={true}
         style={
           Object {
-            "backgroundColor": "rgba(0,0,0,0.00)",
             "borderBottomColor": "rgba(229,229,229,1.00)",
             "borderBottomLeftRadius": "4px",
             "borderBottomRightRadius": "4px",
@@ -10291,6 +10088,8 @@ exports[`Storyshots Form Components/TextArea Placeholder 1`] = `
             "fontWeight": "400",
             "lineHeight": "1.5em",
             "outlineWidth": "0px",
+            "overflowX": "auto",
+            "overflowY": "auto",
             "paddingBottom": "8px",
             "paddingLeft": "8px",
             "paddingRight": "8px",
@@ -10394,7 +10193,6 @@ exports[`Storyshots Form Components/TextInput Default 1`] = `
         spellCheck={true}
         style={
           Object {
-            "backgroundColor": "rgba(0,0,0,0.00)",
             "borderBottomColor": "rgba(229,229,229,1.00)",
             "borderBottomLeftRadius": "4px",
             "borderBottomRightRadius": "4px",
@@ -10414,6 +10212,8 @@ exports[`Storyshots Form Components/TextInput Default 1`] = `
             "fontWeight": "400",
             "lineHeight": "1.5em",
             "outlineWidth": "0px",
+            "overflowX": "auto",
+            "overflowY": "auto",
             "paddingBottom": "8px",
             "paddingLeft": "8px",
             "paddingRight": "8px",
@@ -10539,6 +10339,8 @@ exports[`Storyshots Form Components/TextInput Disabled 1`] = `
             "lineHeight": "1.5em",
             "opacity": 0.8,
             "outlineWidth": "0px",
+            "overflowX": "auto",
+            "overflowY": "auto",
             "paddingBottom": "8px",
             "paddingLeft": "8px",
             "paddingRight": "8px",
@@ -10643,7 +10445,6 @@ exports[`Storyshots Form Components/TextInput Placeholder 1`] = `
         spellCheck={true}
         style={
           Object {
-            "backgroundColor": "rgba(0,0,0,0.00)",
             "borderBottomColor": "rgba(229,229,229,1.00)",
             "borderBottomLeftRadius": "4px",
             "borderBottomRightRadius": "4px",
@@ -10663,6 +10464,8 @@ exports[`Storyshots Form Components/TextInput Placeholder 1`] = `
             "fontWeight": "400",
             "lineHeight": "1.5em",
             "outlineWidth": "0px",
+            "overflowX": "auto",
+            "overflowY": "auto",
             "paddingBottom": "8px",
             "paddingLeft": "8px",
             "paddingRight": "8px",
