@@ -35,7 +35,7 @@
     "cover:update": "jest -u",
     "test": "yarn lint && yarn typecheck && yarn cover",
     "update": "npm_config_yes=true npx npm-check-updates -u --timeout 100000 && yarn install && yarn upgrade && yarn audit",
-    "prepare": "if [ ! -f .env ]; then cp .env.example .env; fi && if [ ! -f infra/.env ]; then cp infra/.env.example infra/.env; fi  && husky install && aspida",
+    "prepare": "if [ ! -f .env ]; then cp .env.example .env; fi && if [ ! -f infra/.env ]; then cp infra/.env.example infra/.env; fi  && husky install && aspida && prisma generate --schema ./schema/schema.prisma",
     "sb": "start-storybook -p 6006 -s ./public",
     "build-sb": "build-storybook -s public",
     "analyze": "aspida && ANALYZE=true next build",
