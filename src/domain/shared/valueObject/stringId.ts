@@ -23,10 +23,6 @@ export default abstract class StringId extends Base<number | string | null, stri
     return this.input !== null && this.input !== undefined;
   }
 
-  public setGeneratedId(id: number | string): void {
-    this.reconstruct(id);
-  }
-
   public validate(name: string): ValidationError[] | undefined {
     const text = this.fromInput();
     if (text === null) {

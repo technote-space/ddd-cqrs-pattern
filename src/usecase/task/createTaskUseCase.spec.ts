@@ -1,13 +1,21 @@
-import type Task from '$/shared/task/task';
+import Task from '$/shared/task/task';
+import TaskId from '$/shared/task/valueObject/taskId';
 import UserId from '$/shared/user/valueObject/userId';
 import CreateTaskUseCase from './createTaskUseCase';
 
 describe('CreateTaskUseCase', () => {
   it('新しくタスクを追加する', async () => {
     const mockSave = jest.fn((task: Task) => {
-      const saved = task.copy();
-      saved.taskId.setGeneratedId('taskId');
-      return Promise.resolve(saved);
+      return Promise.resolve(Task.reconstruct(
+        TaskId.create('taskId'),
+        task.taskName,
+        task.memo,
+        task.status,
+        task.dueDate,
+        task.estimate,
+        task.userId,
+        task.tags,
+      ));
     });
     const useCase = new CreateTaskUseCase({ save: mockSave } as never);
 
