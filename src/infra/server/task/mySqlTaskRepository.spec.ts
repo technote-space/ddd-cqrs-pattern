@@ -120,7 +120,6 @@ describe('MySqlTaskRepository', () => {
               { create: { tagName: 'tag2' }, where: { tagName: 'tag2' } },
               { create: { tagName: 'tag3' }, where: { tagName: 'tag3' } },
             ],
-            set: [],
           },
           taskName: 'name',
           memo: 'memo',

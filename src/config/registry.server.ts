@@ -23,6 +23,7 @@ container.registerSingleton('IUserSessionProvider', Auth0UserSessionProvider);
 container.registerSingleton('IIndexPageProps', IndexPageProps);
 
 // database
+/* istanbul ignore next */
 if (process.env.DATABASE_TYPE === 'mysql') {
   container.registerSingleton('IUserRepository', MySqlUserRepository);
   container.registerSingleton('ITaskRepository', MySqlTaskRepository);

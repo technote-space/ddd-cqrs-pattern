@@ -11,6 +11,7 @@ import userSchema from '../../schema/user.json';
 
 dotenv.config();
 
+/* istanbul ignore next */
 if (process.env.DATABASE_TYPE === 'mysql') {
   // usecase
   container.registerSingleton('IMigrationUseCase', MySqlMigrationUseCase);
