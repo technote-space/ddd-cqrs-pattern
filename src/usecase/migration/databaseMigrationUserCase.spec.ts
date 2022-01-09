@@ -1,7 +1,7 @@
 import type { Table } from '$/server/shared/database';
-import MigrationUseCase from '^/usecase/migrationUseCase';
+import DatabaseMigrationUseCase from '^/usecase/migration/databaseMigrationUseCase';
 
-describe('MigrationUseCase', () => {
+describe('DatabaseMigrationUseCase', () => {
   it('存在しないテーブルが作成される', async () => {
     const mockListTables = jest.fn(() => Promise.resolve([
       { id: 'test1', table: 'test1', columns: [] },
@@ -10,7 +10,7 @@ describe('MigrationUseCase', () => {
     const mockCreateTable = jest.fn((table: string) => Promise.resolve({ table } as Table));
     const spyConsoleLog = jest.spyOn(global.console, 'log').mockImplementation();
 
-    const useCase = new MigrationUseCase([
+    const useCase = new DatabaseMigrationUseCase([
       { table: 'test1', columns: [] },
       { table: 'test3', columns: [] },
     ], {

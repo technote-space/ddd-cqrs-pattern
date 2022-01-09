@@ -5,12 +5,12 @@ import { PrismaClient } from '@/server/shared/database/mysql';
 import JsonwebtokenJwt from '@/server/shared/jsonwebtokenJwt';
 import NodeCacheCache from '@/server/shared/nodeCacheCache';
 import Slack from '@/server/shared/slack';
-// import NotionTaskQueryService from '@/server/task/notionTaskQueryService';
-// import NotionTaskRepository from '@/server/task/notionTaskRepository';
-// import NotionUserRepository from '@/server/user/notionUserRepository';
 import MySqlTaskQueryService from '@/server/task/mySqlTaskQueryService';
 import MySqlTaskRepository from '@/server/task/mySqlTaskRepository';
+import NotionTaskQueryService from '@/server/task/notionTaskQueryService';
+import NotionTaskRepository from '@/server/task/notionTaskRepository';
 import MySqlUserRepository from '@/server/user/mySqlUserRepository';
+import NotionUserRepository from '@/server/user/notionUserRepository';
 import IndexPageProps from '@/web/pages/index/server';
 
 container.registerSingleton('IJwt', JsonwebtokenJwt);
@@ -23,10 +23,13 @@ container.registerSingleton('IUserSessionProvider', Auth0UserSessionProvider);
 container.registerSingleton('IIndexPageProps', IndexPageProps);
 
 // database
-// container.registerSingleton('IUserRepository', NotionUserRepository);
-// container.registerSingleton('ITaskRepository', NotionTaskRepository);
-// container.registerSingleton('ITaskQueryService', NotionTaskQueryService);
-container.registerSingleton('IUserRepository', MySqlUserRepository);
-container.registerSingleton('ITaskRepository', MySqlTaskRepository);
-container.registerSingleton('ITaskQueryService', MySqlTaskQueryService);
-container.registerInstance('PrismaClient', new PrismaClient());
+if (process.env.DATABASE_TYPE === 'mysql') {
+  container.registerSingleton('IUserRepository', MySqlUserRepository);
+  container.registerSingleton('ITaskRepository', MySqlTaskRepository);
+  container.registerSingleton('ITaskQueryService', MySqlTaskQueryService);
+  container.registerInstance('PrismaClient', new PrismaClient());
+} else {
+  container.registerSingleton('IUserRepository', NotionUserRepository);
+  container.registerSingleton('ITaskRepository', NotionTaskRepository);
+  container.registerSingleton('ITaskQueryService', NotionTaskQueryService);
+}

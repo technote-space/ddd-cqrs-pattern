@@ -39,7 +39,7 @@
     "sb": "start-storybook -p 6006 -s ./public",
     "build-sb": "build-storybook -s public",
     "analyze": "aspida && ANALYZE=true next build",
-    "notion:migrate": "ts-node -r tsconfig-paths/register src/bin/migrate.ts",
+    "migrate": "ts-node -r tsconfig-paths/register src/bin/migrate.ts",
     "mysql:migrate": "prisma migrate dev --schema ./schema/schema.prisma --name init",
     "mysql:up": "docker-compose -f infra/docker-compose.yml --env-file infra/.env up -d",
     "mysql:down": "docker-compose -f infra/docker-compose.yml down --remove-orphans"

@@ -2,7 +2,7 @@ import type ITaskRepository from '$/server/task/taskRepository';
 import type Task from '$/shared/task/task';
 import type TaskId from '$/shared/task/valueObject/taskId';
 import type { TaskModel } from './mySqlMapper';
-import type { PrismaClient } from '@/server/shared/database/mysql';
+import type { PrismaClient, Prisma } from '@/server/shared/database/mysql';
 import { inject, singleton } from 'tsyringe';
 import NotFound from '$/shared/exceptions/domain/notFound';
 import MySqlMapper from './mySqlMapper';
@@ -46,7 +46,7 @@ export default class MySqlTaskRepository implements ITaskRepository {
   }
 
   private async store(task: Task): Promise<TaskModel> {
-    const data = {
+    const data: Prisma.TaskCreateInput | Prisma.TaskUpdateInput = {
       taskName: task.taskName.value,
       memo: task.memo?.value ?? null,
       status: task.status.value,
@@ -55,7 +55,6 @@ export default class MySqlTaskRepository implements ITaskRepository {
       estimateUnit: task.estimate?.value.unit.value ?? null,
       user: { connect: { id: Number(task.userId.value) } },
       tags: {
-        set: [],
         connectOrCreate: task.tags.collections.map(tag => ({
           where: { tagName: tag.tagName.value },
           create: { tagName: tag.tagName.value },
@@ -64,6 +63,10 @@ export default class MySqlTaskRepository implements ITaskRepository {
     };
 
     if (task.taskId.isSetId()) {
+      data.tags = {
+        ...data.tags,
+        set: [],
+      };
       return this.client.task.update({
         data,
         where: {
@@ -73,7 +76,7 @@ export default class MySqlTaskRepository implements ITaskRepository {
       });
     } else {
       return this.client.task.create({
-        data,
+        data: data as Prisma.TaskCreateInput,
         include: MySqlTaskRepository.getIncludeArgs(),
       });
     }
