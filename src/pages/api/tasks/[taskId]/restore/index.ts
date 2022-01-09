@@ -1,3 +1,4 @@
+import type { AuthHeader } from '^/presentation/shared/userSessionProvider';
 import type { TaskDto } from '^/usecase/task/taskDto';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import 'reflect-metadata';
@@ -13,7 +14,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
 export type Methods = {
   patch: {
-    reqHeaders: { authorization: string };
+    reqHeaders: AuthHeader;
     resBody: TaskDto;
   };
 }

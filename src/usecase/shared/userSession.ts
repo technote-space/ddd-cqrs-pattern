@@ -6,4 +6,5 @@ export type UserSession = {
 
 export type UserJwtPayload = {
   userId: string;
+  dbType: string;
 }

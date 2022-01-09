@@ -22,6 +22,10 @@ export default class Auth0UserSessionProvider implements IUserSessionProvider {
 
     const token = authorization.replace(/^Bearer\s+/i, '');
     const decoded = this.jwt.verify(token, this.env.getValue('JWT_SECRET'));
+    if (decoded.dbType !== this.env.getValue('DATABASE_TYPE')) {
+      throw new Unauthorized();
+    }
+
     return {
       userId: UserId.create(decoded.userId),
     };

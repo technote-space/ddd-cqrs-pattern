@@ -25,7 +25,10 @@ export default class LoginOrRegisterUseCase {
     }
 
     const user = await this.findOrCreateUser(Token.create(contents.sub));
-    return this.jwt.sign({ userId: user.userId.value }, this.env.getValue('JWT_SECRET'));
+    return this.jwt.sign({
+      userId: user.userId.value,
+      dbType: this.env.getValue('DATABASE_TYPE'),
+    }, this.env.getValue('JWT_SECRET'));
   }
 
   private async findOrCreateUser(token: Token): Promise<User> {

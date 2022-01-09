@@ -1,3 +1,4 @@
+import type { AuthHeader } from '^/presentation/shared/userSessionProvider';
 import type { TaskDto } from '^/usecase/task/taskDto';
 import type { UpdateData } from '^/usecase/task/updateTaskUseCase';
 import type { NextApiRequest, NextApiResponse } from 'next';
@@ -16,12 +17,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
 export type Methods = {
   put: {
-    reqHeaders: { authorization: string };
+    reqHeaders: AuthHeader;
     reqBody: UpdateData;
     resBody: TaskDto;
   };
   delete: {
-    reqHeaders: { authorization: string };
+    reqHeaders: AuthHeader;
     resBody: TaskDto;
   };
 }

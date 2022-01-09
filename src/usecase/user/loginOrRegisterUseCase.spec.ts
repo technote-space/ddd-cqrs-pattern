@@ -14,7 +14,7 @@ describe('LoginOrRegisterUseCase', () => {
       return Promise.resolve();
     });
     const useCase = new LoginOrRegisterUseCase(
-      new TestEnv({ JWT_SECRET: 'secret' }),
+      new TestEnv({ JWT_SECRET: 'secret', DATABASE_TYPE: 'notion' }),
       { verify: mockVerify },
       { sign: mockSign } as never, // eslint-disable-line @typescript-eslint/no-explicit-any
       { findByToken: mockUserFindByToken, save: mockUserSave } as never,
@@ -22,9 +22,9 @@ describe('LoginOrRegisterUseCase', () => {
 
     const token = await useCase.invoke('token');
     expect(token.length).not.toBe(0);
-    expect(JSON.parse(token)).toEqual({ userId: 'generated-id' });
+    expect(JSON.parse(token)).toEqual({ userId: 'generated-id', dbType: 'notion' });
     expect(mockVerify).toBeCalledWith('token');
-    expect(mockSign).toBeCalledWith({ userId: 'generated-id' }, 'secret');
+    expect(mockSign).toBeCalledWith({ userId: 'generated-id', dbType: 'notion' }, 'secret');
     expect(mockUserFindByToken).toBeCalledWith(Token.create('test-sub'));
     const userId = UserId.create('generated-id');
     userId.value;
@@ -37,7 +37,7 @@ describe('LoginOrRegisterUseCase', () => {
     const mockUserFindByToken = jest.fn(() => Promise.resolve(User.reconstruct(UserId.create('test-id'), Token.create('test-token'))));
     const mockUserSave = jest.fn(() => Promise.resolve());
     const useCase = new LoginOrRegisterUseCase(
-      new TestEnv({ JWT_SECRET: 'secret' }),
+      new TestEnv({ JWT_SECRET: 'secret', DATABASE_TYPE: 'notion' }),
       { verify: mockVerify },
       { sign: mockSign } as never, // eslint-disable-line @typescript-eslint/no-explicit-any
       { findByToken: mockUserFindByToken, save: mockUserSave } as never,
@@ -45,9 +45,9 @@ describe('LoginOrRegisterUseCase', () => {
 
     const token = await useCase.invoke('token');
     expect(token.length).not.toBe(0);
-    expect(JSON.parse(token)).toEqual({ userId: 'test-id' });
+    expect(JSON.parse(token)).toEqual({ userId: 'test-id', dbType: 'notion' });
     expect(mockVerify).toBeCalledWith('token');
-    expect(mockSign).toBeCalledWith({ userId: 'test-id' }, 'secret');
+    expect(mockSign).toBeCalledWith({ userId: 'test-id', dbType: 'notion' }, 'secret');
     expect(mockUserFindByToken).toBeCalledWith(Token.create('test-sub'));
     expect(mockUserSave).not.toBeCalled();
   });
@@ -58,7 +58,7 @@ describe('LoginOrRegisterUseCase', () => {
     const mockUserFindByToken = jest.fn(() => Promise.resolve(null));
     const mockUserSave = jest.fn(() => Promise.resolve());
     const useCase = new LoginOrRegisterUseCase(
-      new TestEnv({ JWT_SECRET: 'secret' }),
+      new TestEnv({ JWT_SECRET: 'secret', DATABASE_TYPE: 'notion' }),
       { verify: mockVerify },
       { sign: mockSign } as never, // eslint-disable-line @typescript-eslint/no-explicit-any
       { findByToken: mockUserFindByToken, save: mockUserSave } as never,
