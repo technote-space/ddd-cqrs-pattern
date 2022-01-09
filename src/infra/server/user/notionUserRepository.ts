@@ -3,10 +3,10 @@ import type IUserRepository from '$/server/user/userRepository';
 import type User from '$/shared/user/user';
 import type Token from '$/shared/user/valueObject/token';
 import type UserId from '$/shared/user/valueObject/userId';
-import type { DatabaseType } from './mapper';
+import type { DatabaseType } from './notionMapper';
 import { singleton, inject } from 'tsyringe';
 import NotFound from '$/shared/exceptions/domain/notFound';
-import Mapper from './mapper';
+import NotionMapper from './notionMapper';
 
 @singleton()
 export default class NotionUserRepository implements IUserRepository {
@@ -21,7 +21,7 @@ export default class NotionUserRepository implements IUserRepository {
       throw new NotFound('ユーザー', 'users', userId.value);
     }
 
-    return Mapper.toEntity(response);
+    return NotionMapper.toEntity(response);
   }
 
   public async findByToken(token: Token): Promise<User | null> {
@@ -43,22 +43,21 @@ export default class NotionUserRepository implements IUserRepository {
     }
 
     const user = response.results[0];
-    return Mapper.toEntity(user);
+    return NotionMapper.toEntity(user);
   }
 
-  public async save(user: User): Promise<void> {
+  public async save(user: User): Promise<User> {
     const data = {
       token: user.token.value,
     };
 
     if (user.userId.isSetId()) {
-      await this.database.update<DatabaseType>('users', {
+      return NotionMapper.toEntity(await this.database.update<DatabaseType>('users', {
         id: user.userId.value,
         ...data,
-      });
+      }));
     } else {
-      const result = await this.database.create<DatabaseType>('users', data);
-      user.userId.setGeneratedId(result.id);
+      return NotionMapper.toEntity(await this.database.create<DatabaseType>('users', data));
     }
   }
 }

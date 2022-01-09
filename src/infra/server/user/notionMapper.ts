@@ -7,7 +7,7 @@ export type DatabaseType = {
   token: string;
 };
 
-export default class Mapper {
+export default class NotionMapper {
   public static toEntity(data: DatabaseType): User {
     return User.reconstruct(
       UserId.create(data.id),

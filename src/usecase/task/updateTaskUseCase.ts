@@ -22,15 +22,13 @@ export default class UpdateTaskUseCase {
     }
 
     const entity = toEntity(userSession.userId, data);
-    const updated = task.update(
+    return fromEntity(await this.repository.save(task.update(
       entity.taskName,
       entity.memo,
       entity.status,
       entity.dueDate,
       entity.estimate,
       entity.tags,
-    );
-    await this.repository.save(updated);
-    return fromEntity(updated);
+    )));
   }
 }

@@ -1,10 +1,8 @@
 import 'reflect-metadata';
 import '^/config/registry.migration';
-import dotenv from 'dotenv';
+import type IMigrationUseCase from '^/usecase/migration';
 import { container } from 'tsyringe';
-import MigrationUseCase from '^/usecase/migrationUseCase';
 
-dotenv.config();
 (async () => {
-  await container.resolve(MigrationUseCase).invoke();
+  await container.resolve<IMigrationUseCase>('IMigrationUseCase').invoke();
 })();

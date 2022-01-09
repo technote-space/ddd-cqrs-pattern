@@ -1,7 +1,10 @@
 export type CreateTableColumn = {
   name: string;
 } & ({
-  type: 'title' | 'text' | 'datetime' | 'int';
+  type: 'pk' | 'datetime';
+} | {
+  type: 'title' | 'text' | 'int';
+  length?: number;
 } | {
   type: 'relation';
   relation: string;
@@ -9,10 +12,12 @@ export type CreateTableColumn = {
   aggregates?: boolean;
 });
 export type TableColumn = {
-  id: string;
   name: string;
 } & ({
-  type: 'pk' | 'title' | 'text' | 'datetime' | 'int';
+  type: 'pk' | 'datetime';
+} | {
+  type: 'title' | 'text' | 'int';
+  length?: number;
 } | {
   type: 'relation';
   relation_id: string;

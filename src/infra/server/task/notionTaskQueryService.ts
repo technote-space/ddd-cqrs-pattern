@@ -1,10 +1,10 @@
 import type IDatabase from '$/server/shared/database';
 import type Task from '$/shared/task/task';
 import type UserId from '$/shared/user/valueObject/userId';
-import type { DatabaseType } from './mapper';
+import type { DatabaseType } from './notionMapper';
 import type { ITaskQueryService } from '^/usecase/task/fetchTasksUseCase';
 import { inject, singleton } from 'tsyringe';
-import Mapper from './mapper';
+import NotionMapper from './notionMapper';
 
 @singleton()
 export default class NotionTaskQueryService implements ITaskQueryService {
@@ -27,6 +27,6 @@ export default class NotionTaskQueryService implements ITaskQueryService {
       ],
     });
 
-    return response.results.map(result => Mapper.toEntity(result)).sort((a, b) => a.compare(b));
+    return response.results.map(result => NotionMapper.toEntity(result)).sort((a, b) => a.compare(b));
   }
 }

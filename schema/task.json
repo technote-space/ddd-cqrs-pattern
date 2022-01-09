@@ -3,7 +3,8 @@
   "columns": [
     {
       "name": "taskName",
-      "type": "title"
+      "type": "title",
+      "length": 64
     },
     {
       "name": "memo",
@@ -11,7 +12,8 @@
     },
     {
       "name": "status",
-      "type": "text"
+      "type": "text",
+      "length": 16
     },
     {
       "name": "dueDate",
@@ -23,7 +25,8 @@
     },
     {
       "name": "estimateUnit",
-      "type": "text"
+      "type": "text",
+      "length": 8
     },
     {
       "name": "user",

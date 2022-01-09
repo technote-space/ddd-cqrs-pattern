@@ -25,6 +25,7 @@ describe('tsyringe', () => {
     expect(() => container.resolve('useIsProcessRunning')).not.toThrow();
 
     // shared
+    expect(() => container.resolve('IEnv')).not.toThrow();
     expect(() => container.resolve('IDocument')).not.toThrow();
     expect(() => container.resolve('IApp')).not.toThrow();
     expect(() => container.resolve('IAuthContext')).not.toThrow();
@@ -43,9 +44,7 @@ describe('tsyringe', () => {
     expect(() => container.resolve('IIndexPage')).not.toThrow();
 
     // migration
-    expect(() => container.resolve('IEnv')).not.toThrow();
-    expect(() => container.resolve('MigrationSchemas')).not.toThrow();
-    expect(() => container.resolve('IDatabase')).not.toThrow();
+    expect(() => container.resolve('IMigrationUseCase')).not.toThrow();
 
     // server
     expect(() => container.resolve('IJwt')).not.toThrow();

@@ -16,7 +16,7 @@ import type {
   QueryDatabaseResponse,
   UpdatePageParameters,
 } from '@notionhq/client/build/src/api-endpoints';
-import type { MigrationSchemas } from '^/usecase/migrationUseCase';
+import type { MigrationSchemas } from '^/usecase/migration/databaseMigrationUseCase';
 import { Client, APIErrorCode, LogLevel } from '@notionhq/client';
 import { APIResponseError } from '@notionhq/client/build/src/errors';
 import { singleton, inject } from 'tsyringe';

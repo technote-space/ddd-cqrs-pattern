@@ -29,8 +29,10 @@ const nextConfig = {
   distDir: !process.env.VERCEL && process.env.NODE_ENV === 'production' ? 'build' : '.next',
   webpack: (config, {isServer}) => {
     if (!isServer) {
-      config.externals.push({'./registry.server': 'var {}'})
+      config.externals.push({'./registry.migration': 'var {}'});
+      config.externals.push({'./registry.server': 'var {}'});
     }
+    config.externals.push({'_http_common': 'var {}'});
 
     return config;
   },
