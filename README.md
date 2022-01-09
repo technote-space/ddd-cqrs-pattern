@@ -58,11 +58,16 @@
 1. パッケージのインストール
   * `yarn`
 2. 環境変数の設定
-  * `NOTION_SECRET`: `secret_xxxxxx`
-  * `NOTION_PARENT_ID`: `親となるページID`
-  * `SLACK_WEBHOOK_URL`: `エラー時にSlackを送信したい場合に設定するwebhook`
-  * `NEXT_PUBLIC_AUTH0_CLIENT_ID`: `Auth0のClientID`
-  * `NEXT_PUBLIC_AUTH0_DOMAIN`: `Auth0のDomain`
+   1. Database
+      * `DATABASE_TYPE`: `mysql` or `notion`
+        * `NOTION_SECRET`: `Notionの設定（secret_xxxxxx）`
+        * `NOTION_PARENT_ID`: `Notionの設定（親となるページID）`
+        * `MYSQL_...`: `MySQLの設定`
+   2. Auth0
+      * `NEXT_PUBLIC_AUTH0_CLIENT_ID`: `Auth0のClientID`
+      * `NEXT_PUBLIC_AUTH0_DOMAIN`: `Auth0のDomain`
+   4. Slack
+      * `SLACK_WEBHOOK_URL`: `エラー時にSlackを送信したい場合に設定するwebhook`
 3. マイグレーション
   * `yarn migrate`
 
