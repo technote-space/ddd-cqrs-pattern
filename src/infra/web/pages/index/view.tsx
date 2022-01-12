@@ -1,17 +1,15 @@
 import type { HooksParams } from './hooks';
 import type { VFC } from 'react';
-import dynamic from 'next/dynamic';
 import { memo, useMemo } from 'react';
 import AddButton from '#/button/addButton';
 import ButtonGroup from '#/button/group';
 import Flex from '#/layout/flex';
 import Tabs, { TabItem } from '#/layout/tab';
 import Loading from '#/loading';
-
-const Task = dynamic(() => import('./components/task'));
-const TaskFormModal = dynamic(() => import('./components/taskFormModal'));
-const RestoreAlertDialog = dynamic(() => import('./components/restoreAlertDialog'));
-const DeleteAlertDialog = dynamic(() => import('./components/deleteAlertDialog'));
+import DeleteAlertDialog from'./components/deleteAlertDialog';
+import RestoreAlertDialog from'./components/restoreAlertDialog';
+import Task from'./components/task';
+import TaskFormModal from'./components/taskFormModal';
 
 const View: VFC<HooksParams> = ({
   user,
@@ -55,28 +53,16 @@ const View: VFC<HooksParams> = ({
       </ButtonGroup>
       {isValidatingTasks && <Loading position="fixed" top={4}/>}
       <Tabs>
-        {[
-          <TabItem key="all" title="All">
-            {useMemo(() => tasks?.map(task => <Task
+        {useMemo(() => ['ALL'].concat(statuses).map(status => <TabItem key={status} title={status}>
+          {tasks?.filter(task => 'ALL' === status || task.status.isEqualLabelStatus(status)).map(task =>
+            <Task
               key={task.taskId.value}
               task={task}
               onUpdate={updateTaskHandlers[task.taskId.value]}
               onRestore={restoreTaskHandlers[task.taskId.value]}
               onDelete={deleteTaskHandlers[task.taskId.value]}
-            />), [tasks, updateTaskHandlers, restoreTaskHandlers, deleteTaskHandlers])}
-          </TabItem>,
-          ...statuses.map(status =>
-            <TabItem key={status} title={status}>
-              {useMemo(() => tasks?.filter(task => task.status.isEqualLabelStatus(status)).map(task => <Task
-                key={task.taskId.value}
-                task={task}
-                onUpdate={updateTaskHandlers[task.taskId.value]}
-                onRestore={restoreTaskHandlers[task.taskId.value]}
-                onDelete={deleteTaskHandlers[task.taskId.value]}
-              />), [status])}
-            </TabItem>,
-          ),
-        ]}
+            />)}
+        </TabItem>), [tasks, statuses, updateTaskHandlers, restoreTaskHandlers, deleteTaskHandlers])}
       </Tabs>
     </Flex>
     <TaskFormModal
