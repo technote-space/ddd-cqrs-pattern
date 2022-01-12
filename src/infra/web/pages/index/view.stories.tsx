@@ -1,5 +1,6 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import { useForm } from 'react-hook-form';
+import Status from '$/shared/task/valueObject/status';
 import { getFormFields } from '@/web/helpers/form';
 import { reconstructEntity } from '^/usecase/task/taskDto';
 import View from './view';
@@ -10,6 +11,7 @@ export default {
   argTypes: {
     user: { control: { type: 'object' } },
     tasks: { control: { type: 'object' } },
+    statuses: { control: { type: 'object' } },
     isValidatingTasks: { control: { type: 'boolean' } },
     isOpenTaskFormDialog: { control: { type: 'boolean' } },
     isDisabled: { control: { type: 'boolean' } },
@@ -59,6 +61,7 @@ Default.args = {
       tags: ['テスト1', 'テスト2'],
     }),
   ],
+  statuses: Status.getAllStatuses(),
   isValidatingTasks: false,
   formFields: {} as never,
 };
@@ -67,6 +70,7 @@ export const NotLoggedIn = Template.bind({});
 NotLoggedIn.args = {
   user: { isLoggedIn: false },
   tasks: undefined,
+  statuses: Status.getAllStatuses(),
   isValidatingTasks: true,
   formFields: {} as never,
 };
@@ -75,6 +79,7 @@ export const NotLoaded = Template.bind({});
 NotLoaded.args = {
   user: { isLoggedIn: true, user: { authorization: '' } },
   tasks: undefined,
+  statuses: Status.getAllStatuses(),
   isValidatingTasks: true,
   formFields: {} as never,
 };
@@ -83,6 +88,7 @@ export const TaskForm = Template.bind({});
 TaskForm.args = {
   user: { isLoggedIn: true, user: { authorization: '' } },
   tasks: undefined,
+  statuses: Status.getAllStatuses(),
   isValidatingTasks: false,
   isOpenTaskFormDialog: true,
   formFields: getFormFields(),
@@ -93,6 +99,7 @@ export const DeleteDialog = Template.bind({});
 DeleteDialog.args = {
   user: { isLoggedIn: true, user: { authorization: '' } },
   tasks: undefined,
+  statuses: Status.getAllStatuses(),
   isValidatingTasks: false,
   isOpenDeleteTaskDialog: true,
   formFields: getFormFields(),
