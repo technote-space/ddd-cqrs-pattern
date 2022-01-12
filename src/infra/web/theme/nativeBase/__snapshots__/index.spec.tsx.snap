@@ -15,16 +15,27 @@ exports[`NativeBaseTheme should return theme 1`] = `
     className="css-view-1dbjc4n"
     style={
       Object {
-        "backgroundColor": "rgba(255,250,240,1.00)",
-        "display": "flex",
-        "height": "100vh",
-        "overflowX": "auto",
-        "overflowY": "auto",
+        "WebkitFlex": 1,
+        "flex": 1,
+        "msFlex": "1 1 0%",
       }
     }
   >
-    <div>
-      test
+    <div
+      className="css-view-1dbjc4n"
+      style={
+        Object {
+          "backgroundColor": "rgba(255,250,240,1.00)",
+          "display": "flex",
+          "height": "100vh",
+          "overflowX": "auto",
+          "overflowY": "auto",
+        }
+      }
+    >
+      <div>
+        test
+      </div>
     </div>
   </div>
 </div>

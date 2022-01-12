@@ -1,6 +1,7 @@
 import type { IApi } from '$/web/shared/api';
 import type { IAuth } from '$/web/shared/auth';
 import { useEffect, useMemo } from 'react';
+import Status from '$/shared/task/valueObject/status';
 import { getAuthorization } from '@/web/pages/index/helpers/auth';
 import { useAddProcess, useDeleteProcess } from '@/web/shared/loading';
 import { reconstructEntity } from '^/usecase/task/taskDto';
@@ -24,6 +25,7 @@ export const useTasks = (auth: IAuth, api: IApi) => {
 
   return {
     tasks: useMemo(() => data?.map(reconstructEntity), [data]),
+    statuses: Status.getAllStatuses(),
     isValidatingTasks: isValidating,
     mutateTasks: mutate,
   };
