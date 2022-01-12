@@ -5,6 +5,7 @@ import { memo, useMemo } from 'react';
 import AddButton from '#/button/addButton';
 import ButtonGroup from '#/button/group';
 import Flex from '#/layout/flex';
+import Tabs, { TabItem } from '#/layout/tab';
 import Loading from '#/loading';
 
 const Task = dynamic(() => import('./components/task'));
@@ -16,6 +17,7 @@ const View: VFC<HooksParams> = ({
   user,
 
   tasks,
+  statuses,
   isValidatingTasks,
   updateTaskHandlers,
   restoreTaskHandlers,
@@ -52,13 +54,30 @@ const View: VFC<HooksParams> = ({
         <AddButton onPress={handleOpenAddTaskFormDialog}/>
       </ButtonGroup>
       {isValidatingTasks && <Loading position="fixed" top={4}/>}
-      {useMemo(() => tasks?.map(task => <Task
-        key={task.taskId.value}
-        task={task}
-        onUpdate={updateTaskHandlers[task.taskId.value]}
-        onRestore={restoreTaskHandlers[task.taskId.value]}
-        onDelete={deleteTaskHandlers[task.taskId.value]}
-      />), [tasks, updateTaskHandlers, restoreTaskHandlers, deleteTaskHandlers])}
+      <Tabs>
+        {[
+          <TabItem key="all" title="All">
+            {useMemo(() => tasks?.map(task => <Task
+              key={task.taskId.value}
+              task={task}
+              onUpdate={updateTaskHandlers[task.taskId.value]}
+              onRestore={restoreTaskHandlers[task.taskId.value]}
+              onDelete={deleteTaskHandlers[task.taskId.value]}
+            />), [tasks, updateTaskHandlers, restoreTaskHandlers, deleteTaskHandlers])}
+          </TabItem>,
+          ...statuses.map(status =>
+            <TabItem key={status} title={status}>
+              {useMemo(() => tasks?.filter(task => task.status.isEqualLabelStatus(status)).map(task => <Task
+                key={task.taskId.value}
+                task={task}
+                onUpdate={updateTaskHandlers[task.taskId.value]}
+                onRestore={restoreTaskHandlers[task.taskId.value]}
+                onDelete={deleteTaskHandlers[task.taskId.value]}
+              />), [status])}
+            </TabItem>,
+          ),
+        ]}
+      </Tabs>
     </Flex>
     <TaskFormModal
       isOpenTaskFormDialog={isOpenTaskFormDialog}
