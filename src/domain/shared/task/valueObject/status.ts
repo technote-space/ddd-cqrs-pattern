@@ -19,6 +19,10 @@ export default class Status extends Flags<StatusTypes>() {
     return ['登録', '実行中', '完了'];
   }
 
+  public static getAllStatuses() {
+    return ['登録', '実行中', '完了', Status.deleteLabel()];
+  }
+
   public canDelete(): boolean {
     return Status.getActiveStatuses().includes(this.value);
   }
@@ -33,6 +37,11 @@ export default class Status extends Flags<StatusTypes>() {
 
   public static deleteLabel(): string {
     return '削除';
+  }
+
+  public isEqualLabelStatus(status: string): boolean {
+    if (status === '削除') return this.isDeleted();
+    return status === this.value;
   }
 
   public get displayValue(): string {

@@ -17,9 +17,8 @@ export default class FetchTasksController extends BaseController<TaskDto[]> {
   }
 
   protected async execute(): Promise<Result<TaskDto[]> | void> {
-    const userSession = await this.userSessionProvider.getUserSession(this.getAuthorizationHeader());
     return {
-      data: await this.useCase.invoke(userSession),
+      data: await this.useCase.invoke(await this.userSessionProvider.getUserSession(this.getAuthorizationHeader())),
     };
   }
 }

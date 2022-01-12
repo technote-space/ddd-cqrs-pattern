@@ -26,14 +26,6 @@ describe('StringId', () => {
     expect(TestStringId.create('').validate('test')).toEqual([{ name: 'test', error: '値を指定してください' }]);
   });
 
-  it('should set generated id', () => {
-    const id = TestStringId.create(null);
-    expect(id.isSetId()).toBe(false);
-    id.setGeneratedId('123');
-    expect(id.isSetId()).toBe(true);
-    expect(id.value).toBe('123');
-  });
-
   it('should throw error if id is not set', () => {
     const id = TestStringId.create(null);
     expect(id.isSetId()).toBe(false);
