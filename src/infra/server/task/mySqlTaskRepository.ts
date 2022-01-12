@@ -64,8 +64,8 @@ export default class MySqlTaskRepository implements ITaskRepository {
 
     if (task.taskId.isSetId()) {
       data.tags = {
-        ...data.tags,
         set: [],
+        ...data.tags,
       };
       return this.client.task.update({
         data,
