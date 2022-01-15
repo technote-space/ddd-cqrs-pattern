@@ -101,6 +101,12 @@ http://localhost:3000/
 
 `yarn sb`
 
+## Deploy
+
+Vercel にデプロイする際は以下の環境変数を設定してください。
+
+`NOTION_SECRET`, `NOTION_PARENT_ID`, `NEXT_PUBLIC_AUTH0_CLIENT_ID`, `NEXT_PUBLIC_AUTH0_DOMAIN`
+
 ## Author
 
 [GitHub (Technote)](https://github.com/technote-space)  
