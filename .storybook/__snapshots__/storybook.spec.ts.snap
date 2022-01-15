@@ -11207,7 +11207,7 @@ exports[`Storyshots Page Components/Index Default 1`] = `
                     }
                   }
                 >
-                  ALL
+                  ALL(2)
                 </div>
               </div>
             </div>
@@ -11270,7 +11270,7 @@ exports[`Storyshots Page Components/Index Default 1`] = `
                     }
                   }
                 >
-                  登録
+                  登録(1)
                 </div>
               </div>
             </div>
@@ -11333,7 +11333,7 @@ exports[`Storyshots Page Components/Index Default 1`] = `
                     }
                   }
                 >
-                  実行中
+                  実行中(0)
                 </div>
               </div>
             </div>
@@ -11396,7 +11396,7 @@ exports[`Storyshots Page Components/Index Default 1`] = `
                     }
                   }
                 >
-                  完了
+                  完了(1)
                 </div>
               </div>
             </div>
@@ -11459,7 +11459,7 @@ exports[`Storyshots Page Components/Index Default 1`] = `
                     }
                   }
                 >
-                  削除
+                  削除(0)
                 </div>
               </div>
             </div>
@@ -12306,7 +12306,7 @@ exports[`Storyshots Page Components/Index Delete Dialog 1`] = `
                     }
                   }
                 >
-                  ALL
+                  ALL(0)
                 </div>
               </div>
             </div>
@@ -12369,7 +12369,7 @@ exports[`Storyshots Page Components/Index Delete Dialog 1`] = `
                     }
                   }
                 >
-                  登録
+                  登録(0)
                 </div>
               </div>
             </div>
@@ -12432,7 +12432,7 @@ exports[`Storyshots Page Components/Index Delete Dialog 1`] = `
                     }
                   }
                 >
-                  実行中
+                  実行中(0)
                 </div>
               </div>
             </div>
@@ -12495,7 +12495,7 @@ exports[`Storyshots Page Components/Index Delete Dialog 1`] = `
                     }
                   }
                 >
-                  完了
+                  完了(0)
                 </div>
               </div>
             </div>
@@ -12558,7 +12558,7 @@ exports[`Storyshots Page Components/Index Delete Dialog 1`] = `
                     }
                   }
                 >
-                  削除
+                  削除(0)
                 </div>
               </div>
             </div>
@@ -12959,7 +12959,7 @@ exports[`Storyshots Page Components/Index Not Loaded 1`] = `
                     }
                   }
                 >
-                  ALL
+                  ALL(0)
                 </div>
               </div>
             </div>
@@ -13022,7 +13022,7 @@ exports[`Storyshots Page Components/Index Not Loaded 1`] = `
                     }
                   }
                 >
-                  登録
+                  登録(0)
                 </div>
               </div>
             </div>
@@ -13085,7 +13085,7 @@ exports[`Storyshots Page Components/Index Not Loaded 1`] = `
                     }
                   }
                 >
-                  実行中
+                  実行中(0)
                 </div>
               </div>
             </div>
@@ -13148,7 +13148,7 @@ exports[`Storyshots Page Components/Index Not Loaded 1`] = `
                     }
                   }
                 >
-                  完了
+                  完了(0)
                 </div>
               </div>
             </div>
@@ -13211,7 +13211,7 @@ exports[`Storyshots Page Components/Index Not Loaded 1`] = `
                     }
                   }
                 >
-                  削除
+                  削除(0)
                 </div>
               </div>
             </div>
@@ -13532,7 +13532,7 @@ exports[`Storyshots Page Components/Index Task Form 1`] = `
                     }
                   }
                 >
-                  ALL
+                  ALL(0)
                 </div>
               </div>
             </div>
@@ -13595,7 +13595,7 @@ exports[`Storyshots Page Components/Index Task Form 1`] = `
                     }
                   }
                 >
-                  登録
+                  登録(0)
                 </div>
               </div>
             </div>
@@ -13658,7 +13658,7 @@ exports[`Storyshots Page Components/Index Task Form 1`] = `
                     }
                   }
                 >
-                  実行中
+                  実行中(0)
                 </div>
               </div>
             </div>
@@ -13721,7 +13721,7 @@ exports[`Storyshots Page Components/Index Task Form 1`] = `
                     }
                   }
                 >
-                  完了
+                  完了(0)
                 </div>
               </div>
             </div>
@@ -13784,7 +13784,7 @@ exports[`Storyshots Page Components/Index Task Form 1`] = `
                     }
                   }
                 >
-                  削除
+                  削除(0)
                 </div>
               </div>
             </div>
