@@ -6,6 +6,7 @@ import ButtonGroup from '#/button/group';
 import Flex from '#/layout/flex';
 import Tabs, { TabItem } from '#/layout/tab';
 import Loading from '#/loading';
+import Status from '$/shared/task/valueObject/status';
 import DeleteAlertDialog from './components/deleteAlertDialog';
 import RestoreAlertDialog from './components/restoreAlertDialog';
 import Task from './components/task';
@@ -53,8 +54,8 @@ const View: VFC<HooksParams> = ({
       </ButtonGroup>
       {isValidatingTasks && <Loading position="fixed" top={4}/>}
       <Tabs>
-        {useMemo(() => ['ALL'].concat(statuses).map(status => {
-          const filteredTasks = (tasks ?? []).filter(task => 'ALL' === status || task.status.isEqualLabelStatus(status));
+        {useMemo(() => [Status.ActiveLabel()].concat(statuses).map(status => {
+          const filteredTasks = (tasks ?? []).filter(task => task.status.isEqualLabelStatus(status));
           return <TabItem key={status} title={`${status}(${filteredTasks.length})`}>
             {filteredTasks.map(task =>
               <Task
