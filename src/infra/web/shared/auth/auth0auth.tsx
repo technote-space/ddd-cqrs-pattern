@@ -124,7 +124,7 @@ export class Auth0Auth implements IAuth {
   public useLogout(): LogoutCallback {
     const { logout } = useAuth0();
     return useCallback(async () => {
-      logout();
+      logout({ returnTo: window.location.origin });
     }, [logout]);
   }
 }
