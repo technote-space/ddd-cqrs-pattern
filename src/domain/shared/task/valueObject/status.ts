@@ -39,7 +39,12 @@ export default class Status extends Flags<StatusTypes>() {
     return '削除';
   }
 
+  public static ActiveLabel(): string {
+    return 'ALL';
+  }
+
   public isEqualLabelStatus(status: string): boolean {
+    if (status === Status.ActiveLabel()) return !this.isDeleted();
     if (status === '削除') return this.isDeleted();
     return status === this.value;
   }

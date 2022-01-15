@@ -22,6 +22,7 @@
   - [Type check](#type-check)
   - [Jest](#jest)
   - [Storybook](#storybook)
+- [Deploy](#deploy)
 - [Author](#author)
 
 *generated with [TOC Generator](https://github.com/technote-space/toc-generator)*
@@ -100,6 +101,12 @@ http://localhost:3000/
 ### Storybook
 
 `yarn sb`
+
+## Deploy
+
+Vercel にデプロイする際は以下の環境変数を設定してください。
+
+`NOTION_SECRET`, `NOTION_PARENT_ID`, `NEXT_PUBLIC_AUTH0_CLIENT_ID`, `NEXT_PUBLIC_AUTH0_DOMAIN`
 
 ## Author
 

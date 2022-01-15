@@ -6,10 +6,11 @@ import ButtonGroup from '#/button/group';
 import Flex from '#/layout/flex';
 import Tabs, { TabItem } from '#/layout/tab';
 import Loading from '#/loading';
-import DeleteAlertDialog from'./components/deleteAlertDialog';
-import RestoreAlertDialog from'./components/restoreAlertDialog';
-import Task from'./components/task';
-import TaskFormModal from'./components/taskFormModal';
+import Status from '$/shared/task/valueObject/status';
+import DeleteAlertDialog from './components/deleteAlertDialog';
+import RestoreAlertDialog from './components/restoreAlertDialog';
+import Task from './components/task';
+import TaskFormModal from './components/taskFormModal';
 
 const View: VFC<HooksParams> = ({
   user,
@@ -53,16 +54,19 @@ const View: VFC<HooksParams> = ({
       </ButtonGroup>
       {isValidatingTasks && <Loading position="fixed" top={4}/>}
       <Tabs>
-        {useMemo(() => ['ALL'].concat(statuses).map(status => <TabItem key={status} title={status}>
-          {tasks?.filter(task => 'ALL' === status || task.status.isEqualLabelStatus(status)).map(task =>
-            <Task
-              key={task.taskId.value}
-              task={task}
-              onUpdate={updateTaskHandlers[task.taskId.value]}
-              onRestore={restoreTaskHandlers[task.taskId.value]}
-              onDelete={deleteTaskHandlers[task.taskId.value]}
-            />)}
-        </TabItem>), [tasks, statuses, updateTaskHandlers, restoreTaskHandlers, deleteTaskHandlers])}
+        {useMemo(() => [Status.ActiveLabel()].concat(statuses).map(status => {
+          const filteredTasks = (tasks ?? []).filter(task => task.status.isEqualLabelStatus(status));
+          return <TabItem key={status} title={`${status}(${filteredTasks.length})`}>
+            {filteredTasks.map(task =>
+              <Task
+                key={task.taskId.value}
+                task={task}
+                onUpdate={updateTaskHandlers[task.taskId.value]}
+                onRestore={restoreTaskHandlers[task.taskId.value]}
+                onDelete={deleteTaskHandlers[task.taskId.value]}
+              />)}
+          </TabItem>;
+        }), [tasks, statuses, updateTaskHandlers, restoreTaskHandlers, deleteTaskHandlers])}
       </Tabs>
     </Flex>
     <TaskFormModal

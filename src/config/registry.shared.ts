@@ -42,7 +42,9 @@ container.registerInstance('auth0Config', {
   domain: process.env.NEXT_PUBLIC_AUTH0_DOMAIN,
   clientId: process.env.NEXT_PUBLIC_AUTH0_CLIENT_ID,
 });
-container.registerInstance('client', api(aspida()));
+container.registerInstance('client', api(aspida(undefined, {
+  baseURL: process.env.NEXT_PUBLIC_VERCEL_URL ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api` : undefined,
+})));
 
 // pages
 container.registerSingleton('IIndexPage', IndexPage);
