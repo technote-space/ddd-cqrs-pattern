@@ -22,6 +22,7 @@
   - [Type check](#type-check)
   - [Jest](#jest)
   - [Storybook](#storybook)
+- [Deploy](#deploy)
 - [Author](#author)
 
 *generated with [TOC Generator](https://github.com/technote-space/toc-generator)*
