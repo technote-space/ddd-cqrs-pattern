@@ -39,6 +39,8 @@ const TaskForm: VFC<Props> = ({
     {Object.entries(formFields).map(([name, { label, isRequired, component, props }], index) => {
       const Component = FormComponents[component];
       return <Component
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         key={index}
         name={name as keyof FormValues}
         control={control}

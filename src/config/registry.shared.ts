@@ -43,7 +43,7 @@ container.registerInstance('auth0Config', {
   clientId: process.env.NEXT_PUBLIC_AUTH0_CLIENT_ID,
 });
 container.registerInstance('client', api(aspida(undefined, {
-  baseURL: process.env.NEXT_PUBLIC_VERCEL_URL ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api` : undefined,
+  baseURL: typeof window !== 'undefined' ? `${window.location.origin}/api` : undefined,
 })));
 
 // pages
