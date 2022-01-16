@@ -20,6 +20,8 @@ const NumberInput = ({
   isDisabled,
   fieldProps,
   ...props
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
 }: WithControlProps<Props>): ReactElement => {
   return <NBNumberInput
     isDisabled={isDisabled}
