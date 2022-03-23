@@ -5400,7 +5400,7 @@ exports[`Storyshots Domain Components/Index/TaskForm Default 1`] = `
                   }
                 }
               >
-                タグ名
+                タグ
               </div>
             </label>
             <div
@@ -6542,7 +6542,7 @@ exports[`Storyshots Domain Components/Index/TaskForm Disabled Task Form 1`] = `
                   }
                 }
               >
-                タグ名
+                タグ
               </div>
             </label>
             <div
@@ -7960,7 +7960,7 @@ exports[`Storyshots Domain Components/Index/TaskForm Task Form With Errors 1`] =
                   }
                 }
               >
-                タグ名
+                タグ
               </div>
             </label>
             <div

@@ -1,8 +1,8 @@
 import TagName from './tagName';
 
 describe('TagName', () => {
-  it('ラベルが「タグ名」', () => {
-    expect(TagName.getLabel()).toBe('タグ名');
+  it('ラベルが「タグ」', () => {
+    expect(TagName.getLabel()).toBe('タグ');
   });
 
   it('長さが 16 より長いとエラー', () => {
