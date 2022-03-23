@@ -155,7 +155,7 @@ describe('NotionDatabase', () => {
         pageSize: 10,
         cursor: 'test',
         filter: [
-          { property: 'test1', condition: { text: { equals: 'aaa' } } },
+          { property: 'test1', condition: { rich_text: { equals: 'aaa' } } },
           { property: 'test2', condition: { int: { equals: 123 } } },
           { property: 'test3', condition: { datetime: { equals: '2020-01-01' } } },
           { property: 'test4', condition: { relation: { contains: 'bbb' } } },
