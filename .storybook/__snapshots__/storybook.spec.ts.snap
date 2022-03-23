@@ -108,8 +108,7 @@ exports[`Storyshots Common Components/Form/AddItem Disabled 1`] = `
     }
   >
     <div
-      aria-disabled={true}
-      className="css-view-1dbjc4n"
+      className="css-cursor-18t94o4 css-view-1dbjc4n"
       onBlur={[Function]}
       onClick={[Function]}
       onContextMenu={[Function]}
@@ -130,7 +129,7 @@ exports[`Storyshots Common Components/Form/AddItem Disabled 1`] = `
           "borderBottomRightRadius": "9999px",
           "borderTopLeftRadius": "9999px",
           "borderTopRightRadius": "9999px",
-          "cursor": "not-allowed",
+          "cursor": "pointer",
           "height": "32px",
           "justifyContent": "center",
           "marginLeft": "4px",
@@ -138,11 +137,14 @@ exports[`Storyshots Common Components/Form/AddItem Disabled 1`] = `
           "msFlexItemAlign": "center",
           "msFlexPack": "center",
           "msGridRowAlign": "center",
+          "msTouchAction": "manipulation",
+          "opacity": 0.5,
           "outlineWidth": "0px",
+          "touchAction": "manipulation",
           "width": "32px",
         }
       }
-      tabIndex="-1"
+      tabIndex="0"
     >
       <svg
         role="img"
@@ -475,8 +477,7 @@ exports[`Storyshots Common Components/Form/ItemBadge Disabled 1`] = `
         タグ
       </div>
       <div
-        aria-disabled={true}
-        className="css-view-1dbjc4n"
+        className="css-cursor-18t94o4 css-view-1dbjc4n"
         onBlur={[Function]}
         onClick={[Function]}
         onContextMenu={[Function]}
@@ -490,22 +491,25 @@ exports[`Storyshots Common Components/Form/ItemBadge Disabled 1`] = `
             "WebkitBoxPack": "center",
             "WebkitJustifyContent": "center",
             "alignItems": "center",
-            "backgroundColor": "rgba(6,182,212,1.00)",
+            "backgroundColor": "rgba(212,212,212,1.00)",
             "borderBottomLeftRadius": "4px",
             "borderBottomRightRadius": "4px",
             "borderTopLeftRadius": "4px",
             "borderTopRightRadius": "4px",
-            "cursor": "not-allowed",
+            "cursor": "pointer",
             "height": "24px",
             "justifyContent": "center",
             "marginLeft": "4px",
             "msFlexAlign": "center",
             "msFlexPack": "center",
+            "msTouchAction": "manipulation",
+            "opacity": 0.5,
             "outlineWidth": "0px",
+            "touchAction": "manipulation",
             "width": "24px",
           }
         }
-        tabIndex="-1"
+        tabIndex="0"
       >
         <svg
           role="img"
@@ -962,8 +966,7 @@ exports[`Storyshots Common Components/Form/View Disabled 1`] = `
           タグ１
         </div>
         <div
-          aria-disabled={true}
-          className="css-view-1dbjc4n"
+          className="css-cursor-18t94o4 css-view-1dbjc4n"
           onBlur={[Function]}
           onClick={[Function]}
           onContextMenu={[Function]}
@@ -977,22 +980,25 @@ exports[`Storyshots Common Components/Form/View Disabled 1`] = `
               "WebkitBoxPack": "center",
               "WebkitJustifyContent": "center",
               "alignItems": "center",
-              "backgroundColor": "rgba(6,182,212,1.00)",
+              "backgroundColor": "rgba(212,212,212,1.00)",
               "borderBottomLeftRadius": "4px",
               "borderBottomRightRadius": "4px",
               "borderTopLeftRadius": "4px",
               "borderTopRightRadius": "4px",
-              "cursor": "not-allowed",
+              "cursor": "pointer",
               "height": "24px",
               "justifyContent": "center",
               "marginLeft": "4px",
               "msFlexAlign": "center",
               "msFlexPack": "center",
+              "msTouchAction": "manipulation",
+              "opacity": 0.5,
               "outlineWidth": "0px",
+              "touchAction": "manipulation",
               "width": "24px",
             }
           }
-          tabIndex="-1"
+          tabIndex="0"
         >
           <svg
             role="img"
@@ -1075,8 +1081,7 @@ exports[`Storyshots Common Components/Form/View Disabled 1`] = `
           タグ２
         </div>
         <div
-          aria-disabled={true}
-          className="css-view-1dbjc4n"
+          className="css-cursor-18t94o4 css-view-1dbjc4n"
           onBlur={[Function]}
           onClick={[Function]}
           onContextMenu={[Function]}
@@ -1090,22 +1095,25 @@ exports[`Storyshots Common Components/Form/View Disabled 1`] = `
               "WebkitBoxPack": "center",
               "WebkitJustifyContent": "center",
               "alignItems": "center",
-              "backgroundColor": "rgba(6,182,212,1.00)",
+              "backgroundColor": "rgba(212,212,212,1.00)",
               "borderBottomLeftRadius": "4px",
               "borderBottomRightRadius": "4px",
               "borderTopLeftRadius": "4px",
               "borderTopRightRadius": "4px",
-              "cursor": "not-allowed",
+              "cursor": "pointer",
               "height": "24px",
               "justifyContent": "center",
               "marginLeft": "4px",
               "msFlexAlign": "center",
               "msFlexPack": "center",
+              "msTouchAction": "manipulation",
+              "opacity": 0.5,
               "outlineWidth": "0px",
+              "touchAction": "manipulation",
               "width": "24px",
             }
           }
-          tabIndex="-1"
+          tabIndex="0"
         >
           <svg
             role="img"
@@ -1130,8 +1138,7 @@ exports[`Storyshots Common Components/Form/View Disabled 1`] = `
         </div>
       </div>
       <div
-        aria-disabled={true}
-        className="css-view-1dbjc4n"
+        className="css-cursor-18t94o4 css-view-1dbjc4n"
         onBlur={[Function]}
         onClick={[Function]}
         onContextMenu={[Function]}
@@ -1152,7 +1159,7 @@ exports[`Storyshots Common Components/Form/View Disabled 1`] = `
             "borderBottomRightRadius": "9999px",
             "borderTopLeftRadius": "9999px",
             "borderTopRightRadius": "9999px",
-            "cursor": "not-allowed",
+            "cursor": "pointer",
             "height": "32px",
             "justifyContent": "center",
             "marginLeft": "4px",
@@ -1160,11 +1167,14 @@ exports[`Storyshots Common Components/Form/View Disabled 1`] = `
             "msFlexItemAlign": "center",
             "msFlexPack": "center",
             "msGridRowAlign": "center",
+            "msTouchAction": "manipulation",
+            "opacity": 0.5,
             "outlineWidth": "0px",
+            "touchAction": "manipulation",
             "width": "32px",
           }
         }
-        tabIndex="-1"
+        tabIndex="0"
       >
         <svg
           role="img"
@@ -4535,7 +4545,6 @@ exports[`Storyshots Domain Components/Index/TaskForm Default 1`] = `
               autoCorrect="on"
               className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
               dir="auto"
-              disabled={false}
               id="field-react-aria-1"
               onBlur={[Function]}
               onChange={[Function]}
@@ -4878,18 +4887,6 @@ exports[`Storyshots Domain Components/Index/TaskForm Default 1`] = `
                     Object {
                       "WebkitFlex": 1,
                       "backgroundColor": "rgba(0,0,0,0.00)",
-                      "borderBottomColor": "rgba(229,229,229,1.00)",
-                      "borderBottomLeftRadius": "4px",
-                      "borderBottomRightRadius": "4px",
-                      "borderBottomWidth": "0px",
-                      "borderLeftColor": "rgba(229,229,229,1.00)",
-                      "borderLeftWidth": "0px",
-                      "borderRightColor": "rgba(229,229,229,1.00)",
-                      "borderRightWidth": "0px",
-                      "borderTopColor": "rgba(229,229,229,1.00)",
-                      "borderTopLeftRadius": "4px",
-                      "borderTopRightRadius": "4px",
-                      "borderTopWidth": "0px",
                       "color": "rgba(31,41,55,1.00)",
                       "cursor": "auto",
                       "flex": 1,
@@ -4900,8 +4897,6 @@ exports[`Storyshots Domain Components/Index/TaskForm Default 1`] = `
                       "msFlex": "1 1 0%",
                       "outline": "none",
                       "outlineWidth": "0px",
-                      "overflowX": "auto",
-                      "overflowY": "auto",
                       "paddingBottom": "8px",
                       "paddingLeft": "8px",
                       "paddingRight": "8px",
@@ -5146,10 +5141,10 @@ exports[`Storyshots Domain Components/Index/TaskForm Default 1`] = `
                     "outlineWidth": "0px",
                     "overflowX": "auto",
                     "overflowY": "auto",
-                    "paddingBottom": "8px",
+                    "paddingBottom": "0px",
                     "paddingLeft": "8px",
-                    "paddingRight": "8px",
-                    "paddingTop": "8px",
+                    "paddingRight": "0px",
+                    "paddingTop": "0px",
                   }
                 }
                 value="0"
@@ -5304,18 +5299,6 @@ exports[`Storyshots Domain Components/Index/TaskForm Default 1`] = `
                     Object {
                       "WebkitFlex": 1,
                       "backgroundColor": "rgba(0,0,0,0.00)",
-                      "borderBottomColor": "rgba(229,229,229,1.00)",
-                      "borderBottomLeftRadius": "4px",
-                      "borderBottomRightRadius": "4px",
-                      "borderBottomWidth": "0px",
-                      "borderLeftColor": "rgba(229,229,229,1.00)",
-                      "borderLeftWidth": "0px",
-                      "borderRightColor": "rgba(229,229,229,1.00)",
-                      "borderRightWidth": "0px",
-                      "borderTopColor": "rgba(229,229,229,1.00)",
-                      "borderTopLeftRadius": "4px",
-                      "borderTopRightRadius": "4px",
-                      "borderTopWidth": "0px",
                       "color": "rgba(31,41,55,1.00)",
                       "cursor": "auto",
                       "flex": 1,
@@ -5326,8 +5309,6 @@ exports[`Storyshots Domain Components/Index/TaskForm Default 1`] = `
                       "msFlex": "1 1 0%",
                       "outline": "none",
                       "outlineWidth": "0px",
-                      "overflowX": "auto",
-                      "overflowY": "auto",
                       "paddingBottom": "8px",
                       "paddingLeft": "8px",
                       "paddingRight": "8px",
@@ -6041,19 +6022,7 @@ exports[`Storyshots Domain Components/Index/TaskForm Disabled Task Form 1`] = `
                   style={
                     Object {
                       "WebkitFlex": 1,
-                      "backgroundColor": "rgba(245,245,245,1.00)",
-                      "borderBottomColor": "rgba(229,229,229,1.00)",
-                      "borderBottomLeftRadius": "4px",
-                      "borderBottomRightRadius": "4px",
-                      "borderBottomWidth": "0px",
-                      "borderLeftColor": "rgba(229,229,229,1.00)",
-                      "borderLeftWidth": "0px",
-                      "borderRightColor": "rgba(229,229,229,1.00)",
-                      "borderRightWidth": "0px",
-                      "borderTopColor": "rgba(229,229,229,1.00)",
-                      "borderTopLeftRadius": "4px",
-                      "borderTopRightRadius": "4px",
-                      "borderTopWidth": "0px",
+                      "backgroundColor": "rgba(0,0,0,0.00)",
                       "color": "rgba(31,41,55,1.00)",
                       "cursor": "not-allowed",
                       "flex": 1,
@@ -6062,11 +6031,8 @@ exports[`Storyshots Domain Components/Index/TaskForm Disabled Task Form 1`] = `
                       "fontWeight": "400",
                       "lineHeight": "1.5em",
                       "msFlex": "1 1 0%",
-                      "opacity": 0.8,
                       "outline": "none",
                       "outlineWidth": "0px",
-                      "overflowX": "auto",
-                      "overflowY": "auto",
                       "paddingBottom": "8px",
                       "paddingLeft": "8px",
                       "paddingRight": "8px",
@@ -6315,10 +6281,10 @@ exports[`Storyshots Domain Components/Index/TaskForm Disabled Task Form 1`] = `
                     "outlineWidth": "0px",
                     "overflowX": "auto",
                     "overflowY": "auto",
-                    "paddingBottom": "8px",
+                    "paddingBottom": "0px",
                     "paddingLeft": "8px",
-                    "paddingRight": "8px",
-                    "paddingTop": "8px",
+                    "paddingRight": "0px",
+                    "paddingTop": "0px",
                   }
                 }
                 value="0"
@@ -6474,19 +6440,7 @@ exports[`Storyshots Domain Components/Index/TaskForm Disabled Task Form 1`] = `
                   style={
                     Object {
                       "WebkitFlex": 1,
-                      "backgroundColor": "rgba(245,245,245,1.00)",
-                      "borderBottomColor": "rgba(229,229,229,1.00)",
-                      "borderBottomLeftRadius": "4px",
-                      "borderBottomRightRadius": "4px",
-                      "borderBottomWidth": "0px",
-                      "borderLeftColor": "rgba(229,229,229,1.00)",
-                      "borderLeftWidth": "0px",
-                      "borderRightColor": "rgba(229,229,229,1.00)",
-                      "borderRightWidth": "0px",
-                      "borderTopColor": "rgba(229,229,229,1.00)",
-                      "borderTopLeftRadius": "4px",
-                      "borderTopRightRadius": "4px",
-                      "borderTopWidth": "0px",
+                      "backgroundColor": "rgba(0,0,0,0.00)",
                       "color": "rgba(31,41,55,1.00)",
                       "cursor": "not-allowed",
                       "flex": 1,
@@ -6495,11 +6449,8 @@ exports[`Storyshots Domain Components/Index/TaskForm Disabled Task Form 1`] = `
                       "fontWeight": "400",
                       "lineHeight": "1.5em",
                       "msFlex": "1 1 0%",
-                      "opacity": 0.8,
                       "outline": "none",
                       "outlineWidth": "0px",
-                      "overflowX": "auto",
-                      "overflowY": "auto",
                       "paddingBottom": "8px",
                       "paddingLeft": "8px",
                       "paddingRight": "8px",
@@ -6612,8 +6563,7 @@ exports[`Storyshots Domain Components/Index/TaskForm Disabled Task Form 1`] = `
               }
             >
               <div
-                aria-disabled={true}
-                className="css-view-1dbjc4n"
+                className="css-cursor-18t94o4 css-view-1dbjc4n"
                 onBlur={[Function]}
                 onClick={[Function]}
                 onContextMenu={[Function]}
@@ -6634,7 +6584,7 @@ exports[`Storyshots Domain Components/Index/TaskForm Disabled Task Form 1`] = `
                     "borderBottomRightRadius": "9999px",
                     "borderTopLeftRadius": "9999px",
                     "borderTopRightRadius": "9999px",
-                    "cursor": "not-allowed",
+                    "cursor": "pointer",
                     "height": "32px",
                     "justifyContent": "center",
                     "marginLeft": "4px",
@@ -6642,11 +6592,14 @@ exports[`Storyshots Domain Components/Index/TaskForm Disabled Task Form 1`] = `
                     "msFlexItemAlign": "center",
                     "msFlexPack": "center",
                     "msGridRowAlign": "center",
+                    "msTouchAction": "manipulation",
+                    "opacity": 0.5,
                     "outlineWidth": "0px",
+                    "touchAction": "manipulation",
                     "width": "32px",
                   }
                 }
-                tabIndex="-1"
+                tabIndex="0"
               >
                 <svg
                   role="img"
@@ -6865,7 +6818,6 @@ exports[`Storyshots Domain Components/Index/TaskForm Task Form With Errors 1`] =
               autoCorrect="on"
               className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
               dir="auto"
-              disabled={false}
               id="field-react-aria-1"
               onBlur={[Function]}
               onChange={[Function]}
@@ -7304,18 +7256,6 @@ exports[`Storyshots Domain Components/Index/TaskForm Task Form With Errors 1`] =
                     Object {
                       "WebkitFlex": 1,
                       "backgroundColor": "rgba(0,0,0,0.00)",
-                      "borderBottomColor": "rgba(220,38,38,1.00)",
-                      "borderBottomLeftRadius": "4px",
-                      "borderBottomRightRadius": "4px",
-                      "borderBottomWidth": "0px",
-                      "borderLeftColor": "rgba(220,38,38,1.00)",
-                      "borderLeftWidth": "0px",
-                      "borderRightColor": "rgba(220,38,38,1.00)",
-                      "borderRightWidth": "0px",
-                      "borderTopColor": "rgba(220,38,38,1.00)",
-                      "borderTopLeftRadius": "4px",
-                      "borderTopRightRadius": "4px",
-                      "borderTopWidth": "0px",
                       "color": "rgba(31,41,55,1.00)",
                       "cursor": "auto",
                       "flex": 1,
@@ -7326,8 +7266,6 @@ exports[`Storyshots Domain Components/Index/TaskForm Task Form With Errors 1`] =
                       "msFlex": "1 1 0%",
                       "outline": "none",
                       "outlineWidth": "0px",
-                      "overflowX": "auto",
-                      "overflowY": "auto",
                       "paddingBottom": "8px",
                       "paddingLeft": "8px",
                       "paddingRight": "8px",
@@ -7668,10 +7606,10 @@ exports[`Storyshots Domain Components/Index/TaskForm Task Form With Errors 1`] =
                     "outlineWidth": "0px",
                     "overflowX": "auto",
                     "overflowY": "auto",
-                    "paddingBottom": "8px",
+                    "paddingBottom": "0px",
                     "paddingLeft": "8px",
-                    "paddingRight": "8px",
-                    "paddingTop": "8px",
+                    "paddingRight": "0px",
+                    "paddingTop": "0px",
                   }
                 }
                 value="0"
@@ -7874,18 +7812,6 @@ exports[`Storyshots Domain Components/Index/TaskForm Task Form With Errors 1`] =
                     Object {
                       "WebkitFlex": 1,
                       "backgroundColor": "rgba(0,0,0,0.00)",
-                      "borderBottomColor": "rgba(220,38,38,1.00)",
-                      "borderBottomLeftRadius": "4px",
-                      "borderBottomRightRadius": "4px",
-                      "borderBottomWidth": "0px",
-                      "borderLeftColor": "rgba(220,38,38,1.00)",
-                      "borderLeftWidth": "0px",
-                      "borderRightColor": "rgba(220,38,38,1.00)",
-                      "borderRightWidth": "0px",
-                      "borderTopColor": "rgba(220,38,38,1.00)",
-                      "borderTopLeftRadius": "4px",
-                      "borderTopRightRadius": "4px",
-                      "borderTopWidth": "0px",
                       "color": "rgba(31,41,55,1.00)",
                       "cursor": "auto",
                       "flex": 1,
@@ -7896,8 +7822,6 @@ exports[`Storyshots Domain Components/Index/TaskForm Task Form With Errors 1`] =
                       "msFlex": "1 1 0%",
                       "outline": "none",
                       "outlineWidth": "0px",
-                      "overflowX": "auto",
-                      "overflowY": "auto",
                       "paddingBottom": "8px",
                       "paddingLeft": "8px",
                       "paddingRight": "8px",
@@ -8632,10 +8556,10 @@ exports[`Storyshots Form Components/NumberInput Default 1`] = `
               "outlineWidth": "0px",
               "overflowX": "auto",
               "overflowY": "auto",
-              "paddingBottom": "8px",
+              "paddingBottom": "0px",
               "paddingLeft": "8px",
-              "paddingRight": "8px",
-              "paddingTop": "8px",
+              "paddingRight": "0px",
+              "paddingTop": "0px",
             }
           }
           value="0"
@@ -8763,10 +8687,10 @@ exports[`Storyshots Form Components/NumberInput Disabled 1`] = `
               "outlineWidth": "0px",
               "overflowX": "auto",
               "overflowY": "auto",
-              "paddingBottom": "8px",
+              "paddingBottom": "0px",
               "paddingLeft": "8px",
-              "paddingRight": "8px",
-              "paddingTop": "8px",
+              "paddingRight": "0px",
+              "paddingTop": "0px",
             }
           }
           value="0"
@@ -8952,18 +8876,6 @@ exports[`Storyshots Form Components/Select Default 1`] = `
               Object {
                 "WebkitFlex": 1,
                 "backgroundColor": "rgba(0,0,0,0.00)",
-                "borderBottomColor": "rgba(229,229,229,1.00)",
-                "borderBottomLeftRadius": "4px",
-                "borderBottomRightRadius": "4px",
-                "borderBottomWidth": "0px",
-                "borderLeftColor": "rgba(229,229,229,1.00)",
-                "borderLeftWidth": "0px",
-                "borderRightColor": "rgba(229,229,229,1.00)",
-                "borderRightWidth": "0px",
-                "borderTopColor": "rgba(229,229,229,1.00)",
-                "borderTopLeftRadius": "4px",
-                "borderTopRightRadius": "4px",
-                "borderTopWidth": "0px",
                 "color": "rgba(31,41,55,1.00)",
                 "cursor": "auto",
                 "flex": 1,
@@ -8974,8 +8886,6 @@ exports[`Storyshots Form Components/Select Default 1`] = `
                 "msFlex": "1 1 0%",
                 "outline": "none",
                 "outlineWidth": "0px",
-                "overflowX": "auto",
-                "overflowY": "auto",
                 "paddingBottom": "8px",
                 "paddingLeft": "8px",
                 "paddingRight": "8px",
@@ -9201,19 +9111,7 @@ exports[`Storyshots Form Components/Select Disabled 1`] = `
             style={
               Object {
                 "WebkitFlex": 1,
-                "backgroundColor": "rgba(245,245,245,1.00)",
-                "borderBottomColor": "rgba(229,229,229,1.00)",
-                "borderBottomLeftRadius": "4px",
-                "borderBottomRightRadius": "4px",
-                "borderBottomWidth": "0px",
-                "borderLeftColor": "rgba(229,229,229,1.00)",
-                "borderLeftWidth": "0px",
-                "borderRightColor": "rgba(229,229,229,1.00)",
-                "borderRightWidth": "0px",
-                "borderTopColor": "rgba(229,229,229,1.00)",
-                "borderTopLeftRadius": "4px",
-                "borderTopRightRadius": "4px",
-                "borderTopWidth": "0px",
+                "backgroundColor": "rgba(0,0,0,0.00)",
                 "color": "rgba(31,41,55,1.00)",
                 "cursor": "not-allowed",
                 "flex": 1,
@@ -9222,11 +9120,8 @@ exports[`Storyshots Form Components/Select Disabled 1`] = `
                 "fontWeight": "400",
                 "lineHeight": "1.5em",
                 "msFlex": "1 1 0%",
-                "opacity": 0.8,
                 "outline": "none",
                 "outlineWidth": "0px",
-                "overflowX": "auto",
-                "overflowY": "auto",
                 "paddingBottom": "8px",
                 "paddingLeft": "8px",
                 "paddingRight": "8px",
@@ -9442,19 +9337,7 @@ exports[`Storyshots Form Components/Select Invalid Select 1`] = `
             style={
               Object {
                 "WebkitFlex": 1,
-                "backgroundColor": "rgba(245,245,245,1.00)",
-                "borderBottomColor": "rgba(229,229,229,1.00)",
-                "borderBottomLeftRadius": "4px",
-                "borderBottomRightRadius": "4px",
-                "borderBottomWidth": "0px",
-                "borderLeftColor": "rgba(229,229,229,1.00)",
-                "borderLeftWidth": "0px",
-                "borderRightColor": "rgba(229,229,229,1.00)",
-                "borderRightWidth": "0px",
-                "borderTopColor": "rgba(229,229,229,1.00)",
-                "borderTopLeftRadius": "4px",
-                "borderTopRightRadius": "4px",
-                "borderTopWidth": "0px",
+                "backgroundColor": "rgba(0,0,0,0.00)",
                 "color": "rgba(31,41,55,1.00)",
                 "cursor": "not-allowed",
                 "flex": 1,
@@ -9463,11 +9346,8 @@ exports[`Storyshots Form Components/Select Invalid Select 1`] = `
                 "fontWeight": "400",
                 "lineHeight": "1.5em",
                 "msFlex": "1 1 0%",
-                "opacity": 0.8,
                 "outline": "none",
                 "outlineWidth": "0px",
-                "overflowX": "auto",
-                "overflowY": "auto",
                 "paddingBottom": "8px",
                 "paddingLeft": "8px",
                 "paddingRight": "8px",
@@ -9692,18 +9572,6 @@ exports[`Storyshots Form Components/Select Placeholder 1`] = `
               Object {
                 "WebkitFlex": 1,
                 "backgroundColor": "rgba(0,0,0,0.00)",
-                "borderBottomColor": "rgba(229,229,229,1.00)",
-                "borderBottomLeftRadius": "4px",
-                "borderBottomRightRadius": "4px",
-                "borderBottomWidth": "0px",
-                "borderLeftColor": "rgba(229,229,229,1.00)",
-                "borderLeftWidth": "0px",
-                "borderRightColor": "rgba(229,229,229,1.00)",
-                "borderRightWidth": "0px",
-                "borderTopColor": "rgba(229,229,229,1.00)",
-                "borderTopLeftRadius": "4px",
-                "borderTopRightRadius": "4px",
-                "borderTopWidth": "0px",
                 "color": "rgba(31,41,55,1.00)",
                 "cursor": "auto",
                 "flex": 1,
@@ -9714,8 +9582,6 @@ exports[`Storyshots Form Components/Select Placeholder 1`] = `
                 "msFlex": "1 1 0%",
                 "outline": "none",
                 "outlineWidth": "0px",
-                "overflowX": "auto",
-                "overflowY": "auto",
                 "paddingBottom": "8px",
                 "paddingLeft": "8px",
                 "paddingRight": "8px",
