@@ -1,6 +1,6 @@
+import type { IHStackProps } from 'native-base/lib/typescript/components/primitives/Stack/HStack';
 import type { FC } from 'react';
 import { Spinner, HStack, Heading } from 'native-base';
-import { IHStackProps } from 'native-base/lib/typescript/components/primitives/Stack/HStack';
 
 type Props = IHStackProps & {
   message?: string
