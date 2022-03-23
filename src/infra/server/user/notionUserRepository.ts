@@ -30,7 +30,7 @@ export default class NotionUserRepository implements IUserRepository {
           {
             property: 'token',
             condition: {
-              text: {
+              rich_text: {
                 equals: token.value,
               },
             },

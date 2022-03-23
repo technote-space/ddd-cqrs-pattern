@@ -94,7 +94,7 @@ export default class RelationProperty extends Base {
       filter: values.map(value => ({
         property: column.name,
         condition: {
-          text: {
+          title: {
             equals: value,
           },
         },
