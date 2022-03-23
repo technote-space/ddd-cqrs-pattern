@@ -28,7 +28,7 @@ const AddItem: VFC<Props> = ({
 }) => {
   const cancelRef = useRef();
   return <>
-    <AddButton size="8" ml={1} onPress={handleOpen} isDisabled={isDisabled}/>
+    {!isOpen && <AddButton size="8" ml={1} onPress={handleOpen} isDisabled={isDisabled}/>}
     <Modal isOpen={isOpen} onClose={handleClose}>
       <Modal.Content>
         <Modal.CloseButton/>
