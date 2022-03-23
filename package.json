@@ -1,6 +1,6 @@
 {
   "name": "todo-list",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "private": true,
   "description": "Todo List with DDD+CQRS",
   "keywords": [
@@ -97,7 +97,7 @@
     "@storybook/manager-webpack5": "^6.4.19",
     "@storybook/react": "^6.4.19",
     "@technote-space/aspida": "^1.7.4",
-    "@technote-space/eslint-plugin-strict-dependencies": "^0.2.6",
+    "@technote-space/eslint-plugin-strict-dependencies": "^0.2.7",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@testing-library/react-hooks": "^7.0.2",

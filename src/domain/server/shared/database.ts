@@ -33,17 +33,26 @@ export type CreateTableParam = {
   table: string;
   columns: CreateTableColumn[];
 };
+type TextSearchConditions = {
+  equals?: string;
+  does_not_equal?: string;
+  contains?: string;
+  does_not_contain?: string;
+  starts_with?: string;
+  ends_with?: string;
+  is_empty?: boolean;
+  is_not_empty?: boolean;
+};
 type TextSearch = {
-  text: {
-    equals?: string;
-    does_not_equal?: string;
-    contains?: string;
-    does_not_contain?: string;
-    starts_with?: string;
-    ends_with?: string;
-    is_empty?: boolean;
-    is_not_empty?: boolean;
-  }
+  title: TextSearchConditions;
+} | {
+  rich_text: TextSearchConditions;
+} | {
+  url: TextSearchConditions;
+} | {
+  email: TextSearchConditions;
+} | {
+  phone_number: TextSearchConditions;
 };
 type IntSearch = {
   int: {
