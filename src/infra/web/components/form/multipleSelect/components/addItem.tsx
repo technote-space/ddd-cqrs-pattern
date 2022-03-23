@@ -4,6 +4,7 @@ import { memo, useRef } from 'react';
 import AddButton from '#/button/addButton';
 
 type Props = {
+  title: string;
   value: string;
   handleChanged: (text: string) => void,
   isOpen: boolean;
@@ -15,6 +16,7 @@ type Props = {
 }
 
 const AddItem: VFC<Props> = ({
+  title,
   value,
   handleChanged,
   isOpen,
@@ -26,11 +28,11 @@ const AddItem: VFC<Props> = ({
 }) => {
   const cancelRef = useRef();
   return <>
-    <AddButton size="8" ml={1} onPress={handleOpen} isDisabled={isDisabled}/>
+    {!isOpen && <AddButton size="8" ml={1} onPress={handleOpen} isDisabled={isDisabled}/>}
     <Modal isOpen={isOpen} onClose={handleClose}>
       <Modal.Content>
         <Modal.CloseButton/>
-        <Modal.Header>タグ追加</Modal.Header>
+        <Modal.Header>{title}</Modal.Header>
         <Modal.Body>
           <Input
             value={value}

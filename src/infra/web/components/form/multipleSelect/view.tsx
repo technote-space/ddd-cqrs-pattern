@@ -9,6 +9,7 @@ const View: VFC<HooksParams> = ({
   items,
   isDisabled,
   placeholder,
+  title,
   addItemValue,
   handleChangeAddItemValue,
   isOpenAddModal,
@@ -25,6 +26,7 @@ const View: VFC<HooksParams> = ({
       handleDelete={deleteItemHandlers[item]}
     />), [items, isDisabled, deleteItemHandlers])}
     <AddItem
+      title={title}
       value={addItemValue}
       handleChanged={handleChangeAddItemValue}
       isOpen={isOpenAddModal}

@@ -12,7 +12,7 @@ type TabItemProps = {
 };
 
 const TabItem = memo(({ children }: PropsWithChildren<TabItemProps>) => {
-  return <Box>{children}</Box>;
+  return <Box alignItems="center">{children}</Box>;
 });
 TabItem.displayName = 'TabItem';
 export { TabItem };

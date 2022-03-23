@@ -493,13 +493,13 @@ describe('NotionDatabase', () => {
       createNotionHandler('post', '/databases/12345678-99ac-4de4-8d2f-f67a6bfc4aeb/query', 200, require('./__fixtures__/query_database_tags_filtered.json')),
       createNotionHandler('post', '/databases/12345678-a74f-4552-bde9-54b92453e1b6/query', 200, require('./__fixtures__/query_database_users_filtered.json')),
       createNotionHandler('post', '/pages', 200, (req) => {
-        if (typeof req.body === 'object' && req.body.parent.database_id === '12345678-99ac-4de4-8d2f-f67a6bfc4aeb') {
+        if (req.body && typeof req.body === 'object' && req.body.parent.database_id === '12345678-99ac-4de4-8d2f-f67a6bfc4aeb') {
           return require('./__fixtures__/create_page_tag.json');
         }
 
         return require('./__fixtures__/create_page_task.json');
       }, (req) => {
-        if (typeof req.body === 'object' && req.body.parent.database_id === '12345678-805e-4279-802d-749613f9f84e') {
+        if (req.body && typeof req.body === 'object' && req.body.parent.database_id === '12345678-805e-4279-802d-749613f9f84e') {
           expect(req.body).toEqual({
               parent: { database_id: '12345678-805e-4279-802d-749613f9f84e' },
               properties: {
