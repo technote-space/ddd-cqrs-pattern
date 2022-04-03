@@ -1,8 +1,12 @@
+import Flags from '@technote-space/vo-entity-ts/dist/valueObject/flags';
 import InvalidControl from '$/shared/exceptions/domain/invalidControl';
-import Flags from '$/shared/valueObject/flags';
 
 type StatusTypes = '登録' | '実行中' | '完了' | '削除(登録)' | '削除(実行中)' | '削除(完了)';
-export default class Status extends Flags<StatusTypes>() {
+export default class Status extends Flags<StatusTypes> {
+  protected get symbol() {
+    return Symbol();
+  }
+
   private static orders = Object.assign({}, ...[
     '実行中', '登録', '完了', '削除(実行中)', '削除(登録)', '削除(完了)',
   ].map((status, index) => ({ [status]: status.startsWith('削除') ? 10 : index })));

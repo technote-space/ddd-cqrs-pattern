@@ -4,10 +4,6 @@ import Tag from './tag';
 import Tags from './tags';
 
 describe('Tags', () => {
-  it('new によるインスタンスの生成はできない', () => {
-    expect(() => new Tags()).toThrow();
-  });
-
   it('コレクションに直接追加できない', () => {
     const tags = Tags.create([]);
     expect(() => tags.collections.push(Tag.reconstruct(TagId.create('test'), TagName.create('テスト')))).toThrow();

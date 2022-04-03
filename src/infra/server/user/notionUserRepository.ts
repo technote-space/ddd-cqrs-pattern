@@ -51,7 +51,7 @@ export default class NotionUserRepository implements IUserRepository {
       token: user.token.value,
     };
 
-    if (user.userId.isSetId()) {
+    if (user.userId.isSet()) {
       return NotionMapper.toEntity(await this.database.update<DatabaseType>('users', {
         id: user.userId.value,
         ...data,

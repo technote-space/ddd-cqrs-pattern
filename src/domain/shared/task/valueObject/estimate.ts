@@ -1,16 +1,20 @@
 import type EstimateUnit from '$/shared/task/valueObject/estimateUnit';
 import type EstimateValue from '$/shared/task/valueObject/estimateValue';
-import type { ValidationError } from '$/shared/valueObject/base';
-import Base from '$/shared/valueObject/base';
+import type { ValidationError } from '@technote-space/vo-entity-ts/dist/valueObject';
+import ValueObject from '@technote-space/vo-entity-ts/dist/valueObject';
 
 type InputType = {
   value: EstimateValue;
   unit: EstimateUnit;
 }
 
-export default class Estimate extends Base<InputType, InputType>() {
+export default class Estimate extends ValueObject<InputType, InputType> {
   private _hours!: number;
   private _setHours = false;
+
+  protected get symbol() {
+    return Symbol();
+  }
 
   public static getLabel(): string {
     return '作業見積';
@@ -36,10 +40,10 @@ export default class Estimate extends Base<InputType, InputType>() {
     return 0;
   }
 
-  public validate(): ValidationError[] | undefined {
+  public getErrors(): ValidationError[] | undefined {
     return [
-      ...(this.input.value.validate('estimateValue') ?? []),
-      ...(this.input.unit.validate('estimateUnit') ?? []),
+      ...(this.input.value.getErrors('estimateValue') ?? []),
+      ...(this.input.unit.getErrors('estimateUnit') ?? []),
     ];
   }
 }

@@ -46,15 +46,15 @@ describe('Estimate', () => {
     expect(estimate2.equals(estimate3)).toBe(true);
   });
 
-  it('validate が 作業見積値と作業見積単位の validate 結果を返す', () => {
+  it('getErrors が 作業見積値と作業見積単位の getErrors 結果を返す', () => {
     expect(Estimate.create({
       value: EstimateValue.create(3),
       unit: EstimateUnit.create('時間'),
-    }).validate()).toEqual([]);
+    }).getErrors()).toEqual([]);
 
     expect(Estimate.create({
       value: EstimateValue.create(0),
       unit: EstimateUnit.create('時間'),
-    }).validate()).toEqual([{ name: 'estimateValue', error: '1以上の値を入力してください' }]);
+    }).getErrors()).toEqual([{ name: 'estimateValue', error: '1以上の値を入力してください' }]);
   });
 });

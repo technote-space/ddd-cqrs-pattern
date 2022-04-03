@@ -48,7 +48,7 @@ export default class MySqlUserRepository implements IUserRepository {
       token: user.token.value,
     };
 
-    if (user.userId.isSetId()) {
+    if (user.userId.isSet()) {
       return this.client.user.update({
         data,
         where: {
