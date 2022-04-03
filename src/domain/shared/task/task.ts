@@ -59,7 +59,7 @@ export default class Task extends Entity {
     return Task._reconstruct(taskId, taskName, memo, status, dueDate, estimate, userId, tags);
   }
 
-  private update({
+  public update({
     taskName,
     memo,
     status,

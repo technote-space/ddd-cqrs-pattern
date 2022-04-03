@@ -2,6 +2,9 @@ import Tag from '$/shared/tag/tag';
 import Tags from '$/shared/tag/tags';
 import TagName from '$/shared/tag/valueObject/tagName';
 import DueDate from '$/shared/task/valueObject/dueDate';
+import Estimate from '$/shared/task/valueObject/estimate';
+import EstimateUnit from '$/shared/task/valueObject/estimateUnit';
+import EstimateValue from '$/shared/task/valueObject/estimateValue';
 import Memo from '$/shared/task/valueObject/memo';
 import Status from '$/shared/task/valueObject/status';
 import TaskId from '$/shared/task/valueObject/taskId';
@@ -51,6 +54,42 @@ describe('Task', () => {
         expect(createTask('完了', '2000-01-02').compare(createTask('完了', '2000-01-01'))).toBe(-1);
         expect(createTask('完了', '2000-01-01').compare(createTask('完了'))).toBe(-1);
       });
+    });
+  });
+
+  describe('update', () => {
+    it('値を更新する', () => {
+      const task = Task.reconstruct(
+        TaskId.create('id'),
+        TaskName.create('task'),
+        Memo.create('memo'),
+        Status.create('登録'),
+        null,
+        null,
+        UserId.create('user'),
+        Tags.create([Tag.create(TagName.create('tag'))]),
+      );
+
+      const updated = task.update({
+        taskName: TaskName.create('task2'),
+        memo: Memo.create('memo2'),
+        status: Status.create('実行中'),
+        dueDate: DueDate.create('2022-01-01'),
+        estimate: Estimate.create({ value: EstimateValue.create(10), unit: EstimateUnit.create('時間') }),
+        tags: Tags.create([Tag.create(TagName.create('tag1')), Tag.create(TagName.create('tag2'))]),
+      });
+
+      expect(updated.taskId.value).toBe('id');
+      expect(updated.taskName.value).toBe('task2');
+      expect(updated.memo?.value).toBe('memo2');
+      expect(updated.status.value).toBe('実行中');
+      expect(updated.dueDate?.value.toISOString()).toBe('2021-12-31T15:00:00.000Z');
+      expect(updated.estimate?.value.value.value).toBe(10);
+      expect(updated.estimate?.value.unit.value).toBe('時間');
+      expect(updated.userId.value).toBe('user');
+      expect(updated.tags.collections).toHaveLength(2);
+      expect(updated.tags.collections[0].tagName.value).toBe('tag1');
+      expect(updated.tags.collections[1].tagName.value).toBe('tag2');
     });
   });
 

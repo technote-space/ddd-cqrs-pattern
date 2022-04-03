@@ -22,13 +22,13 @@ export default class UpdateTaskUseCase {
     }
 
     const entity = toEntity(userSession.userId, data);
-    return fromEntity(await this.repository.save(task.update(
-      entity.taskName,
-      entity.memo,
-      entity.status,
-      entity.dueDate,
-      entity.estimate,
-      entity.tags,
-    )));
+    return fromEntity(await this.repository.save(task.update({
+      taskName: entity.taskName,
+      memo: entity.memo,
+      status: entity.status,
+      dueDate: entity.dueDate,
+      estimate: entity.estimate,
+      tags: entity.tags,
+    })));
   }
 }
