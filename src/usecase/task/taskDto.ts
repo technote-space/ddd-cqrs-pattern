@@ -1,5 +1,6 @@
 import Tag from '$/shared/tag/tag';
 import Tags from '$/shared/tag/tags';
+import TagId from '$/shared/tag/valueObject/tagId';
 import TagName from '$/shared/tag/valueObject/tagName';
 import Task from '$/shared/task/task';
 import DueDate from '$/shared/task/valueObject/dueDate';
@@ -58,5 +59,5 @@ export const reconstructEntity = (data: TaskDto): Task => Task.reconstruct(
     unit: EstimateUnit.create(data.estimateUnit),
   }) : null,
   UserId.create(null),
-  Tags.create((data.tags ?? []).map(tag => Tag.create(TagName.create(tag)))),
+  Tags.create((data.tags ?? []).map(tag => Tag.reconstruct(TagId.create(null), TagName.create(tag)))),
 );
