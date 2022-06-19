@@ -92,6 +92,7 @@ jobs:
             jest.config.ts
             jest.global.setup.ts
             jest.setup.ts
+            vite.config.ts
         if: "! contains(env.COMMIT_MESSAGE, '[skip ci]') && ! contains(env.COMMIT_MESSAGE, '[ci skip]')"
       - name: Set running flag
         run: echo "RUNNING=" >> $GITHUB_ENV
@@ -157,7 +158,7 @@ jobs:
     timeout-minutes: 3
     if: always()
     steps:
-      - uses: technote-space/workflow-conclusion-action@v2
+      - uses: technote-space/workflow-conclusion-action@v3
       - uses: 8398a7/action-slack@v3
         with:
           status: failure
