@@ -5,7 +5,7 @@ import type Estimate from './valueObject/estimate';
 import type Memo from './valueObject/memo';
 import type Status from './valueObject/status';
 import type TaskName from './valueObject/taskName';
-import Base from '$/shared/entity/base';
+import Entity from '@technote-space/vo-entity-ts/dist/entity';
 import TaskId from './valueObject/taskId';
 
 type OverrideType = {
@@ -16,46 +16,34 @@ type OverrideType = {
   estimate?: Estimate | null,
   tags?: Tags,
 };
-export default class Task extends Base {
-  private _taskId!: TaskId;
-  private _taskName!: TaskName;
-  private _memo!: Memo | null;
-  private _status!: Status;
-  private _dueDate!: DueDate | null;
-  private _estimate!: Estimate | null;
-  private _userId!: UserId;
-  private _tags!: Tags;
-
-  public get taskId(): TaskId {
-    return this._taskId;
+export default class Task extends Entity {
+  public constructor(
+    public readonly taskId: TaskId,
+    public readonly taskName: TaskName,
+    public readonly memo: Memo | null,
+    public readonly status: Status,
+    public readonly dueDate: DueDate | null,
+    public readonly estimate: Estimate | null,
+    public readonly userId: UserId,
+    public readonly tags: Tags,
+  ) {
+    super();
   }
 
-  public get taskName(): TaskName {
-    return this._taskName;
+  public equals(other: Task): boolean {
+    return this.taskId.equals(other.taskId);
   }
 
-  public get memo(): Memo | null {
-    return this._memo;
-  }
-
-  public get status(): Status {
-    return this._status;
-  }
-
-  public get dueDate(): DueDate | null {
-    return this._dueDate;
-  }
-
-  public get estimate(): Estimate | null {
-    return this._estimate;
-  }
-
-  public get userId(): UserId {
-    return this._userId;
-  }
-
-  public get tags(): Tags {
-    return this._tags;
+  public static create(
+    taskName: TaskName,
+    memo: Memo | null,
+    status: Status,
+    dueDate: DueDate | null,
+    estimate: Estimate | null,
+    userId: UserId,
+    tags: Tags,
+  ): Task {
+    return Task._create(TaskId.create(null), taskName, memo, status, dueDate, estimate, userId, tags);
   }
 
   public static reconstruct(
@@ -68,32 +56,18 @@ export default class Task extends Base {
     userId: UserId,
     tags: Tags,
   ): Task {
-    const instance = new this();
-    instance._taskId = taskId;
-    instance._taskName = taskName;
-    instance._memo = memo;
-    instance._status = status;
-    instance._dueDate = dueDate;
-    instance._estimate = estimate;
-    instance._userId = userId;
-    instance._tags = tags;
-
-    return instance;
+    return Task._reconstruct(taskId, taskName, memo, status, dueDate, estimate, userId, tags);
   }
 
-  public static create(
-    taskName: TaskName,
-    memo: Memo | null,
-    status: Status,
-    dueDate: DueDate | null,
-    estimate: Estimate | null,
-    userId: UserId,
-    tags: Tags,
-  ): Task {
-    const instance = Task.reconstruct(TaskId.create(null), taskName, memo, status, dueDate, estimate, userId, tags);
-    instance.validate();
-
-    return instance;
+  public update({
+    taskName,
+    memo,
+    status,
+    dueDate,
+    estimate,
+    tags,
+  }: { taskName?: TaskName; memo?: Memo | null; status?: Status; dueDate?: DueDate | null; estimate?: Estimate | null; tags?: Tags }): Task {
+    return Task._update(this, this.taskId, taskName ?? this.taskName, memo ?? this.memo, status ?? this.status, dueDate ?? this.dueDate, estimate ?? this.estimate, this.userId, tags ?? this.tags);
   }
 
   private compareDate(otherTask: this): number {
@@ -125,42 +99,19 @@ export default class Task extends Base {
     return statusCompare;
   }
 
-  public update(
-    taskName: TaskName,
-    memo: Memo | null,
-    status: Status,
-    dueDate: DueDate | null,
-    estimate: Estimate | null,
-    tags: Tags,
-  ): Task {
-    const task = Task.reconstruct(
-      this.taskId,
-      taskName,
-      memo,
-      status,
-      dueDate,
-      estimate,
-      this.userId,
-      tags,
-    );
-    task.validate();
-
-    return task;
-  }
-
   private getUpdateValue<T extends OverrideType, K extends keyof T>(override: T | undefined, key: K) {
     return override && override[key] !== undefined ? override[key] : (this as any)[key]; // eslint-disable-line @typescript-eslint/no-explicit-any
   }
 
   public copy(override?: OverrideType): Task {
-    return this.update(
-      this.getUpdateValue(override, 'taskName'),
-      this.getUpdateValue(override, 'memo'),
-      this.getUpdateValue(override, 'status'),
-      this.getUpdateValue(override, 'dueDate'),
-      this.getUpdateValue(override, 'estimate'),
-      this.getUpdateValue(override, 'tags'),
-    );
+    return this.update({
+      taskName: this.getUpdateValue(override, 'taskName'),
+      memo: this.getUpdateValue(override, 'memo'),
+      status: this.getUpdateValue(override, 'status'),
+      dueDate: this.getUpdateValue(override, 'dueDate'),
+      estimate: this.getUpdateValue(override, 'estimate'),
+      tags: this.getUpdateValue(override, 'tags'),
+    });
   }
 
   public restore(): Task {

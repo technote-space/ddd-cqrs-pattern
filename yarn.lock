@@ -3989,6 +3989,14 @@
   resolved "https://registry.yarnpkg.com/@technote-space/eslint-plugin-strict-dependencies/-/eslint-plugin-strict-dependencies-0.2.7.tgz#8414164a47a36ca102464d05db3482923dbf3964"
   integrity sha512-P/fxDRpxJCuLqjp5UdyWiuKta0lW3Z2+zWT7bf8MGVK95Kmt/kXL0oua8pr8qWnhrKoVzJ3gJFvxNSxwdrgLuQ==
 
+"@technote-space/vo-entity-ts@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@technote-space/vo-entity-ts/-/vo-entity-ts-0.5.0.tgz#734c9337b1e5523836c14ac90359bbccec6f41d2"
+  integrity sha512-xdkSdHAiq6H9gwJ4DXpYhMxlxDIUVTLWq+gUmoCPz9IhtWLRP7sInDvQ2AWLSbBOzRT9CocryUPDRGcEratIzg==
+  dependencies:
+    dayjs "^1.11.0"
+    validator "^13.7.0"
+
 "@testing-library/dom@^8.0.0":
   version "8.11.3"
   resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-8.11.3.tgz#38fd63cbfe14557021e88982d931e33fb7c1a808"

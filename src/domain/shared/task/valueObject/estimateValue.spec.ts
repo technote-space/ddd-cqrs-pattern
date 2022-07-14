@@ -6,7 +6,7 @@ describe('EstimateValue', () => {
   });
 
   it('値が 1 より小さいとエラー', () => {
-    expect(EstimateValue.create(1).validate('estimateValue')).toEqual(undefined);
-    expect(EstimateValue.create(0).validate('estimateValue')).toEqual([{ name: 'estimateValue', error: '1以上の値を入力してください' }]);
+    expect(EstimateValue.create(1).getErrors('estimateValue')).toEqual(undefined);
+    expect(EstimateValue.create(0).getErrors('estimateValue')).toEqual([{ name: 'estimateValue', error: '1以上の値を入力してください' }]);
   });
 });

@@ -43,7 +43,7 @@ describe('Task', () => {
     describe('同じステータスの場合', () => {
       it('どちらも日付指定無しの場合は0', () => {
         expect(createTask('登録').compare(createTask('登録'))).toBe(0);
-      })
+      });
 
       it('登録または実行中の場合は日付昇順', () => {
         expect(createTask('登録', '2000-01-01').compare(createTask('登録', '2000-01-02'))).toBe(-1);
@@ -70,14 +70,14 @@ describe('Task', () => {
         Tags.create([Tag.create(TagName.create('tag'))]),
       );
 
-      const updated = task.update(
-        TaskName.create('task2'),
-        Memo.create('memo2'),
-        Status.create('実行中'),
-        DueDate.create('2022-01-01'),
-        Estimate.create({ value: EstimateValue.create(10), unit: EstimateUnit.create('時間') }),
-        Tags.create([Tag.create(TagName.create('tag1')), Tag.create(TagName.create('tag2'))]),
-      );
+      const updated = task.update({
+        taskName: TaskName.create('task2'),
+        memo: Memo.create('memo2'),
+        status: Status.create('実行中'),
+        dueDate: DueDate.create('2022-01-01'),
+        estimate: Estimate.create({ value: EstimateValue.create(10), unit: EstimateUnit.create('時間') }),
+        tags: Tags.create([Tag.create(TagName.create('tag1')), Tag.create(TagName.create('tag2'))]),
+      });
 
       expect(updated.taskId.value).toBe('id');
       expect(updated.taskName.value).toBe('task2');

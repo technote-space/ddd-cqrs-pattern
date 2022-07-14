@@ -1,28 +1,36 @@
 import type TagName from '$/shared/tag/valueObject/tagName';
-import Base from '$/shared/entity/base';
+import Entity from '@technote-space/vo-entity-ts/dist/entity';
 import TagId from './valueObject/tagId';
 
-export default class Tag extends Base {
-  private _tagId!: TagId;
-  private _tagName!: TagName;
-
-  public get tagId(): TagId {
-    return this._tagId;
+export default class Tag extends Entity {
+  public constructor(
+    public readonly tagId: TagId,
+    public readonly tagName: TagName,
+  ) {
+    super();
   }
 
-  public get tagName(): TagName {
-    return this._tagName;
-  }
-
-  public static reconstruct(tagId: TagId, tagName: TagName): Tag {
-    const instance = new this();
-    instance._tagId = tagId;
-    instance._tagName = tagName;
-
-    return instance;
+  public equals(other: Tag): boolean {
+    return this.tagName.equals(other.tagName);
   }
 
   public static create(tagName: TagName): Tag {
-    return Tag.reconstruct(TagId.create(null), tagName);
+    return Tag._create(TagId.create(null), tagName);
+  }
+
+  public static reconstruct(tagId: TagId, tagName: TagName): Tag {
+    return Tag._reconstruct(tagId, tagName);
+  }
+
+  private update({ tagId, tagName }: { tagId?: TagId; tagName?: TagName }): Tag {
+    return Tag._update(this, tagId ?? this.tagId, tagName ?? this.tagName);
+  }
+
+  public setId(tagId: TagId): Tag {
+    return this.update({ tagId });
+  }
+
+  public setName(tagName: TagName): Tag {
+    return this.update({ tagName });
   }
 }

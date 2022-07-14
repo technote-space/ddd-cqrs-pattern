@@ -1,31 +1,24 @@
 import type Token from './valueObject/token';
-import Base from '$/shared/entity/base';
+import Entity from '@technote-space/vo-entity-ts/dist/entity';
 import UserId from './valueObject/userId';
 
-export default class User extends Base {
-  private _userId!: UserId;
-  private _token!: Token;
-
-  public get userId(): UserId {
-    return this._userId;
+export default class User extends Entity {
+  public constructor(
+    public readonly userId: UserId,
+    public readonly token: Token,
+  ) {
+    super();
   }
 
-  public get token(): Token {
-    return this._token;
-  }
-
-  public static reconstruct(userId: UserId, token: Token): User {
-    const instance = new this();
-    instance._userId = userId;
-    instance._token = token;
-
-    return instance;
+  public equals(other: User): boolean {
+    return this.userId.equals(other.userId);
   }
 
   public static create(token: Token): User {
-    const instance = User.reconstruct(UserId.create(null), token);
-    instance.validate();
+    return User._create(UserId.create(null), token);
+  }
 
-    return instance;
+  public static reconstruct(userId: UserId, token: Token): User {
+    return User._reconstruct(userId, token);
   }
 }

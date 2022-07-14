@@ -35,7 +35,7 @@ export default class NotionTaskRepository implements ITaskRepository {
       dueDate: task.dueDate?.value.toISOString() ?? null,
     };
 
-    if (task.taskId.isSetId()) {
+    if (task.taskId.isSet()) {
       return this.database.update<DatabaseType>('tasks', {
         id: task.taskId.value,
         ...data,

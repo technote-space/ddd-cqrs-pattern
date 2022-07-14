@@ -1,6 +1,10 @@
-import Flags from '$/shared/valueObject/flags';
+import Flags from '@technote-space/vo-entity-ts/dist/valueObject/flags';
 
-export default class EstimateUnit extends Flags<'日' | '時間'>() {
+export default class EstimateUnit extends Flags<'日' | '時間'> {
+  protected get symbol() {
+    return Symbol();
+  }
+
   public static getLabel(): string {
     return '作業見積単位';
   }
